@@ -166,6 +166,7 @@ export const sectoresDetalle: SectorDetalle[] = [
           { tipo: 'telefono', valor: '+56 9 3510 9737', href: 'tel:+56935109737' },
           { tipo: 'telefono', valor: '+56 9 5666 2469', href: 'tel:+56956662469' },
           { tipo: 'email', valor: 'campingplayalosmanzanos@gmail.com', href: 'mailto:campingplayalosmanzanos@gmail.com' },
+          { tipo: 'facebook', valor: 'Camping Playa Los Manzanos', href: 'https://www.facebook.com/camping-playa-los-manzanos' },
         ],
       },
       {

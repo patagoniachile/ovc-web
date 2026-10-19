@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Marca } from './Marca'
 import { Boton, esExterno } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
@@ -11,7 +11,21 @@ export function Cabecera({ lang }: { lang: Lang }) {
   const { menu, textos } = getContenido(lang)
   const [fija, setFija] = useState(false)
   const [menuAbierto, setMenuAbierto] = useState(false)
-  const [grupoAbierto, setGrupoAbierto] = useState<string | null>(null)
+
+  // En escritorio, al pinchar un grupo su submenú queda fijado y no se cierra
+  // al mover el ratón. Solo con hover se cerraba apenas salías del área, así
+  // que había que acertar el recorrido para llegar a una opción.
+  const [grupoFijado, setGrupoFijado] = useState<string | null>(null)
+  const navRef = useRef<HTMLElement>(null)
+
+  // En móvil cada grupo se abre y se cierra por separado: abrir uno ya no
+  // cierra el anterior.
+  const [gruposAbiertos, setGruposAbiertos] = useState<string[]>([])
+
+  const alternarGrupo = (label: string) =>
+    setGruposAbiertos((abiertos) =>
+      abiertos.includes(label) ? abiertos.filter((l) => l !== label) : [...abiertos, label],
+    )
 
   useEffect(() => {
     const alScroll = () => setFija(window.scrollY > 8)
@@ -29,13 +43,24 @@ export function Cabecera({ lang }: { lang: Lang }) {
   }, [menuAbierto])
 
   useEffect(() => {
-    if (!menuAbierto) return
     const alTeclado = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMenuAbierto(false)
+      if (e.key !== 'Escape') return
+      setMenuAbierto(false)
+      setGrupoFijado(null)
     }
     document.addEventListener('keydown', alTeclado)
     return () => document.removeEventListener('keydown', alTeclado)
-  }, [menuAbierto])
+  }, [])
+
+  // Un submenú fijado se suelta al pinchar fuera de la navegación
+  useEffect(() => {
+    if (!grupoFijado) return
+    const alPinchar = (e: MouseEvent) => {
+      if (!navRef.current?.contains(e.target as Node)) setGrupoFijado(null)
+    }
+    document.addEventListener('pointerdown', alPinchar)
+    return () => document.removeEventListener('pointerdown', alPinchar)
+  }, [grupoFijado])
 
   return (
     <>
@@ -43,21 +68,32 @@ export function Cabecera({ lang }: { lang: Lang }) {
         <div className="contenedor">
           <Marca lang={lang} />
 
-          <nav className="nav" aria-label={textos.navegacionPrincipal}>
+          <nav className="nav" aria-label={textos.navegacionPrincipal} ref={navRef}>
             <ul className="nav__lista">
-              {menu.map((grupo) => (
-                <li className="nav__item" key={grupo.label}>
-                  <a className="nav__enlace" href={grupo.href}>
-                    {grupo.label}
-                    <Icon name="chevron" className="nav__chevron" />
-                  </a>
-                  <div className="submenu">
-                    {grupo.items.map((item) => (
-                      <EnlaceSubmenu key={item.label} item={item} />
-                    ))}
-                  </div>
-                </li>
-              ))}
+              {menu.map((grupo) => {
+                const fijado = grupoFijado === grupo.label
+                return (
+                  <li className={fijado ? 'nav__item esta-fijado' : 'nav__item'} key={grupo.label}>
+                    <a
+                      className="nav__enlace"
+                      href={grupo.href}
+                      aria-haspopup="true"
+                      aria-expanded={fijado}
+                      // El enlace sigue llevando a su sección; además deja el
+                      // submenú fijado para poder elegir una opción sin prisa.
+                      onClick={() => setGrupoFijado(fijado ? null : grupo.label)}
+                    >
+                      {grupo.label}
+                      <Icon name="chevron" className="nav__chevron" />
+                    </a>
+                    <div className="submenu">
+                      {grupo.items.map((item) => (
+                        <EnlaceSubmenu key={item.label} item={item} alElegir={() => setGrupoFijado(null)} />
+                      ))}
+                    </div>
+                  </li>
+                )
+              })}
             </ul>
           </nav>
 
@@ -85,14 +121,14 @@ export function Cabecera({ lang }: { lang: Lang }) {
 
       <div className={menuAbierto ? 'menu-movil esta-abierto' : 'menu-movil'} id="menu-movil">
         {menu.map((grupo) => {
-          const abierto = grupoAbierto === grupo.label
+          const abierto = gruposAbiertos.includes(grupo.label)
           return (
             <div className="menu-movil__grupo" key={grupo.label}>
               <button
                 className="menu-movil__boton"
                 type="button"
                 aria-expanded={abierto}
-                onClick={() => setGrupoAbierto(abierto ? null : grupo.label)}
+                onClick={() => alternarGrupo(grupo.label)}
               >
                 {grupo.label}
                 <Icon name="chevron" />
@@ -129,7 +165,7 @@ export function Cabecera({ lang }: { lang: Lang }) {
   )
 }
 
-function EnlaceSubmenu({ item }: { item: Enlace }) {
+function EnlaceSubmenu({ item, alElegir }: { item: Enlace; alElegir: () => void }) {
   const contenido = (
     <>
       {item.label}
@@ -138,10 +174,12 @@ function EnlaceSubmenu({ item }: { item: Enlace }) {
   )
 
   return esExterno(item.href) ? (
-    <a href={item.href} target="_blank" rel="noopener noreferrer">
+    <a href={item.href} target="_blank" rel="noopener noreferrer" onClick={alElegir}>
       {contenido}
     </a>
   ) : (
-    <Link href={item.href}>{contenido}</Link>
+    <Link href={item.href} onClick={alElegir}>
+      {contenido}
+    </Link>
   )
 }
