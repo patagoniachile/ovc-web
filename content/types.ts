@@ -307,6 +307,7 @@ export interface Textos {
   contacto: string
   reservarEn: (nombre: string) => string
   volverAPortada: string
+  lineaDeTiempo: string
   sobreElSector: string
   datosClave: string
   tenEnCuenta: string

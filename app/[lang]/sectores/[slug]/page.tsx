@@ -72,7 +72,7 @@ export default async function PaginaSector({ params }: PageProps<'/[lang]/sector
           <nav className="miga" aria-label={textos.navegacionPrincipal}>
             <Link href={`/${lang}`}>{textos.volverAPortada}</Link>
             <span aria-hidden="true">·</span>
-            <Link href={`/${lang}#sectores`}>{textos.verTodosLosSectores}</Link>
+            <Link href={`/${lang}/como-visitar#sectores`}>{textos.verTodosLosSectores}</Link>
           </nav>
 
           <h1>{sector.nombre}</h1>

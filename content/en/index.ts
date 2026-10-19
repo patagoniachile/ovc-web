@@ -76,6 +76,7 @@ export const contenido: Contenido = {
     contacto: 'Contact',
     reservarEn: (nombre) => `Book at ${nombre}`,
     volverAPortada: 'Back to the home page',
+    lineaDeTiempo: 'How we got here',
     sobreElSector: 'About this sector',
     datosClave: 'Key facts',
     tenEnCuenta: 'Bear in mind',

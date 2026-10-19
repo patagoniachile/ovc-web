@@ -67,6 +67,7 @@ export const contenido: Contenido = {
     contacto: 'Contacto',
     reservarEn: (nombre) => `Reservar en ${nombre}`,
     volverAPortada: 'Volver a la portada',
+    lineaDeTiempo: 'Cómo llegamos hasta aquí',
     sobreElSector: 'Sobre el sector',
     datosClave: 'Datos clave',
     tenEnCuenta: 'Ten en cuenta',

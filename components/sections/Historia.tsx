@@ -1,16 +1,21 @@
 import { getContenido, type Lang } from '@/content'
 
+/**
+ * La línea de tiempo de la corporación.
+ *
+ * No repite el encabezado de la página: antes imprimía otra vez el eyebrow,
+ * el título y la bajada que ya están arriba, de cuando esto vivía en la
+ * portada y necesitaba presentarse solo.
+ */
 export function Historia({ lang }: { lang: Lang }) {
-  const { hitos, introHistoria } = getContenido(lang)
+  const { hitos, introHistoria, textos } = getContenido(lang)
 
   return (
     <section className="seccion seccion--alt" id="historia">
       <div className="contenedor">
         <div className="historia">
           <div className="historia__intro revelar">
-            <p className="eyebrow">{introHistoria.eyebrow}</p>
-            <h2>{introHistoria.titulo}</h2>
-            <p className="lead">{introHistoria.bajada}</p>
+            <h2>{textos.lineaDeTiempo}</h2>
 
             <blockquote className="historia__cita">
               “{introHistoria.cita}”
