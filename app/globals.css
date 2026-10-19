@@ -852,7 +852,8 @@ p { text-wrap: pretty; }
 /* --------------------------------------------------------------------------
    Colaborar
    -------------------------------------------------------------------------- */
-.colaborar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+/* auto-fit y no un número fijo: la sección funciona con dos o tres tarjetas */
+.colaborar { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
 .aporte {
   display: flex;
   flex-direction: column;
@@ -1013,7 +1014,7 @@ p { text-wrap: pretty; }
   .cabecera__cta { margin-left: 0; gap: 8px; }
   .historia { grid-template-columns: 1fr; }
   .historia__intro { position: static; }
-  .sectores, .planifica, .proyectos, .colaborar, .amenazas { grid-template-columns: repeat(2, 1fr); }
+  .sectores, .planifica, .proyectos, .amenazas { grid-template-columns: repeat(2, 1fr); }
   .pie__grid { grid-template-columns: 1fr 1fr; }
 }
 

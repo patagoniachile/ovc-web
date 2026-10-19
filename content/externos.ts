@@ -7,6 +7,8 @@ export const externos = {
   reservas: 'https://reservasvallecochamo.cl/',
   donar: 'https://vallecochamo.org/donar/',
   socio: 'https://vallecochamo.org/colaborar/#socio',
+  // Sin uso: el voluntariado se retiró de la sección Colaborar. Se deja la
+  // URL registrada por si vuelve a ofrecerse.
   voluntariado: 'https://vallecochamo.org/colaborar/#postula',
   colaborar: 'https://vallecochamo.org/colaborar/',
   noticias: 'https://vallecochamo.org/noticias/',

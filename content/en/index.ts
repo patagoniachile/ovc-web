@@ -110,7 +110,6 @@ export const contenido: Contenido = {
       href: '#colaborar',
       items: [
         { label: 'Become a member', href: externos.socio, detalle: 'Monthly contribution' },
-        { label: 'Volunteering', href: externos.voluntariado, detalle: 'Apply for a work session' },
         { label: 'Donate', href: externos.donar, detalle: '50% conservation · 50% infrastructure' },
       ],
     },
@@ -194,7 +193,7 @@ export const contenido: Contenido = {
       etiqueta: 'I want to help',
       titulo: 'Join the conservation effort',
       texto:
-        'The valley is still not officially protected. Become a member, apply as a volunteer or donate to sustain the work.',
+        'The valley is still not officially protected. Become a member or donate to sustain the work.',
       foto: {
         ...imagenes.cascada,
         alt: 'Aerial view of a waterfall surrounded by evergreen forest in the Cochamó Valley',
@@ -646,12 +645,6 @@ export const contenido: Contenido = {
         '50% goes to long-term conservation programmes and 50% funds the infrastructure that lets people visit the valley with minimal impact.',
       cta: { label: 'Donate now', href: externos.donar },
       destacado: true,
-    },
-    {
-      icono: 'botiquin',
-      titulo: 'Apply as a volunteer',
-      texto: 'Work sessions on trails, signage, recycling and environmental education, alongside the local community.',
-      cta: { label: 'Apply', href: externos.voluntariado },
     },
   ],
 

@@ -101,7 +101,6 @@ export const contenido: Contenido = {
       href: '#colaborar',
       items: [
         { label: 'Hazte socio o socia', href: externos.socio, detalle: 'Aporte mensual' },
-        { label: 'Voluntariado', href: externos.voluntariado, detalle: 'Postula a una jornada' },
         { label: 'Donar', href: externos.donar, detalle: '50% conservación · 50% infraestructura' },
       ],
     },
@@ -186,7 +185,7 @@ export const contenido: Contenido = {
       etiqueta: 'Quiero ayudar',
       titulo: 'Suma fuerzas a la conservación',
       texto:
-        'El valle aún no está protegido oficialmente. Hazte socio, postula como voluntario o dona para sostener el trabajo.',
+        'El valle aún no está protegido oficialmente. Hazte socio o dona para sostener el trabajo.',
       foto: {
         ...imagenes.cascada,
         alt: 'Vista aérea de una cascada rodeada de bosque siempreverde en el Valle Cochamó',
@@ -639,12 +638,6 @@ export const contenido: Contenido = {
         'El 50% activa programas de conservación de largo plazo y el 50% financia la infraestructura que permite visitar el valle minimizando el impacto.',
       cta: { label: 'Donar ahora', href: externos.donar },
       destacado: true,
-    },
-    {
-      icono: 'botiquin',
-      titulo: 'Postula como voluntario',
-      texto: 'Jornadas de trabajo en senderos, señalética, reciclaje y educación ambiental, junto a la comunidad local.',
-      cta: { label: 'Postular', href: externos.voluntariado },
     },
   ],
 
