@@ -45,7 +45,8 @@ Todo lo demás cuelga del menú, una página por grupo:
 | Página | Qué contiene |
 |---|---|
 | `/<idioma>/el-valle` | Dónde queda (mapa), flora y fauna, qué se puede hacer, el santuario, las amenazas |
-| `/<idioma>/como-visitar` | Cómo llegar, sectores, cuánto cuesta, cómo reservar, día vs. varios días, normas, horarios |
+| `/<idioma>/reservar` | Por qué reservar, los pasos, los tres sectores y los quince alojamientos con su contacto |
+| `/<idioma>/como-visitar` | Cómo llegar, cuánto cuesta, día vs. varios días, normas, horarios |
 | `/<idioma>/quienes-somos` | Quién administra el valle, el directorio y los aliados |
 | `/<idioma>/sectores/<slug>` | Ficha de cada sector con sus alojamientos |
 | `/<idioma>/donar` · `/<idioma>/socios` | Las dos formas de aportar |
@@ -104,8 +105,11 @@ antes obligaba a saltar al sitio de reservas y abrir una ficha por camping:
 relato del lugar, datos clave, avisos de seguridad, los alojamientos con sus
 servicios y contactos, y el bloque de arrieros con tarifas.
 
-El criterio: **la reserva se hace fuera, la información vive acá**. Los
-botones que siguen saliendo a reservasvallecochamo.cl son solo los de reservar.
+El criterio: **la reserva se cierra con cada operador, la información vive
+acá**. El botón "Reservar" ya no sale del sitio: lleva a `/<idioma>/reservar`,
+donde están los pasos, los sectores y los quince alojamientos con su teléfono
+y correo directo. Desde ahí se contacta a cada familia, o se usa la plataforma
+compartida para los que la ocupan.
 
 El contenido se tomó de las fichas del sitio de reservas (octubre de 2026).
 Teléfonos, tarifas y horarios cambian: conviene revisarlos cada temporada en

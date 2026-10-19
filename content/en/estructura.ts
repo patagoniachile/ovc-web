@@ -297,3 +297,14 @@ export const quienesSomosPagina = {
   bajada:
     'The valley has no single owner and no public budget. It is run by a community organisation made up of the people who live and work here.',
 }
+
+export const reservarPagina = {
+  eyebrow: 'Booking',
+  titulo: 'Secure your place before heading up',
+  bajada:
+    'Since 2016 you must book to enter the La Junta sector. It is not red tape: it is what makes it possible to respect the carrying capacity of the trail and the campsites.',
+  intro:
+    'Each place to stay is run by a family from the valley and is booked directly with them. Below are the three sectors and the fifteen places to stay, with their contact details.',
+  tituloSectores: 'Choose your sector',
+  tituloDormir: 'Where to stay, sector by sector',
+}

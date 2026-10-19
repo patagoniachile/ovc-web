@@ -1,4 +1,3 @@
-import { externos } from '../externos'
 import { imagenes } from '../imagenes'
 import type { SectorDetalle } from '../types'
 
@@ -292,5 +291,3 @@ export const sectoresDetalle: SectorDetalle[] = [
     ],
   },
 ]
-
-export const enlaceReservasSector = externos.reservas

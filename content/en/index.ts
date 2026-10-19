@@ -85,6 +85,8 @@ export const contenido: Contenido = {
     verEnElMapa: 'See it on the map',
     copiar: 'Copy',
     copiado: 'Copied',
+    copiarTodo: 'Copy all the details',
+    copiadoTodo: 'Details copied',
     enviar: 'Send',
     enviando: 'Sending…',
     enviado: 'Sent',
@@ -117,7 +119,7 @@ export const contenido: Contenido = {
       items: [
         { label: 'Getting here', href: '/en/como-visitar#como-llegar', detalle: 'By car or by bus' },
         { label: 'What it costs', href: '/en/como-visitar#cuanto-cuesta', detalle: 'What you pay and to whom' },
-        { label: 'How to book', href: '/en/como-visitar#reservar', detalle: 'The four steps' },
+        { label: 'Booking', href: `${PORTADA}/reservar`, detalle: 'Steps, sectors and places to stay' },
         { label: 'What to know', href: '/en/como-visitar#normas', detalle: 'Rules and safety' },
         { label: 'Times and contact', href: '/en/como-visitar#horarios', detalle: 'Entry windows and who to ask' },
         { label: 'Day trip vs. several days', href: '/en/como-visitar#dia-vs-semana', detalle: 'Two different trips' },
@@ -160,9 +162,9 @@ export const contenido: Contenido = {
       items: [
         { label: 'Getting here', href: '/en/como-visitar#como-llegar' },
         { label: 'What it costs', href: '/en/como-visitar#cuanto-cuesta' },
-        { label: 'How to book', href: '/en/como-visitar#reservar' },
+        { label: 'Booking', href: `${PORTADA}/reservar` },
         { label: 'What to know', href: '/en/como-visitar#normas' },
-        { label: 'Book', href: externos.reservas },
+        { label: 'Where to stay', href: `${PORTADA}/reservar#dormir` },
       ],
     },
     {
@@ -359,7 +361,7 @@ export const contenido: Contenido = {
       lat: -41.455073,
       lon: -72.219495,
       descripcion: 'Visitor Centre and mandatory registration. The trail starts here and this is where you show your booking.',
-      enlace: { label: 'Book', href: externos.reservas },
+      enlace: { label: 'Where to stay', href: `${PORTADA}/reservar#dormir` },
     },
     {
       id: 'la-junta',
@@ -368,7 +370,7 @@ export const contenido: Contenido = {
       lat: -41.411358,
       lon: -72.126878,
       descripcion: 'The valley’s tourism hub, 13 km from the trailhead. Campsites and lodging.',
-      enlace: { label: 'Book', href: externos.reservas },
+      enlace: { label: 'Where to stay', href: `${PORTADA}/reservar#dormir` },
     },
     {
       id: 'lago-vidal',
@@ -377,7 +379,7 @@ export const contenido: Contenido = {
       lat: -41.483506,
       lon: -71.940878,
       descripcion: 'An alternative to the main valley, with a rural gaucho identity of its own.',
-      enlace: { label: 'Book', href: externos.reservas },
+      enlace: { label: 'Where to stay', href: `${PORTADA}/reservar#dormir` },
     },
     {
       id: 'cochamo',
@@ -646,6 +648,7 @@ export const contenido: Contenido = {
   donarPagina,
   sociosPagina,
   comoVisitarPagina: nuevo.comoVisitarPagina,
+  reservarPagina: nuevo.reservarPagina,
   comoLlegar: nuevo.comoLlegar,
   cuantoCuesta: nuevo.cuantoCuesta,
   diaVsSemana: nuevo.diaVsSemana,

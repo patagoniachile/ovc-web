@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import { Alojamientos } from '@/components/sections/Alojamientos'
-import { esIdioma, externos, getContenido, IDIOMAS, type Lang } from '@/content'
+import { esIdioma, getContenido, IDIOMAS, type Lang } from '@/content'
 
 /** Las nueve combinaciones idioma × sector se generan en el build. */
 export function generateStaticParams() {
@@ -80,7 +80,7 @@ export default async function PaginaSector({ params }: PageProps<'/[lang]/sector
           <p className="sector-hero__intro">{sector.intro}</p>
 
           <div className="sector-hero__acciones">
-            <Boton href={externos.reservas} variante="claro">
+            <Boton href={`/${lang}/reservar#dormir`} variante="claro">
               {textos.reservarEstadia}
               <Icon name="flecha" />
             </Boton>
@@ -128,7 +128,7 @@ export default async function PaginaSector({ params }: PageProps<'/[lang]/sector
         </div>
       </section>
 
-      <Alojamientos lang={lang} sector={sector} />
+      <Alojamientos lang={lang} sector={sector} id="dormir" />
 
       {/* Arrieros, donde corresponde */}
       {sector.arrieros && (

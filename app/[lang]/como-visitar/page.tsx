@@ -7,9 +7,7 @@ import {
   ComoLlegar, CuantoCuesta, DiaVsSemana, HorariosYContacto,
 } from '@/components/sections/ComoVisitarBloques'
 import { Planifica } from '@/components/sections/Planifica'
-import { PorQueReservar } from '@/components/sections/PorQueReservar'
-import { Sectores } from '@/components/sections/Sectores'
-import { esIdioma, externos, getContenido, IDIOMAS } from '@/content'
+import { esIdioma, getContenido, IDIOMAS } from '@/content'
 
 export function generateStaticParams() {
   return IDIOMAS.map((lang) => ({ lang }))
@@ -55,7 +53,7 @@ export default async function PaginaComoVisitar({ params }: PageProps<'/[lang]/c
           <p className="pagina-hero__intro">{comoVisitarPagina.intro}</p>
 
           <div className="pagina-hero__acciones">
-            <Boton href={externos.reservas} variante="rio">
+            <Boton href={`/${lang}/reservar`} variante="rio">
               {textos.reservarEstadia}
               <Icon name="flecha" />
             </Boton>
@@ -67,9 +65,7 @@ export default async function PaginaComoVisitar({ params }: PageProps<'/[lang]/c
       </section>
 
       <ComoLlegar lang={lang} />
-      <Sectores lang={lang} />
       <CuantoCuesta lang={lang} />
-      <PorQueReservar lang={lang} />
       <DiaVsSemana lang={lang} />
       <Planifica lang={lang} />
       <HorariosYContacto lang={lang} />

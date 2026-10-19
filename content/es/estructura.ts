@@ -298,3 +298,14 @@ export const quienesSomosPagina = {
   bajada:
     'El valle no tiene dueño único ni presupuesto público. Lo administra una corporación comunitaria formada por quienes viven y trabajan aquí.',
 }
+
+export const reservarPagina = {
+  eyebrow: 'Reservar',
+  titulo: 'Asegura tu lugar antes de subir',
+  bajada:
+    'Desde 2016 hay que reservar para entrar al sector La Junta. No es un trámite: es lo que permite respetar la capacidad de carga del sendero y de los campings.',
+  intro:
+    'Cada alojamiento lo gestiona una familia del valle y se reserva directamente con ella. Abajo están los tres sectores y los quince lugares donde dormir, con su contacto.',
+  tituloSectores: 'Elige tu sector',
+  tituloDormir: 'Dónde dormir, sector por sector',
+}

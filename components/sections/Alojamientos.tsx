@@ -18,11 +18,11 @@ const ICONO_CONTACTO: Record<TipoContacto, IconName> = {
  * abrir una página por camping. La reserva sigue siendo del operador; los
  * datos para decidir están acá.
  */
-export function Alojamientos({ lang, sector }: { lang: Lang; sector: SectorDetalle }) {
+export function Alojamientos({ lang, sector, id }: { lang: Lang; sector: SectorDetalle; id?: string }) {
   const { textos } = getContenido(lang)
 
   return (
-    <section className="seccion seccion--alt" id="dormir">
+    <section className="seccion seccion--alt" id={id}>
       <div className="contenedor">
         <SectionHeader
           className="revelar"

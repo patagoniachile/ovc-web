@@ -271,6 +271,8 @@ export interface Textos {
   verEnElMapa: string
   copiar: string
   copiado: string
+  copiarTodo: string
+  copiadoTodo: string
   enviar: string
   enviando: string
   enviado: string
@@ -407,6 +409,7 @@ export interface Contenido {
 
   /* ----- Página Cómo visitar ----- */
   comoVisitarPagina: Encabezado & { intro: string }
+  reservarPagina: Encabezado & { intro: string; tituloSectores: string; tituloDormir: string }
   comoLlegar: Encabezado & { medios: MedioDeTransporte[] }
   cuantoCuesta: Encabezado & { costos: Costo[]; nota: string }
   diaVsSemana: Encabezado & { modalidades: Modalidad[] }

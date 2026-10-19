@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { Marca } from './Marca'
 import { Boton, esExterno } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
-import { externos, getContenido, type Enlace, type Lang } from '@/content'
+import { getContenido, type Enlace, type Lang } from '@/content'
 
 export function Cabecera({ lang }: { lang: Lang }) {
   const { menu, textos } = getContenido(lang)
@@ -68,7 +68,7 @@ export function Cabecera({ lang }: { lang: Lang }) {
             <Boton href={`/${lang}/donar`} variante="borde" pequeno>
               {textos.donar}
             </Boton>
-            <Boton href={externos.reservas} variante="rio" pequeno>
+            <Boton href={`/${lang}/reservar`} variante="rio" pequeno>
               {textos.reservar}
             </Boton>
 
@@ -120,7 +120,7 @@ export function Cabecera({ lang }: { lang: Lang }) {
         })}
 
         <div className="menu-movil__acciones">
-          <Boton href={externos.reservas} variante="rio" bloque>
+          <Boton href={`/${lang}/reservar`} variante="rio" bloque>
             {textos.reservarEstadia}
           </Boton>
           <Boton href={`/${lang}/donar`} variante="borde" bloque>

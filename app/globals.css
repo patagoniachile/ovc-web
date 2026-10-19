@@ -1866,3 +1866,12 @@ p { text-wrap: pretty; }
   text-underline-offset: 3px;
 }
 .payku__fuera:hover { color: var(--bosque-700); }
+
+.cuenta__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.cuenta__copiar-todo { flex: none; }

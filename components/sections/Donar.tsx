@@ -34,6 +34,37 @@ function Dato({ etiqueta, valor, copiable = true, lang }: { etiqueta: string; va
   )
 }
 
+/** Copia la cuenta completa, que es lo que se pega en la app del banco. */
+function CopiarTodo({ lang }: { lang: Lang }) {
+  const { textos } = getContenido(lang)
+  const [copiado, setCopiado] = useState(false)
+
+  const lineas = [
+    cuentaBancaria.titular,
+    `RUT ${cuentaBancaria.rut}`,
+    cuentaBancaria.banco,
+    `${cuentaBancaria.tipo} ${cuentaBancaria.numero}`,
+    cuentaBancaria.email,
+  ].join('\n')
+
+  const copiar = async () => {
+    try {
+      await navigator.clipboard.writeText(lineas)
+      setCopiado(true)
+      setTimeout(() => setCopiado(false), 2200)
+    } catch {
+      // Sin permiso de portapapeles los datos siguen a la vista, uno por uno.
+    }
+  }
+
+  return (
+    <button type="button" className="btn btn--rio btn--sm cuenta__copiar-todo" onClick={copiar}>
+      <Icon name={copiado ? 'check' : 'cartel'} />
+      {copiado ? textos.copiadoTodo : textos.copiarTodo}
+    </button>
+  )
+}
+
 export function Donar({ lang }: { lang: Lang }) {
   const { donarPagina } = getContenido(lang)
 
@@ -67,7 +98,10 @@ export function Donar({ lang }: { lang: Lang }) {
       {/* Transferencia */}
       <section className="seccion seccion--alt" id="transferencia">
         <div className="contenedor">
-          <h2 className="titulo--compacto revelar">{donarPagina.tituloCuenta}</h2>
+          <div className="cuenta__cabecera revelar">
+            <h2 className="titulo--compacto">{donarPagina.tituloCuenta}</h2>
+            <CopiarTodo lang={lang} />
+          </div>
 
           <dl className="cuenta revelar">
             <Dato lang={lang} etiqueta="Banco" valor={cuentaBancaria.banco} copiable={false} />
