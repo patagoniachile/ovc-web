@@ -53,10 +53,22 @@ export const payku = {
  * hasta que el plan exista.
  */
 export const planesPayku: Record<string, Partial<Record<'mensual' | 'anual', EnlacePayku>>> = {
-  // chucao: { mensual: { idplan: '', verif: '' }, anual: { idplan: '', verif: '' } },
-  // alerce: { … },
-  // trinidad: { … },
-  // condor: { … },
+  chucao: {
+    mensual: { idplan: '1798', verif: '5d80c95e' },
+    anual: { idplan: '6528', verif: 'b34d20e8' },
+  },
+  alerce: {
+    mensual: { idplan: '1799', verif: '89dcc1c1' },
+    anual: { idplan: '6529', verif: '507f7ec2' },
+  },
+  trinidad: {
+    mensual: { idplan: '1800', verif: 'd2d4dcac' },
+    anual: { idplan: '6530', verif: 'c062f225' },
+  },
+  condor: {
+    mensual: { idplan: '6527', verif: '65e9b75e' },
+    anual: { idplan: '6531', verif: '616736b6' },
+  },
 }
 
 export const correoOrganizacion = cuentaBancaria.email
