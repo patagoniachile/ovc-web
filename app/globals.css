@@ -1924,16 +1924,6 @@ p { text-wrap: pretty; }
   color: var(--granito-500);
 }
 
-.planes__empresas {
-  max-width: 68ch;
-  margin: 12px auto 0;
-  text-align: center;
-  font-size: .88rem;
-  line-height: 1.6;
-  color: var(--texto-suave);
-}
-.planes__empresas a { color: var(--bosque-700); font-weight: 600; }
-
 .planes__respaldo {
   max-width: 68ch;
   margin: 26px auto 0;
@@ -2201,6 +2191,13 @@ p { text-wrap: pretty; }
   border-radius: var(--radio);
 }
 .plan--destacado { background: var(--bosque-100); border-color: var(--bosque-300); }
+.plan--mecenas { background: var(--bosque-900); border-color: transparent; color: var(--arena-200); }
+.plan--mecenas h3 { color: var(--blanco); }
+.plan--mecenas .plan__precio { color: #e8c06a; }
+.plan--mecenas .plan__subtitulo, .plan--mecenas .plan__equivalente { color: rgba(255, 255, 255, .72); }
+.plan--mecenas .plan__precio span { color: rgba(255, 255, 255, .72); }
+.plan--mecenas .plan__beneficios li { color: rgba(255, 255, 255, .88); }
+.plan--mecenas .plan__beneficios svg { color: #e8c06a; }
 
 .plan h3 { font-size: 1.6rem; }
 .plan__subtitulo { margin-top: 4px; font-size: .86rem; color: var(--granito-500); }

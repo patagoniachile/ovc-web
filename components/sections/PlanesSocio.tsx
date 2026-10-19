@@ -55,7 +55,12 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
         <div className="planes">
           {planes.lista.map((plan) => {
             const enlace = planesPayku[plan.id]?.[periodo]
-            const clases = ['plan', plan.destacado && 'plan--destacado', 'revelar']
+            const clases = [
+              'plan',
+              plan.destacado && 'plan--destacado',
+              plan.mecenas && 'plan--mecenas',
+              'revelar',
+            ]
               .filter(Boolean)
               .join(' ')
 
@@ -97,11 +102,6 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
         </div>
 
         <p className="planes__respaldo revelar">{planes.respaldo}</p>
-
-        <p className="planes__empresas revelar">
-          {planes.empresas.texto}{' '}
-          <a href={planes.empresas.cta.href}>{planes.empresas.cta.label}</a>
-        </p>
       </div>
     </section>
   )

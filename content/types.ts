@@ -261,6 +261,8 @@ export interface PlanSocio {
   anual: number
   mensual: number
   beneficios: string[]
+  /** El nivel mecenas, que se muestra distinto */
+  mecenas?: boolean
   destacado?: boolean
 }
 
@@ -448,7 +450,7 @@ export interface Contenido {
     intro: string
     porQue: { titulo: string; texto: string }[]
     tituloSuscripcion: string
-    planes: { encabezado: Encabezado; mensual: string; anual: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; empresas: { texto: string; cta: Enlace }; lista: PlanSocio[] }
+    planes: { encabezado: Encabezado; mensual: string; anual: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: PlanSocio[] }
     introSuscripcion: string
     notaSuscripcion: string
     tarjeta: { alt: string; pasos: string[]; libre: string; ctaLibre: string }

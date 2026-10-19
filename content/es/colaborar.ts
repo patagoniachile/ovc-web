@@ -41,7 +41,7 @@ export const sociosPagina: Encabezado & {
   intro: string
   porQue: { titulo: string; texto: string }[]
   tituloSuscripcion: string
-  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; empresas: { texto: string; cta: { label: string; href: string } }; lista: import('../types').PlanSocio[] }
+  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: import('../types').PlanSocio[] }
   introSuscripcion: string
   notaSuscripcion: string
   tarjeta: { alt: string; pasos: string[]; libre: string; ctaLibre: string }
@@ -77,7 +77,7 @@ export const sociosPagina: Encabezado & {
     encabezado: {
       eyebrow: 'Planes',
       titulo: 'Elige tu plan de socio',
-      bajada: 'Tres niveles con nombres del valle. El aporte anual es el mismo total que los doce meses, en un solo cobro.',
+      bajada: 'Cuatro niveles con nombres del valle. El aporte anual es el mismo total que los doce meses, en un solo cobro.',
     },
     mensual: 'Mensual',
     anual: 'Anual',
@@ -87,10 +87,6 @@ export const sociosPagina: Encabezado & {
     elegir: 'Elegir',
     respaldo:
       'El cobro con tarjeta lo procesa Payku, la misma pasarela que usa la corporación desde 2020. Al elegir un plan se abre su página, con el monto y las fechas a la vista antes de escribir nada.',
-    empresas: {
-      texto: '¿Tu empresa quiere aportar o auspiciar el trabajo en el valle? Lo conversamos caso a caso.',
-      cta: { label: 'Escríbenos', href: '/es/como-ayudar#contacto' },
-    },
     lista: [
       {
         id: 'chucao',
@@ -121,6 +117,18 @@ export const sociosPagina: Encabezado & {
         anual: 180000,
         mensual: 15000,
         beneficios: ['Todo lo de Alerce', 'Polera del valle', 'Mención en el informe anual'],
+      },
+      {
+        id: 'condor',
+        nombre: 'Cóndor',
+        subtitulo: 'Plan mecenas, para personas y empresas',
+        anual: 300000,
+        mensual: 25000,
+        beneficios: [
+          'Todo lo de Trinidad, con polerón en vez de polera',
+          'Logo de empresas en la web y los materiales',
+        ],
+        mecenas: true,
       },
     ],
   },

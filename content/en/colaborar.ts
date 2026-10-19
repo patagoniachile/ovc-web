@@ -41,7 +41,7 @@ export const sociosPagina: Encabezado & {
   intro: string
   porQue: { titulo: string; texto: string }[]
   tituloSuscripcion: string
-  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; empresas: { texto: string; cta: { label: string; href: string } }; lista: import('../types').PlanSocio[] }
+  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: import('../types').PlanSocio[] }
   introSuscripcion: string
   notaSuscripcion: string
   tarjeta: { alt: string; pasos: string[]; libre: string; ctaLibre: string }
@@ -77,7 +77,7 @@ export const sociosPagina: Encabezado & {
     encabezado: {
       eyebrow: 'Plans',
       titulo: 'Choose your membership',
-      bajada: 'Three levels named after the valley. The annual contribution is the same total as the twelve months, in a single charge.',
+      bajada: 'Four levels named after the valley. The annual contribution is the same total as the twelve months, in a single charge.',
     },
     mensual: 'Monthly',
     anual: 'Annual',
@@ -87,10 +87,6 @@ export const sociosPagina: Encabezado & {
     elegir: 'Choose',
     respaldo:
       'Card payments are handled by Payku, the same gateway the organisation has used since 2020. Choosing a plan opens its page, with the amount and the dates in plain sight before you type anything.',
-    empresas: {
-      texto: 'Would your company like to contribute or sponsor the work in the valley? We discuss it case by case.',
-      cta: { label: 'Write to us', href: '/en/como-ayudar#contacto' },
-    },
     lista: [
       {
         id: 'chucao',
@@ -121,6 +117,18 @@ export const sociosPagina: Encabezado & {
         anual: 180000,
         mensual: 15000,
         beneficios: ['Everything in Alerce', 'Valley t-shirt', 'Mention in the annual report'],
+      },
+      {
+        id: 'condor',
+        nombre: 'Cóndor',
+        subtitulo: 'Patron plan, for individuals and companies',
+        anual: 300000,
+        mensual: 25000,
+        beneficios: [
+          'Everything in Trinidad, with a sweatshirt instead of a t-shirt',
+          'Company logo on the website and materials',
+        ],
+        mecenas: true,
       },
     ],
   },
