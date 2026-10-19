@@ -72,7 +72,7 @@ export default async function PaginaSector({ params }: PageProps<'/[lang]/sector
           <nav className="miga" aria-label={textos.navegacionPrincipal}>
             <Link href={`/${lang}`}>{textos.volverAPortada}</Link>
             <span aria-hidden="true">·</span>
-            <Link href={`/${lang}/como-visitar#sectores`}>{textos.verTodosLosSectores}</Link>
+            <Link href={`/${lang}/reservar#sectores`}>{textos.verTodosLosSectores}</Link>
           </nav>
 
           <h1>{sector.nombre}</h1>
@@ -80,7 +80,7 @@ export default async function PaginaSector({ params }: PageProps<'/[lang]/sector
           <p className="sector-hero__intro">{sector.intro}</p>
 
           <div className="sector-hero__acciones">
-            <Boton href={`/${lang}/como-visitar#dormir`} variante="claro">
+            <Boton href={`/${lang}/reservar#dormir`} variante="claro">
               {textos.reservarEstadia}
               <Icon name="flecha" />
             </Boton>

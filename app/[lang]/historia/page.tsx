@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Aliados } from '@/components/sections/Aliados'
 import { Historia } from '@/components/sections/Historia'
 import { MisionVision } from '@/components/sections/Impacto'
 import { Nosotros } from '@/components/sections/Nosotros'
@@ -57,7 +56,6 @@ export default async function PaginaHistoria({ params }: PageProps<'/[lang]/hist
       <MisionVision lang={lang} />
       <Proyectos lang={lang} modo="logros" />
       <Proyectos lang={lang} modo="desafios" />
-      <Aliados lang={lang} />
     </>
   )
 }

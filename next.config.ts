@@ -13,7 +13,6 @@ const nextConfig: NextConfig = {
       // Cada grupo del menú es ahora una página con sus secciones dentro.
       { source: `/${lang}/donar`, destination: `/${lang}/como-ayudar#donaciones`, permanent: false },
       { source: `/${lang}/socios`, destination: `/${lang}/como-ayudar#socios`, permanent: false },
-      { source: `/${lang}/reservar`, destination: `/${lang}/como-visitar#reservar`, permanent: false },
       { source: `/${lang}/quienes-somos`, destination: `/${lang}/historia#nosotros`, permanent: false },
     ])
 

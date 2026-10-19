@@ -6,10 +6,7 @@ import { Icon } from '@/components/ui/Icon'
 import {
   ComoLlegar, CuantoCuesta, DiaVsSemana, HorariosYContacto,
 } from '@/components/sections/ComoVisitarBloques'
-import { Alojamientos } from '@/components/sections/Alojamientos'
 import { Planifica } from '@/components/sections/Planifica'
-import { PorQueReservar } from '@/components/sections/PorQueReservar'
-import { Sectores } from '@/components/sections/Sectores'
 import { esIdioma, getContenido, IDIOMAS } from '@/content'
 
 export function generateStaticParams() {
@@ -41,7 +38,7 @@ export default async function PaginaComoVisitar({ params }: PageProps<'/[lang]/c
   const { lang } = await params
   if (!esIdioma(lang)) notFound()
 
-  const { comoLlegar, comoVisitarPagina, sectoresDetalle, textos } = getContenido(lang)
+  const { comoLlegar, comoVisitarPagina, textos } = getContenido(lang)
 
   return (
     <>
@@ -56,7 +53,7 @@ export default async function PaginaComoVisitar({ params }: PageProps<'/[lang]/c
           <p className="pagina-hero__intro">{comoVisitarPagina.intro}</p>
 
           <div className="pagina-hero__acciones">
-            <Boton href="#reservar" variante="rio">
+            <Boton href={`/${lang}/reservar`} variante="rio">
               {textos.reservarEstadia}
               <Icon name="flecha" />
             </Boton>
@@ -69,18 +66,10 @@ export default async function PaginaComoVisitar({ params }: PageProps<'/[lang]/c
 
       <ComoLlegar lang={lang} />
       <CuantoCuesta lang={lang} />
-      <PorQueReservar lang={lang} />
       <DiaVsSemana lang={lang} />
       <Planifica lang={lang} />
       <HorariosYContacto lang={lang} />
 
-      {/* Dónde dormir: los tres sectores y sus quince alojamientos */}
-      <div id="dormir">
-        <Sectores lang={lang} />
-        {sectoresDetalle.map((sector) => (
-          <Alojamientos key={sector.slug} lang={lang} sector={sector} id={`dormir-${sector.slug}`} destacarSector />
-        ))}
-      </div>
     </>
   )
 }

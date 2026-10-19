@@ -28,7 +28,7 @@ export function Hero({ lang }: { lang: Lang }) {
           <p className="hero__bajada">{hero.bajada}</p>
 
           <div className="hero__acciones">
-            <Boton href={`/${lang}/como-visitar#reservar`} variante="claro">
+            <Boton href={`/${lang}/reservar`} variante="claro">
               {textos.quieroIr}
               <Icon name="flecha" />
             </Boton>

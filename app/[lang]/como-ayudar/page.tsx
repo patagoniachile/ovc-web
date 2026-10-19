@@ -70,9 +70,9 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
         </div>
       </section>
 
-      <PlanesSocio lang={lang} destino="#suscribirme" />
+      <PlanesSocio lang={lang} destino="#socios" />
 
-      <section className="seccion" id="suscribirme">
+      <section className="seccion">
         <div className="contenedor">
           <h2 className="titulo--compacto revelar">{sociosPagina.tituloSuscripcion}</h2>
           <p className="lead revelar">{sociosPagina.introSuscripcion}</p>
@@ -80,7 +80,7 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
         </div>
       </section>
 
-      <section className="seccion seccion--alt" id="contacto">
+      <section className="seccion seccion--alt">
         <div className="contenedor">
           <div className="socios">
             <div className="socios__texto revelar">

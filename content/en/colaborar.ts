@@ -188,7 +188,7 @@ export const resultadoPago: {
       'There were not enough funds, or the card has expired.',
       'The bank blocked the charge for security, because it did not recognise the merchant.',
     ],
-    reintentar: { label: 'Try again', href: '/en/como-ayudar#planes' },
-    transferir: { label: 'Contribute by bank transfer', href: '/en/como-ayudar#transferencia' },
+    reintentar: { label: 'Try again', href: '/en/como-ayudar#socios' },
+    transferir: { label: 'Contribute by bank transfer', href: '/en/como-ayudar#donaciones' },
   },
 }

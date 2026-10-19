@@ -34,7 +34,7 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
   })
 
   return (
-    <section className="seccion seccion--alt" id="planes">
+    <section className="seccion seccion--alt">
       <div className="contenedor">
         <SectionHeader className="revelar" centrado {...planes.encabezado} />
 

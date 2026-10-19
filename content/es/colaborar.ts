@@ -188,7 +188,7 @@ export const resultadoPago: {
       'Faltaban fondos o la tarjeta está vencida.',
       'El banco bloqueó el cobro por seguridad, porque no reconoció al comercio.',
     ],
-    reintentar: { label: 'Intentar de nuevo', href: '/es/como-ayudar#planes' },
-    transferir: { label: 'Aportar por transferencia', href: '/es/como-ayudar#transferencia' },
+    reintentar: { label: 'Intentar de nuevo', href: '/es/como-ayudar#socios' },
+    transferir: { label: 'Aportar por transferencia', href: '/es/como-ayudar#donaciones' },
   },
 }

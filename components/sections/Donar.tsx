@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import { cuentaBancaria, getContenido, type Lang } from '@/content'
 
@@ -81,7 +80,7 @@ export function Donar({ lang }: { lang: Lang }) {
   return (
     <>
       {/* Transferencia */}
-      <section className="seccion" id="transferencia">
+      <section className="seccion">
         <div className="contenedor">
           <h2 className="titulo--compacto revelar">{donarPagina.tituloCuenta}</h2>
           <p className="lead revelar">{donarPagina.intro}</p>
@@ -119,20 +118,6 @@ export function Donar({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* La otra vía, claramente separada de la transferencia */}
-      <section className="seccion">
-        <div className="contenedor">
-          <div className="otra-via revelar">
-            <div>
-              <h2 className="titulo--compacto">{donarPagina.otraVia.titulo}</h2>
-              <p>{donarPagina.otraVia.texto}</p>
-            </div>
-            <Boton href="#socios" variante="rio">
-              {donarPagina.otraVia.cta.label}
-            </Boton>
-          </div>
-        </div>
-      </section>
     </>
   )
 }

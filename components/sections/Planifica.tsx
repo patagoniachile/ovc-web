@@ -9,7 +9,7 @@ export function Planifica({ lang }: { lang: Lang }) {
   const { fichasPlanificacion, fotoNormas, normas, normasEncabezado, planificaEncabezado } = getContenido(lang)
 
   return (
-    <section className="seccion" id="planifica">
+    <section className="seccion" id="normas">
       <div className="contenedor">
         <SectionHeader className="revelar" {...planificaEncabezado} />
 
@@ -40,7 +40,7 @@ export function Planifica({ lang }: { lang: Lang }) {
           ))}
         </div>
 
-        <div className="normas" id="normas">
+        <div className="normas">
           <div className="revelar">
             <p className="eyebrow">{normasEncabezado.eyebrow}</p>
             <h2 className="titulo--compacto">{normasEncabezado.titulo}</h2>

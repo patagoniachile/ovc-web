@@ -114,11 +114,9 @@ export const contenido: Contenido = {
       items: [
         { label: 'Cómo llegar', href: `${PORTADA}/como-visitar#como-llegar`, detalle: 'En auto o en bus' },
         { label: 'Cuánto cuesta', href: `${PORTADA}/como-visitar#cuanto-cuesta`, detalle: 'Qué se paga y a quién' },
-        { label: 'Cómo reservar', href: `${PORTADA}/como-visitar#reservar`, detalle: 'Los cuatro pasos' },
         { label: 'Día vs. varios días', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Dos viajes distintos' },
         { label: 'Qué debo saber', href: `${PORTADA}/como-visitar#normas`, detalle: 'Normas y seguridad' },
         { label: 'Horarios y contacto', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Ingresos y a quién escribir' },
-        { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Los quince, con su contacto' },
       ],
     },
     {
@@ -157,9 +155,9 @@ export const contenido: Contenido = {
       items: [
         { label: 'Cómo llegar', href: '/es/como-visitar#como-llegar' },
         { label: 'Cuánto cuesta', href: '/es/como-visitar#cuanto-cuesta' },
-        { label: 'Cómo reservar', href: `${PORTADA}/como-visitar#reservar` },
+        { label: 'Cómo reservar', href: `${PORTADA}/reservar` },
         { label: 'Qué debo saber', href: '/es/como-visitar#normas' },
-        { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir` },
+        { label: 'Dónde dormir', href: `${PORTADA}/reservar#dormir` },
       ],
     },
     {
@@ -357,7 +355,7 @@ export const contenido: Contenido = {
       lat: -41.455073,
       lon: -72.219495,
       descripcion: 'Centro de Visitantes y registro obligatorio. Aquí empieza el sendero y se presenta la reserva.',
-      enlace: { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir` },
+      enlace: { label: 'Dónde dormir', href: `${PORTADA}/reservar#dormir` },
     },
     {
       id: 'la-junta',
@@ -366,7 +364,7 @@ export const contenido: Contenido = {
       lat: -41.411358,
       lon: -72.126878,
       descripcion: 'El centro turístico del valle, a 13 km del inicio del sendero. Campings y hospedaje.',
-      enlace: { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir` },
+      enlace: { label: 'Dónde dormir', href: `${PORTADA}/reservar#dormir` },
     },
     {
       id: 'lago-vidal',
@@ -375,7 +373,7 @@ export const contenido: Contenido = {
       lat: -41.483506,
       lon: -71.940878,
       descripcion: 'Alternativa al valle principal, con identidad gaucha campesina propia.',
-      enlace: { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir` },
+      enlace: { label: 'Dónde dormir', href: `${PORTADA}/reservar#dormir` },
     },
     {
       id: 'cochamo',
