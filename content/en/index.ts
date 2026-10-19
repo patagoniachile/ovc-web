@@ -52,6 +52,8 @@ export const contenido: Contenido = {
     reservar: 'Book',
     reservarEstadia: 'Book my stay',
     donar: 'Donate',
+    hazteSocio: 'Become a member',
+    hazteSocioCorto: 'Member',
     conocerHistoria: 'Read our story',
     irAReservas: 'Go to bookings',
     enCurso: 'In progress',

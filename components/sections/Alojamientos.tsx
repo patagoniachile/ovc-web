@@ -18,16 +18,29 @@ const ICONO_CONTACTO: Record<TipoContacto, IconName> = {
  * abrir una página por camping. La reserva sigue siendo del operador; los
  * datos para decidir están acá.
  */
-export function Alojamientos({ lang, sector, id }: { lang: Lang; sector: SectorDetalle; id?: string }) {
+export function Alojamientos({
+  lang,
+  sector,
+  id,
+  // En el listado de /reservar manda el nombre del sector, porque se repiten
+  // tres bloques y era lo único que los distinguía. Dentro de la ficha de un
+  // sector no hace falta: ya lo dice el h1 de la página.
+  destacarSector = false,
+}: {
+  lang: Lang
+  sector: SectorDetalle
+  id?: string
+  destacarSector?: boolean
+}) {
   const { textos } = getContenido(lang)
 
   return (
-    <section className="seccion seccion--alt" id={id}>
+    <section className={destacarSector ? 'seccion seccion--alt seccion--sector' : 'seccion seccion--alt'} id={id}>
       <div className="contenedor">
         <SectionHeader
           className="revelar"
-          eyebrow={sector.nombre}
-          titulo={textos.dondeDormir}
+          eyebrow={destacarSector ? textos.dondeDormir : undefined}
+          titulo={destacarSector ? sector.nombre : textos.dondeDormir}
           bajada={textos.lugaresParaDormir(sector.alojamientos.length)}
         />
 

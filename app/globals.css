@@ -2033,3 +2033,50 @@ p { text-wrap: pretty; }
 .via h4 { margin-top: 12px; font-family: var(--display); font-size: 1.3rem; font-weight: 600; }
 .via p { margin-top: 10px; font-size: .95rem; color: var(--texto-suave); }
 .via .btn { margin-top: 22px; }
+
+/* --------------------------------------------------------------------------
+   Tres acciones en la cabecera: donar, hacerse socio y reservar
+   -------------------------------------------------------------------------- */
+.cabecera__cta .btn { padding-inline: 18px; }
+
+/* Entre 1080 y 1260px no caben las tres con el menú al lado. Donar es la que
+   cede: sigue en el pie, en la portada y dentro de la página de socios. */
+@media (max-width: 1260px) and (min-width: 1081px) {
+  .cabecera__donar { display: none; }
+}
+
+/* --------------------------------------------------------------------------
+   Listado de alojamientos por sector
+
+   Tres bloques seguidos con el mismo título "Dónde dormir" y el nombre del
+   sector en letra pequeña: no se distinguían. Ahora manda el nombre del
+   sector, con una banda que separa cada bloque del anterior.
+   -------------------------------------------------------------------------- */
+.seccion--sector { border-top: 3px solid var(--bosque-600); }
+.seccion--sector + .seccion--sector { border-top-color: var(--rio-500); }
+.seccion--sector + .seccion--sector + .seccion--sector { border-top-color: var(--arena-300); }
+.seccion--sector .seccion-cabecera h2 {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+}
+.seccion--sector .eyebrow { color: var(--granito-500); }
+.seccion--sector .eyebrow::before { background: var(--granito-300); }
+
+/* Alternamos el fondo para que dos bloques seguidos no se fundan */
+.seccion--sector:nth-of-type(even) { background: var(--bg); }
+
+/* Etiquetas que se acortan cuando la cabecera aprieta */
+.etiqueta-corta { display: none; }
+@media (max-width: 860px) {
+  .etiqueta-larga { display: none; }
+  .etiqueta-corta { display: inline; }
+  .cabecera__cta .btn { padding-inline: 15px; }
+  .cabecera__cta { gap: 6px; }
+}
+
+/* Por debajo de 520px la cabecera no da para el nombre completo más las dos
+   acciones. Cede el texto de la marca, no los botones: el isotipo sigue
+   llevando a la portada y el título de la página está justo debajo. */
+@media (max-width: 520px) {
+  .cabecera .marca__texto { display: none; }
+  .cabecera__cta .btn { padding-inline: 13px; font-size: .84rem; }
+}

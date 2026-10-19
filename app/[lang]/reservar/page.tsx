@@ -77,7 +77,7 @@ export default async function PaginaReservar({ params }: PageProps<'/[lang]/rese
       {/* Los quince alojamientos con su contacto, sin un clic de más */}
       <div id="dormir">
         {sectoresDetalle.map((sector) => (
-          <Alojamientos key={sector.slug} lang={lang} sector={sector} />
+          <Alojamientos key={sector.slug} lang={lang} sector={sector} id={`dormir-${sector.slug}`} destacarSector />
         ))}
       </div>
     </>

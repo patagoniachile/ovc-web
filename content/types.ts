@@ -250,6 +250,8 @@ export interface Textos {
   reservar: string
   reservarEstadia: string
   donar: string
+  hazteSocio: string
+  hazteSocioCorto: string
   conocerHistoria: string
   irAReservas: string
   enCurso: string

@@ -65,8 +65,14 @@ export function Cabecera({ lang }: { lang: Lang }) {
           </nav>
 
           <div className="cabecera__cta">
-            <Boton href={`/${lang}/donar`} variante="borde" pequeno>
+            {/* Las tres acciones del sitio, siempre a la vista */}
+            <Boton className="cabecera__donar" href={`/${lang}/donar`} variante="borde" pequeno>
               {textos.donar}
+            </Boton>
+            <Boton href={`/${lang}/socios`} variante="solido" pequeno>
+              {/* En pantallas angostas la cabecera no da para la etiqueta larga */}
+              <span className="etiqueta-larga">{textos.hazteSocio}</span>
+              <span className="etiqueta-corta">{textos.hazteSocioCorto}</span>
             </Boton>
             <Boton href={`/${lang}/reservar`} variante="rio" pequeno>
               {textos.reservar}
@@ -120,6 +126,9 @@ export function Cabecera({ lang }: { lang: Lang }) {
         })}
 
         <div className="menu-movil__acciones">
+          <Boton href={`/${lang}/socios`} variante="solido" bloque>
+            {textos.hazteSocio}
+          </Boton>
           <Boton href={`/${lang}/reservar`} variante="rio" bloque>
             {textos.reservarEstadia}
           </Boton>

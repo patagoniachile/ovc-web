@@ -43,6 +43,8 @@ export const contenido: Contenido = {
     reservar: 'Reservar',
     reservarEstadia: 'Reservar mi estadía',
     donar: 'Donar',
+    hazteSocio: 'Hazte socio',
+    hazteSocioCorto: 'Socio',
     conocerHistoria: 'Conoce nuestra historia',
     irAReservas: 'Ir a reservas',
     enCurso: 'En curso',
