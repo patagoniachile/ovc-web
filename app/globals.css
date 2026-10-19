@@ -1699,7 +1699,7 @@ p { text-wrap: pretty; }
 .horarios__grilla tbody th,
 .horarios__grilla td { padding: 15px 18px; text-align: left; vertical-align: top; color: rgba(255, 255, 255, .82); }
 .horarios__grilla tbody th { color: var(--blanco); font-weight: 620; }
-.horarios__grilla .horarios__franja { display: block; min-width: 0; }
+.horarios__grilla .horarios__franja { display: block; min-width: 0; white-space: nowrap; }
 .horarios__ingreso-detalle { display: block; margin-top: 2px; font-size: .84rem; color: rgba(255, 255, 255, .66); }
 .horarios__fila--destacada { background: rgba(242, 176, 74, .12); }
 .horarios__fila--destacada th { box-shadow: inset 3px 0 0 #f2b04a; }
