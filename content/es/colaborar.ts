@@ -48,6 +48,7 @@ export const sociosPagina: Encabezado & {
   intro: string
   porQue: { titulo: string; texto: string }[]
   tituloSuscripcion: string
+  montosSuscripcion: string[]
   introSuscripcion: string
   notaSuscripcion: string
   tituloFormulario: string
@@ -77,6 +78,7 @@ export const sociosPagina: Encabezado & {
     },
   ],
   tituloSuscripcion: 'Suscríbete con tarjeta',
+  montosSuscripcion: ['$5.000', '$10.000', '$15.000', 'Otro monto'],
   introSuscripcion:
     'Elige tu aporte mensual —$5.000, $10.000, $15.000 o el monto que prefieras— y completa tus datos. El formulario es de Payku y se abre aquí mismo; tus datos de tarjeta viajan directo a ellos y nunca pasan por este sitio.',
   notaSuscripcion:

@@ -137,6 +137,17 @@ planes mensuales de $5.000, $10.000, $15.000 u otro monto.
 > recibimos aviso de las suscripciones; eso llega por los canales de Payku.
 > Para enterarnos aquí haría falta su API y un webhook.
 
+El marco **no se carga al entrar**, sino al pulsar el botón. La razón está
+medida: el evento `load` del iframe dispara a los ~440 ms, pero la página de
+Payku arma su formulario con JavaScript *después* de ese evento. Cargándolo de
+entrada quedaba un recuadro blanco de 720px, y ocultar la capa de espera al
+recibir `load` lo destapaba antes de tiempo. En su lugar se muestra una
+portada con los montos y un botón; al pulsarlo se carga el marco con su
+indicador. Así no hay hueco que tapar.
+
+> No volver a ocultar la espera solo con `load`: ese evento no significa que
+> el formulario esté dibujado.
+
 El iframe lleva `allow-same-origin` a propósito. Sin él, el documento recibe un
 origen opaco y pierde cookies y almacenamiento, que es lo que necesita para
 mantener la sesión al pasar a la pantalla de la tarjeta. Combinarlo con

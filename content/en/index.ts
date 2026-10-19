@@ -64,6 +64,7 @@ export const contenido: Contenido = {
     graciasPorSuscribirte: (nombre) => `Thanks, ${nombre}! We'll be in touch soon.`,
     repartoDonacion: 'How your donation is split',
     directorioAmpliado: 'Members of the extended board',
+    abrirFormulario: 'Open the subscription form',
     cargandoFormulario: 'Loading the Payku form…',
     formularioTarda: 'The form is taking longer than usual.',
     abrirEnPestana: 'Open in a new tab',

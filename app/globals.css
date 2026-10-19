@@ -1737,13 +1737,17 @@ p { text-wrap: pretty; }
 .reparto--claro .reparto__leyenda { color: var(--texto-suave); }
 
 .payku {
+  position: relative;
   margin-top: 22px;
   border: 1px solid var(--borde);
   border-radius: var(--radio);
   overflow: hidden;
-  background: var(--bg-alt);
+  /* Mientras no hay marco, el fondo es de la paleta y no un vacío blanco */
+  background: var(--arena-200);
 }
-.payku iframe { width: 100%; min-height: 720px; border: 0; display: block; }
+.payku iframe { width: 100%; min-height: 720px; border: 0; display: block; background: var(--bg-alt); }
+/* Sin marco cargado, la caja se ajusta a su contenido en vez de reservar 720px */
+.payku[data-estado='inactivo'] { background: var(--arena-200); }
 .payku__nota {
   display: flex; align-items: flex-start; gap: 10px;
   margin-top: 14px; max-width: 70ch;
@@ -1813,13 +1817,14 @@ p { text-wrap: pretty; }
 .payku__espera {
   position: absolute;
   inset: 0;
+  z-index: 1;
   display: grid;
   place-content: center;
   justify-items: center;
   gap: 14px;
   padding: 24px;
   text-align: center;
-  background: var(--bg-alt);
+  background: var(--arena-200);
   color: var(--texto-suave);
   font-size: .92rem;
 }
@@ -1833,3 +1838,31 @@ p { text-wrap: pretty; }
 @keyframes girar { to { transform: rotate(360deg); } }
 /* Una vez cargado el marco, la capa desaparece del flujo */
 .payku[data-estado='listo'] .payku__espera { display: none; }
+
+/* Portada del formulario: lo que se ve antes de cargar Payku */
+.payku__portada {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: clamp(36px, 6vw, 60px) 24px;
+  text-align: center;
+}
+.payku__montos { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.payku__montos li {
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--bg-alt);
+  border: 1px solid var(--borde);
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--bosque-800);
+  font-variant-numeric: tabular-nums;
+}
+.payku__fuera {
+  font-size: .85rem;
+  color: var(--granito-500);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.payku__fuera:hover { color: var(--bosque-700); }

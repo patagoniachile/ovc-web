@@ -48,6 +48,7 @@ export const sociosPagina: Encabezado & {
   intro: string
   porQue: { titulo: string; texto: string }[]
   tituloSuscripcion: string
+  montosSuscripcion: string[]
   introSuscripcion: string
   notaSuscripcion: string
   tituloFormulario: string
@@ -77,6 +78,7 @@ export const sociosPagina: Encabezado & {
     },
   ],
   tituloSuscripcion: 'Subscribe with a card',
+  montosSuscripcion: ['CLP 5,000', 'CLP 10,000', 'CLP 15,000', 'Another amount'],
   introSuscripcion:
     'Choose your monthly contribution — CLP 5,000, 10,000, 15,000 or whatever amount you prefer — and fill in your details. The form belongs to Payku and opens right here; your card details go straight to them and never pass through this site.',
   notaSuscripcion:

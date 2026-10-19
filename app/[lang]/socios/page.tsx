@@ -62,7 +62,7 @@ export default async function PaginaSocios({ params }: PageProps<'/[lang]/socios
         <div className="contenedor">
           <h2 className="titulo--compacto revelar">{sociosPagina.tituloSuscripcion}</h2>
           <p className="lead revelar">{sociosPagina.introSuscripcion}</p>
-          <SuscripcionPayku lang={lang} nota={sociosPagina.notaSuscripcion} />
+          <SuscripcionPayku lang={lang} nota={sociosPagina.notaSuscripcion} montos={sociosPagina.montosSuscripcion} />
         </div>
       </section>
 

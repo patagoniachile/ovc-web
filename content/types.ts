@@ -250,6 +250,7 @@ export interface Textos {
   graciasPorSuscribirte: (nombre: string) => string
   repartoDonacion: string
   directorioAmpliado: string
+  abrirFormulario: string
   cargandoFormulario: string
   formularioTarda: string
   abrirEnPestana: string
@@ -394,6 +395,7 @@ export interface Contenido {
     intro: string
     porQue: { titulo: string; texto: string }[]
     tituloSuscripcion: string
+    montosSuscripcion: string[]
     introSuscripcion: string
     notaSuscripcion: string
     tituloFormulario: string
