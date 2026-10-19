@@ -243,6 +243,13 @@ export interface PlanSocio {
   anual: number
   mensual: number
   beneficios: string[]
+  /**
+   * Identificadores del plan en el panel de Payku, uno por periodicidad.
+   * Se pegan aquí cuando los planes estén dados de alta; hasta entonces el
+   * botón lleva al formulario alojado que la corporación ya tiene.
+   */
+  paykuPlanMensual?: string
+  paykuPlanAnual?: string
   /** El nivel mecenas, que se muestra distinto */
   mecenas?: boolean
   destacado?: boolean

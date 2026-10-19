@@ -176,6 +176,34 @@ El freno por IP vive en memoria, así que es por instancia. Frena a un curioso,
 no a un ataque: si el formulario recibe spam, toca un limitador de verdad y un
 captcha (Turnstile).
 
+### Planes de socio y Payku
+
+Los cuatro niveles viven en `content/<idioma>/colaborar.ts`. El ahorro del
+plan anual se calcula a partir del monto anual y el mensual, no se escribe a
+mano.
+
+**Lo que hay que configurar en el panel de Payku:**
+
+1. Un plan por nivel y periodicidad: ocho en total. El formulario alojado
+   acepta `Diario`, `Semanal`, `Mensual`, `Bimensual`, `Trimestral` y `Anual`,
+   así que los anuales sí son posibles; hoy solo existen los mensuales, por eso
+   el formulario muestra una sola pestaña.
+2. Ajustar los montos de los planes mensuales a los de la propuesta
+   ($3.500, $5.000, $10.000, $25.000). Hoy son $5.000, $10.000 y $15.000.
+3. Pegar los identificadores en `paykuPlanMensual` y `paykuPlanAnual` de cada
+   plan en el contenido.
+
+**Lo que NO se puede hacer con el formulario alojado:**
+
+- *Rellenarle el campo "Otro monto" desde nuestra página.* Es otro origen: el
+  navegador no permite escribir dentro de un iframe ajeno, y el formulario solo
+  lee de la URL los parámetros `origin`, `a` y `s`, que son suyos.
+- *Mantener al visitante en el sitio.* Al enviar, el formulario ejecuta
+  `window.top.location.replace(...)`: la página entera se va a Payku. El
+  embebido solo cubre la toma de datos, no el pago.
+
+Ambas cosas se resuelven con la API, no con el iframe.
+
 ### Enlaces internos
 
 En `content/` **toda ancla va absoluta**: `` `${PORTADA}#mapa` ``, nunca
