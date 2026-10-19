@@ -3,6 +3,9 @@ import type {
   Actividad, Contacto, Costo, Encabezado, Especie, MedioDeTransporte, Modalidad, Rasgo,
 } from '../types'
 
+/** Portada del idioma: las anclas van absolutas, nunca sueltas. */
+const PORTADA = '/en'
+
 export const heroResumen = [
   { etiqueta: 'Where', valor: 'Commune of Cochamó, Los Lagos Region' },
   { etiqueta: 'What it is', valor: 'Private land opened to the public, with no park status' },
@@ -119,7 +122,7 @@ export const logroImportante = {
   titulo: 'The Nature Sanctuary proposal',
   texto:
     'In July 2022 we took the proposal to protect the valley to the Ministry of National Assets, covering state land and private estates that joined voluntarily. It is the biggest step in fifteen years of work, and it is still pending.',
-  cta: { label: 'Read the proposal', href: '#santuario' },
+  cta: { label: 'Read the proposal', href: `${PORTADA}#santuario` },
 }
 
 export const misionVision = {

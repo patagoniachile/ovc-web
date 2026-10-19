@@ -4,6 +4,11 @@ import * as nuevo from './estructura'
 import { sectoresDetalle } from './sectores'
 import type { Contenido } from '../types'
 
+/** La portada del idioma. El menú y el pie se ven en todas las páginas, así
+ *  que sus anclas tienen que ser absolutas: una `#ancla` suelta se cuelga de
+ *  la URL actual y desde /como-visitar no llevaba a ninguna parte. */
+const PORTADA = '/es'
+
 const organizacion = {
   corporacion: 'Corporación',
   nombre: 'Valle Cochamó',
@@ -76,12 +81,12 @@ export const contenido: Contenido = {
   menu: [
     {
       label: 'El Valle',
-      href: '#el-valle',
+      href: `${PORTADA}#el-valle`,
       items: [
-        { label: 'Dónde queda', href: '#mapa', detalle: 'Mapa de los sectores' },
-        { label: 'Flora y fauna', href: '#flora-fauna', detalle: 'Qué vive en el bosque valdiviano' },
-        { label: 'Qué se puede hacer', href: '#que-hacer', detalle: 'Trekking, escalada, cabalgatas' },
-        { label: 'El Santuario', href: '#santuario', detalle: '11.432,8 ha propuestas' },
+        { label: 'Dónde queda', href: `${PORTADA}#mapa`, detalle: 'Mapa de los sectores' },
+        { label: 'Flora y fauna', href: `${PORTADA}#flora-fauna`, detalle: 'Qué vive en el bosque valdiviano' },
+        { label: 'Qué se puede hacer', href: `${PORTADA}#que-hacer`, detalle: 'Trekking, escalada, cabalgatas' },
+        { label: 'El Santuario', href: `${PORTADA}#santuario`, detalle: '11.432,8 ha propuestas' },
       ],
     },
     {
@@ -99,18 +104,18 @@ export const contenido: Contenido = {
     },
     {
       label: 'Historia',
-      href: '#historia',
+      href: `${PORTADA}#historia`,
       items: [
-        { label: 'Qué pasó', href: '#historia', detalle: 'De 2009 a hoy' },
-        { label: 'Quién administra y por qué', href: '#nosotros', detalle: 'La comunidad del valle' },
-        { label: 'Misión y visión', href: '#mision', detalle: 'Hacia dónde vamos' },
-        { label: 'Qué hemos hecho', href: '#logros', detalle: 'Obras terminadas' },
-        { label: 'Qué queremos hacer', href: '#proyectos', detalle: 'Los desafíos abiertos' },
+        { label: 'Qué pasó', href: `${PORTADA}#historia`, detalle: 'De 2009 a hoy' },
+        { label: 'Quién administra y por qué', href: `${PORTADA}#nosotros`, detalle: 'La comunidad del valle' },
+        { label: 'Misión y visión', href: `${PORTADA}#mision`, detalle: 'Hacia dónde vamos' },
+        { label: 'Qué hemos hecho', href: `${PORTADA}#logros`, detalle: 'Obras terminadas' },
+        { label: 'Qué queremos hacer', href: `${PORTADA}#proyectos`, detalle: 'Los desafíos abiertos' },
       ],
     },
     {
       label: 'Cómo ayudar',
-      href: '#ayudar',
+      href: `${PORTADA}#ayudar`,
       items: [
         { label: 'Donaciones', href: externos.donar, detalle: '50% conservación · 50% infraestructura' },
         { label: 'Socios', href: externos.socio, detalle: 'Aporte periódico' },
@@ -122,10 +127,10 @@ export const contenido: Contenido = {
     {
       titulo: 'El Valle',
       items: [
-        { label: 'Dónde queda', href: '#mapa' },
-        { label: 'Flora y fauna', href: '#flora-fauna' },
-        { label: 'Qué se puede hacer', href: '#que-hacer' },
-        { label: 'El Santuario', href: '#santuario' },
+        { label: 'Dónde queda', href: `${PORTADA}#mapa` },
+        { label: 'Flora y fauna', href: `${PORTADA}#flora-fauna` },
+        { label: 'Qué se puede hacer', href: `${PORTADA}#que-hacer` },
+        { label: 'El Santuario', href: `${PORTADA}#santuario` },
       ],
     },
     {
@@ -141,8 +146,8 @@ export const contenido: Contenido = {
     {
       titulo: 'Organización',
       items: [
-        { label: 'Qué pasó', href: '#historia' },
-        { label: 'Quiénes somos', href: '#nosotros' },
+        { label: 'Qué pasó', href: `${PORTADA}#historia` },
+        { label: 'Quiénes somos', href: `${PORTADA}#nosotros` },
         { label: 'Noticias', href: externos.noticias },
         { label: 'Donaciones', href: externos.donar },
         { label: 'Socios', href: externos.socio },
@@ -165,48 +170,6 @@ export const contenido: Contenido = {
     { valor: 8000, sufijo: ' ha', texto: 'De bosque de alerce, con ejemplares de cerca de 1.000 años' },
     { valor: 17000, prefijo: '+', texto: 'Visitantes al año recorren el sendero de los arrieros' },
     { valor: 1000, sufijo: ' m', texto: 'De paredes de granito del Batolito Norpatagónico' },
-  ],
-
-  caminosEncabezado: {
-    eyebrow: 'Un solo lugar',
-    titulo: 'Todo el valle, en una sola puerta de entrada',
-    bajada:
-      'Reunimos aquí lo que antes estaba repartido: el sistema de reservas y la preparación del viaje, junto al trabajo de conservación que hace posible que el valle siga abierto.',
-  },
-
-  caminos: [
-    {
-      etiqueta: 'Voy a visitar',
-      titulo: 'Planifica y reserva tu viaje',
-      texto:
-        'Elige tu sector, revisa horarios y distancias, conoce las normas y asegura tu lugar antes de llegar.',
-      foto: {
-        ...imagenes.toboganes,
-        alt: 'Toboganes de granito y aguas turquesas del Valle Cochamó, con el Cerro Trinidad al fondo',
-      },
-      enlaces: [
-        { label: 'Sectores', href: '#sectores' },
-        { label: 'Mapa', href: '#mapa' },
-        { label: 'Normas', href: '#normas' },
-        { label: 'Reservar →', href: externos.reservas },
-      ],
-    },
-    {
-      etiqueta: 'Quiero ayudar',
-      titulo: 'Suma fuerzas a la conservación',
-      texto:
-        'El valle aún no está protegido oficialmente. Hazte socio o dona para sostener el trabajo.',
-      foto: {
-        ...imagenes.cascada,
-        alt: 'Vista aérea de una cascada rodeada de bosque siempreverde en el Valle Cochamó',
-      },
-      enlaces: [
-        { label: 'Santuario', href: '#santuario' },
-        { label: 'Amenazas', href: '#amenazas' },
-        { label: 'Proyectos', href: '#proyectos' },
-        { label: 'Donar →', href: externos.donar },
-      ],
-    },
   ],
 
   introHistoria: {
@@ -463,7 +426,7 @@ export const contenido: Contenido = {
       titulo: 'Cómo llegar',
       texto:
         'El valle está en la comuna de Cochamó, Región de Los Lagos. El sendero comienza donde el río Cochamó desemboca en el estuario de Reloncaví.',
-      enlace: { label: 'Ver la ruta', href: '#mapa' },
+      enlace: { label: 'Ver la ruta', href: `${PORTADA}#mapa` },
     },
   ],
 

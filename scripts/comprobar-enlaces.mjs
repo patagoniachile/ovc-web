@@ -38,6 +38,53 @@ for (const archivo of await archivosDeContenido()) {
   for (const [url] of texto.matchAll(/https?:\/\/[^'"\s)]+/g)) urls.add(url.replace(/[,.]$/, ''))
 }
 
+/* ---------------------------------------------------------------------------
+   Enlaces internos
+   El menú y el pie se ven en todas las páginas, así que una `#ancla` suelta se
+   cuelga de la URL actual: desde /como-visitar, "Dónde queda" llevaba a
+   /es/como-visitar#mapa, que no existe. En `content/` toda ancla va absoluta.
+   --------------------------------------------------------------------------- */
+const anclasSueltas = []
+const internos = new Set()
+
+for (const archivo of await archivosDeContenido()) {
+  const texto = await readFile(archivo, 'utf8')
+  for (const [, ancla] of texto.matchAll(/href: '(#[a-z-]+)'/g)) anclasSueltas.push(`${archivo}  ${ancla}`)
+  for (const [, destino] of texto.matchAll(/href: `\$\{PORTADA\}(#[a-z-]+)`/g)) internos.add(destino)
+  for (const [, destino] of texto.matchAll(/href: '(\/[a-z]{2}\/[a-z-]+#[a-z-]+)'/g)) internos.add(destino)
+}
+
+if (anclasSueltas.length > 0) {
+  console.log('Anclas sueltas en content/ (deben ser absolutas):')
+  anclasSueltas.forEach((a) => console.log(`  ${a}`))
+  console.log('')
+}
+
+// Si hay un build a mano, comprobamos que cada ancla exista en su página.
+let anclasRotas = 0
+try {
+  const paginas = new Map([
+    ['portada', 'es'],
+    ['como-visitar', 'es/como-visitar'],
+  ])
+  const html = new Map()
+  for (const [clave, ruta] of paginas) {
+    html.set(clave, await readFile(`.next/server/app/${ruta}.html`, 'utf8'))
+  }
+
+  for (const destino of internos) {
+    const [ruta, ancla] = destino.includes('/') ? destino.split('#') : ['', destino.slice(1)]
+    const pagina = ruta.includes('como-visitar') ? 'como-visitar' : 'portada'
+    const id = ancla.replace('#', '')
+    if (!html.get(pagina).includes(`id="${id}"`)) {
+      anclasRotas++
+      console.log(`  ANCLA ROTA  ${destino} — no existe id="${id}" en ${pagina}`)
+    }
+  }
+} catch {
+  console.log('(sin build: no se comprobaron las anclas internas; corre `npm run build` antes)\n')
+}
+
 console.log(`Comprobando ${urls.size} enlaces externos…\n`)
 
 let rotos = 0
@@ -64,5 +111,5 @@ await Promise.all(
   }),
 )
 
-console.log(`\n${rotos} roto(s) · ${sinVerificar} no verificable(s)`)
-if (rotos > 0) process.exit(1)
+console.log(`\n${rotos} externo(s) roto(s) · ${sinVerificar} no verificable(s) · ${anclasRotas} ancla(s) rota(s) · ${anclasSueltas.length} ancla(s) suelta(s)`)
+if (rotos > 0 || anclasRotas > 0 || anclasSueltas.length > 0) process.exit(1)

@@ -3,6 +3,9 @@ import type {
   Actividad, Contacto, Costo, Encabezado, Especie, MedioDeTransporte, Modalidad, Rasgo,
 } from '../types'
 
+/** Portada del idioma: las anclas van absolutas, nunca sueltas. */
+const PORTADA = '/es'
+
 /** Hero: qué es, dónde está y qué se hace, en tres datos. */
 export const heroResumen = [
   { etiqueta: 'Dónde', valor: 'Comuna de Cochamó, Región de Los Lagos' },
@@ -120,7 +123,7 @@ export const logroImportante = {
   titulo: 'La propuesta de Santuario de la Naturaleza',
   texto:
     'En julio de 2022 llevamos al Ministerio de Bienes Nacionales la propuesta de proteger el valle, sobre terrenos fiscales y predios privados que se sumaron de forma voluntaria. Es el mayor avance en quince años de trabajo y sigue en trámite.',
-  cta: { label: 'Conocer la propuesta', href: '#santuario' },
+  cta: { label: 'Conocer la propuesta', href: `${PORTADA}#santuario` },
 }
 
 export const misionVision = {

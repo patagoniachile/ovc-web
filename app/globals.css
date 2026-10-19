@@ -521,59 +521,6 @@ p { text-wrap: pretty; }
 .cifra__texto { margin-top: 8px; font-size: .84rem; line-height: 1.45; color: rgba(255, 255, 255, .72); }
 
 /* --------------------------------------------------------------------------
-   Dos caminos (fusión de los dos sitios)
-   -------------------------------------------------------------------------- */
-.caminos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.camino {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 420px;
-  padding: 32px;
-  border-radius: var(--radio);
-  overflow: hidden;
-  color: var(--blanco);
-  isolation: isolate;
-}
-.camino img {
-  position: absolute; inset: 0; z-index: -2;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 600ms cubic-bezier(.2, .6, .2, 1);
-}
-.camino::after {
-  content: "";
-  position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(to top, rgba(8, 22, 16, .94) 10%, rgba(8, 22, 16, .5) 50%, rgba(8, 22, 16, .12) 100%);
-}
-.camino:hover img { transform: scale(1.06); }
-.camino h3 { color: var(--blanco); font-size: clamp(1.5rem, 2.6vw, 1.9rem); }
-.camino p { margin-top: 12px; color: rgba(255, 255, 255, .84); font-size: .98rem; max-width: 36ch; }
-.camino__etiqueta {
-  align-self: flex-start;
-  margin-bottom: auto;
-  padding: 7px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .16);
-  backdrop-filter: blur(8px);
-  font-size: .74rem;
-  font-weight: 650;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.camino__lista { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
-.camino__lista a {
-  padding: 7px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .12);
-  font-size: .84rem;
-  font-weight: 560;
-  transition: background-color var(--trans);
-}
-.camino__lista a:hover { background: rgba(255, 255, 255, .28); }
-
-/* --------------------------------------------------------------------------
    Historia / línea de tiempo
    -------------------------------------------------------------------------- */
 .historia { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
@@ -1048,7 +995,6 @@ p { text-wrap: pretty; }
 
 @media (max-width: 860px) {
   .cifras__grid { grid-template-columns: repeat(2, 1fr); margin-top: -40px; }
-  .caminos { grid-template-columns: 1fr; }
   .nosotros, .normas, .reservar__grid, .santuario, .boletin { grid-template-columns: 1fr; }
   .nosotros__figura { order: -1; }
   .santuario__figura { order: -1; }

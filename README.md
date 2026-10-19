@@ -29,7 +29,7 @@ npm run dev      # http://localhost:4321
 | `npm start` | Sirve el build |
 | `npm run lint` | ESLint (config de Next) |
 | `npm run typecheck` | TypeScript sin emitir |
-| `npm run check-links` | Comprueba que los enlaces externos del contenido sigan vivos |
+| `npm run check-links` | Enlaces externos vivos + anclas internas que existan (corre `build` antes) |
 
 ## Estructura del sitio
 
@@ -101,6 +101,16 @@ botones que siguen saliendo a reservasvallecochamo.cl son solo los de reservar.
 El contenido se tomó de las fichas del sitio de reservas (octubre de 2026).
 Teléfonos, tarifas y horarios cambian: conviene revisarlos cada temporada en
 `content/<idioma>/sectores.ts`.
+
+### Enlaces internos
+
+En `content/` **toda ancla va absoluta**: `` `${PORTADA}#mapa` ``, nunca
+`'#mapa'`. El menú y el pie se ven en todas las páginas, así que una ancla
+suelta se cuelga de la URL actual: desde `/es/como-visitar`, "Dónde queda"
+llevaba a `/es/como-visitar#mapa`, que no existe.
+
+`npm run check-links` falla si aparece una ancla suelta en `content/` o si
+una absoluta apunta a un `id` que no existe en su página.
 
 ### Revelado de secciones
 

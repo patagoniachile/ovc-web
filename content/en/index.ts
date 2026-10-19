@@ -13,6 +13,11 @@ import type { Contenido } from '../types'
  * that is not written anywhere on the ground.
  */
 
+/** La portada del idioma. El menú y el pie se ven en todas las páginas, así
+ *  que sus anclas tienen que ser absolutas: una `#ancla` suelta se cuelga de
+ *  la URL actual y desde /como-visitar no llevaba a ninguna parte. */
+const PORTADA = '/en'
+
 const organizacion = {
   corporacion: 'Corporación',
   nombre: 'Valle Cochamó',
@@ -85,12 +90,12 @@ export const contenido: Contenido = {
   menu: [
     {
       label: 'The Valley',
-      href: '#el-valle',
+      href: `${PORTADA}#el-valle`,
       items: [
-        { label: 'Where it is', href: '#mapa', detalle: 'Map of the sectors' },
-        { label: 'Flora and fauna', href: '#flora-fauna', detalle: 'What lives in the Valdivian forest' },
-        { label: 'What you can do', href: '#que-hacer', detalle: 'Trekking, climbing, horseback riding' },
-        { label: 'The Sanctuary', href: '#santuario', detalle: '11,432.8 ha proposed' },
+        { label: 'Where it is', href: `${PORTADA}#mapa`, detalle: 'Map of the sectors' },
+        { label: 'Flora and fauna', href: `${PORTADA}#flora-fauna`, detalle: 'What lives in the Valdivian forest' },
+        { label: 'What you can do', href: `${PORTADA}#que-hacer`, detalle: 'Trekking, climbing, horseback riding' },
+        { label: 'The Sanctuary', href: `${PORTADA}#santuario`, detalle: '11,432.8 ha proposed' },
       ],
     },
     {
@@ -108,18 +113,18 @@ export const contenido: Contenido = {
     },
     {
       label: 'History',
-      href: '#historia',
+      href: `${PORTADA}#historia`,
       items: [
-        { label: 'What happened', href: '#historia', detalle: 'From 2009 to today' },
-        { label: 'Who runs it and why', href: '#nosotros', detalle: 'The valley community' },
-        { label: 'Mission and vision', href: '#mision', detalle: 'Where we are heading' },
-        { label: 'What we have done', href: '#logros', detalle: 'Completed work' },
-        { label: 'What we want to do', href: '#proyectos', detalle: 'The open challenges' },
+        { label: 'What happened', href: `${PORTADA}#historia`, detalle: 'From 2009 to today' },
+        { label: 'Who runs it and why', href: `${PORTADA}#nosotros`, detalle: 'The valley community' },
+        { label: 'Mission and vision', href: `${PORTADA}#mision`, detalle: 'Where we are heading' },
+        { label: 'What we have done', href: `${PORTADA}#logros`, detalle: 'Completed work' },
+        { label: 'What we want to do', href: `${PORTADA}#proyectos`, detalle: 'The open challenges' },
       ],
     },
     {
       label: 'How to help',
-      href: '#ayudar',
+      href: `${PORTADA}#ayudar`,
       items: [
         { label: 'Donations', href: externos.donar, detalle: '50% conservation · 50% infrastructure' },
         { label: 'Members', href: externos.socio, detalle: 'Regular contribution' },
@@ -131,10 +136,10 @@ export const contenido: Contenido = {
     {
       titulo: 'The Valley',
       items: [
-        { label: 'Where it is', href: '#mapa' },
-        { label: 'Flora and fauna', href: '#flora-fauna' },
-        { label: 'What you can do', href: '#que-hacer' },
-        { label: 'The Sanctuary', href: '#santuario' },
+        { label: 'Where it is', href: `${PORTADA}#mapa` },
+        { label: 'Flora and fauna', href: `${PORTADA}#flora-fauna` },
+        { label: 'What you can do', href: `${PORTADA}#que-hacer` },
+        { label: 'The Sanctuary', href: `${PORTADA}#santuario` },
       ],
     },
     {
@@ -150,8 +155,8 @@ export const contenido: Contenido = {
     {
       titulo: 'Organisation',
       items: [
-        { label: 'What happened', href: '#historia' },
-        { label: 'Who we are', href: '#nosotros' },
+        { label: 'What happened', href: `${PORTADA}#historia` },
+        { label: 'Who we are', href: `${PORTADA}#nosotros` },
         { label: 'News', href: externos.noticias },
         { label: 'Donations', href: externos.donar },
         { label: 'Members', href: externos.socio },
@@ -174,47 +179,6 @@ export const contenido: Contenido = {
     { valor: 8000, sufijo: ' ha', texto: 'Of alerce forest, with trees close to 1,000 years old' },
     { valor: 17000, prefijo: '+', texto: 'Visitors a year walk the muleteers’ trail' },
     { valor: 1000, sufijo: ' m', texto: 'Of granite walls of the North Patagonian Batholith' },
-  ],
-
-  caminosEncabezado: {
-    eyebrow: 'One place',
-    titulo: 'The whole valley, through a single door',
-    bajada:
-      'We have brought together what used to be split apart: the booking system and trip planning, alongside the conservation work that keeps the valley open.',
-  },
-
-  caminos: [
-    {
-      etiqueta: "I'm visiting",
-      titulo: 'Plan and book your trip',
-      texto: 'Choose your sector, check times and distances, learn the rules and secure your place before you arrive.',
-      foto: {
-        ...imagenes.toboganes,
-        alt: 'Granite waterslides and turquoise water in the Cochamó Valley, with Cerro Trinidad behind',
-      },
-      enlaces: [
-        { label: 'Sectors', href: '#sectores' },
-        { label: 'Map', href: '#mapa' },
-        { label: 'Rules', href: '#normas' },
-        { label: 'Book →', href: externos.reservas },
-      ],
-    },
-    {
-      etiqueta: 'I want to help',
-      titulo: 'Join the conservation effort',
-      texto:
-        'The valley is still not officially protected. Become a member or donate to sustain the work.',
-      foto: {
-        ...imagenes.cascada,
-        alt: 'Aerial view of a waterfall surrounded by evergreen forest in the Cochamó Valley',
-      },
-      enlaces: [
-        { label: 'Sanctuary', href: '#santuario' },
-        { label: 'Threats', href: '#amenazas' },
-        { label: 'Projects', href: '#proyectos' },
-        { label: 'Donate →', href: externos.donar },
-      ],
-    },
   ],
 
   introHistoria: {
@@ -470,7 +434,7 @@ export const contenido: Contenido = {
       titulo: 'Getting there',
       texto:
         'The valley is in the commune of Cochamó, Los Lagos Region. The trail starts where the Cochamó River flows into the Reloncaví estuary.',
-      enlace: { label: 'See the route', href: '#mapa' },
+      enlace: { label: 'See the route', href: `${PORTADA}#mapa` },
     },
   ],
 

@@ -209,14 +209,6 @@ export interface Costo {
   detalle: string
 }
 
-export interface Camino {
-  etiqueta: string
-  titulo: string
-  texto: string
-  foto: Foto
-  enlaces: Enlace[]
-}
-
 export interface Encabezado {
   eyebrow: string
   titulo: string
@@ -295,8 +287,6 @@ export interface Contenido {
     pieDerecha: string
   }
   cifras: Cifra[]
-  caminosEncabezado: Encabezado
-  caminos: Camino[]
   introHistoria: Encabezado & { cita: string; citaFuente: string }
   hitos: Hito[]
   nosotros: Encabezado & {
