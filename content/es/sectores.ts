@@ -166,7 +166,6 @@ export const sectoresDetalle: SectorDetalle[] = [
           { tipo: 'telefono', valor: '+56 9 3510 9737', href: 'tel:+56935109737' },
           { tipo: 'telefono', valor: '+56 9 5666 2469', href: 'tel:+56956662469' },
           { tipo: 'email', valor: 'campingplayalosmanzanos@gmail.com', href: 'mailto:campingplayalosmanzanos@gmail.com' },
-          { tipo: 'facebook', valor: 'Camping Playa Los Manzanos', href: 'https://www.facebook.com/camping-playa-los-manzanos' },
         ],
       },
       {
@@ -177,7 +176,7 @@ export const sectoresDetalle: SectorDetalle[] = [
           'Amplios sitios al lado del río Cochamó, que se cruza en carro. A 10 minutos del tobogán del río La Junta, con vista a todos los cerros de escalada y cerca de las aproximaciones a los senderos de altura. A 15 minutos de las paredes La Luna y La Cantina.',
         servicios: ['Sitios amplios', 'Vista a los cerros de escalada', 'Cerca de las aproximaciones de altura'],
         contactos: [{ tipo: 'web', valor: 'vistahermosacochamo.cl', href: 'https://vistahermosacochamo.cl/' }],
-        reserva: { label: 'Reservar en Vista Hermosa', href: 'https://vistahermosacochamo.cl/tienda/camping-vista-hermosa/' },
+        reserva: { label: 'Reservar en Vista Hermosa', href: 'https://vistahermosacochamo.cl/reservar' },
       },
       {
         id: 'refugio-cochamo',

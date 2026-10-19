@@ -153,7 +153,6 @@ export const sectoresDetalle: SectorDetalle[] = [
           { tipo: 'telefono', valor: '+56 9 3510 9737', href: 'tel:+56935109737' },
           { tipo: 'telefono', valor: '+56 9 5666 2469', href: 'tel:+56956662469' },
           { tipo: 'email', valor: 'campingplayalosmanzanos@gmail.com', href: 'mailto:campingplayalosmanzanos@gmail.com' },
-          { tipo: 'facebook', valor: 'Camping Playa Los Manzanos', href: 'https://www.facebook.com/camping-playa-los-manzanos' },
         ],
       },
       {
@@ -164,7 +163,7 @@ export const sectoresDetalle: SectorDetalle[] = [
           'Large pitches beside the Cochamó River, which you cross on a cable cart. Ten minutes from the La Junta river waterslide, with views of every climbing peak and close to the approaches for the high-country trails. Fifteen minutes from the La Luna and La Cantina walls.',
         servicios: ['Large pitches', 'Views of the climbing peaks', 'Close to the high-country approaches'],
         contactos: [{ tipo: 'web', valor: 'vistahermosacochamo.cl', href: 'https://vistahermosacochamo.cl/' }],
-        reserva: { label: 'Book at Vista Hermosa', href: 'https://vistahermosacochamo.cl/tienda/camping-vista-hermosa/' },
+        reserva: { label: 'Book at Vista Hermosa', href: 'https://vistahermosacochamo.cl/reservar' },
       },
       {
         id: 'refugio-cochamo',

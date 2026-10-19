@@ -29,6 +29,7 @@ npm run dev      # http://localhost:4321
 | `npm start` | Sirve el build |
 | `npm run lint` | ESLint (config de Next) |
 | `npm run typecheck` | TypeScript sin emitir |
+| `npm run check-links` | Comprueba que los enlaces externos del contenido sigan vivos |
 
 ## Estructura del sitio
 
@@ -179,7 +180,11 @@ generará la carpeta `out/`. Se pierde la optimización de imágenes en servidor
   del menú.
 - **Revisar la traducción al inglés** con alguien de la organización.
 - **Revisar cada temporada** los datos de `content/<idioma>/sectores.ts`:
-  tarifas de arrieros, horarios del sendero, teléfonos y aforos.
+  tarifas de arrieros, horarios del sendero, teléfonos y aforos. Pasar
+  `npm run check-links` de paso: el contenido lleva unas 30 URLs de terceros
+  que cambian sin avisar.
+- **Confirmar el Facebook de Playa Los Manzanos**: el sitio de reservas lo
+  publicaba como texto y no resuelve, así que se quitó de la ficha.
 - **Páginas internas.** Hoy todo es una portada con anclas. Noticias, proyectos
   y santuario pueden pasar a rutas propias reutilizando los mismos componentes.
 - **Contenido.** Los textos y cifras se tomaron de los dos sitios actuales;
