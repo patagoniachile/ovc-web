@@ -127,7 +127,27 @@ corporación ya tiene en Payku. El iframe va con `sandbox` y sin
 > este tamaño. El visitante no sale del sitio, pero el pago sí ocurre en la
 > pasarela.
 
-**Socios** es un formulario propio que publica en `app/api/socios/route.ts`,
+**Socios** aloja el formulario de suscripción de Payku, que es lo que de
+verdad inscribe a alguien como socio: su botón dice "Hazte Socio" y ofrece
+planes mensuales de $5.000, $10.000, $15.000 u otro monto.
+
+> Payku identifica a quien se suscribe **por el nombre, apellido, correo y
+> teléfono que la persona escribe dentro de ese formulario**. Desde este sitio
+> no se le envía ningún dato: el iframe solo muestra su página. Tampoco
+> recibimos aviso de las suscripciones; eso llega por los canales de Payku.
+> Para enterarnos aquí haría falta su API y un webhook.
+
+El iframe lleva `allow-same-origin` a propósito. Sin él, el documento recibe un
+origen opaco y pierde cookies y almacenamiento, que es lo que necesita para
+mantener la sesión al pasar a la pantalla de la tarjeta. Combinarlo con
+`allow-scripts` solo sería riesgoso si el marco fuera de nuestro propio origen.
+
+> **Sin probar de punta a punta.** El paso de la tarjeta puede redirigir a una
+> pasarela que prohíba mostrarse en un iframe (`X-Frame-Options`). La única
+> forma de saberlo es hacer una suscripción real de $5.000 y cancelarla.
+
+Como alternativa para quien no quiera pagar con tarjeta, la misma página lleva
+un formulario propio que publica en `app/api/socios/route.ts`,
 con validación en servidor, trampa para robots y un freno básico por IP.
 
 Para que envíe correo hacen falta las variables de `.env.example`. Sin ellas

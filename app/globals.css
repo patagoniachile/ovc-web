@@ -1803,3 +1803,7 @@ p { text-wrap: pretty; }
   .socios { grid-template-columns: 1fr; }
   .payku iframe { min-height: 640px; }
 }
+
+.socios__razones--fila { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 36px; }
+.metodo__cta { margin-top: 18px; }
+.metodo { display: flex; flex-direction: column; align-items: flex-start; }

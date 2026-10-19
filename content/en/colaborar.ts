@@ -27,9 +27,9 @@ export const donarPagina: Encabezado & {
     {
       id: 'payku',
       icono: 'corazon',
-      titulo: 'Monthly card contribution',
-      texto: 'Through Payku, a Chilean payments company. You can cancel whenever you want.',
-      ventaja: 'It repeats itself every month, without you having to remember.',
+      titulo: 'Becoming a member',
+      texto: 'A monthly card contribution, from CLP 5,000. It is the same as being a member: handled on the members page.',
+      ventaja: 'It repeats every month and makes you part of the organisation.',
       comision: `${payku.comision} fee`,
     },
   ],
@@ -47,7 +47,11 @@ export const donarPagina: Encabezado & {
 export const sociosPagina: Encabezado & {
   intro: string
   porQue: { titulo: string; texto: string }[]
+  tituloSuscripcion: string
+  introSuscripcion: string
+  notaSuscripcion: string
   tituloFormulario: string
+  introFormulario: string
   campos: CampoFormulario[]
   nota: string
   gracias: string
@@ -72,7 +76,14 @@ export const sociosPagina: Encabezado & {
       texto: 'Members take part in the organisation’s decisions, which is community-run and cross-cutting by definition.',
     },
   ],
-  tituloFormulario: 'I want to become a member',
+  tituloSuscripcion: 'Subscribe with a card',
+  introSuscripcion:
+    'Choose your monthly contribution — CLP 5,000, 10,000, 15,000 or whatever amount you prefer — and fill in your details. The form belongs to Payku and opens right here; your card details go straight to them and never pass through this site.',
+  notaSuscripcion:
+    'Payku identifies you by the name, surname, email and phone you type into that form. You can cancel the subscription whenever you want.',
+  tituloFormulario: 'Would you rather we got in touch?',
+  introFormulario:
+    'If you do not want to subscribe by card right now, or have questions before deciding, leave us your details and we will write to you.',
   campos: [
     { nombre: 'nombre', etiqueta: 'Full name', tipo: 'text', requerido: true },
     { nombre: 'email', etiqueta: 'Email address', tipo: 'email', requerido: true },

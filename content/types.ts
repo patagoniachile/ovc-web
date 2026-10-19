@@ -390,7 +390,11 @@ export interface Contenido {
   sociosPagina: Encabezado & {
     intro: string
     porQue: { titulo: string; texto: string }[]
+    tituloSuscripcion: string
+    introSuscripcion: string
+    notaSuscripcion: string
     tituloFormulario: string
+    introFormulario: string
     campos: CampoFormulario[]
     nota: string
     gracias: string

@@ -55,8 +55,6 @@ export function FormularioSocio({ lang }: { lang: Lang }) {
 
   return (
     <form className="formulario" onSubmit={enviar} noValidate>
-      <h2 className="titulo--compacto">{sociosPagina.tituloFormulario}</h2>
-
       {sociosPagina.campos.map((campo) => {
         const id = `${prefijo}-${campo.nombre}`
         return (

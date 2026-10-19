@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Icon } from '@/components/ui/Icon'
-import { cuentaBancaria, getContenido, payku, type Lang } from '@/content'
+import { cuentaBancaria, getContenido, type Lang } from '@/content'
 
 /** Fila copiable de los datos bancarios. */
 function Dato({ etiqueta, valor, copiable = true, lang }: { etiqueta: string; valor: string; copiable?: boolean; lang: Lang }) {
@@ -35,7 +35,7 @@ function Dato({ etiqueta, valor, copiable = true, lang }: { etiqueta: string; va
 }
 
 export function Donar({ lang }: { lang: Lang }) {
-  const { donarPagina, textos } = getContenido(lang)
+  const { donarPagina } = getContenido(lang)
 
   return (
     <>
@@ -53,6 +53,11 @@ export function Donar({ lang }: { lang: Lang }) {
                 <p>{metodo.texto}</p>
                 <p className="metodo__ventaja">{metodo.ventaja}</p>
                 <span className="metodo__comision">{metodo.comision}</span>
+                {metodo.id === 'payku' && (
+                  <a className="btn btn--rio btn--sm metodo__cta" href={`/${lang}/socios#suscribirme`}>
+                    {donarPagina.tituloPayku}
+                  </a>
+                )}
               </article>
             ))}
           </div>
@@ -93,33 +98,6 @@ export function Donar({ lang }: { lang: Lang }) {
         </div>
       </section>
 
-      {/* Suscripción con tarjeta, embebida */}
-      <section className="seccion" id="payku">
-        <div className="contenedor">
-          <h2 className="titulo--compacto revelar">{donarPagina.tituloPayku}</h2>
-          <p className="payku__nota revelar">
-            <Icon name="check" />
-            {donarPagina.notaPayku}
-          </p>
-
-          <div className="payku revelar">
-            <iframe
-              src={payku.formularioSuscripcion}
-              title={donarPagina.tituloPayku}
-              loading="lazy"
-              // Payku necesita formularios y su propio JS; no le damos
-              // same-origin, así que no alcanza nada de este sitio.
-              sandbox="allow-scripts allow-forms allow-popups allow-top-navigation-by-user-activation"
-              referrerPolicy="no-referrer"
-            />
-          </div>
-
-          <p className="payku__respaldo revelar">
-            {textos.correoDirecto}{' '}
-            <a href={`mailto:${cuentaBancaria.email}`}>{cuentaBancaria.email}</a>
-          </p>
-        </div>
-      </section>
     </>
   )
 }

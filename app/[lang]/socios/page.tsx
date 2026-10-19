@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { FormularioSocio } from '@/components/sections/FormularioSocio'
+import { SuscripcionPayku } from '@/components/sections/SuscripcionPayku'
 import { esIdioma, getContenido, IDIOMAS } from '@/content'
 
 export function generateStaticParams() {
@@ -43,19 +44,36 @@ export default async function PaginaSocios({ params }: PageProps<'/[lang]/socios
 
       <section className="seccion">
         <div className="contenedor">
+          <p className="lead revelar">{sociosPagina.intro}</p>
+
+          <div className="socios__razones socios__razones--fila revelar">
+            {sociosPagina.porQue.map((razon) => (
+              <article key={razon.titulo}>
+                <h2>{razon.titulo}</h2>
+                <p>{razon.texto}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* La suscripción con tarjeta: esto es lo que inscribe como socio */}
+      <section className="seccion seccion--alt" id="suscribirme">
+        <div className="contenedor">
+          <h2 className="titulo--compacto revelar">{sociosPagina.tituloSuscripcion}</h2>
+          <p className="lead revelar">{sociosPagina.introSuscripcion}</p>
+          <SuscripcionPayku lang={lang} nota={sociosPagina.notaSuscripcion} />
+        </div>
+      </section>
+
+      {/* Alternativa para quien no quiere pagar con tarjeta ahora */}
+      <section className="seccion" id="contacto">
+        <div className="contenedor">
           <div className="socios">
             <div className="socios__texto revelar">
-              <p className="lead">{sociosPagina.intro}</p>
-              <div className="socios__razones">
-                {sociosPagina.porQue.map((razon) => (
-                  <article key={razon.titulo}>
-                    <h2>{razon.titulo}</h2>
-                    <p>{razon.texto}</p>
-                  </article>
-                ))}
-              </div>
+              <h2>{sociosPagina.tituloFormulario}</h2>
+              <p className="lead">{sociosPagina.introFormulario}</p>
             </div>
-
             <div className="revelar">
               <FormularioSocio lang={lang} />
             </div>

@@ -27,9 +27,9 @@ export const donarPagina: Encabezado & {
     {
       id: 'payku',
       icono: 'corazon',
-      titulo: 'Aporte mensual con tarjeta',
-      texto: 'A través de Payku, empresa chilena de pagos. Puedes cancelarlo cuando quieras.',
-      ventaja: 'Se repite solo cada mes, sin que tengas que acordarte.',
+      titulo: 'Hacerte socio o socia',
+      texto: 'Un aporte mensual con tarjeta, desde $5.000. Es lo mismo que ser socio: se gestiona en la página de socios.',
+      ventaja: 'Se repite solo cada mes y te hace parte de la corporación.',
       comision: `${payku.comision} de comisión`,
     },
   ],
@@ -47,7 +47,11 @@ export const donarPagina: Encabezado & {
 export const sociosPagina: Encabezado & {
   intro: string
   porQue: { titulo: string; texto: string }[]
+  tituloSuscripcion: string
+  introSuscripcion: string
+  notaSuscripcion: string
   tituloFormulario: string
+  introFormulario: string
   campos: CampoFormulario[]
   nota: string
   gracias: string
@@ -72,7 +76,14 @@ export const sociosPagina: Encabezado & {
       texto: 'Los socios participan de las decisiones de la corporación, que es comunitaria y transversal por definición.',
     },
   ],
-  tituloFormulario: 'Quiero ser socio o socia',
+  tituloSuscripcion: 'Suscríbete con tarjeta',
+  introSuscripcion:
+    'Elige tu aporte mensual —$5.000, $10.000, $15.000 o el monto que prefieras— y completa tus datos. El formulario es de Payku y se abre aquí mismo; tus datos de tarjeta viajan directo a ellos y nunca pasan por este sitio.',
+  notaSuscripcion:
+    'Payku te identifica con el nombre, apellido, correo y teléfono que escribas en ese formulario. Puedes cancelar la suscripción cuando quieras.',
+  tituloFormulario: '¿Prefieres que te contactemos?',
+  introFormulario:
+    'Si no quieres suscribirte con tarjeta ahora, o tienes dudas antes de decidir, déjanos tus datos y te escribimos.',
   campos: [
     { nombre: 'nombre', etiqueta: 'Nombre y apellido', tipo: 'text', requerido: true },
     { nombre: 'email', etiqueta: 'Correo electrónico', tipo: 'email', requerido: true },
