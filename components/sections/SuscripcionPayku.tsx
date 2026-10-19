@@ -5,8 +5,13 @@ import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { Icon } from '@/components/ui/Icon'
 import { correoOrganizacion, getContenido, imagenes, payku, type Lang } from '@/content'
 
-/** La página de Payku pinta su formulario después del evento `load`. */
-const GRACIA_TRAS_CARGAR = 700
+/**
+ * La página de Payku pinta su formulario con JavaScript DESPUÉS del evento
+ * `load`, y no hay forma de saber desde fuera cuándo terminó: es otro origen.
+ * Esta espera es el margen que le damos; si se ve el formulario a medio armar,
+ * hay que subirla, no bajarla.
+ */
+const GRACIA_TRAS_CARGAR = 1600
 /** A partir de aquí ofrecemos abrirlo fuera: algo va mal o va muy lento. */
 const ESPERA_ANTES_DE_OFRECER_SALIDA = 8000
 
@@ -89,6 +94,7 @@ export function SuscripcionPayku({ lang, nota, montos }: { lang: Lang; nota: str
         <div className="pasarela__lienzo">
           {montado && (
             <iframe
+              className="pasarela__marco"
               src={payku.formularioSuscripcion}
               title="Payku"
               onLoad={alCargar}

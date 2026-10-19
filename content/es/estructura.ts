@@ -320,7 +320,7 @@ export const viasDeAporte = {
       texto:
         'Un aporte mensual con tarjeta. Es lo que permite planificar más allá de la próxima temporada, y te hace parte de las decisiones de la corporación.',
       detalle: 'Desde $5.000 al mes',
-      cta: { label: 'Hacerme socio', href: '/es/socios' },
+      cta: { label: 'Hazte socio', href: '/es/socios' },
       destacada: true,
     },
     {

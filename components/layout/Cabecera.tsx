@@ -65,22 +65,17 @@ export function Cabecera({ lang }: { lang: Lang }) {
           </nav>
 
           <div className="cabecera__cta">
-            {/* Donar y hacerse socio son la misma intención —sostener el
-                valle— así que van como un control único en vez de dos botones
-                sueltos compitiendo con el de reservar. */}
-            <div className="apoyo">
-              <Link className="apoyo__accion cabecera__donar" href={`/${lang}/donar`}>
-                <Icon name="corazon" />
-                {textos.donar}
-              </Link>
-              <Link className="apoyo__accion apoyo__accion--socio" href={`/${lang}/socios`}>
-                {/* En pantallas angostas no cabe la etiqueta larga */}
-                <span className="etiqueta-larga">{textos.hazteSocio}</span>
-                <span className="etiqueta-corta">{textos.hazteSocioCorto}</span>
-              </Link>
-            </div>
-
-            <Boton href={`/${lang}/reservar`} variante="rio" pequeno>
+            {/* Las tres acciones del sitio. Donar y socio comparten forma
+                —verde y cuadrada— porque son la misma intención; reservar se
+                distingue por color, que es la acción del visitante. */}
+            <Boton className="btn--recto cabecera__donar" href={`/${lang}/donar`} variante="solido" pequeno>
+              {textos.donar}
+            </Boton>
+            <Boton className="btn--recto" href={`/${lang}/socios`} variante="solido" pequeno>
+              <span className="etiqueta-larga">{textos.hazteSocio}</span>
+              <span className="etiqueta-corta">{textos.hazteSocioCorto}</span>
+            </Boton>
+            <Boton className="btn--recto" href={`/${lang}/reservar`} variante="rio" pequeno>
               {textos.reservar}
             </Boton>
 
