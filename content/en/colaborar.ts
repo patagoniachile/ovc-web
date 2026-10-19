@@ -30,7 +30,7 @@ export const donarPagina: Encabezado & {
     titulo: 'Would you rather contribute every month?',
     texto:
       'Becoming a member is a monthly card contribution, from CLP 5,000. It is what gives the work continuity and makes you part of the organisation’s decisions.',
-    cta: { label: 'Become a member', href: '/en/socios' },
+    cta: { label: 'Become a member', href: '/en/como-ayudar#socios' },
   },
   tituloPayku: 'Monthly card contribution',
   notaPayku:

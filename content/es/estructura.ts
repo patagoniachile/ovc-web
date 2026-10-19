@@ -149,7 +149,7 @@ export const necesitamosTuAyuda = {
   titulo: 'Necesitamos tu ayuda',
   texto:
     'La mayor parte del valle son tierras privadas cuyos dueños permiten el acceso público. Mantener los senderos, el Centro de Visitantes y los programas de conservación cuesta trabajo y dinero, y no hay presupuesto público detrás.',
-  cta: { label: 'Donar', href: `${PORTADA}/donar` },
+  cta: { label: 'Donar', href: `${PORTADA}/como-ayudar#donaciones` },
 }
 
 /* ---------------------------------------------------------------------------
@@ -320,7 +320,7 @@ export const viasDeAporte = {
       texto:
         'Un aporte mensual con tarjeta. Es lo que permite planificar más allá de la próxima temporada, y te hace parte de las decisiones de la corporación.',
       detalle: 'Desde $5.000 al mes',
-      cta: { label: 'Hazte socio', href: '/es/socios' },
+      cta: { label: 'Hazte socio', href: '/es/como-ayudar#socios' },
       destacada: true,
     },
     {
@@ -330,7 +330,7 @@ export const viasDeAporte = {
       texto:
         'Una transferencia directa a la cuenta de la corporación, cuando quieras y por el monto que quieras. Llega íntegra: nadie se queda con una parte.',
       detalle: 'Sin comisión',
-      cta: { label: 'Ver datos para transferir', href: '/es/donar' },
+      cta: { label: 'Ver datos para transferir', href: '/es/como-ayudar#donaciones' },
     },
   ],
 }
@@ -374,4 +374,13 @@ export const destinoAportes = {
         'La basura baja del valle y se separa abajo, y las señales del sendero orientan y piden cuidados en los puntos donde más impacto había.',
     },
   ],
+}
+
+export const comoAyudarPagina = {
+  eyebrow: 'Cómo ayudar',
+  titulo: 'Sostener el valle',
+  bajada:
+    'El valle no tiene presupuesto público. Los senderos, el Centro de Visitantes y los programas de conservación se financian con donaciones y con las cuotas de quienes se hacen socios.',
+  intro:
+    'Dos formas de aportar: una transferencia cuando quieras, o un aporte mensual que da continuidad al trabajo.',
 }

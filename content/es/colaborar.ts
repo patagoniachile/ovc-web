@@ -30,7 +30,7 @@ export const donarPagina: Encabezado & {
     titulo: '¿Prefieres aportar todos los meses?',
     texto:
       'Hacerte socio es un aporte mensual con tarjeta, desde $5.000. Es lo que da continuidad al trabajo y te hace parte de las decisiones de la corporación.',
-    cta: { label: 'Hazte socio', href: '/es/socios' },
+    cta: { label: 'Hazte socio', href: '/es/como-ayudar#socios' },
   },
   tituloPayku: 'Aporte mensual con tarjeta',
   notaPayku:

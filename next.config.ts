@@ -9,7 +9,15 @@ const nextConfig: NextConfig = {
 
   // El sitio vive bajo /es y /en; la raíz manda al idioma por defecto.
   async redirects() {
-    return [{ source: '/', destination: '/es', permanent: false }]
+    const porIdioma = ['es', 'en'].flatMap((lang) => [
+      // Cada grupo del menú es ahora una página con sus secciones dentro.
+      { source: `/${lang}/donar`, destination: `/${lang}/como-ayudar#donaciones`, permanent: false },
+      { source: `/${lang}/socios`, destination: `/${lang}/como-ayudar#socios`, permanent: false },
+      { source: `/${lang}/reservar`, destination: `/${lang}/como-visitar#reservar`, permanent: false },
+      { source: `/${lang}/quienes-somos`, destination: `/${lang}/historia#nosotros`, permanent: false },
+    ])
+
+    return [{ source: '/', destination: '/es', permanent: false }, ...porIdioma]
   },
 
   // Para publicar en un hosting estático cualquiera (S3, GitHub Pages, el

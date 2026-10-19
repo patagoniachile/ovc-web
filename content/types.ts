@@ -457,6 +457,7 @@ export interface Contenido {
 
   /* ----- Página Cómo visitar ----- */
   comoVisitarPagina: Encabezado & { intro: string }
+  comoAyudarPagina: Encabezado & { intro: string }
   reservarPagina: Encabezado & { intro: string; tituloSectores: string; tituloDormir: string }
   comoLlegar: Encabezado & { medios: MedioDeTransporte[] }
   cuantoCuesta: Encabezado & { costos: Costo[]; nota: string }

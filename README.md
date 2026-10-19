@@ -40,16 +40,21 @@ La portada son cinco bloques y nada más: Hero · El Valle · Impacto · Futuro 
 Suscríbete. Es deliberadamente corta; el orden está comentado en
 `app/[lang]/page.tsx`.
 
-Todo lo demás cuelga del menú, una página por grupo:
+Todo lo demás cuelga del menú con una regla simple: **cada grupo es una
+página y cada entrada del submenú es una sección de esa página.** Si una
+entrada apunta a otra página, el menú se vuelve impredecible.
 
-| Página | Qué contiene |
-|---|---|
-| `/<idioma>/el-valle` | Dónde queda (mapa), flora y fauna, qué se puede hacer, el santuario, las amenazas |
-| `/<idioma>/reservar` | Por qué reservar, los pasos, los tres sectores y los quince alojamientos con su contacto |
-| `/<idioma>/como-visitar` | Cómo llegar, cuánto cuesta, día vs. varios días, normas, horarios |
-| `/<idioma>/quienes-somos` | Quién administra el valle, el directorio y los aliados |
-| `/<idioma>/sectores/<slug>` | Ficha de cada sector con sus alojamientos |
-| `/<idioma>/donar` · `/<idioma>/socios` | Las dos formas de aportar |
+| Grupo | Página | Secciones |
+|---|---|---|
+| El Valle | `/<idioma>/el-valle` | `#mapa` `#flora-fauna` `#que-hacer` `#santuario` `#amenazas` |
+| Cómo visitar | `/<idioma>/como-visitar` | `#como-llegar` `#cuanto-cuesta` `#reservar` `#dia-vs-semana` `#normas` `#horarios` `#dormir` |
+| Historia | `/<idioma>/historia` | `#historia` `#nosotros` `#mision` `#logros` `#proyectos` |
+| Cómo ayudar | `/<idioma>/como-ayudar` | `#donaciones` `#socios` |
+
+Aparte quedan las fichas de sector, `/<idioma>/sectores/<slug>`, a las que se
+llega desde "Dónde dormir".
+
+`npm run check-links` comprueba que cada ancla exista en su página.
 
 Al mover una sección de página hay que repasar quién la enlazaba:
 `npm run build && npm run check-links` falla si un ancla quedó apuntando a una

@@ -148,7 +148,7 @@ export const necesitamosTuAyuda = {
   titulo: 'We need your help',
   texto:
     'Most of the valley is private land whose owners allow public access. Maintaining the trails, the Visitor Centre and the conservation programmes takes work and money, and there is no public budget behind it.',
-  cta: { label: 'Donate', href: `${PORTADA}/donar` },
+  cta: { label: 'Donate', href: `${PORTADA}/como-ayudar#donaciones` },
 }
 
 /* ---------------------------------------------------------------------------
@@ -319,7 +319,7 @@ export const viasDeAporte = {
       texto:
         'A monthly card contribution. It is what makes planning beyond the next season possible, and it makes you part of the organisation’s decisions.',
       detalle: 'From CLP 5,000 a month',
-      cta: { label: 'Become a member', href: '/en/socios' },
+      cta: { label: 'Become a member', href: '/en/como-ayudar#socios' },
       destacada: true,
     },
     {
@@ -329,7 +329,7 @@ export const viasDeAporte = {
       texto:
         'A direct transfer to the organisation’s account, whenever you want and for whatever amount. It arrives whole: nobody takes a cut.',
       detalle: 'No fee',
-      cta: { label: 'See transfer details', href: '/en/donar' },
+      cta: { label: 'See transfer details', href: '/en/como-ayudar#donaciones' },
     },
   ],
 }
@@ -373,4 +373,13 @@ export const destinoAportes = {
         'Rubbish comes down from the valley and is sorted below, and the trail signs orient visitors and ask for care at the points where the impact was worst.',
     },
   ],
+}
+
+export const comoAyudarPagina = {
+  eyebrow: 'How to help',
+  titulo: 'Sustaining the valley',
+  bajada:
+    'The valley has no public budget. The trails, the Visitor Centre and the conservation programmes are funded by donations and by the fees of those who become members.',
+  intro:
+    'Two ways to contribute: a transfer whenever you want, or a monthly contribution that gives the work continuity.',
 }

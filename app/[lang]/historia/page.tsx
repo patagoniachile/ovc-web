@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { Aliados } from '@/components/sections/Aliados'
 import { Historia } from '@/components/sections/Historia'
+import { MisionVision } from '@/components/sections/Impacto'
+import { Nosotros } from '@/components/sections/Nosotros'
 import { Proyectos } from '@/components/sections/Proyectos'
-import { Boton } from '@/components/ui/Boton'
 import { esIdioma, getContenido, IDIOMAS } from '@/content'
 
 export function generateStaticParams() {
@@ -47,17 +49,15 @@ export default async function PaginaHistoria({ params }: PageProps<'/[lang]/hist
           <p className="eyebrow">{introHistoria.eyebrow}</p>
           <h1>{introHistoria.titulo}</h1>
           <p className="pagina-hero__intro">{introHistoria.bajada}</p>
-          <div className="pagina-hero__acciones">
-            <Boton href={`/${lang}/quienes-somos`} variante="borde">
-              {textos.quienesSomos}
-            </Boton>
-          </div>
         </div>
       </section>
 
       <Historia lang={lang} />
+      <Nosotros lang={lang} />
+      <MisionVision lang={lang} />
       <Proyectos lang={lang} modo="logros" />
       <Proyectos lang={lang} modo="desafios" />
+      <Aliados lang={lang} />
     </>
   )
 }

@@ -48,7 +48,7 @@ export function PorQueReservar({ lang }: { lang: Lang }) {
               <Boton href={externos.reservas} variante="claro">
                 {textos.irAReservas}
               </Boton>
-              <Boton href={`/${lang}/donar`} variante="fantasma">
+              <Boton href={`/${lang}/como-ayudar#donaciones`} variante="fantasma">
                 {textos.donar}
               </Boton>
             </div>

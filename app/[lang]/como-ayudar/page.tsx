@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { Donar } from '@/components/sections/Donar'
 import { FormularioSocio } from '@/components/sections/FormularioSocio'
 import { PlanesSocio } from '@/components/sections/PlanesSocio'
 import { SuscripcionPayku } from '@/components/sections/SuscripcionPayku'
@@ -10,25 +11,32 @@ export function generateStaticParams() {
   return IDIOMAS.map((lang) => ({ lang }))
 }
 
-export async function generateMetadata({ params }: PageProps<'/[lang]/socios'>): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps<'/[lang]/como-ayudar'>): Promise<Metadata> {
   const { lang } = await params
   if (!esIdioma(lang)) return {}
-  const { sociosPagina } = getContenido(lang)
+  const { comoAyudarPagina } = getContenido(lang)
   return {
-    title: sociosPagina.titulo,
-    description: sociosPagina.bajada,
+    title: comoAyudarPagina.titulo,
+    description: comoAyudarPagina.bajada,
     alternates: {
-      canonical: `/${lang}/socios`,
-      languages: Object.fromEntries(IDIOMAS.map((c) => [c, `/${c}/socios`])),
+      canonical: `/${lang}/como-ayudar`,
+      languages: Object.fromEntries(IDIOMAS.map((c) => [c, `/${c}/como-ayudar`])),
     },
   }
 }
 
-export default async function PaginaSocios({ params }: PageProps<'/[lang]/socios'>) {
+/**
+ * Cómo ayudar: las dos vías de aporte en una sola página.
+ *
+ * Cada grupo del menú es una página y cada entrada una sección suya. Antes
+ * este grupo apuntaba a un ancla de la portada y sus dos entradas a páginas
+ * distintas, que era justo lo confuso.
+ */
+export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/como-ayudar'>) {
   const { lang } = await params
   if (!esIdioma(lang)) notFound()
 
-  const { sociosPagina, textos } = getContenido(lang)
+  const { comoAyudarPagina, donarPagina, sociosPagina, textos } = getContenido(lang)
 
   return (
     <>
@@ -37,31 +45,34 @@ export default async function PaginaSocios({ params }: PageProps<'/[lang]/socios
           <nav className="miga miga--oscura" aria-label={textos.navegacionPrincipal}>
             <Link href={`/${lang}`}>{textos.volverAPortada}</Link>
           </nav>
-          <p className="eyebrow">{sociosPagina.eyebrow}</p>
-          <h1>{sociosPagina.titulo}</h1>
-          <p className="pagina-hero__intro">{sociosPagina.bajada}</p>
+          <p className="eyebrow">{comoAyudarPagina.eyebrow}</p>
+          <h1>{comoAyudarPagina.titulo}</h1>
+          <p className="pagina-hero__intro">{comoAyudarPagina.bajada}</p>
+          <p className="pagina-hero__intro">{comoAyudarPagina.intro}</p>
         </div>
       </section>
 
-      <section className="seccion">
+      {/* Donaciones */}
+      <section className="seccion seccion--alt" id="donaciones">
         <div className="contenedor">
-          <p className="lead revelar">{sociosPagina.intro}</p>
+          <p className="eyebrow revelar">{donarPagina.eyebrow}</p>
+          <h2 className="revelar">{donarPagina.titulo}</h2>
+        </div>
+      </section>
+      <Donar lang={lang} />
 
-          <div className="socios__razones socios__razones--fila revelar">
-            {sociosPagina.porQue.map((razon) => (
-              <article key={razon.titulo}>
-                <h2>{razon.titulo}</h2>
-                <p>{razon.texto}</p>
-              </article>
-            ))}
-          </div>
+      {/* Socios */}
+      <section className="seccion seccion--oscura" id="socios">
+        <div className="contenedor">
+          <p className="eyebrow eyebrow--claro revelar">{sociosPagina.eyebrow}</p>
+          <h2 className="revelar">{sociosPagina.titulo}</h2>
+          <p className="lead revelar">{sociosPagina.intro}</p>
         </div>
       </section>
 
       <PlanesSocio lang={lang} destino="#suscribirme" />
 
-      {/* La suscripción con tarjeta: esto es lo que inscribe como socio */}
-      <section className="seccion seccion--alt" id="suscribirme">
+      <section className="seccion" id="suscribirme">
         <div className="contenedor">
           <h2 className="titulo--compacto revelar">{sociosPagina.tituloSuscripcion}</h2>
           <p className="lead revelar">{sociosPagina.introSuscripcion}</p>
@@ -69,8 +80,7 @@ export default async function PaginaSocios({ params }: PageProps<'/[lang]/socios
         </div>
       </section>
 
-      {/* Alternativa para quien no quiere pagar con tarjeta ahora */}
-      <section className="seccion" id="contacto">
+      <section className="seccion seccion--alt" id="contacto">
         <div className="contenedor">
           <div className="socios">
             <div className="socios__texto revelar">

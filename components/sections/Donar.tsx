@@ -127,7 +127,7 @@ export function Donar({ lang }: { lang: Lang }) {
               <h2 className="titulo--compacto">{donarPagina.otraVia.titulo}</h2>
               <p>{donarPagina.otraVia.texto}</p>
             </div>
-            <Boton href={donarPagina.otraVia.cta.href} variante="rio">
+            <Boton href="#socios" variante="rio">
               {donarPagina.otraVia.cta.label}
             </Boton>
           </div>

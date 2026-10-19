@@ -22,7 +22,7 @@ export function Alojamientos({
   lang,
   sector,
   id,
-  // En el listado de /reservar manda el nombre del sector, porque se repiten
+  // En el listado de /como-visitar manda el nombre del sector, porque se repiten
   // tres bloques y era lo único que los distinguía. Dentro de la ficha de un
   // sector no hace falta: ya lo dice el h1 de la página.
   destacarSector = false,
