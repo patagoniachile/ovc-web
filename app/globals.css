@@ -41,8 +41,8 @@
   --borde: rgba(29, 43, 36, 0.12);
 
   /* Tipografía */
-  --display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --display: var(--fuente-display), "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: var(--fuente-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   /* Medidas */
   --ancho: 1200px;
@@ -251,7 +251,7 @@ p { text-wrap: pretty; }
 .barra-superior a:hover { color: var(--blanco); }
 .idioma { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
 .idioma a { padding: 2px 6px; border-radius: 4px; }
-.idioma a[aria-current="true"] { background: rgba(255, 255, 255, .16); color: var(--blanco); }
+.idioma [aria-current="true"] { padding: 2px 6px; border-radius: 4px; background: rgba(255, 255, 255, .16); color: var(--blanco); }
 .redes-min { display: flex; gap: 12px; }
 .redes-min svg { width: 17px; height: 17px; }
 
@@ -753,7 +753,7 @@ p { text-wrap: pretty; }
   font-weight: 700;
   font-size: .95rem;
 }
-.paso h4 { color: var(--blanco); font-family: var(--sans); font-weight: 650; font-size: .98rem; }
+.paso h3 { color: var(--blanco); font-family: var(--sans); font-weight: 650; font-size: .98rem; }
 .paso p { margin-top: 4px; font-size: .9rem; color: rgba(255, 255, 255, .72); }
 
 .reparto { margin-top: 30px; }
@@ -934,7 +934,7 @@ p { text-wrap: pretty; }
 .pie .marca__corporacion { color: var(--rio-300); }
 .pie .marca__nombre { color: var(--blanco); }
 .pie__sobre { margin-top: 18px; font-size: .92rem; max-width: 34ch; line-height: 1.65; }
-.pie h4 {
+.pie h2 {
   color: var(--blanco);
   font-family: var(--sans);
   font-size: .78rem;
@@ -1055,3 +1055,43 @@ p { text-wrap: pretty; }
   .cabecera, .barra-superior, .arriba, .menu-movil, .hero__media { display: none; }
   body { background: #fff; }
 }
+
+/* --------------------------------------------------------------------------
+   Utilidades que antes vivían como estilos en línea en el HTML
+   -------------------------------------------------------------------------- */
+.seccion-cabecera--angosta { max-width: 60ch; }
+.seccion-cabecera--compacta { margin-bottom: 24px; }
+.seccion-cabecera--compacta h2,
+.titulo--compacto { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.seccion-cabecera--centro.seccion-cabecera--compacta h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); }
+
+.historia__intro .lead { margin-top: 18px; }
+.nosotros__texto .lead { margin-top: 18px; }
+.santuario .lead { margin-top: 18px; }
+.santuario .lead + p { margin-top: 16px; }
+.reservar .lead { margin-top: 18px; }
+.santuario__enlace { margin-top: 24px; }
+
+.normas__lista { margin-top: 22px; }
+
+.reservar__parrafo { margin-top: 16px; color: rgba(255, 255, 255, .76); }
+.reparto__titulo { font-weight: 620; color: var(--blanco); font-size: .95rem; margin-bottom: 12px; }
+.reparto__barra span { width: 50%; }
+.reparto__punto--bosque { background: var(--bosque-500); }
+.reparto__punto--rio { background: var(--rio-500); }
+.reservar__acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.reservar__pasos .paso { align-items: flex-start; }
+
+.amenazas__cta { margin-top: 44px; }
+
+.proyecto--llamado {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--bosque-100);
+  border-color: transparent;
+}
+.proyecto--llamado p { color: var(--bosque-700); }
+.proyecto--llamado .btn { margin-top: 18px; align-self: flex-start; }
+
+.logros__bloque { margin-top: clamp(48px, 6vw, 80px); }
