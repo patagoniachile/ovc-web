@@ -18,6 +18,7 @@ export const imagenes = {
   senaletica: { src: '/img/senaletica.jpg', width: 1400, height: 933 },
   alerce: { src: '/img/alerce.jpg', width: 1200, height: 899 },
   logo: { src: '/img/logo-ovc.png', width: 93, height: 73 },
+  payku: { src: '/img/payku.png', width: 370, height: 141 },
   logoIso: { src: '/img/logo-ovc-iso.png', width: 638, height: 497 },
   mammut: { src: '/img/partner-mammut.png', width: 284, height: 177 },
   andesgear: { src: '/img/partner-andesgear.png', width: 301, height: 201 },

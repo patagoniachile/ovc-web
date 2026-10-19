@@ -250,6 +250,7 @@ export interface Textos {
   graciasPorSuscribirte: (nombre: string) => string
   repartoDonacion: string
   directorioAmpliado: string
+  pagoSeguroPor: string
   abrirFormulario: string
   cargandoFormulario: string
   formularioTarda: string

@@ -1,15 +1,16 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { Icon } from '@/components/ui/Icon'
-import { correoOrganizacion, getContenido, payku, type Lang } from '@/content'
+import { correoOrganizacion, getContenido, imagenes, payku, type Lang } from '@/content'
 
 /** La página de Payku pinta su formulario después del evento `load`. */
-const GRACIA_TRAS_CARGAR = 900
+const GRACIA_TRAS_CARGAR = 700
 /** A partir de aquí ofrecemos abrirlo fuera: algo va mal o va muy lento. */
 const ESPERA_ANTES_DE_OFRECER_SALIDA = 8000
 
-type Estado = 'inactivo' | 'cargando' | 'lento' | 'listo'
+type Estado = 'cargando' | 'lento' | 'listo'
 
 /**
  * Formulario de suscripción mensual alojado por Payku.
@@ -19,12 +20,18 @@ type Estado = 'inactivo' | 'cargando' | 'lento' | 'listo'
  * identifica a quien se suscribe por los datos que la persona escribe dentro;
  * desde este sitio no se le envía nada.
  *
- * El marco NO se carga al entrar, sino al pulsar el botón. La razón es
- * concreta y medida: el evento `load` del iframe dispara a los ~440 ms, pero
- * la página de Payku arma su formulario con JavaScript después de ese evento.
- * Cargándolo de entrada, el visitante veía un recuadro blanco de 720px durante
- * un rato, y ocultar la capa de espera al recibir `load` lo destapaba antes de
- * tiempo. Esperar "un poquito más" era adivinar; así no hay hueco que tapar.
+ * Tres cosas aprendidas a la mala, por si alguien quiere "simplificar":
+ *
+ * 1. El marco carga de entrada, no al pulsar un botón. Cargarlo bajo demanda
+ *    quitaba el hueco inicial pero trasladaba la espera al clic, que se siente
+ *    peor porque el visitante ya decidió.
+ * 2. Mientras carga se muestra un esqueleto con la forma del formulario. El
+ *    evento `load` dispara a los ~440 ms pero Payku arma su formulario con JS
+ *    *después*, así que destapar al recibir `load` deja ver un marco vacío: de
+ *    ahí la gracia corta.
+ * 3. El marco se monta recién tras hidratar. Si viniera en el HTML del
+ *    servidor podría cargar antes de que React hidratara, el `load` se
+ *    perdería y el esqueleto se quedaría tapando un formulario que ya sirve.
  *
  * Sobre el sandbox: lleva `allow-same-origin` a propósito. Sin él, el
  * documento recibe un origen opaco y pierde cookies y almacenamiento, que es
@@ -34,22 +41,24 @@ type Estado = 'inactivo' | 'cargando' | 'lento' | 'listo'
  */
 export function SuscripcionPayku({ lang, nota, montos }: { lang: Lang; nota: string; montos: string[] }) {
   const { textos } = getContenido(lang)
-  const [estado, setEstado] = useState<Estado>('inactivo')
+  const [estado, setEstado] = useState<Estado>('cargando')
   const temporizadores = useRef<number[]>([])
+
+  const montado = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  )
 
   useEffect(() => {
     const pendientes = temporizadores.current
-    return () => pendientes.forEach(window.clearTimeout)
-  }, [])
-
-  const abrir = () => {
-    setEstado('cargando')
-    temporizadores.current.push(
+    pendientes.push(
       window.setTimeout(() => {
         setEstado((actual) => (actual === 'cargando' ? 'lento' : actual))
       }, ESPERA_ANTES_DE_OFRECER_SALIDA),
     )
-  }
+    return () => pendientes.forEach(window.clearTimeout)
+  }, [])
 
   const alCargar = () => {
     // El documento ya llegó, pero el formulario se dibuja un instante después.
@@ -62,28 +71,23 @@ export function SuscripcionPayku({ lang, nota, montos }: { lang: Lang; nota: str
       <link rel="preconnect" href="https://suscripciones.payku.cl" />
       <link rel="dns-prefetch" href="https://suscripciones.payku.cl" />
 
-      <p className="payku__nota revelar">
-        <Icon name="check" />
-        {nota}
-      </p>
+      <div className="pasarela revelar" data-estado={estado}>
+        <header className="pasarela__barra">
+          <span className="pasarela__sello">
+            <Icon name="check" />
+            {textos.pagoSeguroPor}
+          </span>
+          <Image
+            src={imagenes.payku.src}
+            alt="Payku"
+            width={imagenes.payku.width}
+            height={imagenes.payku.height}
+            className="pasarela__logo"
+          />
+        </header>
 
-      <div className="payku revelar" data-estado={estado}>
-        {estado === 'inactivo' ? (
-          <div className="payku__portada">
-            <ul className="payku__montos">
-              {montos.map((monto) => (
-                <li key={monto}>{monto}</li>
-              ))}
-            </ul>
-            <button type="button" className="btn btn--rio" onClick={abrir}>
-              {textos.abrirFormulario}
-            </button>
-            <a className="payku__fuera" href={payku.formularioSuscripcion} target="_blank" rel="noopener noreferrer">
-              {textos.abrirEnPestana}
-            </a>
-          </div>
-        ) : (
-          <>
+        <div className="pasarela__lienzo">
+          {montado && (
             <iframe
               src={payku.formularioSuscripcion}
               title="Payku"
@@ -91,20 +95,38 @@ export function SuscripcionPayku({ lang, nota, montos }: { lang: Lang; nota: str
               sandbox="allow-scripts allow-forms allow-popups allow-same-origin allow-top-navigation-by-user-activation"
               referrerPolicy="no-referrer-when-downgrade"
             />
+          )}
 
-            {estado !== 'listo' && (
-              <div className="payku__espera" aria-live="polite">
-                <span className="payku__girador" aria-hidden="true" />
-                <p>{estado === 'lento' ? textos.formularioTarda : textos.cargandoFormulario}</p>
-                {estado === 'lento' && (
-                  <a className="btn btn--rio btn--sm" href={payku.formularioSuscripcion} target="_blank" rel="noopener noreferrer">
-                    {textos.abrirEnPestana}
-                  </a>
-                )}
-              </div>
-            )}
-          </>
-        )}
+          {estado !== 'listo' && (
+            <div className="esqueleto" aria-live="polite">
+              {/* Imita la forma del formulario para que la espera no sea un vacío */}
+              <ul className="esqueleto__montos">
+                {montos.map((monto) => (
+                  <li key={monto}>{monto}</li>
+                ))}
+              </ul>
+              <span className="esqueleto__barra" />
+              <span className="esqueleto__barra" />
+              <span className="esqueleto__barra" />
+              <span className="esqueleto__barra" />
+              <span className="esqueleto__boton" />
+
+              <p className="esqueleto__aviso">
+                {estado === 'lento' ? textos.formularioTarda : textos.cargandoFormulario}
+              </p>
+              {estado === 'lento' && (
+                <a className="btn btn--rio btn--sm" href={payku.formularioSuscripcion} target="_blank" rel="noopener noreferrer">
+                  {textos.abrirEnPestana}
+                </a>
+              )}
+            </div>
+          )}
+        </div>
+
+        <footer className="pasarela__pie">
+          <Icon name="alerta" />
+          {nota}
+        </footer>
       </div>
 
       <p className="payku__respaldo revelar">

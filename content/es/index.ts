@@ -55,6 +55,7 @@ export const contenido: Contenido = {
     graciasPorSuscribirte: (nombre) => `¡Gracias, ${nombre}! Te escribiremos pronto.`,
     repartoDonacion: 'Cómo se reparte tu donación',
     directorioAmpliado: 'Integrantes del directorio ampliado',
+    pagoSeguroPor: 'Pago seguro procesado por',
     abrirFormulario: 'Abrir el formulario de suscripción',
     cargandoFormulario: 'Cargando el formulario de Payku…',
     formularioTarda: 'El formulario está tardando más de lo normal.',
