@@ -1552,27 +1552,84 @@ p { text-wrap: pretty; }
   margin-bottom: 16px;
 }
 .transporte__icono svg { width: 22px; height: 22px; }
-.transporte p { margin-top: 10px; font-size: .94rem; color: var(--texto-suave); }
+.transporte > p { margin-top: 10px; font-size: .94rem; color: var(--texto-suave); }
 .transporte__contactos { margin-top: 16px; display: grid; gap: 7px; }
 .transporte__contactos a { display: inline-flex; align-items: center; gap: 9px; font-size: .88rem; font-weight: 560; color: var(--bosque-700); }
 .transporte__contactos a:hover { color: var(--rio-600); text-decoration: underline; text-underline-offset: 3px; }
 .transporte__contactos svg { width: 15px; height: 15px; flex: none; color: var(--granito-500); }
 
-.costos { display: grid; gap: 2px; }
-.costo { padding: 20px 0; border-bottom: 1px dashed var(--borde); }
-.costo__cabecera { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; }
-.costo h3 { font-size: 1.1rem; }
+/* Franja de aviso y tres claves, arriba de Cómo visitar */
+.aviso-franja {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 20px;
+  background: #f2b04a;
+  color: #1a1204;
+  font-size: .9rem;
+  font-weight: 620;
+  text-align: center;
+}
+.aviso-franja svg { width: 17px; height: 17px; flex: none; }
+
+.pagina-hero--con-claves { padding-bottom: clamp(140px, 16vw, 170px); }
+.claves { margin-top: clamp(-110px, -12vw, -90px); position: relative; }
+.claves__caja {
+  padding: clamp(22px, 3.5vw, 36px);
+  background: var(--bg-alt);
+  border: 2px solid #f2b04a;
+  border-radius: calc(var(--radio) + 6px);
+  box-shadow: 0 18px 40px rgba(12, 31, 23, .22);
+}
+.claves__titulo { display: flex; align-items: center; gap: 10px; font-size: clamp(1.3rem, 2.4vw, 1.65rem); }
+.claves__titulo svg { width: 22px; height: 22px; flex: none; color: var(--fuego-600); }
+.claves__lista { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px; }
+.clave { padding: 22px; background: var(--bg); border: 1px solid var(--borde); border-radius: var(--radio); }
+.clave__num {
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--bosque-900);
+  color: #f2b04a;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.clave h3 { margin-top: 14px; font-family: var(--sans); font-size: 1.08rem; font-weight: 650; }
+.clave p { margin-top: 6px; font-size: .93rem; color: var(--texto-suave); }
+.claves__acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+/* Cómo llegar: auto al lado, bus destacado y más ancho */
+.transportes--dos { grid-template-columns: 1fr 1.25fr; align-items: start; }
+.transporte--destacado { border: 2px solid #f2b04a; }
+.transporte__advertencia { margin-top: 16px; padding: 15px 17px; border-radius: var(--radio-sm); background: #fff3dc; }
+.transporte__advertencia-titulo { display: flex; align-items: center; gap: 8px; font-weight: 650; color: #6b3a00; }
+.transporte__advertencia-titulo svg { width: 16px; height: 16px; flex: none; }
+.transporte__advertencia ul { margin-top: 8px; padding-left: 20px; list-style: disc; display: grid; gap: 4px; font-size: .92rem; color: #3b2a10; }
+.transporte__subtitulo { margin-top: 20px; font-family: var(--sans); font-size: .95rem; font-weight: 650; }
+.transporte__pasos { margin-top: 8px; padding-left: 20px; list-style: decimal; display: grid; gap: 5px; font-size: .93rem; color: var(--texto-suave); }
+.transporte__subtitulo + .transporte__contactos { margin-top: 10px; }
+
+/* Cuánto cuesta: una tarjeta por partida */
+.costos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.costo { display: flex; flex-direction: column; gap: 6px; padding: 24px; background: var(--bg); border: 1px solid var(--borde); border-radius: var(--radio); }
+.costo h3 { font-family: var(--sans); font-size: 1rem; font-weight: 650; }
 .costo__valor {
-  flex: none;
-  padding: 5px 14px;
-  border-radius: 999px;
-  background: var(--bosque-100);
+  font-family: var(--display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.15;
   color: var(--bosque-800);
-  font-size: .88rem;
-  font-weight: 650;
   font-variant-numeric: tabular-nums;
 }
-.costo p { margin-top: 8px; font-size: .93rem; color: var(--texto-suave); max-width: 72ch; }
+.costo__valor small { margin-left: 6px; font-family: var(--sans); font-size: .85rem; font-weight: 500; color: var(--texto-suave); }
+.costo p:not(.costo__valor) { font-size: .93rem; color: var(--texto-suave); }
+.costo--destacado { background: var(--bosque-900); border-color: var(--bosque-900); }
+.costo--destacado h3 { color: var(--blanco); }
+.costo--destacado .costo__valor { color: #f2b04a; }
+.costo--destacado p:not(.costo__valor) { color: rgba(255, 255, 255, .78); }
+.costos__reparto { padding: 22px 26px; background: var(--bg); border: 1px solid var(--borde); border-radius: var(--radio); }
 .costos__nota {
   display: flex;
   align-items: flex-start;
@@ -1624,6 +1681,28 @@ p { text-wrap: pretty; }
   color: var(--rio-300);
 }
 .horarios__detalle { color: rgba(255, 255, 255, .82); font-size: .94rem; }
+
+/* Horarios como tabla: qué quieres hacer, a qué hora entras, con qué condición */
+.horarios__grilla { border: 1px solid rgba(255, 255, 255, .14); border-radius: var(--radio); overflow: hidden; }
+.horarios__grilla table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+.horarios__grilla thead th {
+  padding: 13px 18px;
+  background: rgba(255, 255, 255, .08);
+  color: var(--blanco);
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-align: left;
+}
+.horarios__grilla tbody tr { border-top: 1px solid rgba(255, 255, 255, .14); }
+.horarios__grilla tbody th,
+.horarios__grilla td { padding: 15px 18px; text-align: left; vertical-align: top; color: rgba(255, 255, 255, .82); }
+.horarios__grilla tbody th { color: var(--blanco); font-weight: 620; }
+.horarios__grilla .horarios__franja { display: block; min-width: 0; }
+.horarios__ingreso-detalle { display: block; margin-top: 2px; font-size: .84rem; color: rgba(255, 255, 255, .66); }
+.horarios__fila--destacada { background: rgba(242, 176, 74, .12); }
+.horarios__fila--destacada th { box-shadow: inset 3px 0 0 #f2b04a; }
 .horarios__lado h3 { color: var(--blanco); font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .horarios__contactos { margin-top: 14px; display: grid; gap: 10px; }
 .horarios__contactos a { display: inline-flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, .88); font-size: .93rem; word-break: break-word; }
@@ -1644,9 +1723,34 @@ p { text-wrap: pretty; }
 }
 .horarios__nota svg { width: 17px; height: 17px; flex: none; margin-top: 2px; color: #ffb183; }
 
+@media (max-width: 1080px) {
+  .costos { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 860px) {
   .mision, .modalidades, .horarios { grid-template-columns: 1fr; }
   .logro-destacado { grid-template-columns: 1fr; }
+  .transportes--dos, .claves__lista { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .costos { grid-template-columns: 1fr; }
+  .claves__acciones .btn { width: 100%; }
+
+  /* La tabla de horarios pasa a una ficha por fila, con la columna como etiqueta */
+  .horarios__grilla thead { display: none; }
+  .horarios__grilla tbody tr { display: grid; gap: 8px; padding: 16px 18px; }
+  .horarios__grilla tbody th,
+  .horarios__grilla td { padding: 0; }
+  .horarios__grilla td::before {
+    content: attr(data-columna);
+    display: block;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .5);
+  }
 }
 
 /* Resumen del hero: qué es, dónde está y qué se hace */

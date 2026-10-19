@@ -1,4 +1,5 @@
 import { Icon } from '@/components/ui/Icon'
+import { RichText } from '@/components/ui/RichText'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getContenido, type IconName, type Lang, type TipoContacto } from '@/content'
 
@@ -19,14 +20,43 @@ export function ComoLlegar({ lang }: { lang: Lang }) {
       <div className="contenedor">
         <SectionHeader className="revelar" eyebrow={comoLlegar.eyebrow} titulo={comoLlegar.titulo} bajada={comoLlegar.bajada} />
 
-        <div className="transportes">
+        <div className={comoLlegar.medios.length === 2 ? 'transportes transportes--dos' : 'transportes'}>
           {comoLlegar.medios.map((medio) => (
-            <article className="transporte revelar" key={medio.titulo}>
+            <article className={medio.destacado ? 'transporte transporte--destacado revelar' : 'transporte revelar'} key={medio.titulo}>
               <div className="transporte__icono">
                 <Icon name={medio.icono} />
               </div>
               <h3>{medio.titulo}</h3>
-              <p>{medio.texto}</p>
+              {medio.texto && <p>{medio.texto}</p>}
+
+              {medio.advertencia && (
+                <div className="transporte__advertencia">
+                  <p className="transporte__advertencia-titulo">
+                    <Icon name="alerta" />
+                    {medio.advertencia.titulo}
+                  </p>
+                  <ul>
+                    {medio.advertencia.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {medio.ejemplo && (
+                <>
+                  <h4 className="transporte__subtitulo">{medio.ejemplo.titulo}</h4>
+                  <ol className="transporte__pasos">
+                    {medio.ejemplo.pasos.map((paso) => (
+                      <li key={paso}>
+                        <RichText>{paso}</RichText>
+                      </li>
+                    ))}
+                  </ol>
+                </>
+              )}
+
+              {medio.tituloContactos && <h4 className="transporte__subtitulo">{medio.tituloContactos}</h4>}
               {medio.contactos && (
                 <ul className="transporte__contactos">
                   {medio.contactos.map((c) => (
@@ -57,15 +87,36 @@ export function CuantoCuesta({ lang }: { lang: Lang }) {
 
         <ul className="costos">
           {cuantoCuesta.costos.map((costo) => (
-            <li className="costo revelar" key={costo.concepto}>
-              <div className="costo__cabecera">
-                <h3>{costo.concepto}</h3>
-                <span className="costo__valor">{costo.valor}</span>
-              </div>
+            <li className={costo.destacado ? 'costo costo--destacado revelar' : 'costo revelar'} key={costo.concepto}>
+              <h3>{costo.concepto}</h3>
+              <p className="costo__valor">
+                {costo.valor}
+                {costo.unidad && <small>{costo.unidad}</small>}
+              </p>
               <p>{costo.detalle}</p>
             </li>
           ))}
         </ul>
+
+        {cuantoCuesta.reparto && (
+          <div className="costos__reparto reparto reparto--claro revelar">
+            <p className="reparto__titulo">{cuantoCuesta.reparto.titulo}</p>
+            <div className="reparto__barra" role="img" aria-label={cuantoCuesta.reparto.etiquetaGrafico}>
+              <span />
+              <span />
+            </div>
+            <ul className="reparto__leyenda">
+              <li>
+                <span className="reparto__punto reparto__punto--bosque" />
+                {cuantoCuesta.reparto.conservacion}
+              </li>
+              <li>
+                <span className="reparto__punto reparto__punto--rio" />
+                {cuantoCuesta.reparto.infraestructura}
+              </li>
+            </ul>
+          </div>
+        )}
 
         <p className="costos__nota revelar">
           <Icon name="alerta" />
@@ -113,6 +164,7 @@ export function DiaVsSemana({ lang }: { lang: Lang }) {
 
 export function HorariosYContacto({ lang }: { lang: Lang }) {
   const { horariosYContacto, textos } = getContenido(lang)
+  const { tabla } = horariosYContacto
 
   return (
     <section className="seccion seccion--oscura" id="horarios">
@@ -126,14 +178,40 @@ export function HorariosYContacto({ lang }: { lang: Lang }) {
         />
 
         <div className="horarios">
-          <ul className="horarios__tabla revelar">
-            {horariosYContacto.horarios.map((h) => (
-              <li key={h.franja + h.detalle}>
-                <span className="horarios__franja">{h.franja}</span>
-                <span className="horarios__detalle">{h.detalle}</span>
-              </li>
-            ))}
-          </ul>
+          {tabla ? (
+            <div className="horarios__grilla revelar">
+              <table>
+                <thead>
+                  <tr>
+                    {tabla.columnas.map((columna) => (
+                      <th scope="col" key={columna}>{columna}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {tabla.filas.map((fila) => (
+                    <tr className={fila.destacada ? 'horarios__fila--destacada' : undefined} key={fila.accion}>
+                      <th scope="row" data-columna={tabla.columnas[0]}>{fila.accion}</th>
+                      <td data-columna={tabla.columnas[1]}>
+                        <span className="horarios__franja">{fila.ingreso}</span>
+                        {fila.ingresoDetalle && <span className="horarios__ingreso-detalle">{fila.ingresoDetalle}</span>}
+                      </td>
+                      <td data-columna={tabla.columnas[2]}>{fila.condicion}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <ul className="horarios__tabla revelar">
+              {horariosYContacto.horarios.map((h) => (
+                <li key={h.franja + h.detalle}>
+                  <span className="horarios__franja">{h.franja}</span>
+                  <span className="horarios__detalle">{h.detalle}</span>
+                </li>
+              ))}
+            </ul>
+          )}
 
           <div className="horarios__lado revelar">
             <h3>{textos.contacto}</h3>

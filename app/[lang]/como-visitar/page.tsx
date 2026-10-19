@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
+import { RichText } from '@/components/ui/RichText'
 import {
   ComoLlegar, CuantoCuesta, DiaVsSemana, HorariosYContacto,
 } from '@/components/sections/ComoVisitarBloques'
@@ -42,10 +43,18 @@ export default async function PaginaComoVisitar({ params }: PageProps<'/[lang]/c
   if (!esIdioma(lang)) notFound()
 
   const { comoLlegar, comoVisitarPagina, sectoresDetalle, textos } = getContenido(lang)
+  const { aviso, claves } = comoVisitarPagina
 
   return (
     <>
-      <section className="pagina-hero">
+      {aviso && (
+        <p className="aviso-franja">
+          <Icon name="alerta" />
+          {aviso}
+        </p>
+      )}
+
+      <section className={claves ? 'pagina-hero pagina-hero--con-claves' : 'pagina-hero'}>
         <div className="contenedor">
           <nav className="miga miga--oscura" aria-label={textos.navegacionPrincipal}>
             <Link href={`/${lang}`}>{textos.volverAPortada}</Link>
@@ -55,17 +64,55 @@ export default async function PaginaComoVisitar({ params }: PageProps<'/[lang]/c
           <h1>{comoVisitarPagina.titulo}</h1>
           <p className="pagina-hero__intro">{comoVisitarPagina.intro}</p>
 
-          <div className="pagina-hero__acciones">
-            <Boton href="#reservar" variante="rio">
-              {textos.reservarEstadia}
-              <Icon name="flecha" />
-            </Boton>
-            <Boton href="#como-llegar" variante="borde">
-              {comoLlegar.eyebrow}
-            </Boton>
-          </div>
+          {!claves && (
+            <div className="pagina-hero__acciones">
+              <Boton href="#reservar" variante="rio">
+                {textos.reservarEstadia}
+                <Icon name="flecha" />
+              </Boton>
+              <Boton href="#como-llegar" variante="borde">
+                {comoLlegar.eyebrow}
+              </Boton>
+            </div>
+          )}
         </div>
       </section>
+
+      {/* Lo que más falla al planificar, antes que cualquier otra cosa */}
+      {claves && (
+        <section className="claves" aria-labelledby="claves-titulo">
+          <div className="contenedor">
+            <div className="claves__caja">
+              <h2 className="claves__titulo" id="claves-titulo">
+                <Icon name="alerta" />
+                {claves.titulo}
+              </h2>
+
+              <ol className="claves__lista">
+                {claves.items.map((item, i) => (
+                  <li className="clave" key={item.titulo}>
+                    <span className="clave__num" aria-hidden="true">{i + 1}</span>
+                    <h3>{item.titulo}</h3>
+                    <p>
+                      <RichText>{item.texto}</RichText>
+                    </p>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="claves__acciones">
+                <Boton href="#reservar" variante="solido">
+                  {claves.ctaReservar}
+                  <Icon name="flecha" />
+                </Boton>
+                <Boton href="#como-llegar" variante="borde">
+                  {claves.ctaLlegar}
+                </Boton>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <ComoLlegar lang={lang} />
       <CuantoCuesta lang={lang} />

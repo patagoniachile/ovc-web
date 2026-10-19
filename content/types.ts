@@ -190,7 +190,14 @@ export interface Modalidad {
 export interface MedioDeTransporte {
   icono: IconName
   titulo: string
-  texto: string
+  texto?: string
+  /** Se ve con borde de aviso: es el medio que más dudas trae. */
+  destacado?: boolean
+  /** Lo que hay que tener resuelto antes de usar este medio. */
+  advertencia?: { titulo: string; items: string[] }
+  /** Un ejemplo de viaje paso a paso. Admite `**negrita**`. */
+  ejemplo?: { titulo: string; pasos: string[] }
+  tituloContactos?: string
   contactos?: Contacto[]
 }
 
@@ -198,7 +205,21 @@ export interface MedioDeTransporte {
 export interface Costo {
   concepto: string
   valor: string
+  /** Letra chica junto al valor, como "por día y caballo". */
+  unidad?: string
   detalle: string
+  /** Se pinta en oscuro, para que lo gratuito se vea primero. */
+  destacado?: boolean
+}
+
+/** Un horario de ingreso, leído como fila de tabla. */
+export interface FilaHorario {
+  accion: string
+  ingreso: string
+  /** Debajo del ingreso, más chico. */
+  ingresoDetalle?: string
+  condicion: string
+  destacada?: boolean
 }
 
 /** Una vía para aportar dinero. */
@@ -468,14 +489,26 @@ export interface Contenido {
   }
 
   /* ----- Página Cómo visitar ----- */
-  comoVisitarPagina: Encabezado & { intro: string }
+  comoVisitarPagina: Encabezado & {
+    intro: string
+    /** Franja de aviso sobre el hero. */
+    aviso?: string
+    /** Las tres cosas que hay que saber antes de planificar. */
+    claves?: { titulo: string; items: { titulo: string; texto: string }[]; ctaReservar: string; ctaLlegar: string }
+  }
   comoAyudarPagina: Encabezado & { intro: string }
   reservarPagina: Encabezado & { intro: string; tituloSectores: string; tituloDormir: string }
   comoLlegar: Encabezado & { medios: MedioDeTransporte[] }
-  cuantoCuesta: Encabezado & { costos: Costo[]; nota: string }
+  cuantoCuesta: Encabezado & {
+    costos: Costo[]
+    nota: string
+    reparto?: { titulo: string; conservacion: string; infraestructura: string; etiquetaGrafico: string }
+  }
   diaVsSemana: Encabezado & { modalidades: Modalidad[] }
   horariosYContacto: Encabezado & {
     horarios: { franja: string; detalle: string }[]
+    /** Si está, reemplaza la lista de horarios por una tabla. */
+    tabla?: { columnas: string[]; filas: FilaHorario[] }
     contactos: Contacto[]
     nota: string
   }
