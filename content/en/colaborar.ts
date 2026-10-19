@@ -1,4 +1,4 @@
-import type { CampoFormulario, Encabezado, MetodoDonacion } from '../types'
+import type { CampoFormulario, Enlace, Encabezado, MetodoDonacion } from '../types'
 
 export const donarPagina: Encabezado & {
   intro: string
@@ -159,4 +159,36 @@ export const sociosPagina: Encabezado & {
   ],
   nota: 'We use your details only to contact you about membership. We do not share them with anyone.',
   gracias: 'We have your details. We will write to you soon.',
+}
+
+export const resultadoPago: {
+  gracias: Encabezado & { pasos: string[]; volver: Enlace; otra: Enlace }
+  problema: Encabezado & { tranquiliza: string; motivos: string[]; reintentar: Enlace; transferir: Enlace }
+} = {
+  gracias: {
+    eyebrow: 'Done',
+    titulo: 'Thank you for becoming a member',
+    bajada:
+      'Your contribution is under way. From today you are sustaining the work in the valley: the trails, the signage, the Visitor Centre and the conservation programmes.',
+    pasos: [
+      'Payku sends you an email with the receipt and the details of your plan. If it does not arrive within a few minutes, check your spam folder.',
+      'We will write to you from the organisation to welcome you and explain how to take part in decisions.',
+      'You can cancel the subscription whenever you want, by writing to us or from that same Payku email.',
+    ],
+    volver: { label: 'Back to the home page', href: '/en' },
+    otra: { label: 'Get to know the valley', href: '/en/el-valle' },
+  },
+  problema: {
+    eyebrow: 'Not completed',
+    titulo: 'The payment could not be processed',
+    bajada: 'The subscription was not registered, so you can try again whenever you want.',
+    tranquiliza: 'You have not been charged.',
+    motivos: [
+      'The card does not have recurring charges enabled. This is the most common reason, and a call to the bank turns it on.',
+      'There were not enough funds, or the card has expired.',
+      'The bank blocked the charge for security, because it did not recognise the merchant.',
+    ],
+    reintentar: { label: 'Try again', href: '/en/como-ayudar#planes' },
+    transferir: { label: 'Contribute by bank transfer', href: '/en/como-ayudar#transferencia' },
+  },
 }

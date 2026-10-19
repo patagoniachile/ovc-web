@@ -461,6 +461,12 @@ export interface Contenido {
     gracias: string
   }
 
+  /** Las dos páginas a las que Payku devuelve a la persona tras pagar. */
+  resultadoPago: {
+    gracias: Encabezado & { pasos: string[]; volver: Enlace; otra: Enlace }
+    problema: Encabezado & { tranquiliza: string; motivos: string[]; reintentar: Enlace; transferir: Enlace }
+  }
+
   /* ----- Página Cómo visitar ----- */
   comoVisitarPagina: Encabezado & { intro: string }
   comoAyudarPagina: Encabezado & { intro: string }

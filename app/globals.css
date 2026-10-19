@@ -1827,6 +1827,101 @@ p { text-wrap: pretty; }
 .payku[data-estado='listo'] .payku__espera { display: none; }
 
 /* --------------------------------------------------------------------------
+   Vuelta desde Payku
+
+   Dos páginas a las que se llega una sola vez, justo después de escribir los
+   datos de una tarjeta. No compiten con nada: una columna estrecha, centrada,
+   y lo que importa arriba. En la de error eso es «no se te cobró nada», que
+   es lo que la persona está temiendo cuando aterriza.
+   -------------------------------------------------------------------------- */
+.resultado { padding: clamp(70px, 11vw, 130px) 0; }
+.resultado .contenedor { max-width: 640px; text-align: center; }
+.resultado h1 { margin-top: 8px; font-size: clamp(1.9rem, 4.4vw, 2.8rem); }
+.resultado__bajada {
+  margin-top: 16px;
+  font-size: clamp(1rem, 1.7vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.resultado__marca {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 26px;
+  border-radius: 999px;
+}
+.resultado__marca svg { width: 28px; height: 28px; }
+
+.resultado--bien { background: var(--bosque-900); color: var(--arena-200); }
+.resultado--bien h1 { color: var(--blanco); }
+.resultado--bien .resultado__bajada { color: rgba(255, 255, 255, .82); }
+.resultado--bien .resultado__marca { background: rgba(255, 255, 255, .12); color: #9ddfb4; }
+
+.resultado--mal { background: var(--bg-alt); }
+.resultado--mal .resultado__bajada { color: var(--texto-suave); }
+.resultado--mal .resultado__marca { background: var(--arena-200); color: var(--fuego-600); }
+
+/* Lo primero que se lee en la página de error, y a propósito. */
+.resultado__tranquiliza {
+  margin-top: 18px;
+  font-family: var(--display);
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  font-weight: 600;
+  color: var(--bosque-800);
+}
+
+.resultado__pasos,
+.resultado__motivos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 34px;
+  text-align: left;
+}
+.resultado__pasos li,
+.resultado__motivos li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: start;
+  gap: 13px;
+  font-size: .95rem;
+  line-height: 1.6;
+}
+.resultado__punto {
+  width: 6px;
+  height: 6px;
+  margin: 9px auto 0;
+  border-radius: 999px;
+  background: var(--granito-500);
+}
+.resultado__numero {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  font-family: var(--display);
+  font-size: .9rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.resultado--bien .resultado__numero { background: rgba(255, 255, 255, .14); color: var(--blanco); }
+.resultado--bien .resultado__pasos li { color: rgba(255, 255, 255, .88); }
+
+.resultado__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 38px;
+}
+.resultado__respaldo { margin-top: 26px; font-size: .85rem; color: var(--granito-500); }
+.resultado--bien .resultado__respaldo { color: rgba(255, 255, 255, .6); }
+.resultado--bien .resultado__respaldo a { color: #9ddfb4; }
+.resultado--mal .resultado__respaldo a { color: var(--bosque-700); }
+
+/* --------------------------------------------------------------------------
    Traspaso a Payku
 
    Antes aquí vivía el formulario de Payku embebido en un marco. Se fue: desde

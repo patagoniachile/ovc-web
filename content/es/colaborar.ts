@@ -1,4 +1,4 @@
-import type { CampoFormulario, Encabezado, MetodoDonacion } from '../types'
+import type { CampoFormulario, Enlace, Encabezado, MetodoDonacion } from '../types'
 
 export const donarPagina: Encabezado & {
   intro: string
@@ -159,4 +159,36 @@ export const sociosPagina: Encabezado & {
   ],
   nota: 'Usamos tus datos solo para contactarte sobre la membresía. No los compartimos con nadie.',
   gracias: 'Recibimos tus datos. Te escribiremos pronto a tu correo.',
+}
+
+export const resultadoPago: {
+  gracias: Encabezado & { pasos: string[]; volver: Enlace; otra: Enlace }
+  problema: Encabezado & { tranquiliza: string; motivos: string[]; reintentar: Enlace; transferir: Enlace }
+} = {
+  gracias: {
+    eyebrow: 'Listo',
+    titulo: 'Gracias por hacerte socio',
+    bajada:
+      'Tu aporte ya está en marcha. Desde hoy sostienes el trabajo en el valle: los senderos, la señalética, el Centro de Visitantes y los programas de conservación.',
+    pasos: [
+      'Payku te manda un correo con el comprobante y el detalle de tu plan. Si no llega en unos minutos, mira en la carpeta de correo no deseado.',
+      'Te escribimos desde la corporación para darte la bienvenida y contarte cómo participar de las decisiones.',
+      'Puedes cancelar la suscripción cuando quieras, escribiéndonos o desde ese mismo correo de Payku.',
+    ],
+    volver: { label: 'Volver a la portada', href: '/es' },
+    otra: { label: 'Conocer el valle', href: '/es/el-valle' },
+  },
+  problema: {
+    eyebrow: 'No se completó',
+    titulo: 'El pago no se pudo procesar',
+    bajada: 'La suscripción no quedó registrada, así que puedes intentarlo de nuevo cuando quieras.',
+    tranquiliza: 'No se te cobró nada.',
+    motivos: [
+      'La tarjeta no tiene habilitados los cobros recurrentes. Es lo más común, y se activa llamando al banco.',
+      'Faltaban fondos o la tarjeta está vencida.',
+      'El banco bloqueó el cobro por seguridad, porque no reconoció al comercio.',
+    ],
+    reintentar: { label: 'Intentar de nuevo', href: '/es/como-ayudar#planes' },
+    transferir: { label: 'Aportar por transferencia', href: '/es/como-ayudar#transferencia' },
+  },
 }
