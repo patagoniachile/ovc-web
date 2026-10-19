@@ -2,12 +2,20 @@ import { NextResponse } from 'next/server'
 import { correoOrganizacion } from '@/content/cuenta'
 
 /**
- * Avisos de cobro de Payku (la "charge notification url" del panel).
+ * Avisos de Payku: los dos que pide el panel al crear un plan.
  *
- * Payku hace un POST aquí cada vez que cobra una suscripción: el primer
- * aporte, cada renovación y también los intentos que fallan. El cobro ocurre
- * igual si este endpoint no existe —no es parte del pago, es un aviso—, pero
- * sin él un socio cuya tarjeta venció deja de aportar y nadie se entera.
+ *   charge notification url        → …/api/payku?clave=…
+ *   subscription notification url  → …/api/payku?clave=…&tipo=suscripcion
+ *
+ * El primero avisa de cada cobro —el aporte inicial, cada renovación y los
+ * intentos que fallan—; el segundo, de los cambios en la suscripción misma:
+ * alguien que se inscribe, alguien que se da de baja. Un endpoint para los
+ * dos, porque lo que hacen con el aviso es idéntico y así hay una sola clave
+ * que rotar; `tipo` solo cambia cómo se titula el correo.
+ *
+ * Ninguno de los dos es parte del pago: si no existieran, los cobros
+ * ocurrirían igual. Lo que se pierde es enterarse, y una tarjeta vencida deja
+ * de aportar en silencio.
  *
  * Variables de entorno en Vercel:
  *   PAYKU_CLAVE_NOTIFICACION  cadena larga al azar, inventada por nosotros
@@ -72,6 +80,20 @@ function primero(datos: Record<string, unknown>, ...claves: string[]) {
   return ''
 }
 
+/** El título del correo, que es lo único que distingue a los dos avisos. */
+function asunto(
+  tipo: 'cobro' | 'suscripcion',
+  { exito, baja, correo }: { exito: boolean; baja: boolean; correo: string },
+) {
+  const quien = correo ? ` — ${correo}` : ''
+  if (tipo === 'suscripcion') {
+    if (baja) return `Payku: suscripción dada de baja${quien}`
+    if (exito) return `Payku: nuevo socio suscrito${quien}`
+    return `Payku: cambio en una suscripción${quien}`
+  }
+  return exito ? `Payku: aporte recibido${quien}` : `Payku: cobro con problemas${quien}`
+}
+
 export async function POST(peticion: Request) {
   const ip = peticion.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'desconocida'
   if (excedeLimite(ip)) return NextResponse.json({ ok: false }, { status: 429 })
@@ -89,15 +111,17 @@ export async function POST(peticion: Request) {
   }
 
   const datos = await leerCuerpo(peticion)
+  const tipo = new URL(peticion.url).searchParams.get('tipo') === 'suscripcion' ? 'suscripcion' : 'cobro'
 
   const estado = primero(datos, 'status', 'estado')
   const suscripcion = primero(datos, 'subscription', 'suscripcion', 'idsuscription', 'id')
   const correo = primero(datos, 'email', 'correo')
   const monto = primero(datos, 'amount', 'monto', 'total')
-  const exito = /^(success|succes|paid|approved|aprobado|pagado|ok)$/i.test(estado)
+  const exito = /success|succes|paid|approved|aprobado|pagado|activ|^ok$/i.test(estado)
+  const baja = /cancel|anul|baja|inactiv|expir|vencid/i.test(estado)
 
   // Siempre al registro: si el correo falla, el aviso no se pierde del todo.
-  console.log('[payku] Aviso de cobro', JSON.stringify(datos))
+  console.log(`[payku] Aviso de ${tipo}`, JSON.stringify(datos))
 
   const apiCorreo = process.env.RESEND_API_KEY
   const remitente = process.env.CORREO_REMITENTE
@@ -111,6 +135,7 @@ export async function POST(peticion: Request) {
   }
 
   const lineas = [
+    `Tipo de aviso: ${tipo}`,
     `Estado: ${estado || 'sin indicar'}`,
     correo && `Socio: ${correo}`,
     monto && `Monto: ${monto}`,
@@ -127,9 +152,7 @@ export async function POST(peticion: Request) {
       body: JSON.stringify({
         from: remitente,
         to: [destino],
-        subject: exito
-          ? `Payku: aporte recibido${correo ? ` de ${correo}` : ''}`
-          : `Payku: cobro con problemas${correo ? ` — ${correo}` : ''}`,
+        subject: asunto(tipo, { exito, baja, correo }),
         text: lineas.join('\n'),
       }),
     })
