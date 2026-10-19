@@ -36,14 +36,23 @@ npm run dev      # http://localhost:4321
 Navegación en cuatro grupos: **El Valle**, **Cómo visitar**, **Historia** y
 **Cómo ayudar**.
 
-La portada sigue cinco bloques: Hero · El Valle · Impacto · Futuro ·
-Suscríbete. Cada bloque agrupa varias secciones; el orden está comentado en
+La portada son cinco bloques y nada más: Hero · El Valle · Impacto · Futuro ·
+Suscríbete. Es deliberadamente corta; el orden está comentado en
 `app/[lang]/page.tsx`.
 
-El grupo **Cómo visitar** no tiene lugar en esos cinco bloques, así que su
-contenido vive en `/<idioma>/como-visitar`, con un ancla por entrada del menú
-(cómo llegar, cuánto cuesta, cómo reservar, qué debo saber, horarios, día vs.
-varios días).
+Todo lo demás cuelga del menú, una página por grupo:
+
+| Página | Qué contiene |
+|---|---|
+| `/<idioma>/el-valle` | Dónde queda (mapa), flora y fauna, qué se puede hacer, el santuario, las amenazas |
+| `/<idioma>/como-visitar` | Cómo llegar, sectores, cuánto cuesta, cómo reservar, día vs. varios días, normas, horarios |
+| `/<idioma>/quienes-somos` | Quién administra el valle, el directorio y los aliados |
+| `/<idioma>/sectores/<slug>` | Ficha de cada sector con sus alojamientos |
+| `/<idioma>/donar` · `/<idioma>/socios` | Las dos formas de aportar |
+
+Al mover una sección de página hay que repasar quién la enlazaba:
+`npm run build && npm run check-links` falla si un ancla quedó apuntando a una
+página donde ya no está.
 
 **Productos** quedó fuera del menú a propósito: es una sección del plan para la
 que todavía no hay contenido, y publicar el enlace llevaría a una página vacía.

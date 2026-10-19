@@ -91,14 +91,6 @@ export interface Proyecto {
   estado: 'activo' | 'logrado'
 }
 
-export interface Aporte {
-  icono: IconName
-  titulo: string
-  texto: string
-  cta: Enlace
-  destacado?: boolean
-}
-
 export interface Aliado {
   nombre: string
   href: string
@@ -359,8 +351,6 @@ export interface Contenido {
   llamadoProyectos: { titulo: string; texto: string; cta: Enlace }
   logrosEncabezado: Encabezado
   logros: { icono: IconName; label: string; href: string }[]
-  introColaborar: Encabezado
-  aportes: Aporte[]
   boletin: { titulo: string; texto: string; nota: string }
   aliadosEncabezado: Encabezado
   aliados: Aliado[]
@@ -371,6 +361,8 @@ export interface Contenido {
   heroResumen: { etiqueta: string; valor: string }[]
 
   elValle: Encabezado
+  elVallePagina: Encabezado
+  quienesSomosPagina: Encabezado
   rasgos: Rasgo[]
 
   floraFauna: Encabezado

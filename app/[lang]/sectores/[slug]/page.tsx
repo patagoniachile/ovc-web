@@ -84,7 +84,7 @@ export default async function PaginaSector({ params }: PageProps<'/[lang]/sector
               {textos.reservarEstadia}
               <Icon name="flecha" />
             </Boton>
-            <Boton href={`/${lang}#mapa`} variante="fantasma">
+            <Boton href={`/${lang}/el-valle#mapa`} variante="fantasma">
               {textos.verEnElMapa}
             </Boton>
           </div>

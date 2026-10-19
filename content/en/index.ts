@@ -99,12 +99,12 @@ export const contenido: Contenido = {
   menu: [
     {
       label: 'The Valley',
-      href: `${PORTADA}#el-valle`,
+      href: `${PORTADA}/el-valle`,
       items: [
-        { label: 'Where it is', href: `${PORTADA}#mapa`, detalle: 'Map of the sectors' },
-        { label: 'Flora and fauna', href: `${PORTADA}#flora-fauna`, detalle: 'What lives in the Valdivian forest' },
-        { label: 'What you can do', href: `${PORTADA}#que-hacer`, detalle: 'Trekking, climbing, horseback riding' },
-        { label: 'The Sanctuary', href: `${PORTADA}#santuario`, detalle: '11,432.8 ha proposed' },
+        { label: 'Where it is', href: `${PORTADA}/el-valle#mapa`, detalle: 'Map of the sectors' },
+        { label: 'Flora and fauna', href: `${PORTADA}/el-valle#flora-fauna`, detalle: 'What lives in the Valdivian forest' },
+        { label: 'What you can do', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'Trekking, climbing, horseback riding' },
+        { label: 'The Sanctuary', href: `${PORTADA}/el-valle#santuario`, detalle: '11,432.8 ha proposed' },
       ],
     },
     {
@@ -125,7 +125,7 @@ export const contenido: Contenido = {
       href: `${PORTADA}#historia`,
       items: [
         { label: 'What happened', href: `${PORTADA}#historia`, detalle: 'From 2009 to today' },
-        { label: 'Who runs it and why', href: `${PORTADA}#nosotros`, detalle: 'The valley community' },
+        { label: 'Who runs it and why', href: `${PORTADA}/quienes-somos`, detalle: 'The valley community' },
         { label: 'Mission and vision', href: `${PORTADA}#mision`, detalle: 'Where we are heading' },
         { label: 'What we have done', href: `${PORTADA}#logros`, detalle: 'Completed work' },
         { label: 'What we want to do', href: `${PORTADA}#proyectos`, detalle: 'The open challenges' },
@@ -145,10 +145,10 @@ export const contenido: Contenido = {
     {
       titulo: 'The Valley',
       items: [
-        { label: 'Where it is', href: `${PORTADA}#mapa` },
-        { label: 'Flora and fauna', href: `${PORTADA}#flora-fauna` },
-        { label: 'What you can do', href: `${PORTADA}#que-hacer` },
-        { label: 'The Sanctuary', href: `${PORTADA}#santuario` },
+        { label: 'Where it is', href: `${PORTADA}/el-valle#mapa` },
+        { label: 'Flora and fauna', href: `${PORTADA}/el-valle#flora-fauna` },
+        { label: 'What you can do', href: `${PORTADA}/el-valle#que-hacer` },
+        { label: 'The Sanctuary', href: `${PORTADA}/el-valle#santuario` },
       ],
     },
     {
@@ -165,7 +165,7 @@ export const contenido: Contenido = {
       titulo: 'Organisation',
       items: [
         { label: 'What happened', href: `${PORTADA}#historia` },
-        { label: 'Who we are', href: `${PORTADA}#nosotros` },
+        { label: 'Who we are', href: `${PORTADA}/quienes-somos` },
         { label: 'News', href: externos.noticias },
         { label: 'Donations', href: `${PORTADA}/donar` },
         { label: 'Members', href: `${PORTADA}/socios` },
@@ -443,7 +443,7 @@ export const contenido: Contenido = {
       titulo: 'Getting there',
       texto:
         'The valley is in the commune of Cochamó, Los Lagos Region. The trail starts where the Cochamó River flows into the Reloncaví estuary.',
-      enlace: { label: 'See the route', href: `${PORTADA}#mapa` },
+      enlace: { label: 'See the route', href: `${PORTADA}/el-valle#mapa` },
     },
   ],
 
@@ -607,30 +607,6 @@ export const contenido: Contenido = {
     { icono: 'montana', label: 'Climbing route maintenance', href: externos.rutasEscalada },
   ],
 
-  introColaborar: {
-    eyebrow: 'Get involved',
-    titulo: 'Protect the places you love',
-    bajada:
-      'Most of the valley is private land whose owners allow public access. Maintaining the trails, the ecosystems and the local culture takes work and money.',
-  },
-
-  aportes: [
-    {
-      icono: 'gente',
-      titulo: 'Become a member',
-      texto: 'A regular contribution that gives the work continuity: it is what lets us plan beyond the next season.',
-      cta: { label: 'I want to join', href: '/en/socios' },
-    },
-    {
-      icono: 'corazon',
-      titulo: 'Donate',
-      texto:
-        '50% goes to long-term conservation programmes and 50% funds the infrastructure that lets people visit the valley with minimal impact.',
-      cta: { label: 'Donate now', href: '/en/donar' },
-      destacado: true,
-    },
-  ],
-
   boletin: {
     titulo: 'Hear about it first',
     texto: 'Sanctuary news, project updates and seasonal notices. No spam, just a few times a year.',
@@ -651,6 +627,8 @@ export const contenido: Contenido = {
   /* ----- Estructura nueva ----- */
   heroResumen: nuevo.heroResumen,
   elValle: nuevo.elValle,
+  elVallePagina: nuevo.elVallePagina,
+  quienesSomosPagina: nuevo.quienesSomosPagina,
   rasgos: nuevo.rasgos,
   floraFauna: nuevo.floraFauna,
   especies: nuevo.especies,

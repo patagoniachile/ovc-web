@@ -122,7 +122,7 @@ export const logroImportante = {
   titulo: 'The Nature Sanctuary proposal',
   texto:
     'In July 2022 we took the proposal to protect the valley to the Ministry of National Assets, covering state land and private estates that joined voluntarily. It is the biggest step in fifteen years of work, and it is still pending.',
-  cta: { label: 'Read the proposal', href: `${PORTADA}#santuario` },
+  cta: { label: 'Read the proposal', href: `${PORTADA}/el-valle#santuario` },
 }
 
 export const misionVision = {
@@ -282,4 +282,18 @@ export const horariosYContacto = {
   ] satisfies Contacto[],
   nota:
     'There is no phone coverage and no emergency services inside the valley. Tell someone outside what time you expect to be back.',
+}
+
+export const elVallePagina = {
+  eyebrow: 'The Valley',
+  titulo: 'What the Cochamó Valley is',
+  bajada:
+    'Where it is, what lives in it, what you can do there and what is being protected. Everything worth knowing before deciding whether to come.',
+}
+
+export const quienesSomosPagina = {
+  eyebrow: 'Who runs it',
+  titulo: 'Who looks after the valley, and why',
+  bajada:
+    'The valley has no single owner and no public budget. It is run by a community organisation made up of the people who live and work here.',
 }

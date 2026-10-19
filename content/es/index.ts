@@ -90,12 +90,12 @@ export const contenido: Contenido = {
   menu: [
     {
       label: 'El Valle',
-      href: `${PORTADA}#el-valle`,
+      href: `${PORTADA}/el-valle`,
       items: [
-        { label: 'Dónde queda', href: `${PORTADA}#mapa`, detalle: 'Mapa de los sectores' },
-        { label: 'Flora y fauna', href: `${PORTADA}#flora-fauna`, detalle: 'Qué vive en el bosque valdiviano' },
-        { label: 'Qué se puede hacer', href: `${PORTADA}#que-hacer`, detalle: 'Trekking, escalada, cabalgatas' },
-        { label: 'El Santuario', href: `${PORTADA}#santuario`, detalle: '11.432,8 ha propuestas' },
+        { label: 'Dónde queda', href: `${PORTADA}/el-valle#mapa`, detalle: 'Mapa de los sectores' },
+        { label: 'Flora y fauna', href: `${PORTADA}/el-valle#flora-fauna`, detalle: 'Qué vive en el bosque valdiviano' },
+        { label: 'Qué se puede hacer', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'Trekking, escalada, cabalgatas' },
+        { label: 'El Santuario', href: `${PORTADA}/el-valle#santuario`, detalle: '11.432,8 ha propuestas' },
       ],
     },
     {
@@ -116,7 +116,7 @@ export const contenido: Contenido = {
       href: `${PORTADA}#historia`,
       items: [
         { label: 'Qué pasó', href: `${PORTADA}#historia`, detalle: 'De 2009 a hoy' },
-        { label: 'Quién administra y por qué', href: `${PORTADA}#nosotros`, detalle: 'La comunidad del valle' },
+        { label: 'Quién administra y por qué', href: `${PORTADA}/quienes-somos`, detalle: 'La comunidad del valle' },
         { label: 'Misión y visión', href: `${PORTADA}#mision`, detalle: 'Hacia dónde vamos' },
         { label: 'Qué hemos hecho', href: `${PORTADA}#logros`, detalle: 'Obras terminadas' },
         { label: 'Qué queremos hacer', href: `${PORTADA}#proyectos`, detalle: 'Los desafíos abiertos' },
@@ -136,10 +136,10 @@ export const contenido: Contenido = {
     {
       titulo: 'El Valle',
       items: [
-        { label: 'Dónde queda', href: `${PORTADA}#mapa` },
-        { label: 'Flora y fauna', href: `${PORTADA}#flora-fauna` },
-        { label: 'Qué se puede hacer', href: `${PORTADA}#que-hacer` },
-        { label: 'El Santuario', href: `${PORTADA}#santuario` },
+        { label: 'Dónde queda', href: `${PORTADA}/el-valle#mapa` },
+        { label: 'Flora y fauna', href: `${PORTADA}/el-valle#flora-fauna` },
+        { label: 'Qué se puede hacer', href: `${PORTADA}/el-valle#que-hacer` },
+        { label: 'El Santuario', href: `${PORTADA}/el-valle#santuario` },
       ],
     },
     {
@@ -156,7 +156,7 @@ export const contenido: Contenido = {
       titulo: 'Organización',
       items: [
         { label: 'Qué pasó', href: `${PORTADA}#historia` },
-        { label: 'Quiénes somos', href: `${PORTADA}#nosotros` },
+        { label: 'Quiénes somos', href: `${PORTADA}/quienes-somos` },
         { label: 'Noticias', href: externos.noticias },
         { label: 'Donaciones', href: `${PORTADA}/donar` },
         { label: 'Socios', href: `${PORTADA}/socios` },
@@ -435,7 +435,7 @@ export const contenido: Contenido = {
       titulo: 'Cómo llegar',
       texto:
         'El valle está en la comuna de Cochamó, Región de Los Lagos. El sendero comienza donde el río Cochamó desemboca en el estuario de Reloncaví.',
-      enlace: { label: 'Ver la ruta', href: `${PORTADA}#mapa` },
+      enlace: { label: 'Ver la ruta', href: `${PORTADA}/el-valle#mapa` },
     },
   ],
 
@@ -599,30 +599,6 @@ export const contenido: Contenido = {
     { icono: 'montana', label: 'Mantención de rutas de escalada', href: externos.rutasEscalada },
   ],
 
-  introColaborar: {
-    eyebrow: 'Colaborar',
-    titulo: 'Protege los lugares que amas',
-    bajada:
-      'La mayor parte del valle son tierras privadas cuyos dueños permiten el acceso público. Mantener los senderos, los ecosistemas y la cultura local cuesta trabajo y dinero.',
-  },
-
-  aportes: [
-    {
-      icono: 'gente',
-      titulo: 'Hazte socio o socia',
-      texto: 'Un aporte periódico que da continuidad al trabajo: lo que permite planificar más allá de la próxima temporada.',
-      cta: { label: 'Quiero ser socio', href: '/es/socios' },
-    },
-    {
-      icono: 'corazon',
-      titulo: 'Dona',
-      texto:
-        'El 50% activa programas de conservación de largo plazo y el 50% financia la infraestructura que permite visitar el valle minimizando el impacto.',
-      cta: { label: 'Donar ahora', href: '/es/donar' },
-      destacado: true,
-    },
-  ],
-
   boletin: {
     titulo: 'Entérate antes que nadie',
     texto: 'Noticias del santuario, avances de los proyectos y avisos de temporada. Sin spam, pocas veces al año.',
@@ -643,6 +619,8 @@ export const contenido: Contenido = {
   /* ----- Estructura nueva ----- */
   heroResumen: nuevo.heroResumen,
   elValle: nuevo.elValle,
+  elVallePagina: nuevo.elVallePagina,
+  quienesSomosPagina: nuevo.quienesSomosPagina,
   rasgos: nuevo.rasgos,
   floraFauna: nuevo.floraFauna,
   especies: nuevo.especies,

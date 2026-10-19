@@ -25,7 +25,7 @@ export function ElValle({ lang }: { lang: Lang }) {
         </div>
 
         <div className="rasgos__cta revelar">
-          <Boton href="#flora-fauna" variante="borde">
+          <Boton href={`/${lang}/el-valle`} variante="borde">
             {textos.conocerElValle}
           </Boton>
         </div>

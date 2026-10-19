@@ -50,8 +50,14 @@ const internos = new Set()
 for (const archivo of await archivosDeContenido()) {
   const texto = await readFile(archivo, 'utf8')
   for (const [, ancla] of texto.matchAll(/href: '(#[a-z-]+)'/g)) anclasSueltas.push(`${archivo}  ${ancla}`)
-  for (const [, destino] of texto.matchAll(/href: `\$\{PORTADA\}(#[a-z-]+)`/g)) internos.add(destino)
-  for (const [, destino] of texto.matchAll(/href: '(\/[a-z]{2}\/[a-z-]+#[a-z-]+)'/g)) internos.add(destino)
+  // `${PORTADA}#ancla` y `${PORTADA}/ruta#ancla`
+  for (const [, ruta, ancla] of texto.matchAll(/href: `\$\{PORTADA\}(\/[a-z-]+)?(#[a-z-]+)`/g)) {
+    internos.add(`${ruta ?? ''}|${ancla.slice(1)}`)
+  }
+  // '/es/ruta#ancla' escrito a mano
+  for (const [, ruta, ancla] of texto.matchAll(/href: '\/[a-z]{2}(\/[a-z-]+)(#[a-z-]+)'/g)) {
+    internos.add(`${ruta}|${ancla.slice(1)}`)
+  }
 }
 
 if (anclasSueltas.length > 0) {
@@ -60,28 +66,25 @@ if (anclasSueltas.length > 0) {
   console.log('')
 }
 
-// Si hay un build a mano, comprobamos que cada ancla exista en su página.
+// Con un build a mano, comprobamos que cada ancla exista en su página.
 let anclasRotas = 0
-try {
-  const paginas = new Map([
-    ['portada', 'es'],
-    ['como-visitar', 'es/como-visitar'],
-  ])
-  const html = new Map()
-  for (const [clave, ruta] of paginas) {
-    html.set(clave, await readFile(`.next/server/app/${ruta}.html`, 'utf8'))
+let anclasComprobadas = 0
+for (const destino of internos) {
+  const [ruta, id] = destino.split('|')
+  const archivo = `.next/server/app/es${ruta}.html`
+  let html
+  try {
+    html = await readFile(archivo, 'utf8')
+  } catch {
+    continue // sin build: se avisa más abajo
   }
-
-  for (const destino of internos) {
-    const [ruta, ancla] = destino.includes('/') ? destino.split('#') : ['', destino.slice(1)]
-    const pagina = ruta.includes('como-visitar') ? 'como-visitar' : 'portada'
-    const id = ancla.replace('#', '')
-    if (!html.get(pagina).includes(`id="${id}"`)) {
-      anclasRotas++
-      console.log(`  ANCLA ROTA  ${destino} — no existe id="${id}" en ${pagina}`)
-    }
+  anclasComprobadas++
+  if (!html.includes(`id="${id}"`)) {
+    anclasRotas++
+    console.log(`  ANCLA ROTA  /es${ruta}#${id} — no existe id="${id}" en esa página`)
   }
-} catch {
+}
+if (anclasComprobadas === 0 && internos.size > 0) {
   console.log('(sin build: no se comprobaron las anclas internas; corre `npm run build` antes)\n')
 }
 
@@ -111,5 +114,5 @@ await Promise.all(
   }),
 )
 
-console.log(`\n${rotos} externo(s) roto(s) · ${sinVerificar} no verificable(s) · ${anclasRotas} ancla(s) rota(s) · ${anclasSueltas.length} ancla(s) suelta(s)`)
+console.log(`\n${rotos} externo(s) roto(s) · ${sinVerificar} no verificable(s) · ${anclasComprobadas} ancla(s) comprobada(s), ${anclasRotas} rota(s) · ${anclasSueltas.length} suelta(s)`)
 if (rotos > 0 || anclasRotas > 0 || anclasSueltas.length > 0) process.exit(1)

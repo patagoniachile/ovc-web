@@ -123,7 +123,7 @@ export const logroImportante = {
   titulo: 'La propuesta de Santuario de la Naturaleza',
   texto:
     'En julio de 2022 llevamos al Ministerio de Bienes Nacionales la propuesta de proteger el valle, sobre terrenos fiscales y predios privados que se sumaron de forma voluntaria. Es el mayor avance en quince años de trabajo y sigue en trámite.',
-  cta: { label: 'Conocer la propuesta', href: `${PORTADA}#santuario` },
+  cta: { label: 'Conocer la propuesta', href: `${PORTADA}/el-valle#santuario` },
 }
 
 export const misionVision = {
@@ -283,4 +283,18 @@ export const horariosYContacto = {
   ] satisfies Contacto[],
   nota:
     'No hay cobertura de teléfono ni servicios de emergencia dentro del valle. Deja dicho afuera a qué hora esperas volver.',
+}
+
+export const elVallePagina = {
+  eyebrow: 'El Valle',
+  titulo: 'Qué es el Valle Cochamó',
+  bajada:
+    'Dónde queda, qué vive en él, qué se puede hacer y qué se está tratando de proteger. Todo lo que conviene saber antes de decidir si vienes.',
+}
+
+export const quienesSomosPagina = {
+  eyebrow: 'Quién administra',
+  titulo: 'Quién cuida el valle, y por qué',
+  bajada:
+    'El valle no tiene dueño único ni presupuesto público. Lo administra una corporación comunitaria formada por quienes viven y trabajan aquí.',
 }

@@ -796,33 +796,6 @@ p { text-wrap: pretty; }
 .logro:hover { border-color: var(--bosque-300); background: var(--bosque-100); }
 .logro svg { width: 16px; height: 16px; color: var(--bosque-500); flex: none; }
 
-/* --------------------------------------------------------------------------
-   Colaborar
-   -------------------------------------------------------------------------- */
-/* auto-fit y no un número fijo: la sección funciona con dos o tres tarjetas */
-.colaborar { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
-.aporte {
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-  border-radius: var(--radio);
-  background: var(--bg-alt);
-  border: 1px solid var(--borde);
-  text-align: left;
-}
-.aporte--destacado {
-  background: linear-gradient(160deg, var(--bosque-700), var(--bosque-900));
-  border-color: transparent;
-  color: var(--arena-200);
-}
-.aporte--destacado h3 { color: var(--blanco); }
-.aporte__icono { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: var(--bosque-100); color: var(--bosque-700); margin-bottom: 18px; }
-.aporte--destacado .aporte__icono { background: rgba(255, 255, 255, .14); color: var(--rio-300); }
-.aporte__icono svg { width: 22px; height: 22px; }
-.aporte p { margin-top: 10px; font-size: .95rem; color: var(--texto-suave); }
-.aporte--destacado p { color: rgba(255, 255, 255, .88); }
-.aporte .btn { margin-top: 24px; }
-
 /* Boletín */
 .boletin {
   margin-top: clamp(44px, 6vw, 72px);
@@ -1009,7 +982,7 @@ p { text-wrap: pretty; }
   body { font-size: 16px; }
   .barra-superior__mensaje { display: none; }
   .barra-superior .contenedor { justify-content: flex-end; }
-  .sectores, .planifica, .proyectos, .colaborar { grid-template-columns: 1fr; }
+  .sectores, .planifica, .proyectos { grid-template-columns: 1fr; }
   .pie__grid { grid-template-columns: 1fr; }
   .boletin__campos { grid-template-columns: 1fr; }
   .marca__logo { width: 42px; }
