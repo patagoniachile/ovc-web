@@ -103,6 +103,8 @@ export const contenido: Contenido = {
     fauna: 'Fauna',
     geologia: 'Geology',
     verComoVisitar: 'See how to visit',
+    quienesSomos: 'Who we are',
+    verHistoria: 'Read our story',
   },
 
   menu: [
@@ -131,13 +133,13 @@ export const contenido: Contenido = {
     },
     {
       label: 'History',
-      href: `${PORTADA}#historia`,
+      href: `${PORTADA}/historia`,
       items: [
-        { label: 'What happened', href: `${PORTADA}#historia`, detalle: 'From 2009 to today' },
+        { label: 'What happened', href: `${PORTADA}/historia`, detalle: 'From 2009 to today' },
         { label: 'Who runs it and why', href: `${PORTADA}/quienes-somos`, detalle: 'The valley community' },
-        { label: 'Mission and vision', href: `${PORTADA}#mision`, detalle: 'Where we are heading' },
-        { label: 'What we have done', href: `${PORTADA}#logros`, detalle: 'Completed work' },
-        { label: 'What we want to do', href: `${PORTADA}#proyectos`, detalle: 'The open challenges' },
+        { label: 'Mission and vision', href: `${PORTADA}/quienes-somos#mision`, detalle: 'Where we are heading' },
+        { label: 'What we have done', href: `${PORTADA}/historia#logros`, detalle: 'Completed work' },
+        { label: 'What we want to do', href: `${PORTADA}/historia#proyectos`, detalle: 'The open challenges' },
       ],
     },
     {
@@ -173,7 +175,7 @@ export const contenido: Contenido = {
     {
       titulo: 'Organisation',
       items: [
-        { label: 'What happened', href: `${PORTADA}#historia` },
+        { label: 'What happened', href: `${PORTADA}/historia` },
         { label: 'Who we are', href: `${PORTADA}/quienes-somos` },
         { label: 'News', href: externos.noticias },
         { label: 'Donations', href: `${PORTADA}/donar` },

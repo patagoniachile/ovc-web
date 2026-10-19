@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { FormularioSocio } from '@/components/sections/FormularioSocio'
+import { PlanesSocio } from '@/components/sections/PlanesSocio'
 import { SuscripcionPayku } from '@/components/sections/SuscripcionPayku'
 import { esIdioma, getContenido, IDIOMAS } from '@/content'
 
@@ -56,6 +57,8 @@ export default async function PaginaSocios({ params }: PageProps<'/[lang]/socios
           </div>
         </div>
       </section>
+
+      <PlanesSocio lang={lang} destino="#suscribirme" />
 
       {/* La suscripción con tarjeta: esto es lo que inscribe como socio */}
       <section className="seccion seccion--alt" id="suscribirme">

@@ -47,6 +47,7 @@ export const sociosPagina: Encabezado & {
   porQue: { titulo: string; texto: string }[]
   tituloSuscripcion: string
   montosSuscripcion: string[]
+  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; ahorro: (pct: number) => string; alMes: string; alAnio: string; elegir: string; lista: import('../types').PlanSocio[] }
   introSuscripcion: string
   notaSuscripcion: string
   tituloFormulario: string
@@ -77,6 +78,63 @@ export const sociosPagina: Encabezado & {
   ],
   tituloSuscripcion: 'Subscribe with a card',
   montosSuscripcion: ['CLP 5,000', 'CLP 10,000', 'CLP 15,000', 'Another amount'],
+  planes: {
+    encabezado: {
+      eyebrow: 'Plans',
+      titulo: 'Choose your membership',
+      bajada: 'Four levels named after the valley. Paying for the whole year costs less than twelve separate months.',
+    },
+    mensual: 'Monthly',
+    anual: 'Annual',
+    ahorro: (pct) => `Save ${pct}%`,
+    alMes: 'a month',
+    alAnio: 'a year',
+    elegir: 'Choose',
+    lista: [
+      {
+        id: 'chucao',
+        nombre: 'Chucao',
+        subtitulo: 'Bird of the Valdivian understorey',
+        anual: 37000,
+        mensual: 3500,
+        beneficios: [
+          'Sticker and patch',
+          'Digital card and Members Wall',
+          'Newsletter and impact report',
+          'Invitation to work days',
+        ],
+      },
+      {
+        id: 'alerce',
+        nombre: 'Alerce',
+        subtitulo: 'Thousand-year-old tree of the sanctuary',
+        anual: 50000,
+        mensual: 5000,
+        beneficios: ['Everything in Chucao', 'Illustrated field guide'],
+        destacado: true,
+      },
+      {
+        id: 'trinidad',
+        nombre: 'Trinidad',
+        subtitulo: 'Granite peak above La Junta',
+        anual: 100000,
+        mensual: 10000,
+        beneficios: ['Everything in Alerce', 'Valley t-shirt', 'Mention in the annual report'],
+      },
+      {
+        id: 'condor',
+        nombre: 'Cóndor',
+        subtitulo: 'Patron plan, for individuals and companies',
+        anual: 250000,
+        mensual: 25000,
+        beneficios: [
+          'Everything in Trinidad, with a sweatshirt instead of a t-shirt',
+          'Company logo on the website and materials',
+        ],
+        mecenas: true,
+      },
+    ],
+  },
   introSuscripcion:
     'Choose your monthly contribution — CLP 5,000, 10,000, 15,000 or whatever amount you prefer — and fill in your details. The form belongs to Payku and opens right here; your card details go straight to them and never pass through this site.',
   notaSuscripcion:

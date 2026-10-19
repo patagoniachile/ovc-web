@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Aliados } from '@/components/sections/Aliados'
+import { MisionVision } from '@/components/sections/Impacto'
 import { Nosotros } from '@/components/sections/Nosotros'
 import { esIdioma, getContenido, IDIOMAS } from '@/content'
 
@@ -44,6 +45,7 @@ export default async function PaginaQuienesSomos({ params }: PageProps<'/[lang]/
       </section>
 
       <Nosotros lang={lang} />
+      <MisionVision lang={lang} />
       <Aliados lang={lang} />
     </>
   )

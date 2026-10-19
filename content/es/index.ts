@@ -94,6 +94,8 @@ export const contenido: Contenido = {
     fauna: 'Fauna',
     geologia: 'Geología',
     verComoVisitar: 'Ver cómo visitar',
+    quienesSomos: 'Quiénes somos',
+    verHistoria: 'Ver nuestra historia',
   },
 
   menu: [
@@ -122,13 +124,13 @@ export const contenido: Contenido = {
     },
     {
       label: 'Historia',
-      href: `${PORTADA}#historia`,
+      href: `${PORTADA}/historia`,
       items: [
-        { label: 'Qué pasó', href: `${PORTADA}#historia`, detalle: 'De 2009 a hoy' },
+        { label: 'Qué pasó', href: `${PORTADA}/historia`, detalle: 'De 2009 a hoy' },
         { label: 'Quién administra y por qué', href: `${PORTADA}/quienes-somos`, detalle: 'La comunidad del valle' },
-        { label: 'Misión y visión', href: `${PORTADA}#mision`, detalle: 'Hacia dónde vamos' },
-        { label: 'Qué hemos hecho', href: `${PORTADA}#logros`, detalle: 'Obras terminadas' },
-        { label: 'Qué queremos hacer', href: `${PORTADA}#proyectos`, detalle: 'Los desafíos abiertos' },
+        { label: 'Misión y visión', href: `${PORTADA}/quienes-somos#mision`, detalle: 'Hacia dónde vamos' },
+        { label: 'Qué hemos hecho', href: `${PORTADA}/historia#logros`, detalle: 'Obras terminadas' },
+        { label: 'Qué queremos hacer', href: `${PORTADA}/historia#proyectos`, detalle: 'Los desafíos abiertos' },
       ],
     },
     {
@@ -164,7 +166,7 @@ export const contenido: Contenido = {
     {
       titulo: 'Organización',
       items: [
-        { label: 'Qué pasó', href: `${PORTADA}#historia` },
+        { label: 'Qué pasó', href: `${PORTADA}/historia` },
         { label: 'Quiénes somos', href: `${PORTADA}/quienes-somos` },
         { label: 'Noticias', href: externos.noticias },
         { label: 'Donaciones', href: `${PORTADA}/donar` },

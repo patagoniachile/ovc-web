@@ -4,7 +4,7 @@ import { getContenido, type Lang } from '@/content'
 
 /** Logro principal + misión y visión. */
 export function Impacto({ lang }: { lang: Lang }) {
-  const { impacto, logroImportante, misionVision } = getContenido(lang)
+  const { impacto, logroImportante } = getContenido(lang)
 
   return (
     <section className="seccion seccion--oscura" id="impacto">
@@ -25,7 +25,19 @@ export function Impacto({ lang }: { lang: Lang }) {
           </div>
         </div>
 
-        <div className="mision" id="mision">
+      </div>
+    </section>
+  )
+}
+
+/** Misión y visión. Vive en "quiénes somos", junto a quién administra. */
+export function MisionVision({ lang }: { lang: Lang }) {
+  const { misionVision } = getContenido(lang)
+
+  return (
+    <section className="seccion seccion--oscura" id="mision">
+      <div className="contenedor">
+        <div className="mision">
           {[misionVision.mision, misionVision.vision].map((bloque) => (
             <article className="mision__bloque revelar" key={bloque.titulo}>
               <h3>{bloque.titulo}</h3>

@@ -47,6 +47,7 @@ export const sociosPagina: Encabezado & {
   porQue: { titulo: string; texto: string }[]
   tituloSuscripcion: string
   montosSuscripcion: string[]
+  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; ahorro: (pct: number) => string; alMes: string; alAnio: string; elegir: string; lista: import('../types').PlanSocio[] }
   introSuscripcion: string
   notaSuscripcion: string
   tituloFormulario: string
@@ -77,6 +78,63 @@ export const sociosPagina: Encabezado & {
   ],
   tituloSuscripcion: 'Suscríbete con tarjeta',
   montosSuscripcion: ['$5.000', '$10.000', '$15.000', 'Otro monto'],
+  planes: {
+    encabezado: {
+      eyebrow: 'Planes',
+      titulo: 'Elige tu plan de socio',
+      bajada: 'Cuatro niveles con nombres del valle. Pagar el año completo sale más barato que doce meses sueltos.',
+    },
+    mensual: 'Mensual',
+    anual: 'Anual',
+    ahorro: (pct) => `Ahorras ${pct}%`,
+    alMes: 'al mes',
+    alAnio: 'al año',
+    elegir: 'Elegir',
+    lista: [
+      {
+        id: 'chucao',
+        nombre: 'Chucao',
+        subtitulo: 'Ave del sotobosque valdiviano',
+        anual: 37000,
+        mensual: 3500,
+        beneficios: [
+          'Sticker y parche',
+          'Carnet digital y Muro de Socios',
+          'Boletín e informe de impacto',
+          'Invitación a jornadas',
+        ],
+      },
+      {
+        id: 'alerce',
+        nombre: 'Alerce',
+        subtitulo: 'Árbol milenario del santuario',
+        anual: 50000,
+        mensual: 5000,
+        beneficios: ['Todo lo de Chucao', 'Guía de campo ilustrada'],
+        destacado: true,
+      },
+      {
+        id: 'trinidad',
+        nombre: 'Trinidad',
+        subtitulo: 'Cerro de granito de La Junta',
+        anual: 100000,
+        mensual: 10000,
+        beneficios: ['Todo lo de Alerce', 'Polera del valle', 'Mención en el informe anual'],
+      },
+      {
+        id: 'condor',
+        nombre: 'Cóndor',
+        subtitulo: 'Plan mecenas, para personas y empresas',
+        anual: 250000,
+        mensual: 25000,
+        beneficios: [
+          'Todo lo de Trinidad, con polerón en vez de polera',
+          'Logo de empresas en la web y los materiales',
+        ],
+        mecenas: true,
+      },
+    ],
+  },
   introSuscripcion:
     'Elige tu aporte mensual —$5.000, $10.000, $15.000 o el monto que prefieras— y completa tus datos. El formulario es de Payku y se abre aquí mismo; tus datos de tarjeta viajan directo a ellos y nunca pasan por este sitio.',
   notaSuscripcion:

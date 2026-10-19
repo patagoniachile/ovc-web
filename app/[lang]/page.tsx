@@ -4,7 +4,6 @@ import { Cifras } from '@/components/sections/Cifras'
 import { ElValle } from '@/components/sections/ElValle'
 import { Futuro } from '@/components/sections/Futuro'
 import { Hero } from '@/components/sections/Hero'
-import { Historia } from '@/components/sections/Historia'
 import { Impacto } from '@/components/sections/Impacto'
 import { Proyectos } from '@/components/sections/Proyectos'
 import { esIdioma, IDIOMAS } from '@/content'
@@ -36,8 +35,6 @@ export default async function Portada({ params }: PageProps<'/[lang]'>) {
 
       {/* 3 · Impacto: el logro mayor, misión y visión, lo hecho y lo que pasó */}
       <Impacto lang={lang} />
-      <Proyectos lang={lang} modo="logros" />
-      <Historia lang={lang} />
 
       {/* 4 · Futuro: lo que queremos hacer y cómo ayudar */}
       <Proyectos lang={lang} modo="desafios" />

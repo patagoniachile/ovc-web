@@ -2160,3 +2160,78 @@ p { text-wrap: pretty; }
 @media (max-width: 860px) {
   .destino { grid-template-columns: 1fr; }
 }
+
+/* --------------------------------------------------------------------------
+   Planes de socio
+   -------------------------------------------------------------------------- */
+.periodo {
+  display: inline-flex;
+  margin: 0 auto 30px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--arena-200);
+  border: 1px solid var(--borde);
+}
+.periodo { display: flex; width: fit-content; }
+.periodo__opcion {
+  padding: 9px 24px;
+  border-radius: 999px;
+  font-size: .9rem;
+  font-weight: 620;
+  color: var(--texto-suave);
+  transition: background-color var(--trans), color var(--trans);
+}
+.periodo__opcion.esta-activa { background: var(--bosque-700); color: var(--blanco); }
+
+.planes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.plan {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px;
+  background: var(--bg-alt);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+.plan--destacado { background: var(--bosque-100); border-color: var(--bosque-300); }
+.plan--mecenas { background: var(--bosque-900); border-color: transparent; color: var(--arena-200); }
+.plan--mecenas h3, .plan--mecenas .plan__precio { color: var(--blanco); }
+.plan--mecenas .plan__precio { color: #e8c06a; }
+.plan--mecenas .plan__subtitulo, .plan--mecenas .plan__equivalente { color: rgba(255, 255, 255, .72); }
+.plan--mecenas .plan__beneficios li { color: rgba(255, 255, 255, .88); }
+.plan--mecenas .plan__beneficios svg { color: #e8c06a; }
+
+.plan h3 { font-size: 1.6rem; }
+.plan__subtitulo { margin-top: 4px; font-size: .86rem; color: var(--granito-500); }
+.plan__precio {
+  margin-top: 16px;
+  font-family: var(--display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--bosque-800);
+  font-variant-numeric: tabular-nums;
+}
+.plan__precio span {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--sans);
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+.plan__equivalente { margin-top: 10px; font-size: .85rem; color: var(--texto-suave); }
+.plan__ahorro {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--rio-100);
+  color: var(--rio-600);
+  font-size: .76rem;
+  font-weight: 700;
+}
+.plan--mecenas .plan__ahorro { background: rgba(232, 192, 106, .18); color: #e8c06a; }
+.plan__beneficios { margin-top: 20px; display: grid; gap: 8px; flex: 1; }
+.plan__beneficios li { display: flex; align-items: flex-start; gap: 9px; font-size: .9rem; }
+.plan__beneficios svg { width: 15px; height: 15px; flex: none; margin-top: 4px; color: var(--bosque-500); }
+.plan__cta { margin-top: 24px; justify-content: center; }

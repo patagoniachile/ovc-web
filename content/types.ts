@@ -233,6 +233,21 @@ export interface ViaDeAporte {
   destacada?: boolean
 }
 
+/** Un nivel de socio, con su precio anual y mensual. */
+export interface PlanSocio {
+  id: string
+  nombre: string
+  /** De dónde viene el nombre: el chucao, el alerce, el cerro… */
+  subtitulo: string
+  /** Pesos chilenos, sin separadores: se formatean según el idioma. */
+  anual: number
+  mensual: number
+  beneficios: string[]
+  /** El nivel mecenas, que se muestra distinto */
+  mecenas?: boolean
+  destacado?: boolean
+}
+
 export interface Encabezado {
   eyebrow: string
   titulo: string
@@ -301,6 +316,8 @@ export interface Textos {
   fauna: string
   geologia: string
   verComoVisitar: string
+  quienesSomos: string
+  verHistoria: string
 }
 
 /** Todo lo que un idioma debe proveer. */
@@ -421,6 +438,7 @@ export interface Contenido {
     porQue: { titulo: string; texto: string }[]
     tituloSuscripcion: string
     montosSuscripcion: string[]
+    planes: { encabezado: Encabezado; mensual: string; anual: string; ahorro: (pct: number) => string; alMes: string; alAnio: string; elegir: string; lista: PlanSocio[] }
     introSuscripcion: string
     notaSuscripcion: string
     tituloFormulario: string
