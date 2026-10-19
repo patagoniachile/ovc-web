@@ -1,12 +1,10 @@
-import type { CampoFormulario, Encabezado, MetodoDonacion } from '../types'
+import type { CampoFormulario, Enlace, Encabezado, MetodoDonacion } from '../types'
 
 export const donarPagina: Encabezado & {
   intro: string
   metodos: MetodoDonacion[]
   tituloCuenta: string
   otraVia: { titulo: string; texto: string; cta: { label: string; href: string } }
-  tituloPayku: string
-  notaPayku: string
   reparto: { titulo: string; conservacion: string; infraestructura: string }
 } = {
   eyebrow: 'Donate',
@@ -32,9 +30,6 @@ export const donarPagina: Encabezado & {
       'Becoming a member is a monthly card contribution, from CLP 5,000. It is what gives the work continuity and makes you part of the organisation’s decisions.',
     cta: { label: 'Become a member', href: '/en/como-ayudar#socios' },
   },
-  tituloPayku: 'Monthly card contribution',
-  notaPayku:
-    'The form belongs to Payku and opens inside this page. Your card details go straight to them: they never pass through this site.',
   reparto: {
     titulo: 'How your donation is split',
     conservacion: '50% long-term conservation programmes',
@@ -46,10 +41,10 @@ export const sociosPagina: Encabezado & {
   intro: string
   porQue: { titulo: string; texto: string }[]
   tituloSuscripcion: string
-  montosSuscripcion: string[]
-  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; ahorro: (pct: number) => string; alMes: string; alAnio: string; elegir: string; lista: import('../types').PlanSocio[] }
+  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: import('../types').PlanSocio[] }
   introSuscripcion: string
   notaSuscripcion: string
+  tarjeta: { alt: string; pasos: string[]; libre: string; ctaLibre: string }
   tituloFormulario: string
   introFormulario: string
   campos: CampoFormulario[]
@@ -76,27 +71,29 @@ export const sociosPagina: Encabezado & {
       texto: 'Members take part in the organisation’s decisions, which is community-run and cross-cutting by definition.',
     },
   ],
-  tituloSuscripcion: 'Subscribe with a card',
-  montosSuscripcion: ['CLP 5,000', 'CLP 10,000', 'CLP 15,000', 'Another amount'],
+  tituloSuscripcion:
+    'What happens when you choose a plan',
   planes: {
     encabezado: {
       eyebrow: 'Plans',
       titulo: 'Choose your membership',
-      bajada: 'Four levels named after the valley. Paying for the whole year costs less than twelve separate months.',
+      bajada: 'Four levels named after the valley. The annual contribution is the same total as the twelve months, in a single charge.',
     },
     mensual: 'Monthly',
     anual: 'Annual',
-    ahorro: (pct) => `Save ${pct}%`,
+    equivaleA: 'works out at',
     alMes: 'a month',
     alAnio: 'a year',
     elegir: 'Choose',
+    respaldo:
+      'Card payments are handled by Payku, the same gateway the organisation has used since 2020. Choosing a plan opens its page, with the amount and the dates in plain sight before you type anything.',
     lista: [
       {
         id: 'chucao',
         nombre: 'Chucao',
         subtitulo: 'Bird of the Valdivian understorey',
-        anual: 37000,
-        mensual: 3500,
+        anual: 60000,
+        mensual: 5000,
         beneficios: [
           'Sticker and patch',
           'Digital card and Members Wall',
@@ -108,8 +105,8 @@ export const sociosPagina: Encabezado & {
         id: 'alerce',
         nombre: 'Alerce',
         subtitulo: 'Thousand-year-old tree of the sanctuary',
-        anual: 50000,
-        mensual: 5000,
+        anual: 120000,
+        mensual: 10000,
         beneficios: ['Everything in Chucao', 'Illustrated field guide'],
         destacado: true,
       },
@@ -117,15 +114,15 @@ export const sociosPagina: Encabezado & {
         id: 'trinidad',
         nombre: 'Trinidad',
         subtitulo: 'Granite peak above La Junta',
-        anual: 100000,
-        mensual: 10000,
+        anual: 180000,
+        mensual: 15000,
         beneficios: ['Everything in Alerce', 'Valley t-shirt', 'Mention in the annual report'],
       },
       {
         id: 'condor',
         nombre: 'Cóndor',
         subtitulo: 'Patron plan, for individuals and companies',
-        anual: 250000,
+        anual: 300000,
         mensual: 25000,
         beneficios: [
           'Everything in Trinidad, with a sweatshirt instead of a t-shirt',
@@ -136,9 +133,20 @@ export const sociosPagina: Encabezado & {
     ],
   },
   introSuscripcion:
-    'Choose your monthly contribution — CLP 5,000, 10,000, 15,000 or whatever amount you prefer — and fill in your details. The form belongs to Payku and opens right here; your card details go straight to them and never pass through this site.',
+    'Three steps and no surprise charges: the amount and the date of the first contribution are visible before you type anything.',
   notaSuscripcion:
-    'Payku identifies you by the name, surname, email and phone you type into that form. You can cancel the subscription whenever you want.',
+    'You can cancel the subscription whenever you want, by writing to us or from the confirmation email Payku sends you.',
+  tarjeta: {
+    alt: 'The organisation’s team at work in the valley',
+    pasos: [
+      'You pick your plan above and its Payku page opens, with the amount, the frequency and the date of the first charge already filled in.',
+      'You type your name, email and phone. That is how we identify you as a member.',
+      'Only then come the card details, on Payku’s own site. They never pass through this page.',
+    ],
+    libre:
+      'Would you rather give a different amount? The open-amount form lets you choose how much to contribute each month.',
+    ctaLibre: 'Give a different amount',
+  },
   tituloFormulario: 'Would you rather we got in touch?',
   introFormulario:
     'If you do not want to subscribe by card right now, or have questions before deciding, leave us your details and we will write to you.',
@@ -151,4 +159,36 @@ export const sociosPagina: Encabezado & {
   ],
   nota: 'We use your details only to contact you about membership. We do not share them with anyone.',
   gracias: 'We have your details. We will write to you soon.',
+}
+
+export const resultadoPago: {
+  gracias: Encabezado & { pasos: string[]; volver: Enlace; otra: Enlace }
+  problema: Encabezado & { tranquiliza: string; motivos: string[]; reintentar: Enlace; transferir: Enlace }
+} = {
+  gracias: {
+    eyebrow: 'Done',
+    titulo: 'Thank you for becoming a member',
+    bajada:
+      'Your contribution is under way. From today you are sustaining the work in the valley: the trails, the signage, the Visitor Centre and the conservation programmes.',
+    pasos: [
+      'Payku sends you an email with the receipt and the details of your plan. If it does not arrive within a few minutes, check your spam folder.',
+      'We will write to you from the organisation to welcome you and explain how to take part in decisions.',
+      'You can cancel the subscription whenever you want, by writing to us or from that same Payku email.',
+    ],
+    volver: { label: 'Back to the home page', href: '/en' },
+    otra: { label: 'Get to know the valley', href: '/en/el-valle' },
+  },
+  problema: {
+    eyebrow: 'Not completed',
+    titulo: 'The payment could not be processed',
+    bajada: 'The subscription was not registered, so you can try again whenever you want.',
+    tranquiliza: 'You have not been charged.',
+    motivos: [
+      'The card does not have recurring charges enabled. This is the most common reason, and a call to the bank turns it on.',
+      'There were not enough funds, or the card has expired.',
+      'The bank blocked the charge for security, because it did not recognise the merchant.',
+    ],
+    reintentar: { label: 'Try again', href: '/en/como-ayudar#planes' },
+    transferir: { label: 'Contribute by bank transfer', href: '/en/como-ayudar#transferencia' },
+  },
 }

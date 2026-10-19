@@ -1,6 +1,6 @@
 import { externos } from '../externos'
 import { imagenes } from '../imagenes'
-import { donarPagina, sociosPagina } from './colaborar'
+import { donarPagina, resultadoPago, sociosPagina } from './colaborar'
 import * as nuevo from './estructura'
 import { sectoresDetalle } from './sectores'
 import type { Contenido } from '../types'
@@ -68,9 +68,6 @@ export const contenido: Contenido = {
     directorioAmpliado: 'Members of the extended board',
     pagoSeguroPor: 'Secure payment processed by',
     abrirFormulario: 'Open the subscription form',
-    cargandoFormulario: 'Loading the Payku form…',
-    formularioTarda: 'The form is taking longer than usual.',
-    abrirEnPestana: 'Open in a new tab',
     cargandoMapa: 'Loading the map…',
     tocaParaMoverMapa: 'Tap to move the map',
     mapaDe: 'Map of the Cochamó Valley',
@@ -655,6 +652,7 @@ export const contenido: Contenido = {
   necesitamosTuAyuda: nuevo.necesitamosTuAyuda,
   donarPagina,
   sociosPagina,
+  resultadoPago,
   comoVisitarPagina: nuevo.comoVisitarPagina,
   comoAyudarPagina: nuevo.comoAyudarPagina,
   reservarPagina: nuevo.reservarPagina,

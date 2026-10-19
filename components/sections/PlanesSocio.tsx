@@ -3,20 +3,24 @@
 import { useState } from 'react'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { getContenido, LOCALE, type Lang } from '@/content'
+import { getContenido, LOCALE, payku, planesPayku, type Lang } from '@/content'
 
 type Periodo = 'mensual' | 'anual'
 
 /**
  * Los cuatro niveles de socio, con el precio anual y el mensual.
  *
- * El ahorro del plan anual se calcula aquí a partir de los dos montos, no se
- * escribe a mano: si alguien cambia un precio en el contenido, el porcentaje
- * se corrige solo en vez de quedar mintiendo.
+ * El anual cuesta lo mismo que los doce meses, así que no se anuncia ningún
+ * ahorro: cada tarjeta muestra el otro periodo como equivalencia y nada más.
+ * Lo que cambia entre uno y otro es el número de cobros, no el total.
  *
- * Los botones todavía no crean la suscripción: eso necesita los planes dados
- * de alta en la pasarela y sus credenciales. Por ahora llevan al formulario
- * que la corporación ya tiene en marcha.
+ * Cada botón lleva a la página del plan en Payku, que ya muestra el monto, la
+ * periodicidad y las fechas de cobro antes de pedir nada. Es una navegación
+ * normal, no un marco: la persona ve `payku.cl` en la barra de direcciones
+ * cuando le toca escribir la tarjeta, que es justo cuando conviene que lo vea.
+ *
+ * Un plan sin enlace cae al formulario de contacto en vez de dejar un botón
+ * muerto, así que la página funciona completa aunque falte dar de alta alguno.
  */
 export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) {
   const { sociosPagina } = getContenido(lang)
@@ -50,8 +54,7 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
 
         <div className="planes">
           {planes.lista.map((plan) => {
-            const anualSuelto = plan.mensual * 12
-            const ahorro = Math.round(((anualSuelto - plan.anual) / anualSuelto) * 100)
+            const enlace = planesPayku[plan.id]?.[periodo]
             const clases = [
               'plan',
               plan.destacado && 'plan--destacado',
@@ -71,16 +74,12 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
                   <span>{periodo === 'anual' ? planes.alAnio : planes.alMes}</span>
                 </p>
 
-                {periodo === 'anual' ? (
-                  <p className="plan__equivalente">
-                    <span className="plan__ahorro">{planes.ahorro(ahorro)}</span>
-                    {moneda.format(plan.mensual)} {planes.alMes}
-                  </p>
-                ) : (
-                  <p className="plan__equivalente">
-                    {moneda.format(plan.anual)} {planes.alAnio}
-                  </p>
-                )}
+                <p className="plan__equivalente">
+                  {planes.equivaleA}{' '}
+                  {periodo === 'anual'
+                    ? `${moneda.format(plan.mensual)} ${planes.alMes}`
+                    : `${moneda.format(plan.anual)} ${planes.alAnio}`}
+                </p>
 
                 <ul className="plan__beneficios">
                   {plan.beneficios.map((beneficio) => (
@@ -91,13 +90,18 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
                   ))}
                 </ul>
 
-                <a className="btn btn--rio btn--recto plan__cta" href={destino}>
+                <a
+                  className="btn btn--rio btn--recto plan__cta"
+                  href={enlace ? payku.enlacePlan(enlace) : destino}
+                >
                   {planes.elegir} {plan.nombre}
                 </a>
               </article>
             )
           })}
         </div>
+
+        <p className="planes__respaldo revelar">{planes.respaldo}</p>
       </div>
     </section>
   )

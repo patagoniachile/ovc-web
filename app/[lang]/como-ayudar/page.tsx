@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { AporteConTarjeta } from '@/components/sections/AporteConTarjeta'
 import { Donar } from '@/components/sections/Donar'
 import { FormularioSocio } from '@/components/sections/FormularioSocio'
 import { PlanesSocio } from '@/components/sections/PlanesSocio'
-import { SuscripcionPayku } from '@/components/sections/SuscripcionPayku'
 import { esIdioma, getContenido, IDIOMAS } from '@/content'
 
 export function generateStaticParams() {
@@ -76,7 +76,7 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
         <div className="contenedor">
           <h2 className="titulo--compacto revelar">{sociosPagina.tituloSuscripcion}</h2>
           <p className="lead revelar">{sociosPagina.introSuscripcion}</p>
-          <SuscripcionPayku lang={lang} nota={sociosPagina.notaSuscripcion} montos={sociosPagina.montosSuscripcion} />
+          <AporteConTarjeta lang={lang} />
         </div>
       </section>
 

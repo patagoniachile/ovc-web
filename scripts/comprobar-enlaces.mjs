@@ -35,7 +35,12 @@ async function archivosDeContenido(dir = 'content') {
 const urls = new Set()
 for (const archivo of await archivosDeContenido()) {
   const texto = await readFile(archivo, 'utf8')
-  for (const [url] of texto.matchAll(/https?:\/\/[^'"\s)]+/g)) urls.add(url.replace(/[,.]$/, ''))
+  for (const [url] of texto.matchAll(/https?:\/\/[^'"`\s)]+/g)) {
+    // Las URL armadas con plantilla (`…/index?idplan=${id}`) no se pueden
+    // pedir: el trozo variable solo existe en tiempo de ejecución.
+    if (url.includes('${')) continue
+    urls.add(url.replace(/[,.]$/, ''))
+  }
 }
 
 /* ---------------------------------------------------------------------------
