@@ -161,6 +161,54 @@ export interface SectorDetalle {
   }
 }
 
+/** Tarjeta visual de "por qué el valle es especial". */
+export interface Rasgo {
+  icono: IconName
+  titulo: string
+  texto: string
+  foto?: Foto
+}
+
+/** Especie o formación destacada en Flora y fauna. */
+export interface Especie {
+  nombre: string
+  nombreCientifico?: string
+  grupo: 'flora' | 'fauna' | 'geologia'
+  texto: string
+}
+
+/** Actividad posible en el valle. */
+export interface Actividad {
+  icono: IconName
+  titulo: string
+  texto: string
+  dato?: string
+}
+
+/** Columna de la comparación "día vs. semana". */
+export interface Modalidad {
+  titulo: string
+  resumen: string
+  filas: { etiqueta: string; valor: string }[]
+  paraQuien: string
+  destacada?: boolean
+}
+
+/** Forma de llegar al valle. */
+export interface MedioDeTransporte {
+  icono: IconName
+  titulo: string
+  texto: string
+  contactos?: Contacto[]
+}
+
+/** Partida de la sección "cuánto cuesta". */
+export interface Costo {
+  concepto: string
+  valor: string
+  detalle: string
+}
+
 export interface Camino {
   etiqueta: string
   titulo: string
@@ -213,6 +261,13 @@ export interface Textos {
   masInfoEn: string
   lugaresParaDormir: (n: number) => string
   verEnElMapa: string
+  quieroIr: string
+  conocerElValle: string
+  comoVisitar: string
+  flora: string
+  fauna: string
+  geologia: string
+  verComoVisitar: string
 }
 
 /** Todo lo que un idioma debe proveer. */
@@ -291,4 +346,36 @@ export interface Contenido {
   boletin: { titulo: string; texto: string; nota: string }
   aliadosEncabezado: Encabezado
   aliados: Aliado[]
+
+  /* ----- Estructura nueva ----- */
+
+  /** Hero: resumen de qué es, dónde y qué se hace */
+  heroResumen: { etiqueta: string; valor: string }[]
+
+  elValle: Encabezado
+  rasgos: Rasgo[]
+
+  floraFauna: Encabezado
+  especies: Especie[]
+
+  queHacer: Encabezado
+  actividades: Actividad[]
+
+  impacto: Encabezado
+  logroImportante: { cifra: string; unidad: string; titulo: string; texto: string; cta: Enlace }
+  misionVision: { mision: { titulo: string; texto: string }; vision: { titulo: string; texto: string } }
+
+  futuro: Encabezado
+  necesitamosTuAyuda: { titulo: string; texto: string; cta: Enlace }
+
+  /* ----- Página Cómo visitar ----- */
+  comoVisitarPagina: Encabezado & { intro: string }
+  comoLlegar: Encabezado & { medios: MedioDeTransporte[] }
+  cuantoCuesta: Encabezado & { costos: Costo[]; nota: string }
+  diaVsSemana: Encabezado & { modalidades: Modalidad[] }
+  horariosYContacto: Encabezado & {
+    horarios: { franja: string; detalle: string }[]
+    contactos: Contacto[]
+    nota: string
+  }
 }

@@ -1,14 +1,13 @@
 import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { Boletin } from './Boletin'
 import { getContenido, type Lang } from '@/content'
 
 export function Colaborar({ lang }: { lang: Lang }) {
   const { aportes, introColaborar } = getContenido(lang)
 
   return (
-    <section className="seccion" id="colaborar">
+    <section className="seccion seccion--alt" id="colaborar">
       <div className="contenedor">
         <SectionHeader className="revelar" centrado {...introColaborar} />
 
@@ -26,8 +25,6 @@ export function Colaborar({ lang }: { lang: Lang }) {
             </article>
           ))}
         </div>
-
-        <Boletin lang={lang} />
       </div>
     </section>
   )

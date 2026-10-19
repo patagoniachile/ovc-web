@@ -30,7 +30,24 @@ npm run dev      # http://localhost:4321
 | `npm run lint` | ESLint (config de Next) |
 | `npm run typecheck` | TypeScript sin emitir |
 
-## Estructura
+## Estructura del sitio
+
+Navegación en cuatro grupos: **El Valle**, **Cómo visitar**, **Historia** y
+**Cómo ayudar**.
+
+La portada sigue cinco bloques: Hero · El Valle · Impacto · Futuro ·
+Suscríbete. Cada bloque agrupa varias secciones; el orden está comentado en
+`app/[lang]/page.tsx`.
+
+El grupo **Cómo visitar** no tiene lugar en esos cinco bloques, así que su
+contenido vive en `/<idioma>/como-visitar`, con un ancla por entrada del menú
+(cómo llegar, cuánto cuesta, cómo reservar, qué debo saber, horarios, día vs.
+varios días).
+
+**Productos** quedó fuera del menú a propósito: es una sección del plan para la
+que todavía no hay contenido, y publicar el enlace llevaría a una página vacía.
+
+## Archivos
 
 ```
 app/
@@ -44,7 +61,10 @@ components/
   ui/                 Boton, Icon, SectionHeader, RichText + las piezas con JS
 content/              👈 TODO el contenido editable, tipado
   types.ts            El contrato que cada idioma debe cumplir
-  es/  en/            Un archivo por idioma (index.ts + sectores.ts)
+  es/  en/            Un archivo por idioma
+                      index.ts      textos generales, menú y pie
+                      estructura.ts El Valle, Impacto, Futuro, Cómo visitar
+                      sectores.ts   fichas de los tres sectores
   imagenes.ts         Rutas y dimensiones (no se traducen)
   externos.ts         URLs a los sitios actuales
 public/img/           Logo, logos de aliados y fotografías del valle
@@ -137,6 +157,8 @@ generará la carpeta `out/`. Se pierde la optimización de imágenes en servidor
 - **Boletín.** `components/sections/Boletin.tsx` valida y confirma, pero no
   envía a ningún lado. Lo natural es una Server Action que llame al proveedor
   de correo, para no exponer la clave en el cliente (hay un `TODO` marcado).
+- **Productos**: definir qué va en esa sección y volver a poner la entrada
+  del menú.
 - **Revisar la traducción al inglés** con alguien de la organización.
 - **Revisar cada temporada** los datos de `content/<idioma>/sectores.ts`:
   tarifas de arrieros, horarios del sendero, teléfonos y aforos.

@@ -36,6 +36,8 @@ export function Boletin({ lang }: { lang: Lang }) {
   }
 
   return (
+    <section className="seccion" id="suscribete">
+      <div className="contenedor">
     <div className="boletin revelar">
       <div>
         <h3>{boletin.titulo}</h3>
@@ -79,5 +81,7 @@ export function Boletin({ lang }: { lang: Lang }) {
         </p>
       </form>
     </div>
+      </div>
+    </section>
   )
 }

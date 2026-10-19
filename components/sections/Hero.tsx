@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
-import { externos, getContenido, imagenes, type Lang } from '@/content'
+import { getContenido, imagenes, type Lang } from '@/content'
 
 export function Hero({ lang }: { lang: Lang }) {
-  const { hero, textos } = getContenido(lang)
+  const { hero, heroResumen, textos } = getContenido(lang)
 
   return (
     <section className="hero" id="inicio">
@@ -28,14 +28,24 @@ export function Hero({ lang }: { lang: Lang }) {
           <p className="hero__bajada">{hero.bajada}</p>
 
           <div className="hero__acciones">
-            <Boton href={externos.reservas} variante="claro">
-              {textos.reservarEstadia}
+            <Boton href={`/${lang}/como-visitar`} variante="claro">
+              {textos.quieroIr}
               <Icon name="flecha" />
             </Boton>
-            <Boton href="#historia" variante="fantasma">
-              {textos.conocerHistoria}
+            <Boton href="#el-valle" variante="fantasma">
+              {textos.conocerElValle}
             </Boton>
           </div>
+
+          {/* Qué es, dónde está y qué se hace, de un vistazo */}
+          <dl className="hero__resumen">
+            {heroResumen.map((dato) => (
+              <div key={dato.etiqueta}>
+                <dt>{dato.etiqueta}</dt>
+                <dd>{dato.valor}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
         <div className="hero__pie">

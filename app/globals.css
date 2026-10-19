@@ -1441,3 +1441,286 @@ p { text-wrap: pretty; }
   .arrieros, .otros-sectores { grid-template-columns: 1fr; }
   .sector-hero { min-height: auto; padding-block: 100px 48px; }
 }
+
+/* --------------------------------------------------------------------------
+   Estructura nueva: El Valle, Impacto, Futuro
+   -------------------------------------------------------------------------- */
+.rasgos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; }
+.rasgo {
+  padding: 28px;
+  background: var(--bg-alt);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  transition: transform var(--trans), box-shadow var(--trans);
+}
+.rasgo:hover { transform: translateY(-3px); box-shadow: var(--sombra-md); }
+.rasgo__icono {
+  width: 48px; height: 48px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: var(--bosque-100);
+  color: var(--bosque-700);
+  margin-bottom: 18px;
+}
+.rasgo__icono svg { width: 24px; height: 24px; }
+.rasgo p { margin-top: 10px; font-size: .94rem; color: var(--texto-suave); }
+.rasgos__cta { display: flex; justify-content: center; margin-top: 40px; }
+
+/* Flora y fauna */
+.especies { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.especie {
+  padding: 24px;
+  background: var(--bg-alt);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+.especie__grupo {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.especie__grupo--flora { background: var(--bosque-100); color: var(--bosque-700); }
+.especie__grupo--fauna { background: var(--rio-100); color: var(--rio-600); }
+.especie__grupo--geologia { background: var(--granito-100); color: var(--granito-700); }
+.especie h3 { font-size: 1.15rem; }
+.especie__cientifico { margin-top: 3px; font-size: .84rem; font-style: italic; color: var(--granito-500); }
+.especie__texto { margin-top: 10px; font-size: .92rem; color: var(--texto-suave); }
+
+/* Qué se puede hacer */
+.actividades { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.actividad {
+  display: flex;
+  gap: 16px;
+  padding: 24px;
+  background: var(--bg-alt);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+.actividad__icono {
+  flex: none;
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: var(--rio-100);
+  color: var(--rio-600);
+}
+.actividad__icono svg { width: 22px; height: 22px; }
+.actividad h3 { font-size: 1.1rem; }
+.actividad p { margin-top: 8px; font-size: .92rem; color: var(--texto-suave); }
+.actividad__dato {
+  display: inline-block;
+  margin-top: 12px !important;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--arena-200);
+  font-size: .78rem;
+  font-weight: 620;
+  color: var(--bosque-700) !important;
+}
+
+/* Impacto */
+.logro-destacado {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(28px, 5vw, 56px);
+  align-items: center;
+  padding: clamp(28px, 4vw, 44px);
+  border-radius: var(--radio);
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(255, 255, 255, .14);
+}
+.logro-destacado__cifra {
+  font-family: var(--display);
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--blanco);
+  letter-spacing: -0.02em;
+}
+.logro-destacado__cifra small {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--sans);
+  font-size: .8rem;
+  font-weight: 650;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--rio-300);
+}
+.logro-destacado h3 { color: var(--blanco); font-size: clamp(1.3rem, 2.6vw, 1.8rem); }
+.logro-destacado p { margin-top: 12px; color: rgba(255, 255, 255, .8); max-width: 60ch; }
+.logro-destacado__cta { margin-top: 24px; }
+
+.mision { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 28px; }
+.mision__bloque {
+  padding: 28px;
+  border-radius: var(--radio);
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .12);
+}
+.mision__bloque h3 { color: var(--rio-300); font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.mision__bloque p { margin-top: 12px; font-size: 1.05rem; line-height: 1.65; color: rgba(255, 255, 255, .88); }
+
+/* Futuro */
+.ayuda {
+  max-width: 62ch;
+  margin-inline: auto;
+  padding: clamp(28px, 4vw, 44px);
+  border-radius: var(--radio);
+  background: var(--arena-200);
+  text-align: center;
+}
+.ayuda h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
+.ayuda p { margin-top: 12px; color: var(--texto-suave); }
+.ayuda .btn { margin-top: 24px; }
+
+/* --------------------------------------------------------------------------
+   Página Cómo visitar
+   -------------------------------------------------------------------------- */
+.pagina-hero {
+  background: var(--bosque-900);
+  color: var(--arena-200);
+  padding-block: clamp(64px, 9vw, 104px);
+}
+.pagina-hero h1 { color: var(--blanco); font-size: clamp(2.1rem, 5vw, 3.4rem); }
+.pagina-hero .eyebrow { color: var(--bosque-300); }
+.pagina-hero__intro { margin-top: 18px; max-width: 62ch; font-size: clamp(1rem, 1.7vw, 1.15rem); line-height: 1.7; color: rgba(255, 255, 255, .82); }
+.pagina-hero__acciones { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.pagina-hero .btn--borde { --btn-fg: var(--blanco); box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .5); }
+.pagina-hero .btn--borde:hover { --btn-bg: rgba(255, 255, 255, .12); }
+.miga--oscura { color: rgba(255, 255, 255, .7); }
+
+.transportes { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 20px; }
+.transporte { padding: 26px; background: var(--bg-alt); border: 1px solid var(--borde); border-radius: var(--radio); }
+.transporte__icono {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: var(--bosque-100);
+  color: var(--bosque-700);
+  margin-bottom: 16px;
+}
+.transporte__icono svg { width: 22px; height: 22px; }
+.transporte p { margin-top: 10px; font-size: .94rem; color: var(--texto-suave); }
+.transporte__contactos { margin-top: 16px; display: grid; gap: 7px; }
+.transporte__contactos a { display: inline-flex; align-items: center; gap: 9px; font-size: .88rem; font-weight: 560; color: var(--bosque-700); }
+.transporte__contactos a:hover { color: var(--rio-600); text-decoration: underline; text-underline-offset: 3px; }
+.transporte__contactos svg { width: 15px; height: 15px; flex: none; color: var(--granito-500); }
+
+.costos { display: grid; gap: 2px; }
+.costo { padding: 20px 0; border-bottom: 1px dashed var(--borde); }
+.costo__cabecera { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; }
+.costo h3 { font-size: 1.1rem; }
+.costo__valor {
+  flex: none;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--bosque-100);
+  color: var(--bosque-800);
+  font-size: .88rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+.costo p { margin-top: 8px; font-size: .93rem; color: var(--texto-suave); max-width: 72ch; }
+.costos__nota {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 26px;
+  padding: 15px 18px;
+  border-radius: var(--radio-sm);
+  background: #fff8f3;
+  border: 1px solid rgba(194, 90, 36, .28);
+  font-size: .88rem;
+  color: var(--texto-suave);
+}
+.costos__nota svg { width: 17px; height: 17px; flex: none; margin-top: 2px; color: var(--fuego-600); }
+
+.modalidades { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.modalidad {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background: var(--bg-alt);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+.modalidad--destacada { border-color: var(--rio-500); box-shadow: 0 0 0 3px var(--rio-100); }
+.modalidad h3 { font-size: 1.4rem; }
+.modalidad__resumen { margin-top: 10px; font-size: .97rem; color: var(--texto-suave); }
+.modalidad__filas { display: grid; gap: 1px; margin: 22px 0 0; background: var(--borde); border: 1px solid var(--borde); border-radius: var(--radio-sm); overflow: hidden; }
+.modalidad__filas > div { background: var(--bg-alt); padding: 13px 16px; }
+.modalidad__filas dt { font-size: .74rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--granito-500); }
+.modalidad__filas dd { margin: 5px 0 0; font-size: .95rem; }
+.modalidad__para-quien {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--borde);
+  font-size: .92rem;
+  font-style: italic;
+  color: var(--texto-suave);
+}
+
+.horarios { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(28px, 5vw, 56px); align-items: start; }
+.horarios__tabla { display: grid; gap: 1px; background: rgba(255, 255, 255, .14); border-radius: var(--radio); overflow: hidden; }
+.horarios__tabla li { display: flex; flex-wrap: wrap; gap: 6px 20px; background: var(--bosque-900); padding: 16px 20px; }
+.horarios__franja {
+  flex: none;
+  min-width: 9.5rem;
+  font-family: var(--sans);
+  font-weight: 680;
+  font-variant-numeric: tabular-nums;
+  color: var(--rio-300);
+}
+.horarios__detalle { color: rgba(255, 255, 255, .82); font-size: .94rem; }
+.horarios__lado h3 { color: var(--blanco); font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.horarios__contactos { margin-top: 14px; display: grid; gap: 10px; }
+.horarios__contactos a { display: inline-flex; align-items: center; gap: 10px; color: rgba(255, 255, 255, .88); font-size: .93rem; word-break: break-word; }
+.horarios__contactos a:hover { color: var(--blanco); text-decoration: underline; text-underline-offset: 3px; }
+.horarios__contactos svg { width: 16px; height: 16px; flex: none; color: var(--rio-300); }
+.horarios__nota {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 15px 17px;
+  border-radius: var(--radio-sm);
+  background: rgba(224, 114, 53, .14);
+  border: 1px solid rgba(224, 114, 53, .3);
+  font-size: .88rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, .85);
+}
+.horarios__nota svg { width: 17px; height: 17px; flex: none; margin-top: 2px; color: #ffb183; }
+
+@media (max-width: 860px) {
+  .mision, .modalidades, .horarios { grid-template-columns: 1fr; }
+  .logro-destacado { grid-template-columns: 1fr; }
+}
+
+/* Resumen del hero: qué es, dónde está y qué se hace */
+.hero__resumen {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px 32px;
+  margin: 36px 0 0;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, .22);
+  max-width: 52rem;
+}
+.hero__resumen dt {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--rio-300);
+}
+.hero__resumen dd { margin: 7px 0 0; font-size: .95rem; line-height: 1.5; color: rgba(255, 255, 255, .88); }
+
+/* Con el resumen dentro, la franja de cifras ya no monta sobre el hero */
+.cifras__grid { margin-block: 0; box-shadow: var(--sombra-md); }

@@ -3,11 +3,30 @@ import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getContenido, type Lang } from '@/content'
 
-export function Proyectos({ lang }: { lang: Lang }) {
+export function Proyectos({ lang, modo }: { lang: Lang; modo: 'desafios' | 'logros' }) {
   const { introProyectos, llamadoProyectos, logros, logrosEncabezado, proyectos, textos } = getContenido(lang)
 
+  if (modo === 'logros') {
+    return (
+      <section className="seccion seccion--alt" id="logros">
+        <div className="contenedor">
+          <SectionHeader className="revelar" {...logrosEncabezado} />
+
+          <div className="logros revelar">
+            {logros.map((logro) => (
+              <a className="logro" key={logro.label} href={logro.href} target="_blank" rel="noopener noreferrer">
+                <Icon name={logro.icono} />
+                {logro.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
-    <section className="seccion seccion--alt" id="proyectos">
+    <section className="seccion" id="proyectos">
       <div className="contenedor">
         <SectionHeader className="revelar" {...introProyectos} />
 
@@ -31,18 +50,6 @@ export function Proyectos({ lang }: { lang: Lang }) {
           </article>
         </div>
 
-        <div className="logros__bloque" id="logros">
-          <SectionHeader className="revelar" compacto {...logrosEncabezado} />
-
-          <div className="logros revelar">
-            {logros.map((logro) => (
-              <a className="logro" key={logro.label} href={logro.href} target="_blank" rel="noopener noreferrer">
-                <Icon name={logro.icono} />
-                {logro.label}
-              </a>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   )
