@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Fraunces, Inter } from 'next/font/google'
+import { Inter, Literata } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { BarraSuperior } from '@/components/layout/BarraSuperior'
 import { Cabecera } from '@/components/layout/Cabecera'
@@ -12,7 +12,9 @@ import '../globals.css'
 
 // next/font descarga y auto-hospeda las tipografías en el build: sin petición
 // a Google en tiempo de ejecución y sin salto de layout al cargar.
-const fraunces = Fraunces({
+// Literata y no Fraunces: la f, la g y la j de Fraunces tienen formas
+// recortadas que se leen como errores de impresión en los títulos.
+const literata = Literata({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
   variable: '--fuente-display',
@@ -83,7 +85,7 @@ export default async function LayoutIdioma({ children, params }: LayoutProps<'/[
   }
 
   return (
-    <html lang={lang} className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang={lang} className={`${literata.variable} ${inter.variable}`}>
       <body>
         <script
           type="application/ld+json"

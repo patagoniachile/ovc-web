@@ -1,5 +1,6 @@
 import { externos } from '../externos'
 import { imagenes } from '../imagenes'
+import { sectoresDetalle } from './sectores'
 import type { Contenido } from '../types'
 
 const organizacion = {
@@ -50,6 +51,18 @@ export const contenido: Contenido = {
     cargandoMapa: 'Cargando el mapa…',
     tocaParaMoverMapa: 'Toca para mover el mapa',
     mapaDe: 'Mapa del Valle Cochamó',
+    dondeDormir: 'Dónde dormir',
+    servicios: 'Servicios',
+    contacto: 'Contacto',
+    reservarEn: (nombre) => `Reservar en ${nombre}`,
+    volverAPortada: 'Volver a la portada',
+    sobreElSector: 'Sobre el sector',
+    datosClave: 'Datos clave',
+    tenEnCuenta: 'Ten en cuenta',
+    verTodosLosSectores: 'Ver los tres sectores',
+    masInfoEn: 'Más información',
+    lugaresParaDormir: (n) => `${n} ${n === 1 ? 'lugar' : 'lugares'} para alojar en este sector. La reserva se hace con cada operador; acá tienes todo para decidir.`,
+    verEnElMapa: 'Ver en el mapa',
   },
 
   menu: [
@@ -68,6 +81,7 @@ export const contenido: Contenido = {
       href: '#sectores',
       items: [
         { label: 'Sectores', href: '#sectores', detalle: 'Inicio Sendero, La Junta, Lago Vidal' },
+        { label: 'Dónde dormir', href: '/es/sectores/la-junta', detalle: 'Campings, refugios y hospedajes' },
         { label: 'Mapa', href: '#mapa', detalle: 'Dónde queda cada sector' },
         { label: 'Planifica tu trekking', href: '#planifica', detalle: 'Horarios, rutas y tiempos' },
         { label: 'Normas básicas', href: '#normas', detalle: 'Lo que debes cumplir' },
@@ -276,6 +290,8 @@ export const contenido: Contenido = {
       'Todos se reservan antes de llegar. Infórmate, programa y prepárate: el sendero es largo, hay mucho barro y el tiempo es impredecible.',
   },
 
+  sectoresDetalle,
+
   sectores: [
     {
       id: 'inicio-sendero',
@@ -292,7 +308,7 @@ export const contenido: Contenido = {
         ...imagenes.registroSendero,
         alt: 'Visitantes registrándose en el panel informativo del inicio del sendero',
       },
-      cta: { label: 'Reservar Inicio Sendero', href: externos.reservas },
+      cta: { label: 'Conocer Inicio Sendero', href: '/es/sectores/inicio-sendero' },
     },
     {
       id: 'la-junta',
@@ -309,7 +325,7 @@ export const contenido: Contenido = {
         ...imagenes.campingLaJunta,
         alt: 'Vista desde el interior de una carpa hacia las montañas de granito del sector La Junta',
       },
-      cta: { label: 'Reservar La Junta', href: externos.reservas, destacado: true },
+      cta: { label: 'Conocer La Junta', href: '/es/sectores/la-junta', destacado: true },
     },
     {
       id: 'lago-vidal',
@@ -326,7 +342,7 @@ export const contenido: Contenido = {
         ...imagenes.arrieros,
         alt: 'Arriero a caballo guiando una tropilla de mulas cargadas por el sendero del valle',
       },
-      cta: { label: 'Reservar Lago Vidal', href: externos.reservas },
+      cta: { label: 'Conocer Lago Vidal', href: '/es/sectores/lago-vidal' },
     },
   ],
 
@@ -424,14 +440,14 @@ export const contenido: Contenido = {
       titulo: 'Arrieros y arrieras',
       texto:
         '¿Necesitas caballos para subir tus cosas o quieres llegar a La Junta cabalgando? Contacta directamente a la agrupación de arrieros de Cochamó.',
-      enlace: { label: 'Ver contacto', href: externos.reservas },
+      enlace: { label: 'Ver tarifas y contacto', href: '/es/sectores/inicio-sendero#arrieros' },
     },
     {
       icono: 'reloj',
       titulo: 'Horarios del sendero',
       texto:
         'El ingreso tiene horarios definidos y se respetan sin excepción. Revísalos antes de viajar y considera el tiempo de traslado hasta el inicio del sendero.',
-      enlace: { label: 'Ver horarios', href: externos.reservas },
+      enlace: { label: 'Ver horarios', href: '/es/sectores/la-junta' },
     },
     {
       icono: 'pin',

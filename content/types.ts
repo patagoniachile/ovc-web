@@ -117,6 +117,50 @@ export interface PuntoMapa {
   enlace?: Enlace
 }
 
+export type TipoContacto = 'telefono' | 'whatsapp' | 'email' | 'web' | 'instagram' | 'facebook'
+
+export interface Contacto {
+  tipo: TipoContacto
+  /** Texto visible */
+  valor: string
+  href: string
+}
+
+/** Camping, refugio, hostal o cabaña de un sector. */
+export interface Alojamiento {
+  id: string
+  nombre: string
+  /** Camping, Refugio, Hostal… */
+  tipo: string
+  descripcion: string
+  servicios: string[]
+  contactos: Contacto[]
+  /** Dónde se reserva este alojamiento en concreto */
+  reserva?: Enlace
+  nota?: string
+}
+
+/** Página propia de un sector, con toda su información. */
+export interface SectorDetalle {
+  slug: string
+  nombre: string
+  titular: string
+  intro: string
+  parrafos: string[]
+  foto: Foto
+  datosClave: { etiqueta: string; valor: string }[]
+  alojamientos: Alojamiento[]
+  /** Avisos de seguridad propios del sector */
+  avisos: string[]
+  /** Bloque de arrieros, solo donde se contratan */
+  arrieros?: {
+    titulo: string
+    texto: string
+    datos: { etiqueta: string; valor: string }[]
+    contacto: Contacto
+  }
+}
+
 export interface Camino {
   etiqueta: string
   titulo: string
@@ -157,6 +201,18 @@ export interface Textos {
   cargandoMapa: string
   tocaParaMoverMapa: string
   mapaDe: string
+  dondeDormir: string
+  servicios: string
+  contacto: string
+  reservarEn: (nombre: string) => string
+  volverAPortada: string
+  sobreElSector: string
+  datosClave: string
+  tenEnCuenta: string
+  verTodosLosSectores: string
+  masInfoEn: string
+  lugaresParaDormir: (n: number) => string
+  verEnElMapa: string
 }
 
 /** Todo lo que un idioma debe proveer. */
@@ -196,6 +252,8 @@ export interface Contenido {
   }
   sectoresEncabezado: Encabezado
   sectores: Sector[]
+  /** Páginas propias, una por sector */
+  sectoresDetalle: SectorDetalle[]
   mapa: {
     encabezado: Encabezado
     aviso: string

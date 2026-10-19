@@ -44,7 +44,7 @@ components/
   ui/                 Boton, Icon, SectionHeader, RichText + las piezas con JS
 content/              👈 TODO el contenido editable, tipado
   types.ts            El contrato que cada idioma debe cumplir
-  es/  en/            Un archivo por idioma
+  es/  en/            Un archivo por idioma (index.ts + sectores.ts)
   imagenes.ts         Rutas y dimensiones (no se traducen)
   externos.ts         URLs a los sitios actuales
 public/img/           Logo, logos de aliados y fotografías del valle
@@ -66,6 +66,20 @@ del sendero y el sistema de reservas.
 > La traducción al inglés es un primer paso: conviene que alguien de la
 > organización la revise antes de difundirla, sobre todo en las secciones de
 > seguridad.
+
+### Páginas de sector
+
+`/<idioma>/sectores/<slug>` tiene una página propia por sector con todo lo que
+antes obligaba a saltar al sitio de reservas y abrir una ficha por camping:
+relato del lugar, datos clave, avisos de seguridad, los alojamientos con sus
+servicios y contactos, y el bloque de arrieros con tarifas.
+
+El criterio: **la reserva se hace fuera, la información vive acá**. Los
+botones que siguen saliendo a reservasvallecochamo.cl son solo los de reservar.
+
+El contenido se tomó de las fichas del sitio de reservas (octubre de 2026).
+Teléfonos, tarifas y horarios cambian: conviene revisarlos cada temporada en
+`content/<idioma>/sectores.ts`.
 
 ### Mapa
 
@@ -124,6 +138,8 @@ generará la carpeta `out/`. Se pierde la optimización de imágenes en servidor
   envía a ningún lado. Lo natural es una Server Action que llame al proveedor
   de correo, para no exponer la clave en el cliente (hay un `TODO` marcado).
 - **Revisar la traducción al inglés** con alguien de la organización.
+- **Revisar cada temporada** los datos de `content/<idioma>/sectores.ts`:
+  tarifas de arrieros, horarios del sendero, teléfonos y aforos.
 - **Páginas internas.** Hoy todo es una portada con anclas. Noticias, proyectos
   y santuario pueden pasar a rutas propias reutilizando los mismos componentes.
 - **Contenido.** Los textos y cifras se tomaron de los dos sitios actuales;

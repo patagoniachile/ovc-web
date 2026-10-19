@@ -1,5 +1,6 @@
 import { externos } from '../externos'
 import { imagenes } from '../imagenes'
+import { sectoresDetalle } from './sectores'
 import type { Contenido } from '../types'
 
 /**
@@ -59,6 +60,18 @@ export const contenido: Contenido = {
     cargandoMapa: 'Loading the map…',
     tocaParaMoverMapa: 'Tap to move the map',
     mapaDe: 'Map of the Cochamó Valley',
+    dondeDormir: 'Where to stay',
+    servicios: 'Facilities',
+    contacto: 'Contact',
+    reservarEn: (nombre) => `Book at ${nombre}`,
+    volverAPortada: 'Back to the home page',
+    sobreElSector: 'About this sector',
+    datosClave: 'Key facts',
+    tenEnCuenta: 'Bear in mind',
+    verTodosLosSectores: 'See all three sectors',
+    masInfoEn: 'More information',
+    lugaresParaDormir: (n) => `${n} ${n === 1 ? 'place' : 'places'} to stay in this sector. You book with each operator; everything you need to decide is here.`,
+    verEnElMapa: 'See it on the map',
   },
 
   menu: [
@@ -77,6 +90,7 @@ export const contenido: Contenido = {
       href: '#sectores',
       items: [
         { label: 'Sectors', href: '#sectores', detalle: 'Inicio Sendero, La Junta, Lago Vidal' },
+        { label: 'Where to stay', href: '/en/sectores/la-junta', detalle: 'Campsites, lodges and guesthouses' },
         { label: 'Map', href: '#mapa', detalle: 'Where each sector is' },
         { label: 'Plan your trek', href: '#planifica', detalle: 'Times, routes and distances' },
         { label: 'Basic rules', href: '#normas', detalle: 'What you must follow' },
@@ -283,6 +297,8 @@ export const contenido: Contenido = {
       'All of them must be booked before you arrive. Get informed, plan and prepare: the trail is long, there is a lot of mud and the weather is unpredictable.',
   },
 
+  sectoresDetalle,
+
   sectores: [
     {
       id: 'inicio-sendero',
@@ -299,7 +315,7 @@ export const contenido: Contenido = {
         ...imagenes.registroSendero,
         alt: 'Visitors signing in at the information panel at the start of the trail',
       },
-      cta: { label: 'Book Inicio Sendero', href: externos.reservas },
+      cta: { label: 'Explore Inicio Sendero', href: '/en/sectores/inicio-sendero' },
     },
     {
       id: 'la-junta',
@@ -316,7 +332,7 @@ export const contenido: Contenido = {
         ...imagenes.campingLaJunta,
         alt: 'View from inside a tent towards the granite mountains of the La Junta sector',
       },
-      cta: { label: 'Book La Junta', href: externos.reservas, destacado: true },
+      cta: { label: 'Explore La Junta', href: '/en/sectores/la-junta', destacado: true },
     },
     {
       id: 'lago-vidal',
@@ -333,7 +349,7 @@ export const contenido: Contenido = {
         ...imagenes.arrieros,
         alt: 'A muleteer on horseback leading a string of loaded mules along the valley trail',
       },
-      cta: { label: 'Book Lago Vidal', href: externos.reservas },
+      cta: { label: 'Explore Lago Vidal', href: '/en/sectores/lago-vidal' },
     },
   ],
 
@@ -431,14 +447,14 @@ export const contenido: Contenido = {
       titulo: 'Muleteers',
       texto:
         'Do you need horses to carry your gear, or would you rather ride to La Junta? Contact the Cochamó muleteers’ association directly.',
-      enlace: { label: 'See contact details', href: externos.reservas },
+      enlace: { label: 'See rates and contact', href: '/en/sectores/inicio-sendero#arrieros' },
     },
     {
       icono: 'reloj',
       titulo: 'Trail opening times',
       texto:
         'Entry times are fixed and enforced without exception. Check them before you travel and allow for the journey to the trailhead.',
-      enlace: { label: 'See opening times', href: externos.reservas },
+      enlace: { label: 'See opening times', href: '/en/sectores/la-junta' },
     },
     {
       icono: 'pin',
