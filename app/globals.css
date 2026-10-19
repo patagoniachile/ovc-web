@@ -1928,3 +1928,108 @@ p { text-wrap: pretty; }
 @media (max-width: 640px) {
   .pasarela__lienzo, .pasarela__lienzo iframe { min-height: 660px; height: 660px; }
 }
+
+/* --------------------------------------------------------------------------
+   Copiar la cuenta completa
+
+   Antes era un botón pequeño arriba, junto al título, lejos de los datos que
+   copia y sin pinta de botón. Ahora va bajo la tarjeta, a todo el ancho y con
+   el aspecto de una acción: es lo que más se usa desde el teléfono.
+   -------------------------------------------------------------------------- */
+.copiar-todo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 16px 20px;
+  text-align: left;
+  background: var(--bosque-700);
+  color: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-sm);
+  transition: transform var(--trans), box-shadow var(--trans), background-color var(--trans);
+}
+.copiar-todo:hover { background: var(--bosque-600); transform: translateY(-2px); box-shadow: var(--sombra-md); }
+.copiar-todo:active { transform: translateY(0); }
+.copiar-todo.esta-copiado { background: var(--rio-600); }
+.copiar-todo__icono {
+  flex: none;
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .16);
+}
+.copiar-todo__icono svg { width: 20px; height: 20px; }
+.copiar-todo strong { display: block; font-size: 1rem; font-weight: 650; }
+.copiar-todo__ayuda {
+  display: block;
+  margin-top: 3px;
+  font-size: .82rem;
+  color: rgba(255, 255, 255, .72);
+  font-variant-numeric: tabular-nums;
+}
+
+/* La otra vía de aporte, al cierre de donar */
+.otra-via {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(26px, 4vw, 40px);
+  border-radius: var(--radio);
+  background: var(--arena-200);
+}
+.otra-via p { margin-top: 10px; max-width: 58ch; color: var(--texto-suave); font-size: .96rem; }
+
+/* --------------------------------------------------------------------------
+   Las dos vías de aporte en la portada
+   -------------------------------------------------------------------------- */
+.vias__titulo {
+  margin-top: clamp(40px, 6vw, 64px);
+  text-align: center;
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+}
+.vias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 22px;
+  margin-top: 26px;
+  max-width: 880px;
+  margin-inline: auto;
+}
+.via {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  background: var(--bg-alt);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  transition: transform var(--trans), box-shadow var(--trans);
+}
+.via:hover { transform: translateY(-3px); box-shadow: var(--sombra-md); }
+.via--destacada { border-color: var(--rio-500); box-shadow: 0 0 0 3px var(--rio-100); }
+.via__icono {
+  width: 46px; height: 46px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: var(--bosque-100);
+  color: var(--bosque-700);
+  margin-bottom: 16px;
+}
+.via--destacada .via__icono { background: var(--rio-100); color: var(--rio-600); }
+.via__icono svg { width: 23px; height: 23px; }
+.via__detalle {
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: var(--arena-200);
+  font-size: .8rem;
+  font-weight: 650;
+  color: var(--bosque-800);
+  font-variant-numeric: tabular-nums;
+}
+.via h4 { margin-top: 12px; font-family: var(--display); font-size: 1.3rem; font-weight: 600; }
+.via p { margin-top: 10px; font-size: .95rem; color: var(--texto-suave); }
+.via .btn { margin-top: 22px; }

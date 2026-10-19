@@ -1,10 +1,10 @@
-import { payku } from '../cuenta'
 import type { CampoFormulario, Encabezado, MetodoDonacion } from '../types'
 
 export const donarPagina: Encabezado & {
   intro: string
   metodos: MetodoDonacion[]
   tituloCuenta: string
+  otraVia: { titulo: string; texto: string; cta: { label: string; href: string } }
   tituloPayku: string
   notaPayku: string
   reparto: { titulo: string; conservacion: string; infraestructura: string }
@@ -24,16 +24,14 @@ export const donarPagina: Encabezado & {
       ventaja: 'Llega íntegra: nadie se queda con una parte.',
       comision: 'Sin comisión',
     },
-    {
-      id: 'payku',
-      icono: 'corazon',
-      titulo: 'Hacerte socio o socia',
-      texto: 'Un aporte mensual con tarjeta, desde $5.000. Es lo mismo que ser socio: se gestiona en la página de socios.',
-      ventaja: 'Se repite solo cada mes y te hace parte de la corporación.',
-      comision: `${payku.comision} de comisión`,
-    },
   ],
   tituloCuenta: 'Datos para transferir',
+  otraVia: {
+    titulo: '¿Prefieres aportar todos los meses?',
+    texto:
+      'Hacerte socio es un aporte mensual con tarjeta, desde $5.000. Es lo que da continuidad al trabajo y te hace parte de las decisiones de la corporación.',
+    cta: { label: 'Hacerme socio', href: '/es/socios' },
+  },
   tituloPayku: 'Aporte mensual con tarjeta',
   notaPayku:
     'El formulario es de Payku y se abre dentro de esta página. Los datos de tu tarjeta viajan directo a ellos: nunca pasan por este sitio.',

@@ -308,3 +308,28 @@ export const reservarPagina = {
   tituloSectores: 'Choose your sector',
   tituloDormir: 'Where to stay, sector by sector',
 }
+
+export const viasDeAporte = {
+  titulo: 'Two ways to contribute',
+  opciones: [
+    {
+      id: 'socio' as const,
+      icono: 'gente' as const,
+      titulo: 'Become a member',
+      texto:
+        'A monthly card contribution. It is what makes planning beyond the next season possible, and it makes you part of the organisation’s decisions.',
+      detalle: 'From CLP 5,000 a month',
+      cta: { label: 'Become a member', href: '/en/socios' },
+      destacada: true,
+    },
+    {
+      id: 'donacion' as const,
+      icono: 'corazon' as const,
+      titulo: 'Give once',
+      texto:
+        'A direct transfer to the organisation’s account, whenever you want and for whatever amount. It arrives whole: nobody takes a cut.',
+      detalle: 'No fee',
+      cta: { label: 'See transfer details', href: '/en/donar' },
+    },
+  ],
+}

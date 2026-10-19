@@ -221,6 +221,18 @@ export interface CampoFormulario {
   ayuda?: string
 }
 
+/** Una de las dos vías de aporte: socio mensual o donación única. */
+export interface ViaDeAporte {
+  id: 'socio' | 'donacion'
+  icono: IconName
+  titulo: string
+  texto: string
+  /** El dato que decide: "Desde $5.000 al mes", "Sin comisión" */
+  detalle: string
+  cta: Enlace
+  destacada?: boolean
+}
+
 export interface Encabezado {
   eyebrow: string
   titulo: string
@@ -383,6 +395,7 @@ export interface Contenido {
   misionVision: { mision: { titulo: string; texto: string }; vision: { titulo: string; texto: string } }
 
   futuro: Encabezado
+  viasDeAporte: { titulo: string; opciones: ViaDeAporte[] }
   necesitamosTuAyuda: { titulo: string; texto: string; cta: Enlace }
 
   /* ----- Donar y socios ----- */
@@ -392,6 +405,7 @@ export interface Contenido {
     tituloCuenta: string
     tituloPayku: string
     notaPayku: string
+    otraVia: { titulo: string; texto: string; cta: Enlace }
     reparto: { titulo: string; conservacion: string; infraestructura: string }
   }
   sociosPagina: Encabezado & {

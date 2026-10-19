@@ -1,10 +1,10 @@
-import { payku } from '../cuenta'
 import type { CampoFormulario, Encabezado, MetodoDonacion } from '../types'
 
 export const donarPagina: Encabezado & {
   intro: string
   metodos: MetodoDonacion[]
   tituloCuenta: string
+  otraVia: { titulo: string; texto: string; cta: { label: string; href: string } }
   tituloPayku: string
   notaPayku: string
   reparto: { titulo: string; conservacion: string; infraestructura: string }
@@ -24,16 +24,14 @@ export const donarPagina: Encabezado & {
       ventaja: 'It arrives whole: nobody takes a cut.',
       comision: 'No fee',
     },
-    {
-      id: 'payku',
-      icono: 'corazon',
-      titulo: 'Becoming a member',
-      texto: 'A monthly card contribution, from CLP 5,000. It is the same as being a member: handled on the members page.',
-      ventaja: 'It repeats every month and makes you part of the organisation.',
-      comision: `${payku.comision} fee`,
-    },
   ],
   tituloCuenta: 'Transfer details',
+  otraVia: {
+    titulo: 'Would you rather contribute every month?',
+    texto:
+      'Becoming a member is a monthly card contribution, from CLP 5,000. It is what gives the work continuity and makes you part of the organisation’s decisions.',
+    cta: { label: 'Become a member', href: '/en/socios' },
+  },
   tituloPayku: 'Monthly card contribution',
   notaPayku:
     'The form belongs to Payku and opens inside this page. Your card details go straight to them: they never pass through this site.',

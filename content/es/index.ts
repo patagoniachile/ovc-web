@@ -637,6 +637,7 @@ export const contenido: Contenido = {
   logroImportante: nuevo.logroImportante,
   misionVision: nuevo.misionVision,
   futuro: nuevo.futuro,
+  viasDeAporte: nuevo.viasDeAporte,
   necesitamosTuAyuda: nuevo.necesitamosTuAyuda,
   donarPagina,
   sociosPagina,

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import { cuentaBancaria, getContenido, type Lang } from '@/content'
 
@@ -58,9 +59,18 @@ function CopiarTodo({ lang }: { lang: Lang }) {
   }
 
   return (
-    <button type="button" className="btn btn--rio btn--sm cuenta__copiar-todo" onClick={copiar}>
-      <Icon name={copiado ? 'check' : 'cartel'} />
-      {copiado ? textos.copiadoTodo : textos.copiarTodo}
+    <button
+      type="button"
+      className={copiado ? 'copiar-todo esta-copiado' : 'copiar-todo'}
+      onClick={copiar}
+    >
+      <span className="copiar-todo__icono">
+        <Icon name={copiado ? 'check' : 'cartel'} />
+      </span>
+      <span>
+        <strong>{copiado ? textos.copiadoTodo : textos.copiarTodo}</strong>
+        <span className="copiar-todo__ayuda">{cuentaBancaria.banco} · {cuentaBancaria.numero}</span>
+      </span>
     </button>
   )
 }
@@ -98,10 +108,7 @@ export function Donar({ lang }: { lang: Lang }) {
       {/* Transferencia */}
       <section className="seccion seccion--alt" id="transferencia">
         <div className="contenedor">
-          <div className="cuenta__cabecera revelar">
-            <h2 className="titulo--compacto">{donarPagina.tituloCuenta}</h2>
-            <CopiarTodo lang={lang} />
-          </div>
+          <h2 className="titulo--compacto revelar">{donarPagina.tituloCuenta}</h2>
 
           <dl className="cuenta revelar">
             <Dato lang={lang} etiqueta="Banco" valor={cuentaBancaria.banco} copiable={false} />
@@ -111,6 +118,10 @@ export function Donar({ lang }: { lang: Lang }) {
             <Dato lang={lang} etiqueta="BIC / SWIFT" valor={cuentaBancaria.swift} />
             <Dato lang={lang} etiqueta="Email" valor={cuentaBancaria.email} />
           </dl>
+
+          <div className="revelar">
+            <CopiarTodo lang={lang} />
+          </div>
 
           <div className="reparto reparto--claro revelar">
             <p className="reparto__titulo">{donarPagina.reparto.titulo}</p>
@@ -132,6 +143,20 @@ export function Donar({ lang }: { lang: Lang }) {
         </div>
       </section>
 
+      {/* La otra vía, claramente separada de la transferencia */}
+      <section className="seccion">
+        <div className="contenedor">
+          <div className="otra-via revelar">
+            <div>
+              <h2 className="titulo--compacto">{donarPagina.otraVia.titulo}</h2>
+              <p>{donarPagina.otraVia.texto}</p>
+            </div>
+            <Boton href={donarPagina.otraVia.cta.href} variante="rio">
+              {donarPagina.otraVia.cta.label}
+            </Boton>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

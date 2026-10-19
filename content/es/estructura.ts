@@ -309,3 +309,28 @@ export const reservarPagina = {
   tituloSectores: 'Elige tu sector',
   tituloDormir: 'Dónde dormir, sector por sector',
 }
+
+export const viasDeAporte = {
+  titulo: 'Dos formas de aportar',
+  opciones: [
+    {
+      id: 'socio' as const,
+      icono: 'gente' as const,
+      titulo: 'Hazte socio o socia',
+      texto:
+        'Un aporte mensual con tarjeta. Es lo que permite planificar más allá de la próxima temporada, y te hace parte de las decisiones de la corporación.',
+      detalle: 'Desde $5.000 al mes',
+      cta: { label: 'Hacerme socio', href: '/es/socios' },
+      destacada: true,
+    },
+    {
+      id: 'donacion' as const,
+      icono: 'corazon' as const,
+      titulo: 'Dona una vez',
+      texto:
+        'Una transferencia directa a la cuenta de la corporación, cuando quieras y por el monto que quieras. Llega íntegra: nadie se queda con una parte.',
+      detalle: 'Sin comisión',
+      cta: { label: 'Ver datos para transferir', href: '/es/donar' },
+    },
+  ],
+}
