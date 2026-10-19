@@ -333,3 +333,44 @@ export const viasDeAporte = {
     },
   ],
 }
+
+export const destinoAportes = {
+  titulo: 'Where your contribution goes',
+  texto:
+    'There is no public budget behind the valley. This is what donations and membership fees sustain — what is already done and what is still missing.',
+  reparto: {
+    conservacion: '50% long-term conservation programmes',
+    infraestructura: '50% visitor infrastructure',
+    etiquetaGrafico: '50% conservation, 50% visitor infrastructure',
+  },
+  items: [
+    {
+      icono: 'edificio' as const,
+      dato: '+12,000',
+      titulo: 'Visitors received each season',
+      texto:
+        'The Visitor Centre runs from December to March: it informs, registers people in and out, and coordinates with the campsites, the muleteers and the police whenever someone is lost or injured.',
+    },
+    {
+      icono: 'sendero' as const,
+      dato: '11.5 km',
+      titulo: 'Of interpretive trail under way',
+      texto:
+        'Signage explaining the forest, the river and the muleteer history, plus repairs to the eroded sections so the mud stops widening the path.',
+    },
+    {
+      icono: 'botiquin' as const,
+      dato: 'Pending',
+      titulo: 'A rescue team of our own',
+      texto:
+        'The valley has no emergency services today. Training a team with first-aid supplies is the most urgent of the challenges still unfunded.',
+    },
+    {
+      icono: 'hoja' as const,
+      dato: 'Done',
+      titulo: 'Recycling centre and signage',
+      texto:
+        'Rubbish comes down from the valley and is sorted below, and the trail signs orient visitors and ask for care at the points where the impact was worst.',
+    },
+  ],
+}

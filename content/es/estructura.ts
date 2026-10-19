@@ -334,3 +334,44 @@ export const viasDeAporte = {
     },
   ],
 }
+
+export const destinoAportes = {
+  titulo: 'A dónde va tu aporte',
+  texto:
+    'No hay presupuesto público detrás del valle. Esto es lo que sostienen las donaciones y las cuotas de socios, con lo ya hecho y lo que falta.',
+  reparto: {
+    conservacion: '50% programas de conservación de largo plazo',
+    infraestructura: '50% infraestructura para visitantes',
+    etiquetaGrafico: '50% conservación, 50% infraestructura para visitantes',
+  },
+  items: [
+    {
+      icono: 'edificio' as const,
+      dato: '+12.000',
+      titulo: 'Visitantes atendidos cada temporada',
+      texto:
+        'El Centro de Visitantes funciona entre diciembre y marzo: informa, registra entradas y salidas, y coordina con los campings, los arrieros y Carabineros cuando hay alguien perdido o accidentado.',
+    },
+    {
+      icono: 'sendero' as const,
+      dato: '11,5 km',
+      titulo: 'De sendero interpretativo en obra',
+      texto:
+        'Señalética que explica el bosque, el río y la historia arriera, más la reparación de los tramos erosionados para que el barro deje de ensanchar la huella.',
+    },
+    {
+      icono: 'botiquin' as const,
+      dato: 'Pendiente',
+      titulo: 'Un equipo de rescate propio',
+      texto:
+        'Hoy el valle no tiene servicios de emergencia. Formar un equipo con insumos de primeros auxilios es el desafío más urgente de los que siguen sin financiar.',
+    },
+    {
+      icono: 'hoja' as const,
+      dato: 'Hecho',
+      titulo: 'Centro de reciclaje y señalética',
+      texto:
+        'La basura baja del valle y se separa abajo, y las señales del sendero orientan y piden cuidados en los puntos donde más impacto había.',
+    },
+  ],
+}

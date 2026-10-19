@@ -4,15 +4,15 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getContenido, type Lang } from '@/content'
 
 /**
- * Cierre del bloque Futuro: el llamado a ayudar y las dos vías para hacerlo.
+ * Cierre del bloque Futuro: por qué hace falta ayuda, a dónde va el dinero y
+ * las dos vías para aportar.
  *
- * Las dos vías van aquí, en la portada, y no solo en sus páginas: quien llega
- * convencido no debería tener que buscar en el menú dónde aportar. Se
- * presentan separadas a propósito —mensual con tarjeta frente a transferencia
- * única— porque son decisiones distintas y antes se confundían.
+ * El destino de los aportes va antes que los botones a propósito: pedir plata
+ * sin mostrar en qué se usa es lo que hace que una página de donaciones se
+ * sienta hueca.
  */
 export function Futuro({ lang }: { lang: Lang }) {
-  const { futuro, necesitamosTuAyuda, viasDeAporte } = getContenido(lang)
+  const { destinoAportes, futuro, necesitamosTuAyuda, viasDeAporte } = getContenido(lang)
 
   return (
     <section className="seccion" id="ayudar">
@@ -24,18 +24,60 @@ export function Futuro({ lang }: { lang: Lang }) {
           <p>{necesitamosTuAyuda.texto}</p>
         </div>
 
-        <h3 className="vias__titulo revelar">{viasDeAporte.titulo}</h3>
+        {/* A dónde va el dinero, antes de pedirlo */}
+        <div className="destino" id="destino">
+          <div className="destino__intro revelar">
+            <h3>{destinoAportes.titulo}</h3>
+            <p>{destinoAportes.texto}</p>
+
+            <div className="reparto reparto--claro">
+              <div className="reparto__barra" role="img" aria-label={destinoAportes.reparto.etiquetaGrafico}>
+                <span />
+                <span />
+              </div>
+              <ul className="reparto__leyenda">
+                <li>
+                  <span className="reparto__punto reparto__punto--bosque" />
+                  {destinoAportes.reparto.conservacion}
+                </li>
+                <li>
+                  <span className="reparto__punto reparto__punto--rio" />
+                  {destinoAportes.reparto.infraestructura}
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <ul className="destino__items">
+            {destinoAportes.items.map((item) => (
+              <li className="destino__item revelar" key={item.titulo}>
+                <span className="destino__icono">
+                  <Icon name={item.icono} />
+                </span>
+                <div>
+                  <span className="destino__dato">{item.dato}</span>
+                  <h4>{item.titulo}</h4>
+                  <p>{item.texto}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <div className="vias">
           {viasDeAporte.opciones.map((via) => (
             <article className={via.destacada ? 'via via--destacada revelar' : 'via revelar'} key={via.id}>
-              <div className="via__icono">
-                <Icon name={via.icono} />
+              <div className="via__cabecera">
+                <span className="via__icono">
+                  <Icon name={via.icono} />
+                </span>
+                <div>
+                  <h4>{via.titulo}</h4>
+                  <span className="via__detalle">{via.detalle}</span>
+                </div>
               </div>
-              <span className="via__detalle">{via.detalle}</span>
-              <h4>{via.titulo}</h4>
               <p>{via.texto}</p>
-              <Boton href={via.cta.href} variante={via.destacada ? 'rio' : 'borde'}>
+              <Boton href={via.cta.href} variante={via.destacada ? 'rio' : 'borde'} bloque>
                 {via.cta.label}
               </Boton>
             </article>

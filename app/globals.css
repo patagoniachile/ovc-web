@@ -2035,14 +2035,46 @@ p { text-wrap: pretty; }
 .via .btn { margin-top: 22px; }
 
 /* --------------------------------------------------------------------------
-   Tres acciones en la cabecera: donar, hacerse socio y reservar
-   -------------------------------------------------------------------------- */
-.cabecera__cta .btn { padding-inline: 18px; }
+   Acciones de la cabecera
 
-/* Entre 1080 y 1260px no caben las tres con el menú al lado. Donar es la que
-   cede: sigue en el pie, en la portada y dentro de la página de socios. */
+   Donar y hacerse socio son la misma intención, así que van unidas en un
+   control con un solo borde, con socio en tono lleno por ser la que sostiene
+   el trabajo. Reservar queda aparte como la acción del visitante. Antes eran
+   tres botones de tres estilos distintos, uno al lado del otro.
+   -------------------------------------------------------------------------- */
+.apoyo {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1.5px solid var(--borde);
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+.apoyo__accion {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 16px;
+  font-size: .88rem;
+  font-weight: 620;
+  color: var(--bosque-800);
+  white-space: nowrap;
+  transition: background-color var(--trans), color var(--trans);
+}
+.apoyo__accion svg { width: 15px; height: 15px; color: var(--fuego-600); }
+.apoyo__accion:hover { background: var(--arena-200); }
+.apoyo__accion--socio {
+  background: var(--bosque-700);
+  color: var(--blanco);
+  border-left: 1.5px solid var(--bosque-700);
+}
+.apoyo__accion--socio:hover { background: var(--bosque-600); }
+
+/* Entre 1080 y 1260px no cabe la pareja completa junto al menú: cede donar,
+   que sigue en el pie, en la portada y dentro de la página de socios. */
 @media (max-width: 1260px) and (min-width: 1081px) {
   .cabecera__donar { display: none; }
+  .apoyo__accion--socio { border-left: 0; }
 }
 
 /* --------------------------------------------------------------------------
@@ -2079,4 +2111,71 @@ p { text-wrap: pretty; }
 @media (max-width: 520px) {
   .cabecera .marca__texto { display: none; }
   .cabecera__cta .btn { padding-inline: 13px; font-size: .84rem; }
+}
+
+/* --------------------------------------------------------------------------
+   A dónde va tu aporte
+   -------------------------------------------------------------------------- */
+.destino {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: start;
+  margin-top: clamp(44px, 6vw, 72px);
+}
+.destino__intro h3 { font-size: clamp(1.4rem, 2.8vw, 1.9rem); }
+.destino__intro p { margin-top: 12px; color: var(--texto-suave); }
+.destino__intro .reparto { margin-top: 24px; }
+
+.destino__items { display: grid; gap: 18px; }
+.destino__item {
+  display: flex;
+  gap: 16px;
+  padding: 20px 22px;
+  background: var(--bg-alt);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+.destino__icono {
+  flex: none;
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  border-radius: 11px;
+  background: var(--bosque-100);
+  color: var(--bosque-700);
+}
+.destino__icono svg { width: 21px; height: 21px; }
+.destino__dato {
+  display: inline-block;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: var(--arena-200);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--bosque-800);
+  font-variant-numeric: tabular-nums;
+}
+.destino__item h4 { margin-top: 9px; font-family: var(--display); font-size: 1.08rem; font-weight: 600; }
+.destino__item p { margin-top: 7px; font-size: .91rem; color: var(--texto-suave); }
+
+/* Las dos vías, ahora con cabecera de icono + título */
+.via__cabecera { display: flex; align-items: center; gap: 14px; }
+.via__icono {
+  flex: none;
+  width: 46px; height: 46px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: var(--bosque-100);
+  color: var(--bosque-700);
+}
+.via--destacada .via__icono { background: var(--rio-100); color: var(--rio-600); }
+.via__icono svg { width: 23px; height: 23px; }
+.via h4 { margin-top: 0; font-family: var(--display); font-size: 1.3rem; font-weight: 600; }
+.via__detalle { display: inline-block; margin-top: 4px; }
+.via { align-items: stretch; }
+.via p { flex: 1; }
+
+@media (max-width: 860px) {
+  .destino { grid-template-columns: 1fr; }
 }

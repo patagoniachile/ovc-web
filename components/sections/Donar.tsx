@@ -80,35 +80,11 @@ export function Donar({ lang }: { lang: Lang }) {
 
   return (
     <>
-      <section className="seccion">
-        <div className="contenedor">
-          <p className="lead revelar">{donarPagina.intro}</p>
-
-          <div className="metodos revelar">
-            {donarPagina.metodos.map((metodo) => (
-              <article className="metodo" key={metodo.id}>
-                <div className="metodo__icono">
-                  <Icon name={metodo.icono} />
-                </div>
-                <h2>{metodo.titulo}</h2>
-                <p>{metodo.texto}</p>
-                <p className="metodo__ventaja">{metodo.ventaja}</p>
-                <span className="metodo__comision">{metodo.comision}</span>
-                {metodo.id === 'payku' && (
-                  <a className="btn btn--rio btn--sm metodo__cta" href={`/${lang}/socios#suscribirme`}>
-                    {donarPagina.tituloPayku}
-                  </a>
-                )}
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Transferencia */}
-      <section className="seccion seccion--alt" id="transferencia">
+      <section className="seccion" id="transferencia">
         <div className="contenedor">
           <h2 className="titulo--compacto revelar">{donarPagina.tituloCuenta}</h2>
+          <p className="lead revelar">{donarPagina.intro}</p>
 
           <dl className="cuenta revelar">
             <Dato lang={lang} etiqueta="Banco" valor={cuentaBancaria.banco} copiable={false} />

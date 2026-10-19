@@ -398,6 +398,12 @@ export interface Contenido {
 
   futuro: Encabezado
   viasDeAporte: { titulo: string; opciones: ViaDeAporte[] }
+  destinoAportes: {
+    titulo: string
+    texto: string
+    reparto: { conservacion: string; infraestructura: string; etiquetaGrafico: string }
+    items: { icono: IconName; dato: string; titulo: string; texto: string }[]
+  }
   necesitamosTuAyuda: { titulo: string; texto: string; cta: Enlace }
 
   /* ----- Donar y socios ----- */
