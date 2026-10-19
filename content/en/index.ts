@@ -1,5 +1,6 @@
 import { externos } from '../externos'
 import { imagenes } from '../imagenes'
+import { donarPagina, sociosPagina } from './colaborar'
 import * as nuevo from './estructura'
 import { sectoresDetalle } from './sectores'
 import type { Contenido } from '../types'
@@ -78,6 +79,14 @@ export const contenido: Contenido = {
     masInfoEn: 'More information',
     lugaresParaDormir: (n) => `${n} ${n === 1 ? 'place' : 'places'} to stay in this sector. You book with each operator; everything you need to decide is here.`,
     verEnElMapa: 'See it on the map',
+    copiar: 'Copy',
+    copiado: 'Copied',
+    enviar: 'Send',
+    enviando: 'Sending…',
+    enviado: 'Sent',
+    errorEnvio: 'We could not send the form. Write to us directly at',
+    camposRequeridos: 'Please fill in your name and a valid email address.',
+    correoDirecto: 'Or write to us at',
     quieroIr: 'I want to go',
     conocerElValle: 'Explore the valley',
     comoVisitar: 'How to visit',
@@ -126,8 +135,8 @@ export const contenido: Contenido = {
       label: 'How to help',
       href: `${PORTADA}#ayudar`,
       items: [
-        { label: 'Donations', href: externos.donar, detalle: '50% conservation · 50% infrastructure' },
-        { label: 'Members', href: externos.socio, detalle: 'Regular contribution' },
+        { label: 'Donations', href: `${PORTADA}/donar`, detalle: '50% conservation · 50% infrastructure' },
+        { label: 'Members', href: `${PORTADA}/socios`, detalle: 'Regular contribution' },
       ],
     },
   ],
@@ -158,8 +167,8 @@ export const contenido: Contenido = {
         { label: 'What happened', href: `${PORTADA}#historia` },
         { label: 'Who we are', href: `${PORTADA}#nosotros` },
         { label: 'News', href: externos.noticias },
-        { label: 'Donations', href: externos.donar },
-        { label: 'Members', href: externos.socio },
+        { label: 'Donations', href: `${PORTADA}/donar` },
+        { label: 'Members', href: `${PORTADA}/socios` },
       ],
     },
   ],
@@ -585,7 +594,7 @@ export const contenido: Contenido = {
   llamadoProyectos: {
     titulo: 'Want to see them happen?',
     texto: 'These projects are funded by donations and by the contributions of members.',
-    cta: { label: 'Contribute', href: externos.donar },
+    cta: { label: 'Contribute', href: `${PORTADA}/donar` },
   },
 
   logrosEncabezado: { eyebrow: 'What we have achieved', titulo: 'Work already standing in the valley' },
@@ -610,14 +619,14 @@ export const contenido: Contenido = {
       icono: 'gente',
       titulo: 'Become a member',
       texto: 'A regular contribution that gives the work continuity: it is what lets us plan beyond the next season.',
-      cta: { label: 'I want to join', href: externos.socio },
+      cta: { label: 'I want to join', href: '/en/socios' },
     },
     {
       icono: 'corazon',
       titulo: 'Donate',
       texto:
         '50% goes to long-term conservation programmes and 50% funds the infrastructure that lets people visit the valley with minimal impact.',
-      cta: { label: 'Donate now', href: externos.donar },
+      cta: { label: 'Donate now', href: '/en/donar' },
       destacado: true,
     },
   ],
@@ -652,6 +661,8 @@ export const contenido: Contenido = {
   misionVision: nuevo.misionVision,
   futuro: nuevo.futuro,
   necesitamosTuAyuda: nuevo.necesitamosTuAyuda,
+  donarPagina,
+  sociosPagina,
   comoVisitarPagina: nuevo.comoVisitarPagina,
   comoLlegar: nuevo.comoLlegar,
   cuantoCuesta: nuevo.cuantoCuesta,

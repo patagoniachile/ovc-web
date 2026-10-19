@@ -149,7 +149,7 @@ export const necesitamosTuAyuda = {
   titulo: 'Necesitamos tu ayuda',
   texto:
     'La mayor parte del valle son tierras privadas cuyos dueños permiten el acceso público. Mantener los senderos, el Centro de Visitantes y los programas de conservación cuesta trabajo y dinero, y no hay presupuesto público detrás.',
-  cta: { label: 'Donar', href: externos.donar },
+  cta: { label: 'Donar', href: `${PORTADA}/donar` },
 }
 
 /* ---------------------------------------------------------------------------

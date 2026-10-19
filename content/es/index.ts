@@ -1,5 +1,6 @@
 import { externos } from '../externos'
 import { imagenes } from '../imagenes'
+import { donarPagina, sociosPagina } from './colaborar'
 import * as nuevo from './estructura'
 import { sectoresDetalle } from './sectores'
 import type { Contenido } from '../types'
@@ -69,6 +70,14 @@ export const contenido: Contenido = {
     masInfoEn: 'Más información',
     lugaresParaDormir: (n) => `${n} ${n === 1 ? 'lugar' : 'lugares'} para alojar en este sector. La reserva se hace con cada operador; acá tienes todo para decidir.`,
     verEnElMapa: 'Ver en el mapa',
+    copiar: 'Copiar',
+    copiado: 'Copiado',
+    enviar: 'Enviar',
+    enviando: 'Enviando…',
+    enviado: 'Enviado',
+    errorEnvio: 'No pudimos enviar el formulario. Escríbenos directo a',
+    camposRequeridos: 'Completa tu nombre y un correo válido.',
+    correoDirecto: 'O escríbenos a',
     quieroIr: 'Quiero ir',
     conocerElValle: 'Conocer el valle',
     comoVisitar: 'Cómo visitar',
@@ -117,8 +126,8 @@ export const contenido: Contenido = {
       label: 'Cómo ayudar',
       href: `${PORTADA}#ayudar`,
       items: [
-        { label: 'Donaciones', href: externos.donar, detalle: '50% conservación · 50% infraestructura' },
-        { label: 'Socios', href: externos.socio, detalle: 'Aporte periódico' },
+        { label: 'Donaciones', href: `${PORTADA}/donar`, detalle: '50% conservación · 50% infraestructura' },
+        { label: 'Socios', href: `${PORTADA}/socios`, detalle: 'Aporte periódico' },
       ],
     },
   ],
@@ -149,8 +158,8 @@ export const contenido: Contenido = {
         { label: 'Qué pasó', href: `${PORTADA}#historia` },
         { label: 'Quiénes somos', href: `${PORTADA}#nosotros` },
         { label: 'Noticias', href: externos.noticias },
-        { label: 'Donaciones', href: externos.donar },
-        { label: 'Socios', href: externos.socio },
+        { label: 'Donaciones', href: `${PORTADA}/donar` },
+        { label: 'Socios', href: `${PORTADA}/socios` },
       ],
     },
   ],
@@ -577,7 +586,7 @@ export const contenido: Contenido = {
   llamadoProyectos: {
     titulo: '¿Quieres que ocurran?',
     texto: 'Estos proyectos se financian con donaciones y con el aporte de socios y socias.',
-    cta: { label: 'Aportar', href: externos.donar },
+    cta: { label: 'Aportar', href: `${PORTADA}/donar` },
   },
 
   logrosEncabezado: { eyebrow: 'Lo que hemos logrado', titulo: 'Obras que ya están en el valle' },
@@ -602,14 +611,14 @@ export const contenido: Contenido = {
       icono: 'gente',
       titulo: 'Hazte socio o socia',
       texto: 'Un aporte periódico que da continuidad al trabajo: lo que permite planificar más allá de la próxima temporada.',
-      cta: { label: 'Quiero ser socio', href: externos.socio },
+      cta: { label: 'Quiero ser socio', href: '/es/socios' },
     },
     {
       icono: 'corazon',
       titulo: 'Dona',
       texto:
         'El 50% activa programas de conservación de largo plazo y el 50% financia la infraestructura que permite visitar el valle minimizando el impacto.',
-      cta: { label: 'Donar ahora', href: externos.donar },
+      cta: { label: 'Donar ahora', href: '/es/donar' },
       destacado: true,
     },
   ],
@@ -644,6 +653,8 @@ export const contenido: Contenido = {
   misionVision: nuevo.misionVision,
   futuro: nuevo.futuro,
   necesitamosTuAyuda: nuevo.necesitamosTuAyuda,
+  donarPagina,
+  sociosPagina,
   comoVisitarPagina: nuevo.comoVisitarPagina,
   comoLlegar: nuevo.comoLlegar,
   cuantoCuesta: nuevo.cuantoCuesta,

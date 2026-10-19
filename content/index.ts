@@ -10,6 +10,7 @@ export function getContenido(lang: Lang): Contenido {
   return POR_IDIOMA[lang]
 }
 
+export { correoOrganizacion, cuentaBancaria, payku } from './cuenta'
 export { externos } from './externos'
 export { imagenes } from './imagenes'
 export * from './idiomas'

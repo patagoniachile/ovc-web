@@ -148,7 +148,7 @@ export const necesitamosTuAyuda = {
   titulo: 'We need your help',
   texto:
     'Most of the valley is private land whose owners allow public access. Maintaining the trails, the Visitor Centre and the conservation programmes takes work and money, and there is no public budget behind it.',
-  cta: { label: 'Donate', href: externos.donar },
+  cta: { label: 'Donate', href: `${PORTADA}/donar` },
 }
 
 /* ---------------------------------------------------------------------------

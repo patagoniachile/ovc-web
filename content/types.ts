@@ -209,6 +209,26 @@ export interface Costo {
   detalle: string
 }
 
+/** Una vía para aportar dinero. */
+export interface MetodoDonacion {
+  id: 'transferencia' | 'payku'
+  icono: IconName
+  titulo: string
+  texto: string
+  ventaja: string
+  /** Lo que cobra el intermediario, si cobra */
+  comision: string
+}
+
+/** Campo del formulario de socios. */
+export interface CampoFormulario {
+  nombre: 'nombre' | 'email' | 'telefono' | 'direccion' | 'mensaje'
+  etiqueta: string
+  tipo: 'text' | 'email' | 'tel' | 'textarea'
+  requerido: boolean
+  ayuda?: string
+}
+
 export interface Encabezado {
   eyebrow: string
   titulo: string
@@ -253,6 +273,14 @@ export interface Textos {
   masInfoEn: string
   lugaresParaDormir: (n: number) => string
   verEnElMapa: string
+  copiar: string
+  copiado: string
+  enviar: string
+  enviando: string
+  enviado: string
+  errorEnvio: string
+  camposRequeridos: string
+  correoDirecto: string
   quieroIr: string
   conocerElValle: string
   comoVisitar: string
@@ -357,6 +385,24 @@ export interface Contenido {
 
   futuro: Encabezado
   necesitamosTuAyuda: { titulo: string; texto: string; cta: Enlace }
+
+  /* ----- Donar y socios ----- */
+  donarPagina: Encabezado & {
+    intro: string
+    metodos: MetodoDonacion[]
+    tituloCuenta: string
+    tituloPayku: string
+    notaPayku: string
+    reparto: { titulo: string; conservacion: string; infraestructura: string }
+  }
+  sociosPagina: Encabezado & {
+    intro: string
+    porQue: { titulo: string; texto: string }[]
+    tituloFormulario: string
+    campos: CampoFormulario[]
+    nota: string
+    gracias: string
+  }
 
   /* ----- Página Cómo visitar ----- */
   comoVisitarPagina: Encabezado & { intro: string }

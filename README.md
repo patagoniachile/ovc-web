@@ -102,6 +102,33 @@ El contenido se tomó de las fichas del sitio de reservas (octubre de 2026).
 Teléfonos, tarifas y horarios cambian: conviene revisarlos cada temporada en
 `content/<idioma>/sectores.ts`.
 
+### Donaciones y socios
+
+`/<idioma>/donar` y `/<idioma>/socios` viven en este sitio: ya no se redirige
+a vallecochamo.org.
+
+**Donar** ofrece transferencia bancaria (datos copiables, sin comisión) y el
+aporte mensual con tarjeta, que embebe el formulario de suscripción que la
+corporación ya tiene en Payku. El iframe va con `sandbox` y sin
+`allow-same-origin`, así que esa página no alcanza nada de este sitio.
+
+> Los datos de tarjeta se escriben siempre en el dominio de Payku, nunca en el
+> nuestro. Eso es deliberado: capturar tarjetas en nuestras propias páginas
+> obligaría a cumplir PCI-DSS, que no es razonable para una corporación de
+> este tamaño. El visitante no sale del sitio, pero el pago sí ocurre en la
+> pasarela.
+
+**Socios** es un formulario propio que publica en `app/api/socios/route.ts`,
+con validación en servidor, trampa para robots y un freno básico por IP.
+
+Para que envíe correo hacen falta las variables de `.env.example`. Sin ellas
+el endpoint responde 503 y el formulario ofrece el correo directo: nunca se
+pierde una postulación en silencio.
+
+El freno por IP vive en memoria, así que es por instancia. Frena a un curioso,
+no a un ataque: si el formulario recibe spam, toca un limitador de verdad y un
+captcha (Turnstile).
+
 ### Enlaces internos
 
 En `content/` **toda ancla va absoluta**: `` `${PORTADA}#mapa` ``, nunca
