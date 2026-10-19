@@ -41,7 +41,7 @@ export function Futuro({ lang }: { lang: Lang }) {
                   {destinoAportes.reparto.conservacion}
                 </li>
                 <li>
-                  <span className="reparto__punto reparto__punto--rio" />
+                  <span className="reparto__punto reparto__punto--oro" />
                   {destinoAportes.reparto.infraestructura}
                 </li>
               </ul>
@@ -77,7 +77,7 @@ export function Futuro({ lang }: { lang: Lang }) {
                 </div>
               </div>
               <p>{via.texto}</p>
-              <Boton href={via.cta.href} variante={via.destacada ? 'rio' : 'borde'} bloque>
+              <Boton href={via.cta.href} variante={via.destacada ? 'oro' : 'borde'} bloque>
                 {via.cta.label}
               </Boton>
             </article>

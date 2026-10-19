@@ -84,7 +84,7 @@ export function FormularioSocio({ lang }: { lang: Lang }) {
       {/* Trampa para robots: fuera de la vista y del foco */}
       <input type="text" name="web" tabIndex={-1} autoComplete="off" aria-hidden="true" className="trampa" />
 
-      <button className="btn btn--rio" type="submit" disabled={estado === 'enviando'}>
+      <button className="btn btn--oro" type="submit" disabled={estado === 'enviando'}>
         {estado === 'enviando' ? textos.enviando : textos.enviar}
       </button>
 

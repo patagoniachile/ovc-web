@@ -89,7 +89,7 @@ export function Alojamientos({
 
               {lugar.reserva && (
                 <a
-                  className="btn btn--rio btn--sm alojamiento__reserva"
+                  className="btn btn--oro btn--sm alojamiento__reserva"
                   href={lugar.reserva.href}
                   target="_blank"
                   rel="noopener noreferrer"

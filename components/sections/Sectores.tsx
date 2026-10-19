@@ -39,7 +39,7 @@ export function Sectores({ lang }: { lang: Lang }) {
                   ))}
                 </ul>
 
-                <Boton href={sector.cta.href} variante={sector.cta.destacado ? 'rio' : 'borde'} pequeno>
+                <Boton href={sector.cta.href} variante={sector.cta.destacado ? 'oro' : 'borde'} pequeno>
                   {sector.cta.label}
                 </Boton>
               </div>

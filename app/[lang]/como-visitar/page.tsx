@@ -53,7 +53,7 @@ export default async function PaginaComoVisitar({ params }: PageProps<'/[lang]/c
           <p className="pagina-hero__intro">{comoVisitarPagina.intro}</p>
 
           <div className="pagina-hero__acciones">
-            <Boton href={`/${lang}/reservar`} variante="rio">
+            <Boton href={`/${lang}/reservar`} variante="oro">
               {textos.reservarEstadia}
               <Icon name="flecha" />
             </Boton>

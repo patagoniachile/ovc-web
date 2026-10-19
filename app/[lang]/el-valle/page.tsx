@@ -44,7 +44,7 @@ export default async function PaginaElValle({ params }: PageProps<'/[lang]/el-va
           <h1>{elVallePagina.titulo}</h1>
           <p className="pagina-hero__intro">{elVallePagina.bajada}</p>
           <div className="pagina-hero__acciones">
-            <Boton href={`/${lang}/como-visitar`} variante="rio">
+            <Boton href={`/${lang}/como-visitar`} variante="oro">
               {textos.verComoVisitar}
             </Boton>
           </div>

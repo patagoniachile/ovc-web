@@ -38,7 +38,7 @@ export function PorQueReservar({ lang }: { lang: Lang }) {
                   {reparto.conservacion}
                 </li>
                 <li>
-                  <span className="reparto__punto reparto__punto--rio" />
+                  <span className="reparto__punto reparto__punto--oro" />
                   {reparto.infraestructura}
                 </li>
               </ul>

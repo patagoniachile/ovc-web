@@ -116,7 +116,7 @@ export function Cabecera({ lang }: { lang: Lang }) {
               <span className="etiqueta-larga">{textos.hazteSocio}</span>
               <span className="etiqueta-corta">{textos.hazteSocioCorto}</span>
             </Boton>
-            <Boton className="btn--recto" href={`/${lang}/reservar`} variante="rio" pequeno>
+            <Boton className="btn--recto" href={`/${lang}/reservar`} variante="oro" pequeno>
               {textos.reservar}
             </Boton>
 
@@ -171,7 +171,7 @@ export function Cabecera({ lang }: { lang: Lang }) {
           <Boton href={`/${lang}/como-ayudar#socios`} variante="solido" bloque>
             {textos.hazteSocio}
           </Boton>
-          <Boton href={`/${lang}/reservar`} variante="rio" bloque>
+          <Boton href={`/${lang}/reservar`} variante="oro" bloque>
             {textos.reservarEstadia}
           </Boton>
           <Boton href={`/${lang}/como-ayudar#donaciones`} variante="borde" bloque>

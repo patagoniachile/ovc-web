@@ -91,7 +91,7 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
                 </ul>
 
                 <a
-                  className="btn btn--rio btn--recto plan__cta"
+                  className="btn btn--oro btn--recto plan__cta"
                   href={enlace ? payku.enlacePlan(enlace) : destino}
                 >
                   {planes.elegir} {plan.nombre}

@@ -72,7 +72,7 @@ export function Boletin({ lang }: { lang: Lang }) {
           </p>
         </div>
 
-        <button className="btn btn--rio" type="submit">
+        <button className="btn btn--oro" type="submit">
           {textos.suscribirme}
         </button>
 

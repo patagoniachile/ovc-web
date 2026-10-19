@@ -110,7 +110,7 @@ export function Donar({ lang }: { lang: Lang }) {
                 {donarPagina.reparto.conservacion}
               </li>
               <li>
-                <span className="reparto__punto reparto__punto--rio" />
+                <span className="reparto__punto reparto__punto--oro" />
                 {donarPagina.reparto.infraestructura}
               </li>
             </ul>

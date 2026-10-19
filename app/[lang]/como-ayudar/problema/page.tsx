@@ -60,7 +60,7 @@ export default async function PaginaProblema({ params }: PageProps<'/[lang]/como
         </ul>
 
         <div className="resultado__acciones">
-          <Boton href={problema.reintentar.href} variante="rio">
+          <Boton href={problema.reintentar.href} variante="oro">
             {problema.reintentar.label}
           </Boton>
           <Boton href={problema.transferir.href} variante="borde">

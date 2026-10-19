@@ -84,7 +84,7 @@ export function QueHacer({ lang }: { lang: Lang }) {
         </div>
 
         <div className="rasgos__cta revelar">
-          <Boton href={`/${lang}/como-visitar`} variante="rio">
+          <Boton href={`/${lang}/como-visitar`} variante="oro">
             {textos.verComoVisitar}
           </Boton>
         </div>
