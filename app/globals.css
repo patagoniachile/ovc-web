@@ -81,7 +81,7 @@ body {
   color: var(--texto);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 img, svg, video { display: block; max-width: 100%; }
@@ -1002,8 +1002,32 @@ p { text-wrap: pretty; }
 /* --------------------------------------------------------------------------
    Animación de aparición
    -------------------------------------------------------------------------- */
-.revelar { opacity: 0; transform: translateY(22px); transition: opacity 700ms ease, transform 700ms cubic-bezier(.2, .6, .2, 1); }
-.revelar.es-visible { opacity: 1; transform: none; }
+/* Revelado progresivo: anima solo el desplazamiento, nunca la opacidad.
+
+   Esta sección ya rompió el sitio una vez. Dependía de un IntersectionObserver
+   que ponía el contenido en opacity 0 y lo revelaba al entrar en pantalla; si
+   ese JS no corría —pestaña en segundo plano, una navegación del lado cliente,
+   un chunk que no cargó— las secciones se quedaban invisibles y la página
+   parecía vacía hasta recargarla.
+
+   Ahora es CSS puro y, sobre todo, el peor caso es inofensivo: si la animación
+   no progresa, el bloque queda 22px más abajo de su sitio y nadie lo nota. No
+   hay ningún estado en el que el contenido deje de leerse. El matiz de opacidad
+   no vale el riesgo de volver a dejar la página en blanco. */
+@keyframes revelar {
+  to { transform: none; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .revelar {
+      transform: translateY(22px);
+      animation: revelar linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 50%;
+    }
+  }
+}
 
 /* --------------------------------------------------------------------------
    Responsive
@@ -1057,7 +1081,7 @@ p { text-wrap: pretty; }
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
   }
-  .revelar { opacity: 1; transform: none; }
+  .revelar { transform: none; animation: none; }
 }
 
 @media print {

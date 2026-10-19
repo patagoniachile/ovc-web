@@ -101,6 +101,24 @@ El contenido se tomó de las fichas del sitio de reservas (octubre de 2026).
 Teléfonos, tarifas y horarios cambian: conviene revisarlos cada temporada en
 `content/<idioma>/sectores.ts`.
 
+### Revelado de secciones
+
+Las secciones marcadas con `.revelar` entran con una animación ligada al
+scroll, en CSS puro (`animation-timeline: view()`), sin JavaScript.
+
+Dos reglas que no conviene romper:
+
+1. **Nunca animar la opacidad.** Solo el desplazamiento. Si la animación no
+   progresa por cualquier motivo, el peor caso debe ser un bloque 22px más
+   abajo, nunca contenido invisible.
+2. **No volver a un IntersectionObserver.** Se probó y rompió el sitio: el
+   observador vivía en el layout, que no se remonta al navegar, así que
+   cualquier página siguiente quedaba en opacity 0 hasta recargar. Además no
+   dispara en pestañas en segundo plano.
+
+`body` usa `overflow-x: clip` y no `hidden` a propósito: `hidden` convierte al
+body en contenedor de scroll y rompe las líneas de tiempo de `view()`.
+
 ### Mapa
 
 `components/sections/Mapa.tsx` usa Leaflet con teselas de OpenStreetMap, sin

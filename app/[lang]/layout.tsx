@@ -5,7 +5,6 @@ import { BarraSuperior } from '@/components/layout/BarraSuperior'
 import { Cabecera } from '@/components/layout/Cabecera'
 import { Pie } from '@/components/layout/Pie'
 import { IconSprite } from '@/components/ui/Icon'
-import { RevealObserver } from '@/components/ui/RevealObserver'
 import { VolverArriba } from '@/components/ui/VolverArriba'
 import { esIdioma, externos, getContenido, IDIOMAS, LOCALE, type Lang } from '@/content'
 import '../globals.css'
@@ -107,7 +106,6 @@ export default async function LayoutIdioma({ children, params }: LayoutProps<'/[
         <Pie lang={lang} />
 
         <VolverArriba etiqueta={textos.volverArriba} />
-        <RevealObserver />
       </body>
     </html>
   )
