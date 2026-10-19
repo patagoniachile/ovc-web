@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { getContenido, LOCALE, type Lang } from '@/content'
+import { getContenido, LOCALE, payku, planesPayku, type Lang } from '@/content'
 
 type Periodo = 'mensual' | 'anual'
 
@@ -14,9 +14,13 @@ type Periodo = 'mensual' | 'anual'
  * escribe a mano: si alguien cambia un precio en el contenido, el porcentaje
  * se corrige solo en vez de quedar mintiendo.
  *
- * Los botones todavía no crean la suscripción: eso necesita los planes dados
- * de alta en la pasarela y sus credenciales. Por ahora llevan al formulario
- * que la corporación ya tiene en marcha.
+ * Cada botón lleva a la página del plan en Payku, que ya muestra el monto, la
+ * periodicidad y las fechas de cobro antes de pedir nada. Es una navegación
+ * normal, no un marco: la persona ve `payku.cl` en la barra de direcciones
+ * cuando le toca escribir la tarjeta, que es justo cuando conviene que lo vea.
+ *
+ * Un plan sin enlace cae al formulario de contacto en vez de dejar un botón
+ * muerto, así que la página funciona completa aunque falte dar de alta alguno.
  */
 export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) {
   const { sociosPagina } = getContenido(lang)
@@ -50,6 +54,7 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
 
         <div className="planes">
           {planes.lista.map((plan) => {
+            const enlace = planesPayku[plan.id]?.[periodo]
             const anualSuelto = plan.mensual * 12
             const ahorro = Math.round(((anualSuelto - plan.anual) / anualSuelto) * 100)
             const clases = [
@@ -91,13 +96,18 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
                   ))}
                 </ul>
 
-                <a className="btn btn--rio btn--recto plan__cta" href={destino}>
+                <a
+                  className="btn btn--rio btn--recto plan__cta"
+                  href={enlace ? payku.enlacePlan(enlace) : destino}
+                >
                   {planes.elegir} {plan.nombre}
                 </a>
               </article>
             )
           })}
         </div>
+
+        <p className="planes__respaldo revelar">{planes.respaldo}</p>
       </div>
     </section>
   )

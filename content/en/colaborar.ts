@@ -5,8 +5,6 @@ export const donarPagina: Encabezado & {
   metodos: MetodoDonacion[]
   tituloCuenta: string
   otraVia: { titulo: string; texto: string; cta: { label: string; href: string } }
-  tituloPayku: string
-  notaPayku: string
   reparto: { titulo: string; conservacion: string; infraestructura: string }
 } = {
   eyebrow: 'Donate',
@@ -32,9 +30,6 @@ export const donarPagina: Encabezado & {
       'Becoming a member is a monthly card contribution, from CLP 5,000. It is what gives the work continuity and makes you part of the organisation’s decisions.',
     cta: { label: 'Become a member', href: '/en/como-ayudar#socios' },
   },
-  tituloPayku: 'Monthly card contribution',
-  notaPayku:
-    'The form belongs to Payku and opens inside this page. Your card details go straight to them: they never pass through this site.',
   reparto: {
     titulo: 'How your donation is split',
     conservacion: '50% long-term conservation programmes',
@@ -46,10 +41,10 @@ export const sociosPagina: Encabezado & {
   intro: string
   porQue: { titulo: string; texto: string }[]
   tituloSuscripcion: string
-  montosSuscripcion: string[]
-  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; ahorro: (pct: number) => string; alMes: string; alAnio: string; elegir: string; lista: import('../types').PlanSocio[] }
+  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; ahorro: (pct: number) => string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: import('../types').PlanSocio[] }
   introSuscripcion: string
   notaSuscripcion: string
+  tarjeta: { alt: string; pasos: string[]; libre: string; ctaLibre: string }
   tituloFormulario: string
   introFormulario: string
   campos: CampoFormulario[]
@@ -76,8 +71,8 @@ export const sociosPagina: Encabezado & {
       texto: 'Members take part in the organisation’s decisions, which is community-run and cross-cutting by definition.',
     },
   ],
-  tituloSuscripcion: 'Subscribe with a card',
-  montosSuscripcion: ['CLP 5,000', 'CLP 10,000', 'CLP 15,000', 'Another amount'],
+  tituloSuscripcion:
+    'What happens when you choose a plan',
   planes: {
     encabezado: {
       eyebrow: 'Plans',
@@ -90,6 +85,8 @@ export const sociosPagina: Encabezado & {
     alMes: 'a month',
     alAnio: 'a year',
     elegir: 'Choose',
+    respaldo:
+      'Card payments are handled by Payku, the same gateway the organisation has used since 2020. Choosing a plan opens its page, with the amount and the dates in plain sight before you type anything.',
     lista: [
       {
         id: 'chucao',
@@ -136,9 +133,20 @@ export const sociosPagina: Encabezado & {
     ],
   },
   introSuscripcion:
-    'Choose your monthly contribution — CLP 5,000, 10,000, 15,000 or whatever amount you prefer — and fill in your details. The form belongs to Payku and opens right here; your card details go straight to them and never pass through this site.',
+    'Three steps and no surprise charges: the amount and the date of the first contribution are visible before you type anything.',
   notaSuscripcion:
-    'Payku identifies you by the name, surname, email and phone you type into that form. You can cancel the subscription whenever you want.',
+    'You can cancel the subscription whenever you want, by writing to us or from the confirmation email Payku sends you.',
+  tarjeta: {
+    alt: 'The organisation’s team at work in the valley',
+    pasos: [
+      'You pick your plan above and its Payku page opens, with the amount, the frequency and the date of the first charge already filled in.',
+      'You type your name, email and phone. That is how we identify you as a member.',
+      'Only then come the card details, on Payku’s own site. They never pass through this page.',
+    ],
+    libre:
+      'Would you rather give a different amount? The open-amount form lets you choose how much to contribute each month.',
+    ctaLibre: 'Give a different amount',
+  },
   tituloFormulario: 'Would you rather we got in touch?',
   introFormulario:
     'If you do not want to subscribe by card right now, or have questions before deciding, leave us your details and we will write to you.',

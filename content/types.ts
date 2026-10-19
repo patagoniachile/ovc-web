@@ -233,8 +233,26 @@ export interface ViaDeAporte {
   destacada?: boolean
 }
 
+/**
+ * Un plan de suscripción dado de alta en el panel de Payku.
+ *
+ * El panel entrega, por cada plan, un enlace público con estos dos datos:
+ * `app.payku.cl/suscripcion/index?idplan=…&verif=…`. Esa página muestra el
+ * nombre del plan, el monto, la periodicidad y las fechas de cobro, pide
+ * nombre, correo y teléfono, y recién después pasa a la tarjeta. No hay que
+ * firmar nada ni usar la API: basta pegar los dos valores aquí.
+ *
+ * `verif` no es un secreto —viaja en una URL que se publica— sino la firma con
+ * que Payku comprueba que el plan se abrió desde donde corresponde.
+ */
+export interface EnlacePayku {
+  idplan: string
+  verif: string
+}
+
 /** Un nivel de socio, con su precio anual y mensual. */
 export interface PlanSocio {
+  /** Llave con la que se busca su plan de Payku en `planesPayku`. */
   id: string
   nombre: string
   /** De dónde viene el nombre: el chucao, el alerce, el cerro… */
@@ -243,13 +261,6 @@ export interface PlanSocio {
   anual: number
   mensual: number
   beneficios: string[]
-  /**
-   * Identificadores del plan en el panel de Payku, uno por periodicidad.
-   * Se pegan aquí cuando los planes estén dados de alta; hasta entonces el
-   * botón lleva al formulario alojado que la corporación ya tiene.
-   */
-  paykuPlanMensual?: string
-  paykuPlanAnual?: string
   /** El nivel mecenas, que se muestra distinto */
   mecenas?: boolean
   destacado?: boolean
@@ -288,9 +299,6 @@ export interface Textos {
   directorioAmpliado: string
   pagoSeguroPor: string
   abrirFormulario: string
-  cargandoFormulario: string
-  formularioTarda: string
-  abrirEnPestana: string
   cargandoMapa: string
   tocaParaMoverMapa: string
   mapaDe: string
@@ -435,8 +443,6 @@ export interface Contenido {
     intro: string
     metodos: MetodoDonacion[]
     tituloCuenta: string
-    tituloPayku: string
-    notaPayku: string
     otraVia: { titulo: string; texto: string; cta: Enlace }
     reparto: { titulo: string; conservacion: string; infraestructura: string }
   }
@@ -444,10 +450,10 @@ export interface Contenido {
     intro: string
     porQue: { titulo: string; texto: string }[]
     tituloSuscripcion: string
-    montosSuscripcion: string[]
-    planes: { encabezado: Encabezado; mensual: string; anual: string; ahorro: (pct: number) => string; alMes: string; alAnio: string; elegir: string; lista: PlanSocio[] }
+    planes: { encabezado: Encabezado; mensual: string; anual: string; ahorro: (pct: number) => string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: PlanSocio[] }
     introSuscripcion: string
     notaSuscripcion: string
+    tarjeta: { alt: string; pasos: string[]; libre: string; ctaLibre: string }
     tituloFormulario: string
     introFormulario: string
     campos: CampoFormulario[]

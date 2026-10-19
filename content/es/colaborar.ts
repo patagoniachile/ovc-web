@@ -5,8 +5,6 @@ export const donarPagina: Encabezado & {
   metodos: MetodoDonacion[]
   tituloCuenta: string
   otraVia: { titulo: string; texto: string; cta: { label: string; href: string } }
-  tituloPayku: string
-  notaPayku: string
   reparto: { titulo: string; conservacion: string; infraestructura: string }
 } = {
   eyebrow: 'Donar',
@@ -32,9 +30,6 @@ export const donarPagina: Encabezado & {
       'Hacerte socio es un aporte mensual con tarjeta, desde $5.000. Es lo que da continuidad al trabajo y te hace parte de las decisiones de la corporación.',
     cta: { label: 'Hazte socio', href: '/es/como-ayudar#socios' },
   },
-  tituloPayku: 'Aporte mensual con tarjeta',
-  notaPayku:
-    'El formulario es de Payku y se abre dentro de esta página. Los datos de tu tarjeta viajan directo a ellos: nunca pasan por este sitio.',
   reparto: {
     titulo: 'Cómo se reparte tu donación',
     conservacion: '50% programas de conservación de largo plazo',
@@ -46,10 +41,10 @@ export const sociosPagina: Encabezado & {
   intro: string
   porQue: { titulo: string; texto: string }[]
   tituloSuscripcion: string
-  montosSuscripcion: string[]
-  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; ahorro: (pct: number) => string; alMes: string; alAnio: string; elegir: string; lista: import('../types').PlanSocio[] }
+  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; ahorro: (pct: number) => string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: import('../types').PlanSocio[] }
   introSuscripcion: string
   notaSuscripcion: string
+  tarjeta: { alt: string; pasos: string[]; libre: string; ctaLibre: string }
   tituloFormulario: string
   introFormulario: string
   campos: CampoFormulario[]
@@ -76,8 +71,8 @@ export const sociosPagina: Encabezado & {
       texto: 'Los socios participan de las decisiones de la corporación, que es comunitaria y transversal por definición.',
     },
   ],
-  tituloSuscripcion: 'Suscríbete con tarjeta',
-  montosSuscripcion: ['$5.000', '$10.000', '$15.000', 'Otro monto'],
+  tituloSuscripcion:
+    'Qué pasa cuando eliges un plan',
   planes: {
     encabezado: {
       eyebrow: 'Planes',
@@ -90,6 +85,8 @@ export const sociosPagina: Encabezado & {
     alMes: 'al mes',
     alAnio: 'al año',
     elegir: 'Elegir',
+    respaldo:
+      'El cobro con tarjeta lo procesa Payku, la misma pasarela que usa la corporación desde 2020. Al elegir un plan se abre su página, con el monto y las fechas a la vista antes de escribir nada.',
     lista: [
       {
         id: 'chucao',
@@ -136,9 +133,20 @@ export const sociosPagina: Encabezado & {
     ],
   },
   introSuscripcion:
-    'Elige tu aporte mensual —$5.000, $10.000, $15.000 o el monto que prefieras— y completa tus datos. El formulario es de Payku y se abre aquí mismo; tus datos de tarjeta viajan directo a ellos y nunca pasan por este sitio.',
+    'Tres pasos y ningún cobro sorpresa: el monto y la fecha del primer aporte se ven antes de escribir nada.',
   notaSuscripcion:
-    'Payku te identifica con el nombre, apellido, correo y teléfono que escribas en ese formulario. Puedes cancelar la suscripción cuando quieras.',
+    'Puedes cancelar la suscripción cuando quieras, escribiéndonos o desde el correo de confirmación que te manda Payku.',
+  tarjeta: {
+    alt: 'Equipo de la corporación trabajando en el valle',
+    pasos: [
+      'Eliges tu plan arriba y se abre su página en Payku, con el monto, la periodicidad y la fecha del primer cobro ya escritos.',
+      'Escribes tu nombre, correo y teléfono. Con eso te identificamos como socio o socia.',
+      'Recién ahí van los datos de la tarjeta, en el sitio de Payku. Nunca pasan por esta página.',
+    ],
+    libre:
+      '¿Prefieres otro monto? El formulario de aporte libre te deja elegir cuánto aportar cada mes.',
+    ctaLibre: 'Aportar otro monto',
+  },
   tituloFormulario: '¿Prefieres que te contactemos?',
   introFormulario:
     'Si no quieres suscribirte con tarjeta ahora, o tienes dudas antes de decidir, déjanos tus datos y te escribimos.',
