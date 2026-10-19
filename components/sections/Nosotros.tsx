@@ -1,8 +1,10 @@
 import Image from 'next/image'
 import { RichText } from '@/components/ui/RichText'
-import { nosotros } from '@/content/historia'
+import { getContenido, type Lang } from '@/content'
 
-export function Nosotros() {
+export function Nosotros({ lang }: { lang: Lang }) {
+  const { nosotros, textos } = getContenido(lang)
+
   return (
     <section className="seccion" id="nosotros">
       <div className="contenedor">
@@ -18,7 +20,7 @@ export function Nosotros() {
               </p>
             ))}
 
-            <ul className="directorio" aria-label="Integrantes del directorio ampliado">
+            <ul className="directorio" aria-label={textos.directorioAmpliado}>
               {nosotros.directorio.map((persona) => (
                 <li key={persona}>{persona}</li>
               ))}

@@ -1,20 +1,15 @@
 import Image from 'next/image'
 import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
-import { externos, hero } from '@/content/site'
+import { externos, getContenido, imagenes, type Lang } from '@/content'
 
-export function Hero() {
+export function Hero({ lang }: { lang: Lang }) {
+  const { hero, textos } = getContenido(lang)
+
   return (
     <section className="hero" id="inicio">
       <div className="hero__media">
-        <Image
-          src={hero.foto.src}
-          alt={hero.foto.alt}
-          width={hero.foto.width}
-          height={hero.foto.height}
-          priority
-          sizes="100vw"
-        />
+        <Image src={imagenes.hero.src} alt={hero.alt} width={imagenes.hero.width} height={imagenes.hero.height} priority sizes="100vw" />
       </div>
       <div className="hero__velo" aria-hidden="true" />
 
@@ -34,11 +29,11 @@ export function Hero() {
 
           <div className="hero__acciones">
             <Boton href={externos.reservas} variante="claro">
-              Reservar mi estadía
+              {textos.reservarEstadia}
               <Icon name="flecha" />
             </Boton>
             <Boton href="#historia" variante="fantasma">
-              Conoce nuestra historia
+              {textos.conocerHistoria}
             </Boton>
           </div>
         </div>

@@ -34,16 +34,51 @@ npm run dev      # http://localhost:4321
 
 ```
 app/
-  layout.tsx          Tipografías, metadatos, barra superior, cabecera y pie
-  page.tsx            La portada: trece secciones, una línea cada una
   globals.css         Sistema de diseño y estilos
+  [lang]/
+    layout.tsx        Tipografías, metadatos, barra superior, cabecera y pie
+    page.tsx          La portada: catorce secciones, una línea cada una
 components/
   layout/             Marca, BarraSuperior, Cabecera (menú), Pie
   sections/           Una sección de la portada por archivo
   ui/                 Boton, Icon, SectionHeader, RichText + las piezas con JS
 content/              👈 TODO el contenido editable, tipado
+  types.ts            El contrato que cada idioma debe cumplir
+  es/  en/            Un archivo por idioma
+  imagenes.ts         Rutas y dimensiones (no se traducen)
+  externos.ts         URLs a los sitios actuales
 public/img/           Logo, logos de aliados y fotografías del valle
 ```
+
+### Idiomas
+
+El sitio vive en `/es` y `/en`; la raíz redirige al español. Ambas portadas se
+prerenderizan en el build.
+
+`content/types.ts` define `Contenido`, el contrato que **los dos** idiomas
+deben cumplir. Si se agrega un texto en español y falta en inglés, falla el
+typecheck: no se puede publicar a medias.
+
+Los nombres de lugar (Inicio Sendero, La Junta, Lago Vidal) se dejan en
+español también en inglés, porque es lo que dice la señalética, el registro
+del sendero y el sistema de reservas.
+
+> La traducción al inglés es un primer paso: conviene que alguien de la
+> organización la revise antes de difundirla, sobre todo en las secciones de
+> seguridad.
+
+### Mapa
+
+`components/sections/Mapa.tsx` usa Leaflet con teselas de OpenStreetMap, sin
+API key. Las coordenadas de `content/<idioma>/index.ts` salen de OSM
+(Nominatim y Overpass), no de estimaciones.
+
+No se dibuja el trazado del sendero a propósito: la huella ya está mapeada en
+OSM y se ve sobre las teselas. En un sitio donde la gente planifica caminatas
+de 13 km sin rescate, una línea aproximada sería peor que ninguna.
+
+Si el tráfico crece, conviene pasar a un proveedor de teselas propio
+(MapTiler, Carto): la política de uso de OSM desaconseja volúmenes altos.
 
 ### El contenido vive separado del marcado
 
@@ -88,9 +123,7 @@ generará la carpeta `out/`. Se pierde la optimización de imágenes en servidor
 - **Boletín.** `components/sections/Boletin.tsx` valida y confirma, pero no
   envía a ningún lado. Lo natural es una Server Action que llame al proveedor
   de correo, para no exponer la clave en el cliente (hay un `TODO` marcado).
-- **Versión en inglés.** El selector ES/EN apunta por ahora a
-  `vallecochamo.org/en/`. Con App Router esto se resuelve con un segmento
-  `[lang]` y los textos de `content/` por idioma.
+- **Revisar la traducción al inglés** con alguien de la organización.
 - **Páginas internas.** Hoy todo es una portada con anclas. Noticias, proyectos
   y santuario pueden pasar a rutas propias reutilizando los mismos componentes.
 - **Contenido.** Los textos y cifras se tomaron de los dos sitios actuales;

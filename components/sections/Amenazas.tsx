@@ -1,9 +1,11 @@
 import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { amenazas, loQueEstaEnJuego } from '@/content/conservacion'
+import { getContenido, type Lang } from '@/content'
 
-export function Amenazas() {
+export function Amenazas({ lang }: { lang: Lang }) {
+  const { amenazas, loQueEstaEnJuego } = getContenido(lang)
+
   return (
     <section className="seccion seccion--oscura" id="amenazas" aria-labelledby="titulo-amenazas">
       <div className="contenedor">

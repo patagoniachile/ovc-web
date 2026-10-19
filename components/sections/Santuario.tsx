@@ -1,9 +1,11 @@
 import Image from 'next/image'
 import { EnlaceFlecha } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
-import { queProtege, santuario } from '@/content/conservacion'
+import { getContenido, type Lang } from '@/content'
 
-export function Santuario() {
+export function Santuario({ lang }: { lang: Lang }) {
+  const { queProtege, santuario } = getContenido(lang)
+
   return (
     <section className="seccion" id="santuario">
       <div className="contenedor">

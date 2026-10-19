@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react'
 import { Marca } from './Marca'
 import { Boton, esExterno } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
-import { externos, menu } from '@/content/site'
-import type { Enlace } from '@/content/types'
+import { externos, getContenido, type Enlace, type Lang } from '@/content'
 
-export function Cabecera() {
+export function Cabecera({ lang }: { lang: Lang }) {
+  const { menu, textos } = getContenido(lang)
   const [fija, setFija] = useState(false)
   const [menuAbierto, setMenuAbierto] = useState(false)
   const [grupoAbierto, setGrupoAbierto] = useState<string | null>(null)
@@ -41,16 +41,16 @@ export function Cabecera() {
     <>
       <header className={fija ? 'cabecera esta-fija' : 'cabecera'}>
         <div className="contenedor">
-          <Marca />
+          <Marca lang={lang} />
 
-          <nav className="nav" aria-label="Navegación principal">
+          <nav className="nav" aria-label={textos.navegacionPrincipal}>
             <ul className="nav__lista">
               {menu.map((grupo) => (
                 <li className="nav__item" key={grupo.label}>
-                  <Link className="nav__enlace" href={grupo.href}>
+                  <a className="nav__enlace" href={grupo.href}>
                     {grupo.label}
                     <Icon name="chevron" className="nav__chevron" />
-                  </Link>
+                  </a>
                   <div className="submenu">
                     {grupo.items.map((item) => (
                       <EnlaceSubmenu key={item.label} item={item} />
@@ -63,10 +63,10 @@ export function Cabecera() {
 
           <div className="cabecera__cta">
             <Boton href={externos.donar} variante="borde" pequeno>
-              Donar
+              {textos.donar}
             </Boton>
             <Boton href={externos.reservas} variante="rio" pequeno>
-              Reservar
+              {textos.reservar}
             </Boton>
 
             <button
@@ -74,7 +74,7 @@ export function Cabecera() {
               type="button"
               aria-expanded={menuAbierto}
               aria-controls="menu-movil"
-              aria-label={menuAbierto ? 'Cerrar menú' : 'Abrir menú'}
+              aria-label={menuAbierto ? textos.cerrarMenu : textos.abrirMenu}
               onClick={() => setMenuAbierto((abierto) => !abierto)}
             >
               <span />
@@ -105,9 +105,9 @@ export function Cabecera() {
                         {item.label}
                       </a>
                     ) : (
-                      <Link key={item.label} href={item.href} onClick={() => setMenuAbierto(false)}>
+                      <a key={item.label} href={item.href} onClick={() => setMenuAbierto(false)}>
                         {item.label}
-                      </Link>
+                      </a>
                     ),
                   )}
                 </div>
@@ -118,10 +118,10 @@ export function Cabecera() {
 
         <div className="menu-movil__acciones">
           <Boton href={externos.reservas} variante="rio" bloque>
-            Reservar mi estadía
+            {textos.reservarEstadia}
           </Boton>
           <Boton href={externos.donar} variante="borde" bloque>
-            Donar
+            {textos.donar}
           </Boton>
         </div>
       </div>

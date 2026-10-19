@@ -1,11 +1,12 @@
 'use client'
 
 import { useId, useState } from 'react'
-import { boletin } from '@/content/proyectos'
+import { getContenido, type Lang } from '@/content'
 
 type Estado = { tipo: 'nota' | 'error' | 'ok'; mensaje: string }
 
-export function Boletin() {
+export function Boletin({ lang }: { lang: Lang }) {
+  const { boletin, textos } = getContenido(lang)
   const idNombre = useId()
   const idEmail = useId()
   const idEstado = useId()
@@ -18,18 +19,18 @@ export function Boletin() {
     e.preventDefault()
 
     if (!nombre.trim()) {
-      setEstado({ tipo: 'error', mensaje: 'Cuéntanos tu nombre para saludarte bien.' })
+      setEstado({ tipo: 'error', mensaje: textos.faltaNombre })
       return
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      setEstado({ tipo: 'error', mensaje: 'Revisa tu correo: parece que falta algo.' })
+      setEstado({ tipo: 'error', mensaje: textos.correoInvalido })
       return
     }
 
     // TODO: conectar con el proveedor de correo de la corporación.
     // Lo natural acá es una Server Action que llame a la API del proveedor,
     // para no exponer la clave en el cliente.
-    setEstado({ tipo: 'ok', mensaje: `¡Gracias, ${nombre.trim()}! Te escribiremos pronto.` })
+    setEstado({ tipo: 'ok', mensaje: textos.graciasPorSuscribirte(nombre.trim()) })
     setNombre('')
     setEmail('')
   }
@@ -44,7 +45,7 @@ export function Boletin() {
       <form onSubmit={enviar} noValidate>
         <div className="boletin__campos">
           <p className="campo">
-            <label htmlFor={idNombre}>Nombre</label>
+            <label htmlFor={idNombre}>{textos.nombre}</label>
             <input
               id={idNombre}
               name="nombre"
@@ -56,7 +57,7 @@ export function Boletin() {
             />
           </p>
           <p className="campo">
-            <label htmlFor={idEmail}>Correo electrónico</label>
+            <label htmlFor={idEmail}>{textos.correo}</label>
             <input
               id={idEmail}
               name="email"
@@ -70,7 +71,7 @@ export function Boletin() {
         </div>
 
         <button className="btn btn--rio" type="submit">
-          Suscribirme
+          {textos.suscribirme}
         </button>
 
         <p className={estado.tipo === 'ok' ? 'boletin__ok' : 'boletin__nota'} id={idEstado} role="status">

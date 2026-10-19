@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { Map as MapaLeaflet, Marker } from 'leaflet'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { mapa, puntosMapa } from '@/content/visita'
+import { getContenido, type Lang } from '@/content'
 import 'leaflet/dist/leaflet.css'
 
 /**
@@ -15,7 +15,8 @@ import 'leaflet/dist/leaflet.css'
  * si el mapa no carga —o el visitante tiene el JS desactivado— las coordenadas
  * siguen estando ahí, que es lo que de verdad sirve para planificar.
  */
-export function Mapa() {
+export function Mapa({ lang }: { lang: Lang }) {
+  const { mapa, puntosMapa, textos } = getContenido(lang)
   const contenedor = useRef<HTMLDivElement>(null)
   const mapaRef = useRef<MapaLeaflet | null>(null)
   const marcadores = useRef<Record<string, Marker>>({})
@@ -86,7 +87,7 @@ export function Mapa() {
       mapaRef.current = null
       marcadores.current = {}
     }
-  }, [])
+  }, [mapa, puntosMapa])
 
   const activarMapa = () => {
     mapaRef.current?.dragging.enable()
@@ -104,15 +105,15 @@ export function Mapa() {
   return (
     <section className="seccion seccion--alt" id="mapa">
       <div className="contenedor">
-        <SectionHeader className="revelar" eyebrow={mapa.eyebrow} titulo={mapa.titulo} bajada={mapa.bajada} />
+        <SectionHeader className="revelar" {...mapa.encabezado} />
 
         <div className="mapa revelar">
           <div className="mapa__lienzo">
-            <div ref={contenedor} className="mapa__leaflet" role="application" aria-label="Mapa del Valle Cochamó" />
-            {!cargado && <p className="mapa__cargando">Cargando el mapa…</p>}
+            <div ref={contenedor} className="mapa__leaflet" role="application" aria-label={textos.mapaDe} />
+            {!cargado && <p className="mapa__cargando">{textos.cargandoMapa}</p>}
             {cargado && tactil && !interactivo && (
               <button type="button" className="mapa__activar" onClick={activarMapa}>
-                Toca para mover el mapa
+                {textos.tocaParaMoverMapa}
               </button>
             )}
           </div>

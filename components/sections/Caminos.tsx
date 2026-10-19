@@ -1,20 +1,15 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { esExterno } from '@/components/ui/Boton'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { caminos } from '@/content/visita'
+import { getContenido, type Lang } from '@/content'
 
-export function Caminos() {
+export function Caminos({ lang }: { lang: Lang }) {
+  const { caminos, caminosEncabezado } = getContenido(lang)
+
   return (
     <section className="seccion" id="caminos">
       <div className="contenedor">
-        <SectionHeader
-          className="revelar"
-          centrado
-          eyebrow="Un solo lugar"
-          titulo="Todo el valle, en una sola puerta de entrada"
-          bajada="Reunimos aquí lo que antes estaba repartido: el sistema de reservas y la preparación del viaje, junto al trabajo de conservación que hace posible que el valle siga abierto."
-        />
+        <SectionHeader className="revelar" centrado {...caminosEncabezado} />
 
         <div className="caminos">
           {caminos.map((camino) => (
@@ -30,17 +25,15 @@ export function Caminos() {
               <h3>{camino.titulo}</h3>
               <p>{camino.texto}</p>
               <div className="camino__lista">
-                {camino.enlaces.map((enlace) =>
-                  esExterno(enlace.href) ? (
-                    <a key={enlace.label} href={enlace.href} target="_blank" rel="noopener noreferrer">
-                      {enlace.label}
-                    </a>
-                  ) : (
-                    <Link key={enlace.label} href={enlace.href}>
-                      {enlace.label}
-                    </Link>
-                  ),
-                )}
+                {camino.enlaces.map((enlace) => (
+                  <a
+                    key={enlace.label}
+                    href={enlace.href}
+                    {...(esExterno(enlace.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    {enlace.label}
+                  </a>
+                ))}
               </div>
             </article>
           ))}

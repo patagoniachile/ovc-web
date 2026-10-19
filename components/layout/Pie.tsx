@@ -1,16 +1,17 @@
-import Link from 'next/link'
 import { Marca } from './Marca'
 import { Icon } from '@/components/ui/Icon'
 import { esExterno } from '@/components/ui/Boton'
-import { enlacesPie, externos, organizacion } from '@/content/site'
+import { externos, getContenido, type Lang } from '@/content'
 
-export function Pie() {
+export function Pie({ lang }: { lang: Lang }) {
+  const { enlacesPie, organizacion } = getContenido(lang)
+
   return (
     <footer className="pie">
       <div className="contenedor">
         <div className="pie__grid">
           <div>
-            <Marca />
+            <Marca lang={lang} />
             <p className="pie__sobre">{organizacion.descripcion}</p>
             <div className="pie__redes">
               <a href={externos.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -36,7 +37,7 @@ export function Pie() {
                         {item.label}
                       </a>
                     ) : (
-                      <Link href={item.href}>{item.label}</Link>
+                      <a href={item.href}>{item.label}</a>
                     )}
                   </li>
                 ))}

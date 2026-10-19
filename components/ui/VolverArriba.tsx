@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Icon } from './Icon'
 
-export function VolverArriba() {
+export function VolverArriba({ etiqueta }: { etiqueta: string }) {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export function VolverArriba() {
     <button
       type="button"
       className={visible ? 'arriba esta-visible' : 'arriba'}
-      aria-label="Volver arriba"
+      aria-label={etiqueta}
       onClick={() => {
         const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches
         window.scrollTo({ top: 0, behavior: sinMovimiento ? 'auto' : 'smooth' })

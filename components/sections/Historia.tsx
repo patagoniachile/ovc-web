@@ -1,6 +1,8 @@
-import { hitos, introHistoria } from '@/content/historia'
+import { getContenido, type Lang } from '@/content'
 
-export function Historia() {
+export function Historia({ lang }: { lang: Lang }) {
+  const { hitos, introHistoria } = getContenido(lang)
+
   return (
     <section className="seccion seccion--alt" id="historia">
       <div className="contenedor">

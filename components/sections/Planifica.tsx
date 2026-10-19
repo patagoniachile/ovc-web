@@ -3,18 +3,15 @@ import { EnlaceFlecha } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import { RichText } from '@/components/ui/RichText'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { fichasPlanificacion, fotoNormas, normas } from '@/content/visita'
+import { getContenido, type Lang } from '@/content'
 
-export function Planifica() {
+export function Planifica({ lang }: { lang: Lang }) {
+  const { fichasPlanificacion, fotoNormas, normas, normasEncabezado, planificaEncabezado } = getContenido(lang)
+
   return (
     <section className="seccion" id="planifica">
       <div className="contenedor">
-        <SectionHeader
-          className="revelar"
-          eyebrow="Antes de ir"
-          titulo="Saber antes de salir"
-          bajada="No hay rescatistas ni servicios de emergencia en el valle. Lo que lleves y lo que sepas es toda la seguridad con la que cuentas."
-        />
+        <SectionHeader className="revelar" {...planificaEncabezado} />
 
         <div className="planifica">
           {fichasPlanificacion.map((ficha) => (
@@ -45,8 +42,8 @@ export function Planifica() {
 
         <div className="normas" id="normas">
           <div className="revelar">
-            <p className="eyebrow">Normas básicas</p>
-            <h2 className="titulo--compacto">Seis reglas que no se negocian</h2>
+            <p className="eyebrow">{normasEncabezado.eyebrow}</p>
+            <h2 className="titulo--compacto">{normasEncabezado.titulo}</h2>
 
             <ol className="normas__lista">
               {normas.map((norma) => (

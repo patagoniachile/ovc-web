@@ -2,18 +2,15 @@ import Image from 'next/image'
 import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { sectores } from '@/content/visita'
+import { getContenido, type Lang } from '@/content'
 
-export function Sectores() {
+export function Sectores({ lang }: { lang: Lang }) {
+  const { sectores, sectoresEncabezado } = getContenido(lang)
+
   return (
     <section className="seccion seccion--alt" id="sectores">
       <div className="contenedor">
-        <SectionHeader
-          className="revelar"
-          eyebrow="Visita"
-          titulo="Tres sectores, tres formas de conocer el valle"
-          bajada="Todos se reservan antes de llegar. Infórmate, programa y prepárate: el sendero es largo, hay mucho barro y el tiempo es impredecible."
-        />
+        <SectionHeader className="revelar" {...sectoresEncabezado} />
 
         <div className="sectores">
           {sectores.map((sector) => (

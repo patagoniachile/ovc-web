@@ -1,24 +1,21 @@
 import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { introProyectos, llamadoProyectos, logros, proyectos } from '@/content/proyectos'
+import { getContenido, type Lang } from '@/content'
 
-export function Proyectos() {
+export function Proyectos({ lang }: { lang: Lang }) {
+  const { introProyectos, llamadoProyectos, logros, logrosEncabezado, proyectos, textos } = getContenido(lang)
+
   return (
     <section className="seccion seccion--alt" id="proyectos">
       <div className="contenedor">
-        <SectionHeader
-          className="revelar"
-          eyebrow={introProyectos.eyebrow}
-          titulo={introProyectos.titulo}
-          bajada={introProyectos.bajada}
-        />
+        <SectionHeader className="revelar" {...introProyectos} />
 
         <div className="proyectos">
           {proyectos.map((proyecto) => (
             <article className="proyecto revelar" key={proyecto.titulo}>
               <span className={`proyecto__estado estado--${proyecto.estado}`}>
-                {proyecto.estado === 'activo' ? 'En curso' : 'Logrado'}
+                {proyecto.estado === 'activo' ? textos.enCurso : textos.logrado}
               </span>
               <h3>{proyecto.titulo}</h3>
               <p>{proyecto.texto}</p>
@@ -35,7 +32,7 @@ export function Proyectos() {
         </div>
 
         <div className="logros__bloque" id="logros">
-          <SectionHeader className="revelar" compacto eyebrow="Lo que hemos logrado" titulo="Obras que ya están en el valle" />
+          <SectionHeader className="revelar" compacto {...logrosEncabezado} />
 
           <div className="logros revelar">
             {logros.map((logro) => (

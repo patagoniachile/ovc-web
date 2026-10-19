@@ -1,19 +1,19 @@
 import Image from 'next/image'
 import { Boton } from '@/components/ui/Boton'
-import { externos } from '@/content/site'
-import { pasosReserva, porQueReservar } from '@/content/visita'
+import { externos, getContenido, imagenes, type Lang } from '@/content'
 
-export function PorQueReservar() {
+export function PorQueReservar({ lang }: { lang: Lang }) {
+  const { pasosReserva, porQueReservar, textos } = getContenido(lang)
   const { reparto } = porQueReservar
 
   return (
     <section className="seccion seccion--oscura reservar" id="reservar">
       <div className="reservar__fondo" aria-hidden="true">
         <Image
-          src={porQueReservar.fondo.src}
-          alt=""
-          width={porQueReservar.fondo.width}
-          height={porQueReservar.fondo.height}
+          src={imagenes.campingLaJunta.src}
+          alt={porQueReservar.fondoAlt}
+          width={imagenes.campingLaJunta.width}
+          height={imagenes.campingLaJunta.height}
           sizes="100vw"
         />
       </div>
@@ -27,8 +27,8 @@ export function PorQueReservar() {
             <p className="reservar__parrafo">{porQueReservar.parrafo}</p>
 
             <div className="reparto">
-              <p className="reparto__titulo">{reparto.titulo}</p>
-              <div className="reparto__barra" role="img" aria-label="50% conservación, 50% infraestructura para visitantes">
+              <p className="reparto__titulo">{textos.repartoDonacion}</p>
+              <div className="reparto__barra" role="img" aria-label={reparto.etiquetaGrafico}>
                 <span />
                 <span />
               </div>
@@ -46,10 +46,10 @@ export function PorQueReservar() {
 
             <div className="reservar__acciones">
               <Boton href={externos.reservas} variante="claro">
-                Ir a reservas
+                {textos.irAReservas}
               </Boton>
               <Boton href={externos.donar} variante="fantasma">
-                Donar
+                {textos.donar}
               </Boton>
             </div>
           </div>

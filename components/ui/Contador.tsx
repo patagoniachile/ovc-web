@@ -1,8 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-
-const FORMATO = new Intl.NumberFormat('es-CL')
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 /**
  * Cuenta desde cero hasta `valor` la primera vez que entra en pantalla.
@@ -10,7 +8,8 @@ const FORMATO = new Intl.NumberFormat('es-CL')
  * El render inicial —el del servidor— ya muestra el valor final, así que si el
  * JS no carga o está desactivado, la cifra se lee igual.
  */
-export function Contador({ valor }: { valor: number }) {
+export function Contador({ valor, locale }: { valor: number; locale: string }) {
+  const formato = useMemo(() => new Intl.NumberFormat(locale), [locale])
   const ref = useRef<HTMLSpanElement>(null)
   const [mostrado, setMostrado] = useState(valor)
 
@@ -51,5 +50,5 @@ export function Contador({ valor }: { valor: number }) {
     }
   }, [valor])
 
-  return <span ref={ref}>{FORMATO.format(mostrado)}</span>
+  return <span ref={ref}>{formato.format(mostrado)}</span>
 }
