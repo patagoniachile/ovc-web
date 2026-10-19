@@ -47,8 +47,8 @@ export const menu: GrupoMenu[] = [
     items: [
       { label: 'Nuestra historia', href: '#historia', detalle: 'De 2009 a hoy' },
       { label: 'Quiénes somos', href: '#nosotros', detalle: 'Comunidad y directorio' },
-      { label: 'Conservación', href: '#conservacion', detalle: 'Por qué urge proteger' },
       { label: 'Santuario de la Naturaleza', href: '#santuario', detalle: '11.432,8 ha propuestas' },
+      { label: 'Lo que está en juego', href: '#amenazas', detalle: 'Las amenazas sobre el valle' },
     ],
   },
   {
@@ -117,7 +117,7 @@ export const enlacesPie: { titulo: string; items: Enlace[] }[] = [
     titulo: 'Conservación',
     items: [
       { label: 'Santuario de la Naturaleza', href: '#santuario' },
-      { label: 'Conservación', href: '#conservacion' },
+      { label: 'Lo que está en juego', href: '#amenazas' },
       { label: 'Proyectos', href: '#proyectos' },
       { label: 'Lo que hemos logrado', href: '#logros' },
       { label: 'Centro de Visitantes', href: externos.centroVisitantes },

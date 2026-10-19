@@ -5,7 +5,7 @@ import { amenazas, loQueEstaEnJuego } from '@/content/conservacion'
 
 export function Amenazas() {
   return (
-    <section className="seccion seccion--oscura" aria-labelledby="titulo-amenazas">
+    <section className="seccion seccion--oscura" id="amenazas" aria-labelledby="titulo-amenazas">
       <div className="contenedor">
         <SectionHeader
           className="revelar seccion-cabecera--angosta"

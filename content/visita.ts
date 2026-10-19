@@ -33,8 +33,8 @@ export const caminos = [
       height: 786,
     } satisfies Foto,
     enlaces: [
-      { label: 'Conservación', href: '#conservacion' },
       { label: 'Santuario', href: '#santuario' },
+      { label: 'Amenazas', href: '#amenazas' },
       { label: 'Proyectos', href: '#proyectos' },
       { label: 'Donar →', href: externos.donar },
     ],

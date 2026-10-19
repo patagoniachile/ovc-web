@@ -50,6 +50,7 @@
   --radio: 14px;
   --radio-sm: 8px;
   --header-h: 76px;
+  --seccion-pad: clamp(64px, 9vw, 112px);
 
   --sombra-sm: 0 1px 2px rgba(12, 31, 23, .06), 0 2px 8px rgba(12, 31, 23, .05);
   --sombra-md: 0 4px 12px rgba(12, 31, 23, .08), 0 12px 32px rgba(12, 31, 23, .08);
@@ -64,7 +65,14 @@
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
 
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+/* Anclaje del scroll.
+   Cada destino se detiene con su primer texto justo bajo la cabecera fija.
+   Las <section> descuentan además su propio padding vertical, que si no
+   empuja el título ~138px hacia abajo y parece que el enlace no llegó. */
+[id] { scroll-margin-top: calc(var(--header-h) + 16px); }
+.seccion[id] { scroll-margin-top: calc(var(--header-h) + 24px - var(--seccion-pad)); }
 
 body {
   font-family: var(--sans);
@@ -149,7 +157,7 @@ p { text-wrap: pretty; }
   padding-inline: var(--gutter);
 }
 
-.seccion { padding-block: clamp(64px, 9vw, 112px); }
+.seccion { padding-block: var(--seccion-pad); }
 .seccion--alt { background: var(--bg-alt); }
 .seccion--oscura { background: var(--bosque-900); color: var(--arena-200); }
 .seccion--oscura h2, .seccion--oscura h3 { color: var(--blanco); }

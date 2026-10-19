@@ -5,9 +5,9 @@ import { queProtege, santuario } from '@/content/conservacion'
 
 export function Santuario() {
   return (
-    <section className="seccion" id="conservacion">
+    <section className="seccion" id="santuario">
       <div className="contenedor">
-        <div className="santuario" id="santuario">
+        <div className="santuario">
           <figure className="santuario__figura revelar">
             <Image
               src={santuario.foto.src}
