@@ -1,5 +1,5 @@
 import { externos } from './site'
-import type { Ficha, Foto, Norma, Paso, Sector } from './types'
+import type { Ficha, Foto, Norma, Paso, PuntoMapa, Sector } from './types'
 
 /** Las dos puertas de entrada que fusionan los dos sitios actuales. */
 export const caminos = [
@@ -201,5 +201,72 @@ export const pasosReserva: Paso[] = [
   {
     titulo: 'Camina sin dejar rastro',
     texto: 'Acampa solo donde está habilitado y baja toda tu basura. El valle depende de eso.',
+  },
+]
+
+/**
+ * Mapa de orientación.
+ *
+ * Las coordenadas vienen de OpenStreetMap (consultadas vía Nominatim y
+ * Overpass). No dibujamos el trazado del sendero: la huella "Valle Cochamó -
+ * La Junta" ya está mapeada en OSM y se ve sobre las teselas, así que no hace
+ * falta inventar una línea aproximada en un sitio donde la gente planifica
+ * caminatas de 13 km.
+ */
+export const mapa = {
+  eyebrow: 'Dónde queda',
+  titulo: 'Ubícate antes de viajar',
+  bajada:
+    'El valle está en la comuna de Cochamó, Región de Los Lagos. Desde el inicio del sendero, La Junta y Lago Vidal solo se alcanzan a pie o a caballo.',
+  aviso:
+    'Mapa de orientación, no de navegación. No hay cobertura ni servicios de emergencia en el valle: lleva mapa y brújula o GPS propios.',
+  atribucion: 'Mapa © colaboradores de OpenStreetMap',
+  centroInicial: { lat: -41.4495, lon: -72.115, zoom: 10 },
+}
+
+export const puntosMapa: PuntoMapa[] = [
+  {
+    id: 'inicio-sendero',
+    nombre: 'Inicio Sendero',
+    tipo: 'sector',
+    lat: -41.455073,
+    lon: -72.219495,
+    descripcion:
+      'Centro de Visitantes y registro obligatorio. Aquí empieza el sendero y se presenta la reserva.',
+    enlace: { label: 'Reservar', href: externos.reservas },
+  },
+  {
+    id: 'la-junta',
+    nombre: 'La Junta',
+    tipo: 'sector',
+    lat: -41.411358,
+    lon: -72.126878,
+    descripcion: 'El centro turístico del valle, a 13 km del inicio del sendero. Campings y hospedaje.',
+    enlace: { label: 'Reservar', href: externos.reservas },
+  },
+  {
+    id: 'lago-vidal',
+    nombre: 'Lago Vidal Gormaz',
+    tipo: 'sector',
+    lat: -41.483506,
+    lon: -71.940878,
+    descripcion: 'Alternativa al valle principal, con identidad gaucha campesina propia.',
+    enlace: { label: 'Reservar', href: externos.reservas },
+  },
+  {
+    id: 'cochamo',
+    nombre: 'Cochamó (pueblo)',
+    tipo: 'referencia',
+    lat: -41.493527,
+    lon: -72.308176,
+    descripcion: 'El pueblo más cercano y el último punto con servicios antes de entrar al valle.',
+  },
+  {
+    id: 'cerro-trinidad',
+    nombre: 'Cerro Trinidad',
+    tipo: 'referencia',
+    lat: -41.426866,
+    lon: -72.096488,
+    descripcion: 'La pared de granito que domina La Junta, uno de los hitos del valle.',
   },
 ]

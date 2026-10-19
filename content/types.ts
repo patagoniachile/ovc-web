@@ -106,3 +106,16 @@ export interface Aliado {
   /** Si no hay logo, se muestra el nombre en tipografía display */
   logo?: Foto
 }
+
+export interface PuntoMapa {
+  id: string
+  nombre: string
+  /** Los sectores se reservan; las referencias solo ubican. */
+  tipo: 'sector' | 'referencia'
+  /** Coordenadas tomadas de OpenStreetMap (ver content/visita.ts). */
+  lat: number
+  lon: number
+  descripcion: string
+  /** Enlace opcional del globo del mapa */
+  enlace?: Enlace
+}

@@ -56,6 +56,7 @@ export const menu: GrupoMenu[] = [
     href: '#sectores',
     items: [
       { label: 'Sectores', href: '#sectores', detalle: 'Inicio Sendero, La Junta, Lago Vidal' },
+      { label: 'Mapa', href: '#mapa', detalle: 'Dónde queda cada sector' },
       { label: 'Planifica tu trekking', href: '#planifica', detalle: 'Horarios, rutas y tiempos' },
       { label: 'Normas básicas', href: '#normas', detalle: 'Lo que debes cumplir' },
       { label: '¿Por qué reservar?', href: '#reservar', detalle: 'Capacidad de carga' },
@@ -108,6 +109,7 @@ export const enlacesPie: { titulo: string; items: Enlace[] }[] = [
     items: [
       { label: 'Reservar', href: externos.reservas },
       { label: 'Sectores', href: '#sectores' },
+      { label: 'Mapa', href: '#mapa' },
       { label: 'Trekking', href: '#planifica' },
       { label: 'Normas básicas', href: '#normas' },
       { label: '¿Por qué reservar?', href: '#reservar' },

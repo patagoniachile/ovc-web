@@ -5,6 +5,7 @@ import { Cifras } from '@/components/sections/Cifras'
 import { Colaborar } from '@/components/sections/Colaborar'
 import { Hero } from '@/components/sections/Hero'
 import { Historia } from '@/components/sections/Historia'
+import { Mapa } from '@/components/sections/Mapa'
 import { Nosotros } from '@/components/sections/Nosotros'
 import { Planifica } from '@/components/sections/Planifica'
 import { PorQueReservar } from '@/components/sections/PorQueReservar'
@@ -26,6 +27,7 @@ export default function Portada() {
       <Historia />
       <Nosotros />
       <Sectores />
+      <Mapa />
       <Planifica />
       <PorQueReservar />
       <Santuario />

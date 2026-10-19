@@ -1103,3 +1103,137 @@ p { text-wrap: pretty; }
 .proyecto--llamado .btn { margin-top: 18px; align-self: flex-start; }
 
 .logros__bloque { margin-top: clamp(48px, 6vw, 80px); }
+
+/* --------------------------------------------------------------------------
+   Mapa de orientación (Leaflet + OpenStreetMap)
+   -------------------------------------------------------------------------- */
+.mapa { display: grid; gap: 20px; }
+
+.mapa__lienzo {
+  position: relative;
+  height: clamp(380px, 54vh, 560px);
+  border-radius: var(--radio);
+  overflow: hidden;
+  border: 1px solid var(--borde);
+  background: var(--granito-100);
+}
+.mapa__leaflet { position: absolute; inset: 0; }
+.mapa__cargando {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: .9rem;
+  color: var(--granito-500);
+  pointer-events: none;
+}
+
+/* Marcadores propios: evitamos los iconos por defecto de Leaflet, que se
+   rompen al pasar por el bundler, y de paso respetamos la paleta. */
+.marcador { position: relative; display: block; }
+.marcador__punto {
+  display: block;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 3px solid var(--blanco);
+  box-shadow: 0 1px 6px rgba(12, 31, 23, .45);
+}
+.marcador--sector .marcador__punto { background: var(--rio-500); }
+.marcador--referencia .marcador__punto { background: var(--granito-500); }
+.marcador__nombre {
+  position: absolute;
+  left: 50%; top: 18px;
+  transform: translateX(-50%);
+  padding: 2px 7px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .92);
+  color: var(--bosque-900);
+  font-family: var(--sans);
+  font-size: .72rem;
+  font-weight: 650;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(12, 31, 23, .25);
+}
+.marcador--referencia .marcador__nombre {
+  font-weight: 500;
+  color: var(--granito-700);
+  opacity: 0;
+  transition: opacity var(--trans);
+}
+.marcador--referencia:hover .marcador__nombre { opacity: 1; }
+
+.mapa__panel { display: grid; gap: 16px; }
+.mapa__lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.mapa__punto {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  width: 100%;
+  height: 100%;
+  padding: 14px 15px;
+  text-align: left;
+  background: var(--bg-alt);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-sm);
+  transition: border-color var(--trans), background-color var(--trans);
+}
+.mapa__punto:hover:not(:disabled) { border-color: var(--bosque-300); background: var(--bosque-100); }
+.mapa__punto:disabled { cursor: default; opacity: .75; }
+.mapa__punto--activo { border-color: var(--rio-500); background: var(--rio-100); }
+.mapa__punto strong { display: block; font-size: .95rem; font-weight: 620; }
+.mapa__pin {
+  flex: none;
+  width: 11px; height: 11px;
+  margin-top: 6px;
+  border-radius: 50%;
+}
+.mapa__pin--sector { background: var(--rio-500); }
+.mapa__pin--referencia { background: var(--granito-300); }
+.mapa__descripcion { display: block; margin-top: 3px; font-size: .85rem; color: var(--texto-suave); }
+.mapa__coords {
+  display: block;
+  margin-top: 5px;
+  font-size: .76rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--granito-500);
+}
+.mapa__aviso {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: var(--radio-sm);
+  background: #fff8f3;
+  border: 1px solid rgba(194, 90, 36, .28);
+  font-size: .85rem;
+  line-height: 1.5;
+  color: var(--texto-suave);
+}
+.mapa__aviso svg { width: 17px; height: 17px; flex: none; margin-top: 2px; color: var(--fuego-600); }
+
+/* Ajustes de los controles de Leaflet para que no desentonen */
+.mapa__lienzo .leaflet-container { font-family: var(--sans); background: var(--granito-100); }
+.mapa__lienzo .leaflet-control-attribution { font-size: .68rem; background: rgba(255, 255, 255, .82); }
+.mapa__lienzo .leaflet-popup-content { font-size: .88rem; line-height: 1.5; }
+.mapa__lienzo .leaflet-popup-content strong { font-size: .95rem; }
+.mapa__lienzo .leaflet-popup-content a { color: var(--rio-600); font-weight: 620; }
+.mapa__lienzo .leaflet-bar a { color: var(--bosque-900); }
+
+@media (max-width: 860px) {
+  .mapa__lienzo { height: 380px; }
+}
+
+/* Capa de activación en táctiles: hasta que se toca, el gesto de deslizar
+   pertenece a la página, no al mapa. */
+.mapa__activar {
+  position: absolute;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  background: rgba(12, 31, 23, .3);
+  color: var(--blanco);
+  font-size: .92rem;
+  font-weight: 620;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .5);
+}
