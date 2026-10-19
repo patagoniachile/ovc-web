@@ -67,7 +67,14 @@ petición a Google en tiempo de ejecución ni salto de layout al cargar.
 
 ## Publicar
 
-Pensado para Vercel, Netlify o Cloudflare Pages, donde `next/image` optimiza
+Desplegado en Vercel: <https://ovc-web.vercel.app/>
+
+El framework se declara en `vercel.json`. No lo quites: el proyecto en Vercel
+se creó cuando el repo todavía no tenía código Next, así que su preset quedó en
+"Other" y servía `public/` como carpeta estática —de ahí un 404 en la portada—.
+`vercel.json` manda sobre esa configuración.
+
+También funciona en Netlify o Cloudflare Pages, donde `next/image` optimiza
 las fotos a AVIF/WebP en el servidor.
 
 Para un hosting estático cualquiera (S3, GitHub Pages, el servidor actual),
