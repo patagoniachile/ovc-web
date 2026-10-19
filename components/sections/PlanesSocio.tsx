@@ -10,9 +10,9 @@ type Periodo = 'mensual' | 'anual'
 /**
  * Los cuatro niveles de socio, con el precio anual y el mensual.
  *
- * El ahorro del plan anual se calcula aquí a partir de los dos montos, no se
- * escribe a mano: si alguien cambia un precio en el contenido, el porcentaje
- * se corrige solo en vez de quedar mintiendo.
+ * El anual cuesta lo mismo que los doce meses, así que no se anuncia ningún
+ * ahorro: cada tarjeta muestra el otro periodo como equivalencia y nada más.
+ * Lo que cambia entre uno y otro es el número de cobros, no el total.
  *
  * Cada botón lleva a la página del plan en Payku, que ya muestra el monto, la
  * periodicidad y las fechas de cobro antes de pedir nada. Es una navegación
@@ -55,14 +55,7 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
         <div className="planes">
           {planes.lista.map((plan) => {
             const enlace = planesPayku[plan.id]?.[periodo]
-            const anualSuelto = plan.mensual * 12
-            const ahorro = Math.round(((anualSuelto - plan.anual) / anualSuelto) * 100)
-            const clases = [
-              'plan',
-              plan.destacado && 'plan--destacado',
-              plan.mecenas && 'plan--mecenas',
-              'revelar',
-            ]
+            const clases = ['plan', plan.destacado && 'plan--destacado', 'revelar']
               .filter(Boolean)
               .join(' ')
 
@@ -76,16 +69,12 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
                   <span>{periodo === 'anual' ? planes.alAnio : planes.alMes}</span>
                 </p>
 
-                {periodo === 'anual' ? (
-                  <p className="plan__equivalente">
-                    <span className="plan__ahorro">{planes.ahorro(ahorro)}</span>
-                    {moneda.format(plan.mensual)} {planes.alMes}
-                  </p>
-                ) : (
-                  <p className="plan__equivalente">
-                    {moneda.format(plan.anual)} {planes.alAnio}
-                  </p>
-                )}
+                <p className="plan__equivalente">
+                  {planes.equivaleA}{' '}
+                  {periodo === 'anual'
+                    ? `${moneda.format(plan.mensual)} ${planes.alMes}`
+                    : `${moneda.format(plan.anual)} ${planes.alAnio}`}
+                </p>
 
                 <ul className="plan__beneficios">
                   {plan.beneficios.map((beneficio) => (
@@ -108,6 +97,11 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
         </div>
 
         <p className="planes__respaldo revelar">{planes.respaldo}</p>
+
+        <p className="planes__empresas revelar">
+          {planes.empresas.texto}{' '}
+          <a href={planes.empresas.cta.href}>{planes.empresas.cta.label}</a>
+        </p>
       </div>
     </section>
   )

@@ -56,7 +56,6 @@ export const planesPayku: Record<string, Partial<Record<'mensual' | 'anual', Enl
   // chucao: { mensual: { idplan: '', verif: '' }, anual: { idplan: '', verif: '' } },
   // alerce: { … },
   // trinidad: { … },
-  // condor: { … },
 }
 
 export const correoOrganizacion = cuentaBancaria.email

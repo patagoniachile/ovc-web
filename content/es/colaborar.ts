@@ -41,7 +41,7 @@ export const sociosPagina: Encabezado & {
   intro: string
   porQue: { titulo: string; texto: string }[]
   tituloSuscripcion: string
-  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; ahorro: (pct: number) => string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: import('../types').PlanSocio[] }
+  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; empresas: { texto: string; cta: { label: string; href: string } }; lista: import('../types').PlanSocio[] }
   introSuscripcion: string
   notaSuscripcion: string
   tarjeta: { alt: string; pasos: string[]; libre: string; ctaLibre: string }
@@ -77,23 +77,27 @@ export const sociosPagina: Encabezado & {
     encabezado: {
       eyebrow: 'Planes',
       titulo: 'Elige tu plan de socio',
-      bajada: 'Cuatro niveles con nombres del valle. Pagar el año completo sale más barato que doce meses sueltos.',
+      bajada: 'Tres niveles con nombres del valle. El aporte anual es el mismo total que los doce meses, en un solo cobro.',
     },
     mensual: 'Mensual',
     anual: 'Anual',
-    ahorro: (pct) => `Ahorras ${pct}%`,
+    equivaleA: 'equivale a',
     alMes: 'al mes',
     alAnio: 'al año',
     elegir: 'Elegir',
     respaldo:
       'El cobro con tarjeta lo procesa Payku, la misma pasarela que usa la corporación desde 2020. Al elegir un plan se abre su página, con el monto y las fechas a la vista antes de escribir nada.',
+    empresas: {
+      texto: '¿Tu empresa quiere aportar o auspiciar el trabajo en el valle? Lo conversamos caso a caso.',
+      cta: { label: 'Escríbenos', href: '/es/como-ayudar#contacto' },
+    },
     lista: [
       {
         id: 'chucao',
         nombre: 'Chucao',
         subtitulo: 'Ave del sotobosque valdiviano',
-        anual: 37000,
-        mensual: 3500,
+        anual: 60000,
+        mensual: 5000,
         beneficios: [
           'Sticker y parche',
           'Carnet digital y Muro de Socios',
@@ -105,8 +109,8 @@ export const sociosPagina: Encabezado & {
         id: 'alerce',
         nombre: 'Alerce',
         subtitulo: 'Árbol milenario del santuario',
-        anual: 50000,
-        mensual: 5000,
+        anual: 120000,
+        mensual: 10000,
         beneficios: ['Todo lo de Chucao', 'Guía de campo ilustrada'],
         destacado: true,
       },
@@ -114,21 +118,9 @@ export const sociosPagina: Encabezado & {
         id: 'trinidad',
         nombre: 'Trinidad',
         subtitulo: 'Cerro de granito de La Junta',
-        anual: 100000,
-        mensual: 10000,
+        anual: 180000,
+        mensual: 15000,
         beneficios: ['Todo lo de Alerce', 'Polera del valle', 'Mención en el informe anual'],
-      },
-      {
-        id: 'condor',
-        nombre: 'Cóndor',
-        subtitulo: 'Plan mecenas, para personas y empresas',
-        anual: 250000,
-        mensual: 25000,
-        beneficios: [
-          'Todo lo de Trinidad, con polerón en vez de polera',
-          'Logo de empresas en la web y los materiales',
-        ],
-        mecenas: true,
       },
     ],
   },
