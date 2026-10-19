@@ -187,10 +187,15 @@ export const contenido: Contenido = {
     bajada:
       'The Cochamó Valley is not a park or a public reserve: it is private land whose owners opened it to the public. We look after it together, with an orderly visit and a real commitment to its conservation.',
     alt: 'Granite walls of the Cochamó Valley with the valley’s native forest in the background',
-    pieIzquierda: 'La Junta sector · Cochamó, Los Lagos Region',
-    pieDerecha: 'Booking required since 2016 · Organised since 2017',
   },
 
+  cifrasTitulo: 'Some numbers',
+  cierrePortada: {
+    titulo: 'But there are many others that',
+    destacado: 'still need your support',
+    donar: { label: 'I want to donate', href: `${PORTADA}/como-ayudar#donaciones` },
+    proyectos: { label: 'See the projects', href: `${PORTADA}/historia#proyectos` },
+  },
   cifras: [
     { valor: 11432, sufijo: '.8 ha', texto: 'Area proposed as a Nature Sanctuary' },
     { valor: 8000, sufijo: ' ha', texto: 'Of alerce forest, with trees close to 1,000 years old' },
@@ -633,7 +638,6 @@ export const contenido: Contenido = {
   ],
 
   /* ----- Estructura nueva ----- */
-  heroResumen: nuevo.heroResumen,
   elValle: nuevo.elValle,
   elVallePagina: nuevo.elVallePagina,
   quienesSomosPagina: nuevo.quienesSomosPagina,
@@ -645,10 +649,7 @@ export const contenido: Contenido = {
   impacto: nuevo.impacto,
   logroImportante: nuevo.logroImportante,
   misionVision: nuevo.misionVision,
-  futuro: nuevo.futuro,
-  viasDeAporte: nuevo.viasDeAporte,
   destinoAportes: nuevo.destinoAportes,
-  necesitamosTuAyuda: nuevo.necesitamosTuAyuda,
   donarPagina,
   sociosPagina,
   resultadoPago,

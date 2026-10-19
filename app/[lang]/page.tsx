@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { Boletin } from '@/components/sections/Boletin'
 import { Cifras } from '@/components/sections/Cifras'
 import { ElValle } from '@/components/sections/ElValle'
-import { Futuro } from '@/components/sections/Futuro'
+import { CierrePortada } from '@/components/sections/CierrePortada'
 import { Hero } from '@/components/sections/Hero'
 import { Impacto } from '@/components/sections/Impacto'
 import { Proyectos } from '@/components/sections/Proyectos'
@@ -26,21 +26,21 @@ export default async function Portada({ params }: PageProps<'/[lang]'>) {
 
   return (
     <>
-      {/* 1 · Hero: qué es, dónde está, qué se hace */}
+      {/* 1 · Hero */}
       <Hero lang={lang} />
 
-      {/* 2 · El Valle: por qué es especial */}
+      {/* 2 · El Valle, y 3 · las cifras */}
       <ElValle lang={lang} />
       <Cifras lang={lang} />
 
-      {/* 3 · Impacto: el logro mayor, misión y visión, lo hecho y lo que pasó */}
+      {/* 4 · Impacto, con la propuesta de santuario */}
       <Impacto lang={lang} />
 
-      {/* 4 · Futuro: lo que queremos hacer y cómo ayudar */}
-      <Proyectos lang={lang} modo="desafios" />
-      <Futuro lang={lang} />
+      {/* 5 · Lo hecho, y el paso a Cómo ayudar */}
+      <Proyectos lang={lang} modo="logros" />
+      <CierrePortada lang={lang} />
 
-      {/* 5 · Suscríbete */}
+      {/* 6 · Boletín */}
       <Boletin lang={lang} />
     </>
   )

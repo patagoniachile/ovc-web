@@ -523,6 +523,12 @@ p { text-wrap: pretty; }
 .hero__credito { max-width: 40ch; }
 
 /* Franja de cifras */
+.cifras__titulo {
+  margin-bottom: clamp(28px, 4vw, 44px);
+  text-align: center;
+  color: var(--blanco);
+}
+
 .cifras { background: var(--bosque-800); color: var(--blanco); }
 .cifras__grid {
   display: grid;
@@ -1510,16 +1516,16 @@ p { text-wrap: pretty; }
   align-items: center;
   padding: clamp(28px, 4vw, 44px);
   border-radius: var(--radio);
-  background: rgba(255, 255, 255, .06);
-  border: 1px solid rgba(255, 255, 255, .14);
+  background: var(--arena-200);
+  border: 1px solid var(--borde);
 }
 .logro-destacado__cifra {
   font-family: var(--display);
   font-size: clamp(2.6rem, 6vw, 4.4rem);
   font-weight: 600;
   line-height: 1;
-  color: var(--blanco);
   letter-spacing: -0.02em;
+  color: var(--bosque-900);
 }
 .logro-destacado__cifra small {
   display: block;
@@ -1529,10 +1535,10 @@ p { text-wrap: pretty; }
   font-weight: 650;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--oro-300);
+  color: var(--oro-600);
 }
-.logro-destacado h3 { color: var(--blanco); font-size: clamp(1.3rem, 2.6vw, 1.8rem); }
-.logro-destacado p { margin-top: 12px; color: rgba(255, 255, 255, .8); max-width: 60ch; }
+.logro-destacado h3 { font-size: clamp(1.3rem, 2.6vw, 1.8rem); }
+.logro-destacado p { margin-top: 12px; color: var(--texto-suave); max-width: 60ch; }
 .logro-destacado__cta { margin-top: 24px; }
 
 .mision { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 28px; }
@@ -1545,18 +1551,6 @@ p { text-wrap: pretty; }
 .mision__bloque h3 { color: var(--oro-300); font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 .mision__bloque p { margin-top: 12px; font-size: 1.05rem; line-height: 1.65; color: rgba(255, 255, 255, .88); }
 
-/* Futuro */
-.ayuda {
-  max-width: 62ch;
-  margin-inline: auto;
-  padding: clamp(28px, 4vw, 44px);
-  border-radius: var(--radio);
-  background: var(--arena-200);
-  text-align: center;
-}
-.ayuda h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
-.ayuda p { margin-top: 12px; color: var(--texto-suave); }
-.ayuda .btn { margin-top: 24px; }
 
 /* --------------------------------------------------------------------------
    Página Cómo visitar
@@ -1851,6 +1845,34 @@ p { text-wrap: pretty; }
 @keyframes girar { to { transform: rotate(360deg); } }
 /* Una vez cargado el marco, la capa desaparece del flujo */
 .payku[data-estado='listo'] .payku__espera { display: none; }
+
+/* --------------------------------------------------------------------------
+   Cierre de la portada
+
+   Una línea y dos botones sobre verde. Lo que había antes —por qué hace falta
+   ayuda, a dónde va el dinero, las dos vías— se repetía casi entero en Cómo
+   ayudar, y la portada no tiene que convencer: tiene que llevar.
+   -------------------------------------------------------------------------- */
+.cierre {
+  padding-block: clamp(64px, 9vw, 110px);
+  background: var(--bosque-900);
+  text-align: center;
+}
+.cierre h2 {
+  max-width: 20ch;
+  margin: 0 auto;
+  color: var(--arena-100);
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
+  line-height: 1.18;
+}
+.cierre__destacado { color: var(--lila-100); }
+.cierre__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 34px;
+}
 
 /* --------------------------------------------------------------------------
    Vuelta desde Payku

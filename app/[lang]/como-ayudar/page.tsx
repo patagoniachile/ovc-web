@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { AporteConTarjeta } from '@/components/sections/AporteConTarjeta'
+import { DestinoAportes } from '@/components/sections/DestinoAportes'
 import { Donar } from '@/components/sections/Donar'
 import { FormularioSocio } from '@/components/sections/FormularioSocio'
 import { PlanesSocio } from '@/components/sections/PlanesSocio'
@@ -57,6 +58,8 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
         <div className="contenedor">
           <p className="eyebrow revelar">{donarPagina.eyebrow}</p>
           <h2 className="revelar">{donarPagina.titulo}</h2>
+
+          <DestinoAportes lang={lang} />
         </div>
       </section>
       <Donar lang={lang} />

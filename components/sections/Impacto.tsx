@@ -7,9 +7,9 @@ export function Impacto({ lang }: { lang: Lang }) {
   const { impacto, logroImportante } = getContenido(lang)
 
   return (
-    <section className="seccion seccion--oscura" id="impacto">
+    <section className="seccion" id="impacto">
       <div className="contenedor">
-        <SectionHeader className="revelar" claro {...impacto} />
+        <SectionHeader className="revelar" {...impacto} />
 
         <div className="logro-destacado revelar">
           <p className="logro-destacado__cifra">
@@ -19,7 +19,7 @@ export function Impacto({ lang }: { lang: Lang }) {
           <div>
             <h3>{logroImportante.titulo}</h3>
             <p>{logroImportante.texto}</p>
-            <Boton className="logro-destacado__cta" href={logroImportante.cta.href} variante="claro">
+            <Boton className="logro-destacado__cta" href={logroImportante.cta.href} variante="borde">
               {logroImportante.cta.label}
             </Boton>
           </div>

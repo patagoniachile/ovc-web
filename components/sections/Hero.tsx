@@ -4,7 +4,7 @@ import { Icon } from '@/components/ui/Icon'
 import { getContenido, imagenes, type Lang } from '@/content'
 
 export function Hero({ lang }: { lang: Lang }) {
-  const { hero, heroResumen, textos } = getContenido(lang)
+  const { hero, textos } = getContenido(lang)
 
   return (
     <section className="hero" id="inicio">
@@ -37,21 +37,8 @@ export function Hero({ lang }: { lang: Lang }) {
             </Boton>
           </div>
 
-          {/* Qué es, dónde está y qué se hace, de un vistazo */}
-          <dl className="hero__resumen">
-            {heroResumen.map((dato) => (
-              <div key={dato.etiqueta}>
-                <dt>{dato.etiqueta}</dt>
-                <dd>{dato.valor}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
-        <div className="hero__pie">
-          <p className="hero__credito">{hero.pieIzquierda}</p>
-          <p>{hero.pieDerecha}</p>
-        </div>
       </div>
     </section>
   )

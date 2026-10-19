@@ -2,11 +2,12 @@ import { Contador } from '@/components/ui/Contador'
 import { getContenido, LOCALE, type Lang } from '@/content'
 
 export function Cifras({ lang }: { lang: Lang }) {
-  const { cifras } = getContenido(lang)
+  const { cifras, cifrasTitulo } = getContenido(lang)
 
   return (
-    <section className="cifras" aria-label={cifras[0]?.texto}>
+    <section className="cifras">
       <div className="contenedor">
+        <h2 className="cifras__titulo revelar">{cifrasTitulo}</h2>
         <div className="cifras__grid">
           {cifras.map((cifra) => (
             <div className="cifra" key={cifra.texto}>

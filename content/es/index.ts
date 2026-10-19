@@ -178,10 +178,15 @@ export const contenido: Contenido = {
     bajada:
       'El Valle Cochamó no es un parque ni una reserva pública: son tierras privadas que sus dueños abrieron al público. Lo cuidamos entre todos, con una visita ordenada y un compromiso real con su conservación.',
     alt: 'Paredes de granito del Valle Cochamó con el bosque nativo del valle al fondo',
-    pieIzquierda: 'Sector La Junta · Comuna de Cochamó, Región de Los Lagos',
-    pieDerecha: 'Desde 2016 se reserva para entrar · Desde 2017 nos organizamos',
   },
 
+  cifrasTitulo: 'Algunas cifras',
+  cierrePortada: {
+    titulo: 'Pero aún hay muchos otros que',
+    destacado: 'necesitan de tu apoyo',
+    donar: { label: 'Quiero donar', href: `${PORTADA}/como-ayudar#donaciones` },
+    proyectos: { label: 'Ver proyectos', href: `${PORTADA}/historia#proyectos` },
+  },
   cifras: [
     { valor: 11432, sufijo: ',8 ha', texto: 'Superficie propuesta como Santuario de la Naturaleza' },
     { valor: 8000, sufijo: ' ha', texto: 'De bosque de alerce, con ejemplares de cerca de 1.000 años' },
@@ -625,7 +630,6 @@ export const contenido: Contenido = {
   ],
 
   /* ----- Estructura nueva ----- */
-  heroResumen: nuevo.heroResumen,
   elValle: nuevo.elValle,
   elVallePagina: nuevo.elVallePagina,
   quienesSomosPagina: nuevo.quienesSomosPagina,
@@ -637,10 +641,7 @@ export const contenido: Contenido = {
   impacto: nuevo.impacto,
   logroImportante: nuevo.logroImportante,
   misionVision: nuevo.misionVision,
-  futuro: nuevo.futuro,
-  viasDeAporte: nuevo.viasDeAporte,
   destinoAportes: nuevo.destinoAportes,
-  necesitamosTuAyuda: nuevo.necesitamosTuAyuda,
   donarPagina,
   sociosPagina,
   resultadoPago,

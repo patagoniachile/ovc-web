@@ -221,18 +221,6 @@ export interface CampoFormulario {
   ayuda?: string
 }
 
-/** Una de las dos vías de aporte: socio mensual o donación única. */
-export interface ViaDeAporte {
-  id: 'socio' | 'donacion'
-  icono: IconName
-  titulo: string
-  texto: string
-  /** El dato que decide: "Desde $5.000 al mes", "Sin comisión" */
-  detalle: string
-  cta: Enlace
-  destacada?: boolean
-}
-
 /**
  * Un plan de suscripción dado de alta en el panel de Payku.
  *
@@ -357,9 +345,9 @@ export interface Contenido {
     titulo: string[]
     bajada: string
     alt: string
-    pieIzquierda: string
-    pieDerecha: string
   }
+  cifrasTitulo: string
+  cierrePortada: { titulo: string; destacado: string; donar: Enlace; proyectos: Enlace }
   cifras: Cifra[]
   introHistoria: Encabezado & { cita: string; citaFuente: string }
   hitos: Hito[]
@@ -412,7 +400,6 @@ export interface Contenido {
   /* ----- Estructura nueva ----- */
 
   /** Hero: resumen de qué es, dónde y qué se hace */
-  heroResumen: { etiqueta: string; valor: string }[]
 
   elValle: Encabezado
   elVallePagina: Encabezado
@@ -429,15 +416,12 @@ export interface Contenido {
   logroImportante: { cifra: string; unidad: string; titulo: string; texto: string; cta: Enlace }
   misionVision: { mision: { titulo: string; texto: string }; vision: { titulo: string; texto: string } }
 
-  futuro: Encabezado
-  viasDeAporte: { titulo: string; opciones: ViaDeAporte[] }
   destinoAportes: {
     titulo: string
     texto: string
     reparto: { conservacion: string; infraestructura: string; etiquetaGrafico: string }
     items: { icono: IconName; dato: string; titulo: string; texto: string }[]
   }
-  necesitamosTuAyuda: { titulo: string; texto: string; cta: Enlace }
 
   /* ----- Donar y socios ----- */
   donarPagina: Encabezado & {
