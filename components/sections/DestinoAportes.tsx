@@ -16,19 +16,27 @@ export function DestinoAportes({ lang }: { lang: Lang }) {
     <div className="destino">
       <div className="destino__intro revelar">
         <h3>{destinoAportes.titulo}</h3>
-        <p>{destinoAportes.texto}</p>
-
+        {destinoAportes.texto && <p>{destinoAportes.texto}</p>}
       </div>
 
       <ul className="destino__items">
         {destinoAportes.items.map((item) => (
-          <li className="destino__item revelar" key={item.titulo}>
+          <li className={item.tituloGrande ? 'destino__item destino__item--titulo revelar' : 'destino__item revelar'} key={item.titulo}>
             <span className="destino__icono">
               <Icon name={item.icono} />
             </span>
             <div>
-              <span className="destino__dato">{item.dato}</span>
-              <h4>{item.titulo}</h4>
+              {item.tituloGrande ? (
+                <>
+                  <h4>{item.titulo}</h4>
+                  <span className="destino__dato">{item.dato}</span>
+                </>
+              ) : (
+                <>
+                  <span className="destino__dato">{item.dato}</span>
+                  <h4>{item.titulo}</h4>
+                </>
+              )}
               <p>{item.texto}</p>
             </div>
           </li>

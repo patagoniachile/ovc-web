@@ -22,7 +22,7 @@ type Periodo = 'mensual' | 'anual'
  * Un plan sin enlace cae al formulario de contacto en vez de dejar un botón
  * muerto, así que la página funciona completa aunque falte dar de alta alguno.
  */
-export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) {
+export function PlanesSocio({ lang, destino, id }: { lang: Lang; destino: string; id?: string }) {
   const { sociosPagina } = getContenido(lang)
   const { planes } = sociosPagina
   const [periodo, setPeriodo] = useState<Periodo>('anual')
@@ -34,7 +34,7 @@ export function PlanesSocio({ lang, destino }: { lang: Lang; destino: string }) 
   })
 
   return (
-    <section className="seccion seccion--alt">
+    <section className="seccion seccion--alt" id={id}>
       <div className="contenedor">
         <SectionHeader className="revelar" centrado {...planes.encabezado} />
 

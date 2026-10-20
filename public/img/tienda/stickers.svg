@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#efe7c4"/>
+  <g transform="rotate(-12 220 250)">
+    <circle cx="220" cy="250" r="105" fill="#fffceb"/>
+    <circle cx="220" cy="250" r="92" fill="#2c473f"/>
+    <path d="M160 285l45-62 26 33 19-24 42 53z" fill="#ffce00"/>
+  </g>
+  <g transform="rotate(10 395 360)">
+    <rect x="290" y="285" width="210" height="150" rx="26" fill="#fffceb"/>
+    <rect x="302" y="297" width="186" height="126" rx="18" fill="#ffce00"/>
+    <path d="M335 395l40-55 24 30 17-21 38 46z" fill="#2c473f"/>
+  </g>
+  <g transform="rotate(-6 250 450)">
+    <rect x="160" y="420" width="170" height="64" rx="32" fill="#fffceb"/>
+    <rect x="170" y="430" width="150" height="44" rx="22" fill="#678a7c"/>
+    <text x="245" y="460" font-family="Georgia, serif" font-size="20" fill="#fffceb" text-anchor="middle">VALLE</text>
+  </g>
+</svg>

@@ -75,9 +75,10 @@ export const sociosPagina: Encabezado & {
     'Qué pasa cuando eliges un plan',
   planes: {
     encabezado: {
-      eyebrow: 'Planes',
-      titulo: 'Elige tu plan de socio',
-      bajada: 'Cuatro niveles con nombres del valle. El aporte anual es el mismo total que los doce meses, en un solo cobro.',
+      eyebrow: 'Socios',
+      titulo: 'Hazte socio del Valle Cochamó',
+      bajada:
+        'Hay cuatro categorías de socio, cada una con un nombre del valle. Puedes pagar anual, con un solo cobro una vez al año, o mensual, con un cargo que se repite cada mes.',
     },
     mensual: 'Mensual',
     anual: 'Anual',
@@ -108,7 +109,6 @@ export const sociosPagina: Encabezado & {
         anual: 120000,
         mensual: 10000,
         beneficios: ['Todo lo de Chucao', 'Guía de campo ilustrada'],
-        destacado: true,
       },
       {
         id: 'trinidad',

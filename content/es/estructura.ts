@@ -270,8 +270,7 @@ export const reservarPagina = {
 
 export const destinoAportes = {
   titulo: 'A dónde va tu aporte',
-  texto:
-    'No hay presupuesto público detrás del valle. Esto es lo que sostienen las donaciones y las cuotas de socios, con lo ya hecho y lo que falta.',
+  texto: '',
   reparto: {
     conservacion: '50% programas de conservación de largo plazo',
     infraestructura: '50% infraestructura para visitantes',
@@ -296,13 +295,15 @@ export const destinoAportes = {
       icono: 'botiquin' as const,
       dato: 'Pendiente',
       titulo: 'Un equipo de rescate propio',
+      tituloGrande: true,
       texto:
         'Hoy el valle no tiene servicios de emergencia. Formar un equipo con insumos de primeros auxilios es el desafío más urgente de los que siguen sin financiar.',
     },
     {
       icono: 'hoja' as const,
-      dato: 'Hecho',
+      dato: 'En constante mejora',
       titulo: 'Centro de reciclaje y señalética',
+      tituloGrande: true,
       texto:
         'La basura baja del valle y se separa abajo, y las señales del sendero orientan y piden cuidados en los puntos donde más impacto había.',
     },
@@ -315,7 +316,20 @@ export const comoAyudarPagina = {
   bajada:
     'El valle no tiene presupuesto público. Los senderos, el Centro de Visitantes y los programas de conservación se financian con donaciones y con las cuotas de quienes se hacen socios.',
   intro:
-    'Dos formas de aportar: una transferencia cuando quieras, o un aporte mensual que da continuidad al trabajo.',
+    'Distintas formas de aportar: una transferencia cuando quieras, hacerte socio para dar continuidad al trabajo o llevarte algo de nuestra tienda.',
+  productos: {
+    eyebrow: 'Otras formas de aportar',
+    titulo: 'Tienda del Valle',
+    bajada:
+      'En el Centro de Visitantes encontrarás nuestros productos: llévate un buen recuerdo de tu aventura y, de paso, aporta al cuidado del valle.',
+    // Ilustraciones provisorias: reemplazar por fotos de los productos reales.
+    items: [
+      { nombre: 'Jockeys', foto: { src: '/img/tienda/jockey.svg', width: 600, height: 600, alt: 'Jockey verde con el logo del valle' } },
+      { nombre: 'Poleras', foto: { src: '/img/tienda/polera.svg', width: 600, height: 600, alt: 'Polera verde con el logo del valle' } },
+      { nombre: 'Botellas térmicas', foto: { src: '/img/tienda/termo.svg', width: 600, height: 600, alt: 'Botella térmica verde con el logo del valle' } },
+      { nombre: 'Stickers', foto: { src: '/img/tienda/stickers.svg', width: 600, height: 600, alt: 'Stickers con el logo del valle' } },
+    ],
+  },
 }
 
 export const floraFauna: Encabezado & { cierre: string } = {

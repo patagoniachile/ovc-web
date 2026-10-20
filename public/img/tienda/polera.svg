@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#efe7c4"/>
+  <ellipse cx="300" cy="500" rx="160" ry="18" fill="#2c473f" opacity=".12"/>
+  <path d="M235 120c18 26 40 38 65 38s47-12 65-38l115 50-40 95-50-22v247H210V243l-50 22-40-95z" fill="#2c473f"/>
+  <path d="M235 120c18 26 40 38 65 38s47-12 65-38" fill="none" stroke="#405f54" stroke-width="10"/>
+  <path d="M245 335l38-52 22 28 16-20 36 44z" fill="#ffce00"/>
+  <text x="300" y="380" font-family="Georgia, serif" font-size="26" fill="#fcf8e1" text-anchor="middle">COCHAMÓ</text>
+</svg>

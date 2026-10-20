@@ -2372,6 +2372,30 @@ p { text-wrap: pretty; }
   font-variant-numeric: tabular-nums;
 }
 .destino__item h4 { margin-top: 9px; font-family: var(--display); font-size: 1.08rem; font-weight: 600; }
+
+/* El dato va como titular y el nombre de la obra debajo, algo más chico.
+   `--titulo` vuelve al orden de antes cuando el dato dice menos que el nombre. */
+.destino__item:not(.destino__item--titulo) .destino__dato {
+  display: block;
+  padding: 0;
+  background: none;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.15;
+  color: var(--bosque-900);
+}
+.destino__item:not(.destino__item--titulo) h4 { margin-top: 4px; font-family: var(--sans); font-size: .95rem; font-weight: 650; color: var(--bosque-800); }
+/* Tienda: cuatro productos en una fila */
+.tienda { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 32px; }
+.tienda__item { overflow: hidden; border-radius: var(--radio); background: var(--arena-200); }
+.tienda__item img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.tienda__item span { display: block; padding: 12px 16px; font-weight: 650; color: var(--bosque-900); }
+@media (max-width: 640px) { .tienda { grid-template-columns: repeat(2, 1fr); } }
+
+.destino__item--titulo h4 { margin-top: 0; font-size: 1.45rem; line-height: 1.15; }
+.destino__item--titulo .destino__dato { display: block; margin-top: 8px; padding: 0; background: none; font-size: 1rem; letter-spacing: 0; color: var(--oro-600); }
 .destino__item p { margin-top: 7px; font-size: .91rem; color: var(--texto-suave); }
 
 /* Las dos vías, ahora con cabecera de icono + título */

@@ -483,9 +483,15 @@ export interface Contenido {
 
   destinoAportes: {
     titulo: string
+    /** Vacío para no mostrar párrafo bajo el título. */
     texto: string
     reparto: { conservacion: string; infraestructura: string; etiquetaGrafico: string }
-    items: { icono: IconName; dato: string; titulo: string; texto: string }[]
+    /**
+     * `dato` va grande, como titular, y `titulo` debajo más chico. Con
+     * `tituloGrande` se invierte: cuando el dato («Pendiente») dice menos que
+     * el nombre de la obra.
+     */
+    items: { icono: IconName; dato: string; titulo: string; texto: string; tituloGrande?: boolean }[]
   }
 
   /* ----- Donar y socios ----- */
@@ -522,7 +528,11 @@ export interface Contenido {
   dondeDormir: Encabezado & {
     bloques: { slug: string; titulo?: string; texto?: string; enlace?: Enlace; foto?: Foto }[]
   }
-  comoAyudarPagina: Encabezado & { intro: string }
+  comoAyudarPagina: Encabezado & {
+    intro: string
+    /** Productos a la venta en el Centro de Visitantes. Sin esto no se muestra la sección. */
+    productos?: Encabezado & { items: { nombre: string; foto: Foto }[] }
+  }
   santuarioPagina: PaginaLarga
   conservacionPagina: PaginaLarga
   /** Una página por obra realizada, bajo /obras/<slug>. */

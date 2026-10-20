@@ -17,6 +17,7 @@ export function PaginaHero({
   intro,
   foto,
   alt,
+  fotoPosicion,
   children,
 }: {
   lang: Lang
@@ -26,6 +27,8 @@ export function PaginaHero({
   intro: (string | undefined)[]
   foto?: Imagen
   alt?: string
+  /** Qué parte de la foto se conserva al recortar (object-position), si el centro corta caras. */
+  fotoPosicion?: string
   /** Botones, si la página los lleva. */
   children?: ReactNode
 }) {
@@ -43,6 +46,7 @@ export function PaginaHero({
               height={foto.height}
               priority
               sizes="100vw"
+              style={fotoPosicion ? { objectPosition: fotoPosicion } : undefined}
             />
           </div>
           <div className="pagina-hero__velo" aria-hidden="true" />

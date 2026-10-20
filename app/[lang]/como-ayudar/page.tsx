@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { PaginaHero } from '@/components/layout/PaginaHero'
 import { AporteConTarjeta } from '@/components/sections/AporteConTarjeta'
@@ -6,6 +7,7 @@ import { DestinoAportes } from '@/components/sections/DestinoAportes'
 import { Donar } from '@/components/sections/Donar'
 import { FormularioSocio } from '@/components/sections/FormularioSocio'
 import { PlanesSocio } from '@/components/sections/PlanesSocio'
+import { SectionHeader } from '@/components/ui/SectionHeader'
 import { IDIOMAS, esIdioma, getContenido, imagenes } from '@/content'
 
 export function generateStaticParams() {
@@ -48,6 +50,7 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
         intro={[comoAyudarPagina.bajada, comoAyudarPagina.intro]}
         foto={imagenes.equipo}
         alt={textos.fotoComoAyudar}
+        fotoPosicion="center top"
       />
 
       {/* Donaciones */}
@@ -61,16 +64,8 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
       </section>
       <Donar lang={lang} />
 
-      {/* Socios */}
-      <section className="seccion seccion--oscura" id="socios">
-        <div className="contenedor">
-          <p className="eyebrow eyebrow--claro revelar">{sociosPagina.eyebrow}</p>
-          <h2 className="revelar">{sociosPagina.titulo}</h2>
-          <p className="lead revelar">{sociosPagina.intro}</p>
-        </div>
-      </section>
-
-      <PlanesSocio lang={lang} destino="#socios" />
+      {/* Socios: el encabezado y los planes son una sola sección */}
+      <PlanesSocio lang={lang} destino="#socios" id="socios" />
 
       <section className="seccion">
         <div className="contenedor">
@@ -79,6 +74,28 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
           <AporteConTarjeta lang={lang} />
         </div>
       </section>
+
+      {comoAyudarPagina.productos && (
+        <section className="seccion seccion--oscura" id="productos">
+          <div className="contenedor">
+            <SectionHeader className="revelar" claro {...comoAyudarPagina.productos} />
+            <ul className="tienda">
+              {comoAyudarPagina.productos.items.map((item) => (
+                <li className="tienda__item revelar" key={item.nombre}>
+                  <Image
+                    src={item.foto.src}
+                    alt={item.foto.alt}
+                    width={item.foto.width}
+                    height={item.foto.height}
+                    sizes="(max-width: 640px) 50vw, 25vw"
+                  />
+                  <span>{item.nombre}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <section className="seccion seccion--alt">
         <div className="contenedor">
