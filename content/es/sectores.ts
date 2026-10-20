@@ -119,7 +119,7 @@ export const sectoresDetalle: SectorDetalle[] = [
         nombre: 'Camping La Junta',
         tipo: 'Camping',
         descripcion:
-          'En una espaciosa pampa a orillas del río Cochamó, rodeado de montañas de granito. Buena base para todas las excursiones e ideal para familias, con amplios sectores destinados a ellas y un fuerte énfasis en el cuidado del medio ambiente.',
+          'Pampa a orillas del río Cochamó, rodeada de montañas de granito. Buena base para las excursiones e ideal para familias.',
         servicios: [
           'Dos quinchos techados con mesones',
           'Agua y lavabos',
@@ -132,11 +132,23 @@ export const sectoresDetalle: SectorDetalle[] = [
         lon: -72.12758,
       },
       {
+        id: 'vista-hermosa',
+        nombre: 'Camping Vista Hermosa',
+        tipo: 'Camping',
+        descripcion:
+          'Amplios sitios junto al río Cochamó, con vista a los cerros de escalada. Cerca de los senderos de altura y de las paredes La Luna y La Cantina.',
+        servicios: ['Sitios amplios', 'Vista a los cerros de escalada', 'Cerca de las aproximaciones de altura'],
+        contactos: [{ tipo: 'web', valor: 'vistahermosacochamo.cl', href: 'https://vistahermosacochamo.cl/' }],
+        reserva: { label: 'Reservar en Vista Hermosa', href: 'https://vistahermosacochamo.cl/reservar' },
+        lat: -41.412606,
+        lon: -72.121787,
+      },
+      {
         id: 'playa-los-manzanos',
         nombre: 'Camping Playa Los Manzanos',
         tipo: 'Camping',
         descripcion:
-          'Amplios sitios para acampar y un gran fogón para cocinar, con playas en un entorno rodeado de montañas que bordean el río Cochamó. Se llega cruzando el río en carro, a 30 minutos de las cascadas del río La Junta.',
+          'Amplios sitios y un gran fogón para cocinar, con playas junto al río Cochamó. Se llega cruzando el río en carro.',
         servicios: ['Gran fogón para fogatas y cocinar', 'Playas en el río', 'Cabalgatas', 'Venta de pan amasado y sopaipillas'],
         contactos: [
           { tipo: 'telefono', valor: '+56 9 3510 9737', href: 'tel:+56935109737' },
@@ -148,23 +160,11 @@ export const sectoresDetalle: SectorDetalle[] = [
         lon: -72.14301,
       },
       {
-        id: 'vista-hermosa',
-        nombre: 'Camping Vista Hermosa',
-        tipo: 'Camping',
-        descripcion:
-          'Amplios sitios al lado del río Cochamó, que se cruza en carro. A 10 minutos del tobogán del río La Junta, con vista a todos los cerros de escalada y cerca de las aproximaciones a los senderos de altura. A 15 minutos de las paredes La Luna y La Cantina.',
-        servicios: ['Sitios amplios', 'Vista a los cerros de escalada', 'Cerca de las aproximaciones de altura'],
-        contactos: [{ tipo: 'web', valor: 'vistahermosacochamo.cl', href: 'https://vistahermosacochamo.cl/' }],
-        reserva: { label: 'Reservar en Vista Hermosa', href: 'https://vistahermosacochamo.cl/reservar' },
-        lat: -41.412606,
-        lon: -72.121787,
-      },
-      {
         id: 'refugio-cochamo',
         nombre: 'Refugio Cochamó',
         tipo: 'Refugio',
         descripcion:
-          'En el corazón del valle, con vistas a las paredes de granito, las cascadas, los ríos y el bosque valdiviano. Un buen punto de partida para caminatas, escalada y días de playa, con biblioteca y juegos de mesa para los días de lluvia.',
+          'En el corazón del valle, con vista a las paredes de granito y al bosque valdiviano. Buen punto de partida para caminatas, escalada y días de playa.',
         servicios: [
           'Dos habitaciones privadas',
           'Dormitorio compartido',

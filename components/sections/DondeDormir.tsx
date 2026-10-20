@@ -86,25 +86,13 @@ export function DondeDormir({ lang, id }: { lang: Lang; id?: string }) {
                 )}
               </div>
 
-              {bloque.foto && (
-                <div className="dormir__foto revelar">
-                  <Image
-                    src={bloque.foto.src}
-                    alt={bloque.foto.alt}
-                    width={bloque.foto.width}
-                    height={bloque.foto.height}
-                    sizes="(max-width: 860px) 100vw, 1100px"
-                  />
-                </div>
-              )}
-
               {mapa && (
                 <div className="dormir__mapa revelar">
                   <MapaLienzo lang={lang} puntos={mapa.puntos} centro={mapa.centro} resaltado={resaltado} />
                 </div>
               )}
 
-              <div className="alojamientos">
+              <div className="alojamientos alojamientos--fila">
                 {sector.alojamientos.map((lugar) => (
                   <article
                     className="alojamiento revelar"
@@ -120,7 +108,6 @@ export function DondeDormir({ lang, id }: { lang: Lang; id?: string }) {
                     </header>
 
                     <p className="alojamiento__descripcion">{lugar.descripcion}</p>
-                    {lugar.nota && <p className="alojamiento__nota">{lugar.nota}</p>}
 
                     {lugar.servicios.length > 0 && (
                       <>
@@ -166,6 +153,24 @@ export function DondeDormir({ lang, id }: { lang: Lang; id?: string }) {
                   </article>
                 ))}
               </div>
+
+              {sector.alojamientos.filter((l) => l.nota).map((lugar) => (
+                <p className="dormir__aviso revelar" key={lugar.id}>
+                  <strong>{lugar.nombre}:</strong> {lugar.nota}
+                </p>
+              ))}
+
+              {bloque.foto && (
+                <div className="dormir__foto revelar">
+                  <Image
+                    src={bloque.foto.src}
+                    alt={bloque.foto.alt}
+                    width={bloque.foto.width}
+                    height={bloque.foto.height}
+                    sizes="(max-width: 860px) 100vw, 1100px"
+                  />
+                </div>
+              )}
             </div>
           )
         })}

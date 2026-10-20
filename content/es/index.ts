@@ -124,11 +124,11 @@ export const contenido: Contenido = {
       href: `${PORTADA}/como-visitar`,
       items: [
         { label: 'Cómo llegar', href: `${PORTADA}/como-visitar#como-llegar`, detalle: 'En auto o en bus' },
+        { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Los alojamientos del valle' },
         { label: 'Cuánto cuesta', href: `${PORTADA}/como-visitar#cuanto-cuesta`, detalle: 'Qué se paga y a quién' },
         { label: 'Día vs. varios días', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Dos viajes distintos' },
         { label: 'Qué debo saber', href: `${PORTADA}/como-visitar#normas`, detalle: 'Normas y seguridad' },
         { label: 'Horarios y contacto', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Ingresos y a quién escribir' },
-        { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Los alojamientos del valle' },
       ],
     },
     {
@@ -333,14 +333,11 @@ export const contenido: Contenido = {
     eyebrow: 'Dónde dormir',
     titulo: 'Dónde dormir en el valle',
     bajada:
-      'Cada alojamiento lo gestiona una familia del valle y se reserva directamente con ella. Pasa el cursor por una tarjeta para ver dónde queda.',
+      'En La Junta, el corazón del valle, hay 4 alojamientos donde quedarse. Cada uno lo gestiona una familia o un operador del valle y se reserva directamente con ellos. **Es necesario tener la reserva confirmada antes de ir.**',
     bloques: [
       {
         slug: 'la-junta',
-        foto: {
-          ...imagenes.laJuntaAerea,
-          alt: 'Vista aérea de la pampa de La Junta, con los campings junto al recodo del río',
-        },
+        titulo: 'Alojamientos en La Junta',
       },
       {
         slug: 'inicio-sendero',

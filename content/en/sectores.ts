@@ -112,7 +112,7 @@ export const sectoresDetalle: SectorDetalle[] = [
         nombre: 'Camping La Junta',
         tipo: 'Campsite',
         descripcion:
-          'On a wide meadow by the Cochamó River, surrounded by granite mountains. A good base for every excursion and well suited to families, with large family areas and a strong emphasis on looking after the environment.',
+          'A meadow by the Cochamó River, ringed by granite mountains. A good base for excursions and well suited to families.',
         servicios: ['Two covered shelters with large tables', 'Water and washbasins', 'Showers', 'Ecological composting toilets'],
         contactos: [{ tipo: 'web', valor: 'cochamo.com/camping', href: 'https://cochamo.com/camping/' }],
         reserva: { label: 'Book at Camping La Junta', href: 'https://cochamo.com/reservar-camping/' },
@@ -120,11 +120,23 @@ export const sectoresDetalle: SectorDetalle[] = [
         lon: -72.12758,
       },
       {
+        id: 'vista-hermosa',
+        nombre: 'Camping Vista Hermosa',
+        tipo: 'Campsite',
+        descripcion:
+          'Large pitches beside the Cochamó River, with views of the climbing peaks. Close to the high-country trails and the La Luna and La Cantina walls.',
+        servicios: ['Large pitches', 'Views of the climbing peaks', 'Close to the high-country approaches'],
+        contactos: [{ tipo: 'web', valor: 'vistahermosacochamo.cl', href: 'https://vistahermosacochamo.cl/' }],
+        reserva: { label: 'Book at Vista Hermosa', href: 'https://vistahermosacochamo.cl/reservar' },
+        lat: -41.412606,
+        lon: -72.121787,
+      },
+      {
         id: 'playa-los-manzanos',
         nombre: 'Camping Playa Los Manzanos',
         tipo: 'Campsite',
         descripcion:
-          'Large pitches and a big fire pit for cooking, with beaches in a setting ringed by mountains along the Cochamó River. You get there by crossing the river on a cable cart, 30 minutes from the La Junta river waterfalls.',
+          'Large pitches and a big fire pit for cooking, with beaches along the Cochamó River. You get there by crossing the river on a cable cart.',
         servicios: ['Large fire pit for cooking', 'River beaches', 'Horseback rides', 'Home-baked bread and sopaipillas for sale'],
         contactos: [
           { tipo: 'telefono', valor: '+56 9 3510 9737', href: 'tel:+56935109737' },
@@ -136,23 +148,11 @@ export const sectoresDetalle: SectorDetalle[] = [
         lon: -72.14301,
       },
       {
-        id: 'vista-hermosa',
-        nombre: 'Camping Vista Hermosa',
-        tipo: 'Campsite',
-        descripcion:
-          'Large pitches beside the Cochamó River, which you cross on a cable cart. Ten minutes from the La Junta river waterslide, with views of every climbing peak and close to the approaches for the high-country trails. Fifteen minutes from the La Luna and La Cantina walls.',
-        servicios: ['Large pitches', 'Views of the climbing peaks', 'Close to the high-country approaches'],
-        contactos: [{ tipo: 'web', valor: 'vistahermosacochamo.cl', href: 'https://vistahermosacochamo.cl/' }],
-        reserva: { label: 'Book at Vista Hermosa', href: 'https://vistahermosacochamo.cl/reservar' },
-        lat: -41.412606,
-        lon: -72.121787,
-      },
-      {
         id: 'refugio-cochamo',
         nombre: 'Refugio Cochamó',
         tipo: 'Mountain lodge',
         descripcion:
-          'In the heart of the valley, with views of the granite walls, the waterfalls, the rivers and the Valdivian forest. A good launching point for hikes, rock climbing and beach days, with a library and board games for rainy days.',
+          'In the heart of the valley, with views of the granite walls and the Valdivian forest. A good launching point for hikes, climbing and beach days.',
         servicios: [
           'Two private rooms',
           'Shared dormitory',
