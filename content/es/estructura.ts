@@ -70,7 +70,7 @@ export const logroImportante = {
   unidad: 'hectáreas',
   titulo: 'El Santuario de la Naturaleza',
   texto:
-    'En enero de 2024 se publicó el decreto que protege 11.432,8 hectáreas del valle. Es el mayor logro de la organización, y también el punto donde el trabajo empieza: administrar un santuario es un compromiso que se sostiene cada temporada.',
+    'En 2023 se firmó el decreto que protege 11.432,8 hectáreas del valle. Es el mayor logro de la organización, y también el punto donde el trabajo empieza: administrar un santuario es un compromiso que se sostiene cada temporada.',
   cta: { label: 'Conocer el santuario', href: `${PORTADA}/el-valle#santuario` },
 }
 

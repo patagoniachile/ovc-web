@@ -69,7 +69,7 @@ export const logroImportante = {
   unidad: 'hectares',
   titulo: 'The Nature Sanctuary',
   texto:
-    'In January 2024 the decree protecting 11,432.8 hectares of the valley was published. It is the organisation’s greatest achievement, and also where the work begins: running a sanctuary is a commitment kept season after season.',
+    'In 2023 the decree protecting 11,432.8 hectares of the valley was signed. It is the organisation’s greatest achievement, and also where the work begins: running a sanctuary is a commitment kept season after season.',
   cta: { label: 'About the sanctuary', href: `${PORTADA}/el-valle#santuario` },
 }
 

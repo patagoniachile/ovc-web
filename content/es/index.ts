@@ -241,10 +241,10 @@ export const contenido: Contenido = {
         'Tras tres años de trabajo junto a otras organizaciones, se presentó al Ministerio del Medio Ambiente la solicitud de declarar santuario de la naturaleza a una parte importante del valle.',
     },
     {
-      anio: '2024',
+      anio: '2023',
       titulo: 'El Valle de Cochamó es Santuario de la Naturaleza',
       texto:
-        'El 29 de enero de 2024 se publicó el decreto: 11.432,8 hectáreas quedaron protegidas. La figura no expropia ni cierra el valle —la vida y las actividades de siempre continúan—, pero ninguna obra ni actividad que altere el estado natural del lugar puede hacerse sin autorización previa, y la caza queda prohibida. La administración quedó en manos de la organización del valle.',
+        'Ese año se firmó el decreto que deja protegidas 11.432,8 hectáreas del valle. La figura no expropia ni cierra el valle —la vida y las actividades de siempre continúan—, pero ninguna obra ni actividad que altere el estado natural del lugar puede hacerse sin autorización previa, y la caza queda prohibida. La administración quedó en manos de la organización del valle.',
       destacado: true,
     },
     {
@@ -573,7 +573,7 @@ export const contenido: Contenido = {
     eyebrow: 'Conservación',
     titulo: 'El santuario',
     bajada:
-      'El Valle de Cochamó es un Santuario de la Naturaleza desde 2024, un reconocimiento que protege más de 11.400 hectáreas de bosques milenarios, ríos, montañas y biodiversidad.',
+      'El Valle de Cochamó es un Santuario de la Naturaleza desde 2023, un reconocimiento que protege más de 11.400 hectáreas de bosques milenarios, ríos, montañas y biodiversidad.',
     parrafo:
       'Este importante logro es fruto del trabajo conjunto de comunidades locales y organizaciones comprometidas con su conservación, buscando resguardar no solo su patrimonio natural, sino también las tradiciones y formas de vida que le dan identidad. Porque proteger Cochamó es también preservar su historia y su futuro.',
     hectareas: '11.432,8',

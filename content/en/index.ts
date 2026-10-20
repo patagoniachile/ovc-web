@@ -250,10 +250,10 @@ export const contenido: Contenido = {
         'After three years of work alongside other organisations, the request to declare a large part of the valley a nature sanctuary was filed with the Ministry of the Environment.',
     },
     {
-      anio: '2024',
+      anio: '2023',
       titulo: 'The Cochamó Valley becomes a Nature Sanctuary',
       texto:
-        'On 29 January 2024 the decree was published: 11,432.8 hectares are now protected. The status does not expropriate anything or close the valley —life and the activities of always carry on— but no works or activity that would alter the natural state of the place can go ahead without prior authorisation, and hunting is banned. Administration was placed in the hands of the valley’s own organisation.',
+        'That year the decree was signed, protecting 11,432.8 hectares of the valley. The status does not expropriate anything or close the valley —life and the activities of always carry on— but no works or activity that would alter the natural state of the place can go ahead without prior authorisation, and hunting is banned. Administration was placed in the hands of the valley’s own organisation.',
       destacado: true,
     },
     {
@@ -581,7 +581,7 @@ export const contenido: Contenido = {
     eyebrow: 'Conservation',
     titulo: 'The sanctuary',
     bajada:
-      'The Cochamó Valley has been a Nature Sanctuary since 2024, a status that protects more than 11,400 hectares of ancient forest, rivers, mountains and biodiversity.',
+      'The Cochamó Valley has been a Nature Sanctuary since 2023, a status that protects more than 11,400 hectares of ancient forest, rivers, mountains and biodiversity.',
     parrafo:
       'This major achievement is the fruit of joint work by local communities and organisations committed to its conservation, seeking to safeguard not only its natural heritage but also the traditions and ways of life that give it its identity. Because protecting Cochamó also means preserving its history and its future.',
     hectareas: '11,432.8',
