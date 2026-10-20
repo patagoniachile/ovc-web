@@ -122,7 +122,7 @@ export const contenido: Contenido = {
         { label: 'Qué es', href: `${PORTADA}/el-valle`, detalle: 'El Valle Cochamó' },
         { label: 'Dónde queda', href: `${PORTADA}/el-valle#mapa`, detalle: 'Locación' },
         { label: 'Flora y fauna', href: `${PORTADA}/el-valle#flora-fauna`, detalle: 'Los habitantes' },
-        { label: 'Conservación', href: `${PORTADA}/el-valle#santuario`, detalle: 'El Santuario' },
+        { label: 'Conservación', href: `${PORTADA}/santuario`, detalle: 'El Santuario' },
         { label: 'Lo que está en juego', href: `${PORTADA}/el-valle#amenazas`, detalle: 'Amenazas' },
         { label: 'Actividades', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'Qué hacer' },
       ],
@@ -155,7 +155,7 @@ export const contenido: Contenido = {
         { label: 'Dónde queda', href: `${PORTADA}/el-valle#mapa` },
         { label: 'Flora y fauna', href: `${PORTADA}/el-valle#flora-fauna` },
         { label: 'Qué se puede hacer', href: `${PORTADA}/el-valle#que-hacer` },
-        { label: 'El Santuario', href: `${PORTADA}/el-valle#santuario` },
+        { label: 'El Santuario', href: `${PORTADA}/santuario` },
       ],
     },
     {
@@ -181,7 +181,7 @@ export const contenido: Contenido = {
   ],
 
   hero: {
-    titulo: ['Cochamó, una historia que', 'seguimos construyendo'],
+    titulo: ['Valle Cochamó, una historia', 'que seguimos construyendo'],
     bajada:
       'Un valle de naturaleza extraordinaria, historia y comunidad. Conoce el trabajo que hacemos para cuidar este territorio y descubre cómo visitarlo de manera responsable.',
     visitar: { label: 'Planifica tu visita', href: `${PORTADA}/como-visitar` },

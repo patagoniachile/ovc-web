@@ -131,7 +131,7 @@ export const contenido: Contenido = {
         { label: 'What it is', href: `${PORTADA}/el-valle`, detalle: 'The Cochamó Valley' },
         { label: 'Where it is', href: `${PORTADA}/el-valle#mapa`, detalle: 'Location' },
         { label: 'Flora and fauna', href: `${PORTADA}/el-valle#flora-fauna`, detalle: 'Who lives here' },
-        { label: 'Conservation', href: `${PORTADA}/el-valle#santuario`, detalle: 'The Sanctuary' },
+        { label: 'Conservation', href: `${PORTADA}/santuario`, detalle: 'The Sanctuary' },
         { label: 'What is at stake', href: `${PORTADA}/el-valle#amenazas`, detalle: 'Threats' },
         { label: 'Activities', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'What to do' },
       ],
@@ -164,7 +164,7 @@ export const contenido: Contenido = {
         { label: 'Where it is', href: `${PORTADA}/el-valle#mapa` },
         { label: 'Flora and fauna', href: `${PORTADA}/el-valle#flora-fauna` },
         { label: 'What you can do', href: `${PORTADA}/el-valle#que-hacer` },
-        { label: 'The Sanctuary', href: `${PORTADA}/el-valle#santuario` },
+        { label: 'The Sanctuary', href: `${PORTADA}/santuario` },
       ],
     },
     {
@@ -190,7 +190,7 @@ export const contenido: Contenido = {
   ],
 
   hero: {
-    titulo: ['Cochamó, a story', 'we are still building'],
+    titulo: ['Cochamó Valley, a story', 'we are still building'],
     bajada:
       'A valley of extraordinary nature, history and community. Learn about the work we do to look after this land and find out how to visit it responsibly.',
     visitar: { label: 'Plan your visit', href: `${PORTADA}/como-visitar` },
