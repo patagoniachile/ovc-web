@@ -51,7 +51,7 @@ export default async function PaginaComoVisitar({ params }: PageProps<'/[lang]/c
         foto={imagenes.registroSendero}
         alt={textos.fotoComoVisitar}
       >
-          <Boton href={`/${lang}/reservar`} variante="oro">
+          <Boton href="#dormir" variante="oro">
             {textos.reservarEstadia}
             <Icon name="flecha" />
           </Boton>

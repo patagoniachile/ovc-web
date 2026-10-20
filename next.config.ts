@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
       { source: `/${lang}/donar`, destination: `/${lang}/como-ayudar#donaciones`, permanent: false },
       { source: `/${lang}/socios`, destination: `/${lang}/como-ayudar#socios`, permanent: false },
       { source: `/${lang}/quienes-somos`, destination: `/${lang}/historia#nosotros`, permanent: false },
+      // Reservar es elegir dónde dormir: la página aparte quedó de más.
+      { source: `/${lang}/reservar`, destination: `/${lang}/como-visitar#dormir`, permanent: false },
     ])
 
     return [{ source: '/', destination: '/es', permanent: false }, ...porIdioma]

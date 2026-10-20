@@ -166,7 +166,6 @@ export const contenido: Contenido = {
       items: [
         { label: 'Getting here', href: '/en/como-visitar#como-llegar' },
         { label: 'What it costs', href: '/en/como-visitar#cuanto-cuesta' },
-        { label: 'How to book', href: `${PORTADA}/reservar` },
         { label: 'What to know', href: '/en/como-visitar#normas' },
         { label: 'Where to stay', href: `${PORTADA}/como-visitar#dormir` },
       ],
