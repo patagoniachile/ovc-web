@@ -8,7 +8,13 @@ import type { Imagen } from './types'
  * descuido se paga con saltos de layout.
  */
 export const imagenes = {
-  hero: { src: '/img/hero-granito.jpg', width: 1800, height: 1199 },
+  hero: { src: '/img/hero-cochamo.jpg', width: 1280, height: 720 },
+  heroAnterior: { src: '/img/hero-granito.jpg', width: 1800, height: 1199 },
+  logroCentroVisitantes: { src: '/img/logro-centro-visitantes.jpg', width: 2500, height: 1406 },
+  logroSenderos: { src: '/img/logro-senderos.jpg', width: 2048, height: 1152 },
+  logroSenaletica: { src: '/img/logro-senaletica.jpg', width: 1280, height: 720 },
+  logroReciclaje: { src: '/img/logro-reciclaje.jpg', width: 2131, height: 1199 },
+  logroEscalada: { src: '/img/logro-escalada.jpg', width: 2500, height: 1406 },
   toboganes: { src: '/img/toboganes.jpg', width: 1400, height: 1050 },
   cascada: { src: '/img/cascada-aerea.jpg', width: 1400, height: 786 },
   equipo: { src: '/img/equipo-ovc.jpg', width: 1400, height: 803 },

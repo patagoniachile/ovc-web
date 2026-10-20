@@ -1,7 +1,7 @@
+import Image from 'next/image'
 import { Boton } from '@/components/ui/Boton'
-import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { getContenido, type Lang } from '@/content'
+import { getContenido, imagenes, type Lang } from '@/content'
 
 export function Proyectos({ lang, modo }: { lang: Lang; modo: 'desafios' | 'logros' }) {
   const { introProyectos, llamadoProyectos, logros, logrosEncabezado, proyectos, textos } = getContenido(lang)
@@ -12,13 +12,34 @@ export function Proyectos({ lang, modo }: { lang: Lang; modo: 'desafios' | 'logr
         <div className="contenedor">
           <SectionHeader className="revelar" {...logrosEncabezado} />
 
-          <div className="logros revelar">
-            {logros.map((logro) => (
-              <a className="logro" key={logro.label} href={logro.href} target="_blank" rel="noopener noreferrer">
-                <Icon name={logro.icono} />
-                {logro.label}
-              </a>
-            ))}
+          <div className="logros">
+            {logros.map((logro) => {
+              const foto = imagenes[logro.imagen]
+              return (
+                <a
+                  className="logro revelar"
+                  key={logro.label}
+                  href={logro.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="logro__foto">
+                    <Image
+                      src={foto.src}
+                      alt={logro.alt}
+                      width={foto.width}
+                      height={foto.height}
+                      sizes="(max-width: 700px) 86vw, (max-width: 1100px) 44vw, 23vw"
+                    />
+                  </span>
+                  <span className="logro__cuerpo">
+                    <strong>{logro.label}</strong>
+                    <span className="logro__texto">{logro.texto}</span>
+                    <span className="logro__mas">{textos.verMas}</span>
+                  </span>
+                </a>
+              )
+            })}
           </div>
         </div>
       </section>

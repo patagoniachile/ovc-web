@@ -21,7 +21,6 @@ export const externos = {
   rutasEscalada: 'https://vallecochamo.org/mantencion-de-rutas-de-escalada/',
   instagram: 'https://www.instagram.com/org.vallecochamo/',
   facebook: 'https://www.facebook.com/reservasvallecochamo',
-  youtube: 'https://www.youtube.com/',
   mammut: 'https://www.mammut.com/',
   andesgear: 'https://www.andesgear.cl/',
   pueloPatagonia: 'https://www.puelopatagonia.cl/',

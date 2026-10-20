@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Literata } from 'next/font/google'
+import { Fraunces, Josefin_Sans } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { BarraSuperior } from '@/components/layout/BarraSuperior'
 import { Cabecera } from '@/components/layout/Cabecera'
@@ -11,16 +11,16 @@ import '../globals.css'
 
 // next/font descarga y auto-hospeda las tipografías en el build: sin petición
 // a Google en tiempo de ejecución y sin salto de layout al cargar.
-// Literata y no Fraunces: la f, la g y la j de Fraunces tienen formas
-// recortadas que se leen como errores de impresión en los títulos.
-const literata = Literata({
+// Las dos de la guía de estilo: Fraunces para los títulos y Josefin Sans
+// para el texto corrido.
+const fraunces = Fraunces({
   subsets: ['latin'],
   weight: ['400', '600', '700'],
   variable: '--fuente-display',
   display: 'swap',
 })
 
-const inter = Inter({
+const josefin = Josefin_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--fuente-sans',
@@ -32,7 +32,7 @@ export function generateStaticParams() {
   return IDIOMAS.map((lang) => ({ lang }))
 }
 
-export const viewport: Viewport = { themeColor: '#0c1f17' }
+export const viewport: Viewport = { themeColor: '#2c473f' }
 
 export async function generateMetadata({ params }: LayoutProps<'/[lang]'>): Promise<Metadata> {
   const { lang } = await params
@@ -84,7 +84,7 @@ export default async function LayoutIdioma({ children, params }: LayoutProps<'/[
   }
 
   return (
-    <html lang={lang} className={`${literata.variable} ${inter.variable}`}>
+    <html lang={lang} className={`${fraunces.variable} ${josefin.variable}`}>
       <body>
         <script
           type="application/ld+json"

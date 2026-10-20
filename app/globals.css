@@ -818,21 +818,43 @@ p { text-wrap: pretty; }
 .estado--activo { background: var(--oro-100); color: var(--oro-600); }
 .estado--logrado { background: var(--bosque-100); color: var(--bosque-700); }
 .proyecto p { margin-top: 8px; font-size: .93rem; color: var(--texto-suave); }
-.logros { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-.logro {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 11px 18px;
-  background: var(--bg-alt);
-  border: 1px solid var(--borde);
-  border-radius: 999px;
-  font-size: .9rem;
-  font-weight: 560;
-  transition: border-color var(--trans), background-color var(--trans);
+/* Las obras hechas, con su foto. Eran chips con un icono: con cinco obras
+   que costaron años, una fila de etiquetas las vendía muy barato. */
+.logros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  margin-top: 32px;
 }
-.logro:hover { border-color: var(--bosque-300); background: var(--bosque-100); }
-.logro svg { width: 16px; height: 16px; color: var(--bosque-500); flex: none; }
+.logro {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radio);
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  box-shadow: var(--sombra-sm);
+  transition: transform var(--trans), box-shadow var(--trans);
+}
+.logro:hover { transform: translateY(-3px); box-shadow: var(--sombra-md); }
+.logro__foto { display: block; aspect-ratio: 16 / 10; overflow: hidden; }
+.logro__foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.logro__cuerpo { display: flex; flex-direction: column; gap: 7px; padding: 18px 18px 20px; flex: 1; }
+.logro__cuerpo strong {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--bosque-900);
+}
+.logro__texto { font-size: .86rem; line-height: 1.55; color: var(--texto-suave); flex: 1; }
+.logro__mas {
+  margin-top: 4px;
+  font-size: .8rem;
+  font-weight: 650;
+  color: var(--bosque-700);
+}
+.logro:hover .logro__mas { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Boletín */
 .boletin {
@@ -1560,6 +1582,27 @@ p { text-wrap: pretty; }
   color: var(--arena-200);
   padding-block: clamp(64px, 9vw, 104px);
 }
+
+/* Con foto el encabezado crece y el texto se apoya abajo, donde el velo es
+   más denso: arriba la imagen tiene que poder verse. */
+.pagina-hero--foto {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(58svh, 520px);
+  padding-block: 120px 56px;
+  overflow: hidden;
+}
+.pagina-hero__media { position: absolute; inset: 0; }
+.pagina-hero__media img { width: 100%; height: 100%; object-fit: cover; }
+.pagina-hero__velo {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(to top, rgba(22, 40, 34, .94) 0%, rgba(22, 40, 34, .66) 48%, rgba(22, 40, 34, .32) 100%),
+    linear-gradient(100deg, rgba(22, 40, 34, .72) 0%, rgba(22, 40, 34, .3) 58%, rgba(22, 40, 34, 0) 88%);
+}
+.pagina-hero--foto .contenedor { position: relative; }
+
 .pagina-hero h1 { color: var(--blanco); font-size: clamp(2.1rem, 5vw, 3.4rem); }
 .pagina-hero .eyebrow { color: var(--bosque-300); }
 .pagina-hero__intro { margin-top: 18px; max-width: 62ch; font-size: clamp(1rem, 1.7vw, 1.15rem); line-height: 1.7; color: rgba(255, 255, 255, .82); }

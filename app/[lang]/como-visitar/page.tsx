@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { PaginaHero } from '@/components/layout/PaginaHero'
 import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import {
   ComoLlegar, CuantoCuesta, DiaVsSemana, HorariosYContacto,
 } from '@/components/sections/ComoVisitarBloques'
 import { Planifica } from '@/components/sections/Planifica'
-import { esIdioma, getContenido, IDIOMAS } from '@/content'
+import { esIdioma, getContenido, IDIOMAS, imagenes } from '@/content'
 
 export function generateStaticParams() {
   return IDIOMAS.map((lang) => ({ lang }))
@@ -42,27 +42,22 @@ export default async function PaginaComoVisitar({ params }: PageProps<'/[lang]/c
 
   return (
     <>
-      <section className="pagina-hero">
-        <div className="contenedor">
-          <nav className="miga miga--oscura" aria-label={textos.navegacionPrincipal}>
-            <Link href={`/${lang}`}>{textos.volverAPortada}</Link>
-          </nav>
-
-          <p className="eyebrow">{comoVisitarPagina.eyebrow}</p>
-          <h1>{comoVisitarPagina.titulo}</h1>
-          <p className="pagina-hero__intro">{comoVisitarPagina.intro}</p>
-
-          <div className="pagina-hero__acciones">
-            <Boton href={`/${lang}/reservar`} variante="oro">
-              {textos.reservarEstadia}
-              <Icon name="flecha" />
-            </Boton>
-            <Boton href="#como-llegar" variante="borde">
-              {comoLlegar.eyebrow}
-            </Boton>
-          </div>
-        </div>
-      </section>
+      <PaginaHero
+        lang={lang}
+        eyebrow={comoVisitarPagina.eyebrow}
+        titulo={comoVisitarPagina.titulo}
+        intro={[comoVisitarPagina.intro]}
+        foto={imagenes.registroSendero}
+        alt={textos.fotoComoVisitar}
+      >
+          <Boton href={`/${lang}/reservar`} variante="oro">
+            {textos.reservarEstadia}
+            <Icon name="flecha" />
+          </Boton>
+          <Boton href="#como-llegar" variante="borde">
+            {comoLlegar.eyebrow}
+          </Boton>
+      </PaginaHero>
 
       <ComoLlegar lang={lang} />
       <CuantoCuesta lang={lang} />

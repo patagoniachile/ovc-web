@@ -20,9 +20,6 @@ export function Pie({ lang }: { lang: Lang }) {
               <a href={externos.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <Icon name="facebook" />
               </a>
-              <a href={externos.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <Icon name="youtube" />
-              </a>
             </div>
           </div>
 

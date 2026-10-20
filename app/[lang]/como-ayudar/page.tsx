@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { PaginaHero } from '@/components/layout/PaginaHero'
 import { AporteConTarjeta } from '@/components/sections/AporteConTarjeta'
 import { DestinoAportes } from '@/components/sections/DestinoAportes'
 import { Donar } from '@/components/sections/Donar'
@@ -37,21 +37,16 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
   const { lang } = await params
   if (!esIdioma(lang)) notFound()
 
-  const { comoAyudarPagina, donarPagina, sociosPagina, textos } = getContenido(lang)
+  const { comoAyudarPagina, donarPagina, sociosPagina } = getContenido(lang)
 
   return (
     <>
-      <section className="pagina-hero">
-        <div className="contenedor">
-          <nav className="miga miga--oscura" aria-label={textos.navegacionPrincipal}>
-            <Link href={`/${lang}`}>{textos.volverAPortada}</Link>
-          </nav>
-          <p className="eyebrow">{comoAyudarPagina.eyebrow}</p>
-          <h1>{comoAyudarPagina.titulo}</h1>
-          <p className="pagina-hero__intro">{comoAyudarPagina.bajada}</p>
-          <p className="pagina-hero__intro">{comoAyudarPagina.intro}</p>
-        </div>
-      </section>
+      <PaginaHero
+        lang={lang}
+        eyebrow={comoAyudarPagina.eyebrow}
+        titulo={comoAyudarPagina.titulo}
+        intro={[comoAyudarPagina.bajada, comoAyudarPagina.intro]}
+      />
 
       {/* Donaciones */}
       <section className="seccion seccion--alt" id="donaciones">

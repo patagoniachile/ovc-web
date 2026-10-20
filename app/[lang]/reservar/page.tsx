@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { PaginaHero } from '@/components/layout/PaginaHero'
 import { Alojamientos } from '@/components/sections/Alojamientos'
 import { PorQueReservar } from '@/components/sections/PorQueReservar'
 import { Sectores } from '@/components/sections/Sectores'
@@ -40,21 +40,16 @@ export default async function PaginaReservar({ params }: PageProps<'/[lang]/rese
   const { lang } = await params
   if (!esIdioma(lang)) notFound()
 
-  const { reservarPagina, sectoresDetalle, textos } = getContenido(lang)
+  const { reservarPagina, sectoresDetalle } = getContenido(lang)
 
   return (
     <>
-      <section className="pagina-hero">
-        <div className="contenedor">
-          <nav className="miga miga--oscura" aria-label={textos.navegacionPrincipal}>
-            <Link href={`/${lang}`}>{textos.volverAPortada}</Link>
-          </nav>
-          <p className="eyebrow">{reservarPagina.eyebrow}</p>
-          <h1>{reservarPagina.titulo}</h1>
-          <p className="pagina-hero__intro">{reservarPagina.bajada}</p>
-          <p className="pagina-hero__intro">{reservarPagina.intro}</p>
-        </div>
-      </section>
+      <PaginaHero
+        lang={lang}
+        eyebrow={reservarPagina.eyebrow}
+        titulo={reservarPagina.titulo}
+        intro={[reservarPagina.bajada, reservarPagina.intro]}
+      />
 
       <PorQueReservar lang={lang} />
 

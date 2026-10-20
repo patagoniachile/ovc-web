@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { PaginaHero } from '@/components/layout/PaginaHero'
 import { Historia } from '@/components/sections/Historia'
 import { MisionVision } from '@/components/sections/Impacto'
 import { Nosotros } from '@/components/sections/Nosotros'
@@ -36,20 +36,16 @@ export default async function PaginaHistoria({ params }: PageProps<'/[lang]/hist
   const { lang } = await params
   if (!esIdioma(lang)) notFound()
 
-  const { introHistoria, textos } = getContenido(lang)
+  const { introHistoria } = getContenido(lang)
 
   return (
     <>
-      <section className="pagina-hero">
-        <div className="contenedor">
-          <nav className="miga miga--oscura" aria-label={textos.navegacionPrincipal}>
-            <Link href={`/${lang}`}>{textos.volverAPortada}</Link>
-          </nav>
-          <p className="eyebrow">{introHistoria.eyebrow}</p>
-          <h1>{introHistoria.titulo}</h1>
-          <p className="pagina-hero__intro">{introHistoria.bajada}</p>
-        </div>
-      </section>
+      <PaginaHero
+        lang={lang}
+        eyebrow={introHistoria.eyebrow}
+        titulo={introHistoria.titulo}
+        intro={[introHistoria.bajada]}
+      />
 
       <Historia lang={lang} />
       <Nosotros lang={lang} />

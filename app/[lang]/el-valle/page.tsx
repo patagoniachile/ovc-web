@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { PaginaHero } from '@/components/layout/PaginaHero'
 import { Amenazas } from '@/components/sections/Amenazas'
 import { FloraFauna, QueHacer } from '@/components/sections/ElValle'
 import { Mapa } from '@/components/sections/Mapa'
 import { Santuario } from '@/components/sections/Santuario'
 import { Boton } from '@/components/ui/Boton'
-import { esIdioma, getContenido, IDIOMAS } from '@/content'
+import { esIdioma, getContenido, IDIOMAS, imagenes } from '@/content'
 
 export function generateStaticParams() {
   return IDIOMAS.map((lang) => ({ lang }))
@@ -35,21 +35,18 @@ export default async function PaginaElValle({ params }: PageProps<'/[lang]/el-va
 
   return (
     <>
-      <section className="pagina-hero">
-        <div className="contenedor">
-          <nav className="miga miga--oscura" aria-label={textos.navegacionPrincipal}>
-            <Link href={`/${lang}`}>{textos.volverAPortada}</Link>
-          </nav>
-          <p className="eyebrow">{elVallePagina.eyebrow}</p>
-          <h1>{elVallePagina.titulo}</h1>
-          <p className="pagina-hero__intro">{elVallePagina.bajada}</p>
-          <div className="pagina-hero__acciones">
-            <Boton href={`/${lang}/como-visitar`} variante="oro">
-              {textos.verComoVisitar}
-            </Boton>
-          </div>
-        </div>
-      </section>
+      <PaginaHero
+        lang={lang}
+        eyebrow={elVallePagina.eyebrow}
+        titulo={elVallePagina.titulo}
+        intro={[elVallePagina.bajada]}
+        foto={imagenes.heroAnterior}
+        alt={textos.fotoElValle}
+      >
+          <Boton href={`/${lang}/como-visitar`} variante="oro">
+            {textos.verComoVisitar}
+          </Boton>
+      </PaginaHero>
 
       <Mapa lang={lang} />
       <FloraFauna lang={lang} />

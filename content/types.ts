@@ -295,6 +295,9 @@ export interface Textos {
   contacto: string
   reservarEn: (nombre: string) => string
   volverAPortada: string
+  verMas: string
+  fotoElValle: string
+  fotoComoVisitar: string
   lineaDeTiempo: string
   sobreElSector: string
   datosClave: string
@@ -392,7 +395,7 @@ export interface Contenido {
   proyectos: Proyecto[]
   llamadoProyectos: { titulo: string; texto: string; cta: Enlace }
   logrosEncabezado: Encabezado
-  logros: { icono: IconName; label: string; href: string }[]
+  logros: { icono: IconName; label: string; texto: string; href: string; imagen: keyof typeof import('./imagenes').imagenes; alt: string }[]
   boletin: { titulo: string; texto: string; nota: string }
   aliadosEncabezado: Encabezado
   aliados: Aliado[]
