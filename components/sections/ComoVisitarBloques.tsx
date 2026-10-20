@@ -1,5 +1,6 @@
 import { Boton, EnlaceFlecha } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
+import { RichText } from '@/components/ui/RichText'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getContenido, type IconName, type Lang, type TipoContacto } from '@/content'
 
@@ -111,6 +112,9 @@ export function CuantoCuesta({ lang }: { lang: Lang }) {
               className={costo.destacado ? 'precio precio--libre revelar' : 'precio revelar'}
               key={costo.concepto}
             >
+              {/* Quién cobra, que es la otra mitad de la pregunta: casi nada
+                  de esta lista lo cobra la corporación. */}
+              {costo.etiqueta && <span className="precio__etiqueta">{costo.etiqueta}</span>}
               <h3>
                 {costo.concepto}
                 {/* Van en la misma lista que la entrada y el alojamiento, así
@@ -121,7 +125,9 @@ export function CuantoCuesta({ lang }: { lang: Lang }) {
                 {costo.valor}
                 {costo.unidad && <small>{costo.unidad}</small>}
               </p>
-              <p className="precio__detalle">{costo.detalle}</p>
+              <p className="precio__detalle">
+                <RichText>{costo.detalle}</RichText>
+              </p>
               {costo.enlace && <EnlaceFlecha href={costo.enlace.href}>{costo.enlace.label}</EnlaceFlecha>}
             </li>
           ))}

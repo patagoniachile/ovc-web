@@ -145,37 +145,40 @@ export const cuantoCuesta = {
     'There is no single entrance fee for the valley. Each place to stay and each service is charged directly by whoever provides it, which in almost every case is a family from the valley.',
   costos: [
     {
-      concepto: 'Entry to the valley',
-      valor: 'No charge',
-      detalle: 'What is required is the booking and the registration, not a ticket. Remember: no booking, no entry.',
-      destacado: true,
+      concepto: 'Entry',
+      etiqueta: 'Voluntary contribution',
+      valor: 'CLP 4,000',
+      unidad: 'suggested contribution',
+      detalle: 'It is voluntary and goes straight into looking after the valley. If you come for the day you do not need a booking; to stay the night, you do.',
+      opcional: true,
     },
     {
       concepto: 'Accommodation',
-      valor: 'Set by each operator',
-      detalle: 'Every campsite, refuge and guesthouse sets its own rate. You have direct contacts for all fifteen on each sector’s page.',
+      etiqueta: 'Paid to third parties',
+      valor: 'Set by each campsite or refuge',
+      detalle: 'Every campsite, refuge and guesthouse sets its own rate. You have direct contacts for all of them on each sector’s page.',
+      enlace: { label: 'See more', href: `${PORTADA}/como-visitar#dormir` },
     },
     {
       concepto: 'Pack horse',
-      valor: 'CLP 45,000',
+      etiqueta: 'Paid to third parties',
+      valor: 'CLP 45,000*',
       unidad: 'per day and horse',
-      detalle: 'There and back is CLP 90,000. Maximum 60 kg split into two equal sacks. Paid in cash at the start of the trail.',
+      detalle:
+        '**There and back: CLP 90,000 in total per horse.** Each horse carries up to 60 kg split into two equal sacks. Paid in cash at the start of the trail. *Price as of October 2026; confirm it with the direct contacts.',
       opcional: true,
     },
     {
       concepto: 'Horse ride',
+      etiqueta: 'Paid to third parties',
       valor: 'On request',
-      detalle: 'Ask the arrieros’ association. Maximum 10 kg of extra luggage per person. Tell them if you weigh more than 85 kg so they pick a suitable horse.',
+      detalle:
+        'Ask the arrieros’ association at arrierosvallecochamo@gmail.com. Maximum 10 kg of extra luggage per person. Tell them if you weigh more than 85 kg so they pick a suitable horse.',
       opcional: true,
-    },
-    {
-      concepto: 'Donation to the organisation',
-      valor: 'Voluntary',
-      detalle: 'An optional contribution to look after the valley. Below you can see how it is split.',
     },
   ] satisfies Costo[],
   nota:
-    'The muleteer rates are those published for the latest season. Always confirm with the operator before you travel.',
+    'Prices in Chilean pesos. Arriero rates are those published for the latest season. Always confirm with the operator before travelling.',
 }
 
 export const diaVsSemana = {

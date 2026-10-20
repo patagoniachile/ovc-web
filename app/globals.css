@@ -2874,3 +2874,15 @@ body:has(:is(.hero, .pagina-hero, .sector-hero)) .cabecera:not(.esta-fija) { bac
 }
 .plan-b h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 650; color: var(--bosque-900); }
 .plan-b p { margin-top: 5px; max-width: 70ch; font-size: .92rem; line-height: 1.55; color: var(--texto); }
+
+.precio__etiqueta {
+  align-self: flex-start;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: var(--bosque-100);
+  color: var(--bosque-700);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+.precio--libre .precio__etiqueta { background: rgba(255, 255, 255, .16); color: var(--arena-100); }

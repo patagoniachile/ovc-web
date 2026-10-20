@@ -147,6 +147,7 @@ export const cuantoCuesta = {
   costos: [
     {
       concepto: 'Entrada',
+      etiqueta: 'Aporte voluntario',
       valor: '$4.000',
       unidad: 'aporte sugerido',
       detalle: 'Es voluntario y va directo al cuidado del valle. Si vas por el día no necesitas reserva; para pasar la noche, sí.',
@@ -154,26 +155,31 @@ export const cuantoCuesta = {
     },
     {
       concepto: 'Alojamiento',
+      etiqueta: 'Se paga a terceros',
       valor: 'Según cada camping o refugio',
       detalle: 'Cada camping, refugio y hospedaje fija su tarifa. Tienes el contacto directo de los 15 en las páginas de cada sector.',
       enlace: { label: 'Ver más', href: `${PORTADA}/como-visitar#dormir` },
     },
     {
       concepto: 'Pilchero (carga)',
+      etiqueta: 'Se paga a terceros',
       valor: '$45.000*',
       unidad: 'por día y caballo',
-      detalle: 'Ida y vuelta son $90.000. Máximo 60 kg repartidos en dos sacos iguales. Pago en efectivo al inicio del sendero. *Precio a octubre 2026; confírmalo con los contactos directos.',
+      detalle:
+        '**Ida y vuelta: $90.000 en total por caballo.** Cada caballo carga hasta 60 kg repartidos en dos sacos iguales. Pago en efectivo al inicio del sendero. *Precio a octubre 2026; confírmalo con los contactos directos.',
       opcional: true,
     },
     {
       concepto: 'Cabalgata',
+      etiqueta: 'Se paga a terceros',
       valor: 'Consultar',
-      detalle: 'Consultar con la agrupación. Máximo 10 kg de equipaje extra por persona. Avisa si pesas más de 85 kg para que elijan un caballo adecuado.',
+      detalle:
+        'Consulta con la agrupación de arrieros en arrierosvallecochamo@gmail.com. Máximo 10 kg de equipaje extra por persona. Avisa si pesas más de 85 kg para que elijan un caballo adecuado.',
       opcional: true,
     },
   ] satisfies Costo[],
   nota:
-    'Las tarifas de arrieros son las vigentes en la última temporada publicada. Confirma siempre con el operador antes de viajar.',
+    'Precios en pesos chilenos. Las tarifas de arrieros son las vigentes en la última temporada publicada. Confirma siempre con el operador antes de viajar.',
 }
 
 export const diaVsSemana = {
