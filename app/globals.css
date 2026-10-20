@@ -1499,21 +1499,22 @@ p { text-wrap: pretty; }
   color: var(--bosque-700) !important;
 }
 
-/* Impacto: el santuario en una tarjeta con borde, la foto a la izquierda
-   asomando por debajo del borde inferior. */
+/* Impacto: el santuario en una tarjeta con borde y la foto a la izquierda,
+   dentro del recuadro. En la maqueta la foto asomaba bajo el borde, pero en
+   pantalla se leía como un descuadre. */
 .logro-destacado {
   display: grid;
   grid-template-columns: 289px 1fr;
   gap: 33px;
-  align-items: start;
+  align-items: center;
   max-width: 883px;
   margin-inline: auto;
-  padding: 36px 40px 0 38px;
+  padding: 36px 40px 36px 36px;
   border: 1px solid var(--granito-900);
   border-radius: 8px;
   background: var(--arena-200);
 }
-.logro-destacado__foto { aspect-ratio: 289 / 352; margin-bottom: -46px; overflow: hidden; border-radius: 6px; }
+.logro-destacado__foto { aspect-ratio: 289 / 352; overflow: hidden; border-radius: 6px; }
 .logro-destacado__foto img { width: 100%; height: 100%; object-fit: cover; }
 .logro-destacado h3 { font-size: clamp(1.8rem, 3.2vw, 2.65rem); font-weight: 400; line-height: 1.15; }
 .logro-destacado p { margin-top: 22px; font-size: .95rem; line-height: 1.2; color: var(--texto); }
@@ -2703,12 +2704,12 @@ p { text-wrap: pretty; }
   border-image: linear-gradient(var(--bosque-900) 0 0) fill 0 // 0 100vmax;
 }
 
-/* Impacto: deja sitio a la foto que asoma bajo la tarjeta */
-.portada #impacto { padding-bottom: 46px; }
+/* Impacto y Otros proyectos comparten el aire entre ambos */
+.portada #impacto { padding-bottom: 0; }
 
 /* Otros proyectos: una fila que se desliza hasta el borde derecho, con el
-   verde empezando bajo las fotos. */
-.obras { padding-top: 92px; }
+   verde empezando a media altura de las fotos. */
+.obras { padding-top: clamp(64px, 8vw, 104px); }
 .obras__titulo { max-width: 11em; margin-inline: auto; text-align: center; }
 .obras__pista {
   display: grid;
@@ -2719,7 +2720,7 @@ p { text-wrap: pretty; }
   /* Hasta el borde de la ventana: la última tarjeta queda cortada a
      propósito, para que se note que hay más. */
   margin-right: calc((100% - 100vw) / 2);
-  padding: 32px var(--gutter) 14px 0;
+  padding: 0 var(--gutter) 14px 0;
   overflow-x: auto;
   scroll-snap-type: x proximity;
   scrollbar-width: thin;
@@ -2729,7 +2730,7 @@ p { text-wrap: pretty; }
 .obra {
   display: flex;
   flex-direction: column;
-  padding: 0 22px 26px;
+  padding: 16px 22px 26px;
   background: var(--arena-200);
   border: 1px solid var(--granito-900);
   border-radius: 8px;
@@ -2738,7 +2739,7 @@ p { text-wrap: pretty; }
   transition: transform var(--trans);
 }
 .obra:hover { transform: translateY(-3px); }
-.obra__foto { display: block; aspect-ratio: 253 / 143; margin: -32px -6px 0; overflow: hidden; border-radius: 8px; }
+.obra__foto { display: block; aspect-ratio: 253 / 143; margin: 0 -6px; overflow: hidden; border-radius: 6px; }
 .obra__foto img { width: 100%; height: 100%; object-fit: cover; }
 .obra strong {
   margin-top: 26px;
@@ -2747,6 +2748,9 @@ p { text-wrap: pretty; }
   font-weight: 600;
   line-height: 1.15;
   letter-spacing: -0.015em;
+  /* Siempre dos líneas de alto, para que el texto empiece a la misma altura
+     en todas las tarjetas aunque un título quepa en una. */
+  min-height: 2.3em;
 }
 .obra__texto { flex: 1; margin-top: 6px; font-size: .97rem; font-weight: 300; line-height: 1.15; }
 .obra__mas {
@@ -2811,8 +2815,6 @@ p { text-wrap: pretty; }
   .cifra:nth-child(odd) { padding-left: 0; border-left: 0; }
   .logro-destacado { grid-template-columns: 1fr; gap: 24px; padding: 24px 24px 28px; }
   .logro-destacado__foto { aspect-ratio: 4 / 3; margin-bottom: 0; }
-  .portada #impacto { padding-bottom: clamp(56px, 7vw, 88px); }
-  .obras { padding-top: 0; }
   .suscribete { padding-bottom: 80px; }
   .suscribete__banda { padding-top: 64px; }
   .suscribete__grid { grid-template-columns: 1fr; gap: 40px; }
