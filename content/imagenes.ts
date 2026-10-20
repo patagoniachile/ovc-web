@@ -24,6 +24,8 @@ export const imagenes = {
   campingLaJunta: { src: '/img/camping-la-junta.jpg', width: 1400, height: 933 },
   arrieros: { src: '/img/arrieros.jpg', width: 1200, height: 617 },
   senaletica: { src: '/img/senaletica.jpg', width: 1400, height: 933 },
+  ranitaDarwin: { src: '/img/ranita-darwin.jpg', width: 1080, height: 546 },
+  condorAlturas: { src: '/img/condor-alturas.jpg', width: 2000, height: 1333 },
   alerce: { src: '/img/alerce.jpg', width: 1200, height: 899 },
   logo: { src: '/img/logo-ovc.png', width: 93, height: 73 },
   payku: { src: '/img/payku.png', width: 370, height: 141 },

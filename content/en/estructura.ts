@@ -359,6 +359,8 @@ export const gruposEspecies: GrupoEspecies[] = [
     subtitulo: 'Darwin’s frog · Monito del monte · Pudú',
     intro:
       'Among the leaves, the trunks and the understorey hide some of the most surprising inhabitants of northern Patagonia. Small in size, but fundamental to the life of the forest.',
+    imagen: 'ranitaDarwin',
+    alt: 'A Darwin’s frog on a leaf in the damp understorey',
     fichas: [
       {
         nombre: 'Darwin’s frog',
@@ -387,6 +389,8 @@ export const gruposEspecies: GrupoEspecies[] = [
     subtitulo: 'Puma · Condor',
     intro:
       'In the mountains and skies of the valley live two emblematic Andean species, fundamental to the balance of the ecosystems.',
+    imagen: 'condorAlturas',
+    alt: 'A condor flying over the valley’s snow-covered peaks',
     fichas: [
       {
         nombre: 'Puma',

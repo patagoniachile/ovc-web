@@ -360,6 +360,8 @@ export const gruposEspecies: GrupoEspecies[] = [
     subtitulo: 'Ranita de Darwin · Monito del monte · Pudú',
     intro:
       'Entre las hojas, los troncos y el sotobosque se esconden algunos de los habitantes más sorprendentes de la Patagonia norte. Pequeños en tamaño, pero fundamentales para la vida del bosque.',
+    imagen: 'ranitaDarwin',
+    alt: 'Ranita de Darwin sobre una hoja en el sotobosque húmedo',
     fichas: [
       {
         nombre: 'Ranita de Darwin',
@@ -388,6 +390,8 @@ export const gruposEspecies: GrupoEspecies[] = [
     subtitulo: 'Puma · Cóndor',
     intro:
       'En las montañas y cielos del valle habitan dos especies emblemáticas de los Andes, fundamentales para el equilibrio de los ecosistemas.',
+    imagen: 'condorAlturas',
+    alt: 'Un cóndor sobrevolando las cumbres nevadas del valle',
     fichas: [
       {
         nombre: 'Puma',
