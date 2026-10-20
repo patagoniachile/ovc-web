@@ -106,15 +106,12 @@ export function Cabecera({ lang }: { lang: Lang }) {
           </nav>
 
           <div className="cabecera__cta">
-            {/* Las tres acciones del sitio. Donar y socio comparten forma
-                —verde y cuadrada— porque son la misma intención; reservar se
-                distingue por color, que es la acción del visitante. */}
-            <Boton className="btn--recto cabecera__donar" href={`/${lang}/como-ayudar#donaciones`} variante="solido" pequeno>
-              {textos.donar}
-            </Boton>
-            <Boton className="btn--recto" href={`/${lang}/como-ayudar#socios`} variante="solido" pequeno>
-              <span className="etiqueta-larga">{textos.hazteSocio}</span>
-              <span className="etiqueta-corta">{textos.hazteSocioCorto}</span>
+            {/* Dos acciones, no tres. Donar y hacerse socio son la misma
+                intención y la página de Cómo ayudar ya las separa: tenerlas
+                en la cabecera obligaba a elegir antes de saber la
+                diferencia. */}
+            <Boton className="btn--recto" href={`/${lang}/como-ayudar`} variante="solido" pequeno>
+              {textos.comoAyudar}
             </Boton>
             <Boton className="btn--recto" href={`/${lang}/reservar`} variante="oro" pequeno>
               {textos.reservar}
@@ -168,14 +165,11 @@ export function Cabecera({ lang }: { lang: Lang }) {
         })}
 
         <div className="menu-movil__acciones">
-          <Boton href={`/${lang}/como-ayudar#socios`} variante="solido" bloque>
-            {textos.hazteSocio}
+          <Boton href={`/${lang}/como-ayudar`} variante="solido" bloque>
+            {textos.comoAyudar}
           </Boton>
           <Boton href={`/${lang}/reservar`} variante="oro" bloque>
             {textos.reservarEstadia}
-          </Boton>
-          <Boton href={`/${lang}/como-ayudar#donaciones`} variante="borde" bloque>
-            {textos.donar}
           </Boton>
         </div>
       </div>

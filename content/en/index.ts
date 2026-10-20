@@ -53,6 +53,7 @@ export const contenido: Contenido = {
     reservarEstadia: 'Book my stay',
     donar: 'Donate',
     hazteSocio: 'Become a member',
+    comoAyudar: 'How to help',
     hazteSocioCorto: 'Member',
     conocerHistoria: 'Read our story',
     enCurso: 'In progress',
@@ -679,6 +680,14 @@ export const contenido: Contenido = {
   logrosEncabezado: { eyebrow: 'What we have achieved', titulo: 'Work already standing in the valley' },
 
   logros: [
+    {
+      icono: 'hoja',
+      label: 'Nature Sanctuary',
+      texto: 'The biggest of them all: since 2023, 11,432.8 hectares of the valley are protected by decree.',
+      href: `${PORTADA}/santuario`,
+      imagen: 'conservacionLienzos',
+      alt: 'Community banners at the entrance to the valley calling for more protected areas',
+    },
     {
       icono: 'edificio',
       label: 'Visitor Centre',

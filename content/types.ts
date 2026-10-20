@@ -326,6 +326,7 @@ export interface Textos {
   reservarEstadia: string
   donar: string
   hazteSocio: string
+  comoAyudar: string
   hazteSocioCorto: string
   conocerHistoria: string
   enCurso: string

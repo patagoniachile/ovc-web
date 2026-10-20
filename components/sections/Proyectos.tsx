@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Boton } from '@/components/ui/Boton'
+import { Boton, esExterno } from '@/components/ui/Boton'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getContenido, imagenes, type Lang } from '@/content'
 
@@ -20,8 +20,7 @@ export function Proyectos({ lang, modo }: { lang: Lang; modo: 'desafios' | 'logr
                   className="logro revelar"
                   key={logro.label}
                   href={logro.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(esExterno(logro.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 >
                   <span className="logro__foto">
                     <Image

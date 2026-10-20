@@ -44,6 +44,7 @@ export const contenido: Contenido = {
     reservarEstadia: 'Reservar mi estadía',
     donar: 'Donar',
     hazteSocio: 'Hazte socio',
+    comoAyudar: 'Cómo ayudar',
     hazteSocioCorto: 'Socio',
     conocerHistoria: 'Conoce nuestra historia',
     enCurso: 'En curso',
@@ -671,6 +672,14 @@ export const contenido: Contenido = {
   logrosEncabezado: { eyebrow: 'Lo que hemos logrado', titulo: 'Obras que ya están en el valle' },
 
   logros: [
+    {
+      icono: 'hoja',
+      label: 'Santuario de la Naturaleza',
+      texto: 'El mayor logro de todos: desde 2023, 11.432,8 hectáreas del valle están protegidas por decreto.',
+      href: `${PORTADA}/santuario`,
+      imagen: 'conservacionLienzos',
+      alt: 'Lienzos de la comunidad en el acceso al valle pidiendo más áreas protegidas',
+    },
     {
       icono: 'edificio',
       label: 'Centro de Visitantes',

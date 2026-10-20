@@ -98,23 +98,6 @@ export function Donar({ lang }: { lang: Lang }) {
             <CopiarTodo lang={lang} />
           </div>
 
-          <div className="reparto reparto--claro revelar">
-            <p className="reparto__titulo">{donarPagina.reparto.titulo}</p>
-            <div className="reparto__barra" role="img" aria-label={donarPagina.reparto.titulo}>
-              <span />
-              <span />
-            </div>
-            <ul className="reparto__leyenda">
-              <li>
-                <span className="reparto__punto reparto__punto--bosque" />
-                {donarPagina.reparto.conservacion}
-              </li>
-              <li>
-                <span className="reparto__punto reparto__punto--oro" />
-                {donarPagina.reparto.infraestructura}
-              </li>
-            </ul>
-          </div>
         </div>
       </section>
 
