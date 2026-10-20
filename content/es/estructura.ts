@@ -267,7 +267,7 @@ export const reservarPagina = {
   bajada:
     'El Valle Cochamó es un territorio natural y cultural único, con una capacidad de visita que debemos respetar. Las reservas permiten ordenar el ingreso y reducir la presión sobre sus senderos, campings y ecosistemas.',
   intro:
-    'Cada alojamiento lo gestiona una familia del valle y se reserva directamente con ella. Abajo están los tres sectores y los quince lugares donde dormir, con su contacto.',
+    'Cada alojamiento lo gestiona una familia del valle y se reserva directamente con ella.',
   tituloSectores: 'Elige tu sector',
   tituloDormir: 'Dónde dormir, sector por sector',
 }

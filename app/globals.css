@@ -646,27 +646,13 @@ p { text-wrap: pretty; }
 .sector__datos svg { width: 16px; height: 16px; flex: none; margin-top: 3px; color: var(--bosque-500); }
 .sector__cuerpo .btn { margin-top: auto; }
 
-/* Cuando un sector es el destino principal, va arriba a lo ancho, con la foto
-   a un lado, y los otros dos quedan debajo como opciones secundarias. */
+/* Con un sector principal: dos tarjetas lado a lado, del mismo tamaño, y la
+   principal se distingue solo por el borde y la insignia en oro. */
 .sectores--con-principal { grid-template-columns: repeat(2, 1fr); }
-.sectores--con-principal .sector:not(.sector--principal) .sector__media { aspect-ratio: 16 / 7; }
-.sector--principal { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr; border-color: var(--oro-500); }
-.sector--principal .sector__media { aspect-ratio: auto; min-height: 340px; }
-.sector--principal .sector__cuerpo { padding: 36px; justify-content: center; }
-.sector--principal h3 { font-size: 2rem; }
-.sector--principal .sector__cuerpo p { font-size: 1.02rem; }
-.sector--principal .sector__cuerpo .btn { margin-top: 0; align-self: flex-start; }
+.sector--principal { border-color: var(--oro-500); }
 .sector--principal .sector__insignia { background: var(--oro-500); color: var(--bosque-900); }
-/* Si queda un solo sector secundario, también va a lo ancho, pero más bajo. */
-.sector--principal + .sector:last-child { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.6fr; }
-.sector--principal + .sector:last-child .sector__media { aspect-ratio: auto; min-height: 220px; }
-.sector--principal + .sector:last-child .sector__cuerpo .btn { align-self: flex-start; }
 @media (max-width: 860px) {
   .sectores--con-principal { grid-template-columns: 1fr; }
-  .sector--principal, .sector--principal + .sector:last-child { grid-template-columns: 1fr; }
-  .sector--principal + .sector:last-child .sector__media { aspect-ratio: 16 / 10; min-height: 0; }
-  .sector--principal .sector__media { aspect-ratio: 16 / 10; min-height: 0; }
-  .sector--principal .sector__cuerpo { padding: 24px; }
 }
 
 /* --------------------------------------------------------------------------

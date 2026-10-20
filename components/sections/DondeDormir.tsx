@@ -75,7 +75,7 @@ export function DondeDormir({ lang, id }: { lang: Lang; id?: string }) {
           const mapa = mapas[bloque.slug]
 
           return (
-            <div className="dormir" key={bloque.slug}>
+            <div className="dormir" id={id && `${id}-${bloque.slug}`} key={bloque.slug}>
               <div className="dormir__cabecera revelar">
                 <h3>{bloque.titulo ?? sector.nombre}</h3>
                 {bloque.texto && (

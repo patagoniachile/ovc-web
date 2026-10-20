@@ -286,30 +286,12 @@ export const contenido: Contenido = {
   sectoresDetalle,
 
   sectoresEncabezado: {
-    eyebrow: 'Visita',
-    titulo: 'Dos sectores, dos formas de conocer el valle',
+    eyebrow: 'Visitar',
+    titulo: 'Lo que tienes que saber',
     bajada:
-      'Casi todos suben a La Junta. Inicio Sendero sirve para la noche antes de subir o si llegas tarde.',
+      'El valle tiene dos sectores para alojar. Inicio Sendero está pensado para quienes llegan después del horario límite de ingreso o prefieren tomárselo con calma: duermes ahí y subes al día siguiente. La Junta es el destino principal, para quienes llegan preparados para subir dentro del horario y siguiendo las recomendaciones de esta guía.',
   },
   sectores: [
-    {
-      id: 'la-junta',
-      nombre: 'La Junta',
-      insignia: 'Destino principal',
-      descripcion:
-        'Adonde sube casi todo el que visita el valle. Se llega solo a pie o a caballo, tras 13 km de sendero, y aquí están los campings, el hospedaje y, cerca, los Toboganes.',
-      datos: [
-        { icono: 'sendero', texto: '13 km desde el inicio del sendero' },
-        { icono: 'carpa', texto: 'Campings Playa Los Manzanos, Vista Hermosa y La Junta' },
-        { icono: 'agua', texto: 'Toboganes de granito a corta distancia' },
-      ],
-      foto: {
-        ...imagenes.campingLaJunta,
-        alt: 'Vista desde el interior de una carpa hacia las montañas de granito del sector La Junta',
-      },
-      cta: { label: 'Conocer La Junta', href: '/es/sectores/la-junta', destacado: true },
-      principal: true,
-    },
     {
       id: 'inicio-sendero',
       nombre: 'Inicio Sendero',
@@ -325,7 +307,25 @@ export const contenido: Contenido = {
         ...imagenes.registroSendero,
         alt: 'Visitantes registrándose en el panel informativo del inicio del sendero',
       },
-      cta: { label: 'Conocer Inicio Sendero', href: '/es/sectores/inicio-sendero' },
+      cta: { label: 'Conocer Inicio Sendero', href: '/es/como-visitar#dormir-inicio-sendero' },
+    },
+    {
+      id: 'la-junta',
+      nombre: 'La Junta',
+      insignia: 'Destino principal',
+      descripcion:
+        'Adonde sube casi todo el que visita el valle. Se llega solo a pie o a caballo, tras 13 km de sendero, y aquí están los campings, el hospedaje y, cerca, los Toboganes.',
+      datos: [
+        { icono: 'sendero', texto: '13 km desde el inicio del sendero' },
+        { icono: 'carpa', texto: 'Campings Playa Los Manzanos, Vista Hermosa y La Junta' },
+        { icono: 'agua', texto: 'Toboganes de granito a corta distancia' },
+      ],
+      foto: {
+        ...imagenes.campingLaJunta,
+        alt: 'Vista desde el interior de una carpa hacia las montañas de granito del sector La Junta',
+      },
+      cta: { label: 'Conocer La Junta', href: '/es/como-visitar#dormir-la-junta', destacado: true },
+      principal: true,
     },
   ],
 
