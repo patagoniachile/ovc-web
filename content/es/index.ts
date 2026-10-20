@@ -579,8 +579,8 @@ export const contenido: Contenido = {
     hectareas: '11.432,8',
     hectareasPie: 'hectáreas protegidas',
     foto: {
-      ...imagenes.alerce,
-      alt: 'Persona apoyada en el tronco de un alerce milenario en el bosque del Valle Cochamó',
+      ...imagenes.conservacionLienzos,
+      alt: 'Lienzos de la comunidad en el acceso al valle: «Queremos + áreas protegidas» y «Patagonia sin loteos»',
     },
     enlace: { label: 'Conoce el santuario', href: externos.santuario },
   },

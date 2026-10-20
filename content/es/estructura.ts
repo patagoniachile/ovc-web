@@ -337,8 +337,8 @@ export const gruposEspecies: GrupoEspecies[] = [
     subtitulo: 'Alerce · Coihue · Mañío',
     intro:
       'Los bosques templados lluviosos del Valle de Cochamó albergan árboles nativos que dan vida, estructura y refugio a un ecosistema extraordinario.',
-    imagen: 'alerce',
-    alt: 'Tronco de un alerce milenario en el bosque del valle',
+    imagen: 'bosqueDosel',
+    alt: 'Copas del bosque siempreverde vistas desde el suelo del valle',
     fichas: [
       {
         nombre: 'Alerce',
@@ -415,8 +415,8 @@ export const gruposEspecies: GrupoEspecies[] = [
     subtitulo: 'Batolito Norpatagónico',
     intro:
       'Mucho antes de que existieran los bosques que hoy conocemos, procesos geológicos de millones de años comenzaron a dar forma al paisaje de Cochamó.',
-    imagen: 'heroAnterior',
-    alt: 'Paredes de granito del valle sobre el bosque',
+    imagen: 'granitoParedes',
+    alt: 'Las grandes paredes de granito del valle sobre el bosque',
     fichas: [
       {
         nombre: 'Batolito Norpatagónico',

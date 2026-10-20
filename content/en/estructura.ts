@@ -335,8 +335,8 @@ export const gruposEspecies: GrupoEspecies[] = [
     subtitulo: 'Alerce · Coihue · Mañío',
     intro:
       'The temperate rainforests of the Cochamó Valley hold native trees that give life, structure and shelter to an extraordinary ecosystem.',
-    imagen: 'alerce',
-    alt: 'The trunk of a thousand-year-old alerce in the valley’s forest',
+    imagen: 'bosqueDosel',
+    alt: 'The canopy of the evergreen forest seen from the valley floor',
     fichas: [
       {
         nombre: 'Alerce',
@@ -413,8 +413,8 @@ export const gruposEspecies: GrupoEspecies[] = [
     subtitulo: 'North Patagonian Batholith',
     intro:
       'Long before the forests we know today existed, geological processes spanning millions of years began to shape the landscape of Cochamó.',
-    imagen: 'heroAnterior',
-    alt: 'The valley’s granite walls above the forest',
+    imagen: 'granitoParedes',
+    alt: 'The valley’s great granite walls above the forest',
     fichas: [
       {
         nombre: 'North Patagonian Batholith',

@@ -40,7 +40,7 @@ export default async function PaginaElValle({ params }: PageProps<'/[lang]/el-va
         eyebrow={elVallePagina.eyebrow}
         titulo={elVallePagina.titulo}
         intro={[elVallePagina.bajada, elVallePagina.cierre]}
-        foto={imagenes.heroAnterior}
+        foto={imagenes.valleBanner}
         alt={textos.fotoElValle}
       >
         <Boton href={elVallePagina.cta1.href} variante="oro">

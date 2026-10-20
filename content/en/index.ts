@@ -587,8 +587,8 @@ export const contenido: Contenido = {
     hectareas: '11,432.8',
     hectareasPie: 'hectares protected',
     foto: {
-      ...imagenes.alerce,
-      alt: 'A person leaning against the trunk of a thousand-year-old alerce in the Cochamó Valley forest',
+      ...imagenes.conservacionLienzos,
+      alt: 'Community banners at the entrance to the valley: “We want more protected areas” and “Patagonia without land subdivision”',
     },
     enlace: { label: 'About the sanctuary', href: externos.santuario },
   },
