@@ -124,7 +124,7 @@ export const sectoresDetalle: SectorDetalle[] = [
         tipo: 'Campsite',
         descripcion:
           'A meadow by the Cochamó River, ringed by granite mountains. A good base for excursions and well suited to families.',
-        servicios: ['Two covered shelters with large tables', 'Water and washbasins', 'Showers', 'Ecological composting toilets'],
+        servicios: ['Large pitches', 'Water, showers and washbasins', 'Ecological composting toilets', 'Two covered shelters with fire pits'],
         contactos: [{ tipo: 'web', valor: 'cochamo.com/camping', href: 'https://cochamo.com/camping/' }],
         reserva: { label: 'Book at Camping La Junta', href: 'https://cochamo.com/reservar-camping/' },
         lat: -41.412074,
@@ -136,7 +136,7 @@ export const sectoresDetalle: SectorDetalle[] = [
         tipo: 'Campsite',
         descripcion:
           'Large pitches beside the Cochamó River, with views of the climbing peaks. Close to the high-country trails and the La Luna and La Cantina walls.',
-        servicios: ['Large pitches', 'Views of the climbing peaks', 'Close to the high-country approaches'],
+        servicios: ['Large pitches', 'Water, showers and washbasins', 'Toilets', 'One covered shelter with a fire pit', 'Home-baked bread for sale'],
         contactos: [{ tipo: 'web', valor: 'vistahermosacochamo.cl', href: 'https://vistahermosacochamo.cl/' }],
         reserva: { label: 'Book at Vista Hermosa', href: 'https://vistahermosacochamo.cl/reservar' },
         lat: -41.412606,
@@ -148,7 +148,7 @@ export const sectoresDetalle: SectorDetalle[] = [
         tipo: 'Campsite',
         descripcion:
           'Large pitches and a big fire pit for cooking, with beaches along the Cochamó River. You get there by crossing the river on a cable cart.',
-        servicios: ['Large fire pit for cooking', 'River beaches', 'Horseback rides', 'Home-baked bread and sopaipillas for sale'],
+        servicios: ['Large pitches', 'Large fire pit for cooking', 'River beaches', 'Horseback rides (optional)', 'Home-baked bread for sale'],
         contactos: [
           { tipo: 'telefono', valor: '+56 9 3510 9737', href: 'tel:+56935109737' },
           { tipo: 'telefono', valor: '+56 9 5666 2469', href: 'tel:+56956662469' },

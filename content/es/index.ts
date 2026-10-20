@@ -340,6 +340,7 @@ export const contenido: Contenido = {
     titulo: 'Dónde dormir en el valle',
     bajada:
       'En La Junta, el corazón del valle, hay 4 alojamientos donde quedarse. Cada uno lo gestiona una familia o un operador del valle y se reserva directamente con ellos. **Es necesario tener la reserva confirmada antes de ir.**',
+    enlace: { label: 'Revisa los horarios de ingreso', href: `${PORTADA}/como-visitar#horarios` },
     bloques: [
       {
         slug: 'la-junta',

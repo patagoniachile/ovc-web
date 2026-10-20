@@ -2833,3 +2833,5 @@ p { text-wrap: pretty; }
 .marcador--arriba-der .marcador__nombre { left: 12px; top: auto; bottom: 16px; transform: none; }
 .marcador--abajo-izq .marcador__nombre { left: auto; right: 12px; top: 16px; transform: none; }
 .marcador--arriba-izq .marcador__nombre { left: auto; right: 12px; top: auto; bottom: 16px; transform: none; }
+.dormir__texto a, .seccion-cabecera .lead a { text-decoration: underline; text-underline-offset: 3px; }
+.dormir__texto a:hover, .seccion-cabecera .lead a:hover { color: var(--oro-600); }
