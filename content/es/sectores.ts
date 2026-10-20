@@ -69,6 +69,17 @@ export const sectoresDetalle: SectorDetalle[] = [
         lat: -41.455869,
         lon: -72.219876,
       },
+      {
+        id: 'camping-el-laurel',
+        nombre: 'Camping El Laurel',
+        tipo: 'Camping',
+        descripcion:
+          'A 10 km del pueblo de Cochamó y a 100 metros antes del final del camino, donde empieza el sendero hacia La Junta.',
+        servicios: ['Baño y ducha', 'Estacionamiento', 'Acceso al río'],
+        contactos: [{ tipo: 'telefono', valor: '+56 65 238 0769', href: 'tel:+56652380769' }],
+        lat: -41.456587,
+        lon: -72.220784,
+      },
     ],
     arrieros: {
       titulo: 'Arrieros y pilcheros',

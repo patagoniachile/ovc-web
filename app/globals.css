@@ -2874,3 +2874,7 @@ p { text-wrap: pretty; }
   .obra strong { min-height: 0; } /* una tarjeta a la vez: no hay nada que alinear */
   .suscribete__form input { flex-basis: 100%; }
 }
+.marcador--abajo-der .marcador__nombre { left: 12px; top: 16px; transform: none; }
+.marcador--arriba-der .marcador__nombre { left: 12px; top: auto; bottom: 16px; transform: none; }
+.marcador--abajo-izq .marcador__nombre { left: auto; right: 12px; top: 16px; transform: none; }
+.marcador--arriba-izq .marcador__nombre { left: auto; right: 12px; top: auto; bottom: 16px; transform: none; }
