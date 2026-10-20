@@ -139,14 +139,6 @@ export const contenido: Contenido = {
       ],
     },
     {
-      label: 'News',
-      href: externos.noticias,
-      items: [
-        { label: 'Latest news', href: externos.noticias, detalle: 'What is new in the valley' },
-        { label: 'Instagram', href: externos.instagram, detalle: '@org.vallecochamo' },
-      ],
-    },
-    {
       label: 'History',
       href: `${PORTADA}/historia`,
       items: [

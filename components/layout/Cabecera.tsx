@@ -14,7 +14,7 @@ export function Cabecera({ lang }: { lang: Lang }) {
   const [menuAbierto, setMenuAbierto] = useState(false)
 
   // En la portada la cabecera va transparente sobre el hero, con el menú al
-  // centro y una sola acción; al bajar (o con el menú móvil abierto) se vuelve
+  // centro; al bajar (o con el menú móvil abierto) se vuelve
   // verde para que el texto blanco siga leyéndose.
   const enPortada = usePathname().replace(/\/$/, '') === `/${lang}`
   const clases = ['cabecera', enPortada && 'cabecera--portada', (fija || menuAbierto) && 'esta-fija'].filter(Boolean).join(' ')
@@ -117,20 +117,12 @@ export function Cabecera({ lang }: { lang: Lang }) {
                 intención y la página de Cómo ayudar ya las separa: tenerlas
                 en la cabecera obligaba a elegir antes de saber la
                 diferencia. */}
-            {enPortada ? (
-              <Boton href={`/${lang}/como-ayudar`} variante="oro" pequeno>
-                {textos.comoAyudar}
-              </Boton>
-            ) : (
-              <>
-                <Boton className="btn--recto" href={`/${lang}/como-ayudar`} variante="solido" pequeno>
-                  {textos.comoAyudar}
-                </Boton>
-                <Boton className="btn--recto" href={`/${lang}/reservar`} variante="oro" pequeno>
-                  {textos.reservar}
-                </Boton>
-              </>
-            )}
+            <Boton className="btn--recto" href={`/${lang}/como-ayudar`} variante="solido" pequeno>
+              {textos.comoAyudar}
+            </Boton>
+            <Boton className="btn--recto" href={`/${lang}/reservar`} variante="oro" pequeno>
+              {textos.reservar}
+            </Boton>
 
             <button
               className="hamburguesa"

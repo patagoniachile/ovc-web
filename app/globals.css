@@ -2714,7 +2714,11 @@ p { text-wrap: pretty; }
 .cabecera--portada .nav__item.esta-abierto > .nav__enlace { background: rgba(255, 255, 255, .14); color: var(--blanco); }
 .cabecera--portada .nav__chevron { width: 12px; height: 12px; opacity: 1; }
 .cabecera--portada .cabecera__cta .btn { padding: 7px 18px; font-size: .95rem; font-weight: 500; box-shadow: none; }
-.cabecera--portada .btn--oro { --btn-fg: var(--blanco); }
+.cabecera--portada .btn--recto { border-radius: 999px; }
+/* Sobre la foto y sobre el verde, «Cómo ayudar» va en borde blanco: en verde
+   sólido se perdía contra el fondo de la cabecera fija. */
+.cabecera--portada .btn:not(.btn--oro) { --btn-bg: transparent; --btn-fg: var(--blanco); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .85); }
+.cabecera--portada .btn:not(.btn--oro):hover { --btn-bg: rgba(255, 255, 255, .14); }
 .cabecera--portada .hamburguesa:not([aria-expanded="true"]) span,
 .cabecera--portada .hamburguesa span::before,
 .cabecera--portada .hamburguesa span::after { background: var(--blanco); }
@@ -2808,9 +2812,8 @@ p { text-wrap: pretty; }
 }
 .obra:hover .obra__mas { background: var(--bosque-900); }
 
-/* Boletín: banda lila con la foto a la derecha, que se sale hacia el pie */
-.suscribete { padding-bottom: 119px; background: var(--bosque-900); }
-.suscribete__banda { padding-top: 98px; background: var(--lila-500); }
+/* Boletín: banda lila con la foto a la derecha, dentro de la banda */
+.suscribete__banda { padding-block: clamp(64px, 7vw, 98px); background: var(--lila-500); }
 .suscribete__grid {
   display: grid;
   grid-template-columns: minmax(0, 660px) minmax(0, 480px);
@@ -2819,9 +2822,7 @@ p { text-wrap: pretty; }
   gap: 36px;
 }
 .suscribete__grid.contenedor { padding-right: calc(var(--gutter) + clamp(0px, 3.5vw, 46px)); }
-/* Centrado respecto de la banda entera, no solo de la parte que comparte
-   con la foto. */
-.suscribete__texto { margin-top: -98px; color: var(--arena-100); }
+.suscribete__texto { color: var(--arena-100); }
 .suscribete h2 { color: var(--arena-100); font-size: clamp(1.9rem, 3.3vw, 2.7rem); line-height: 1.08; }
 .suscribete__texto > p:not([role]) { margin-top: 26px; font-size: clamp(1.02rem, 1.4vw, 1.15rem); line-height: 1.15; }
 .suscribete__form { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 32px; }
@@ -2842,7 +2843,7 @@ p { text-wrap: pretty; }
 .suscribete__form .btn { --btn-bg: var(--bosque-900); --btn-fg: var(--arena-100); height: 48px; padding-block: 0; }
 .suscribete__ok, .suscribete__error { margin-top: 12px; font-size: .92rem; font-weight: 600; }
 .suscribete__error { color: #4a1424; }
-.suscribete__foto { aspect-ratio: 480 / 566; margin-bottom: -119px; overflow: hidden; border-radius: 7px; }
+.suscribete__foto { aspect-ratio: 480 / 566; overflow: hidden; border-radius: 7px; }
 .suscribete__foto img { width: 100%; height: 100%; object-fit: cover; }
 
 @media (max-width: 1080px) {
@@ -2859,12 +2860,9 @@ p { text-wrap: pretty; }
   .cifra:nth-child(odd) { padding-left: 0; border-left: 0; }
   .logro-destacado { grid-template-columns: 1fr; gap: 24px; padding: 24px 24px 28px; }
   .logro-destacado__foto { aspect-ratio: 4 / 3; margin-bottom: 0; }
-  .suscribete { padding-bottom: 80px; }
-  .suscribete__banda { padding-top: 64px; }
   .suscribete__grid { grid-template-columns: 1fr; gap: 40px; }
   .suscribete__grid.contenedor { padding-right: var(--gutter); }
-  .suscribete__texto { margin-top: 0; }
-  .suscribete__foto { aspect-ratio: 4 / 3; margin-bottom: -80px; }
+  .suscribete__foto { aspect-ratio: 4 / 3; }
 }
 
 @media (max-width: 520px) {
