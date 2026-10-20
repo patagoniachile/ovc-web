@@ -488,17 +488,15 @@ p { text-wrap: pretty; }
 }
 .hero .contenedor { position: relative; width: 100%; }
 .hero__contenido { max-width: 46rem; }
-.hero h1 { color: var(--blanco); text-shadow: 0 2px 30px rgba(0, 0, 0, .4); }
-.hero h1 em {
-  display: block;
-  font-style: normal;
-  font-size: .42em;
-  font-family: var(--sans);
-  font-weight: 600;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  color: var(--oro-300);
-  margin-bottom: 14px;
+/* Más chico que el h1 general: el titular de la maqueta es una frase larga
+   y al tamaño de antes caía en cuatro líneas en vez de dos. */
+.hero h1 {
+  color: var(--blanco);
+  font-size: clamp(2rem, 4.2vw, 3.3rem);
+  /* Los saltos vienen del contenido, uno por línea de la maqueta: dejar que
+     el navegador los reequilibre partía la frase donde no tocaba. */
+  text-wrap: initial;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, .4);
 }
 .hero__bajada {
   margin-top: 22px;

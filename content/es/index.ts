@@ -176,7 +176,7 @@ export const contenido: Contenido = {
   ],
 
   hero: {
-    titulo: ['Visita el valle.', 'Protégelo.'],
+    titulo: ['Cochamó, una historia', 'que seguimos construyendo'],
     bajada:
       'El Valle Cochamó no es un parque ni una reserva pública: son tierras privadas que sus dueños abrieron al público. Lo cuidamos entre todos, con una visita ordenada y un compromiso real con su conservación.',
     alt: 'Paredes de granito del Valle Cochamó con el bosque nativo del valle al fondo',

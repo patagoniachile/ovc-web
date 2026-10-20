@@ -185,7 +185,7 @@ export const contenido: Contenido = {
   ],
 
   hero: {
-    titulo: ['Visit the valley.', 'Protect it.'],
+    titulo: ['Cochamó, a story', 'we are still building'],
     bajada:
       'The Cochamó Valley is not a park or a public reserve: it is private land whose owners opened it to the public. We look after it together, with an orderly visit and a real commitment to its conservation.',
     alt: 'Granite walls of the Cochamó Valley with the valley’s native forest in the background',
