@@ -80,7 +80,7 @@ export const contenido: Contenido = {
     sobreElSector: 'Sobre el sector',
     datosClave: 'Datos clave',
     tenEnCuenta: 'Ten en cuenta',
-    verTodosLosSectores: 'Ver los tres sectores',
+    verTodosLosSectores: 'Ver dónde dormir',
     masInfoEn: 'Más información',
     lugaresParaDormir: (n) => `${n} ${n === 1 ? 'lugar' : 'lugares'} para alojar en este sector. La reserva se hace con cada operador; acá tienes todo para decidir.`,
     verEnElMapa: 'Ver en el mapa',
@@ -157,7 +157,6 @@ export const contenido: Contenido = {
       items: [
         { label: 'Cómo llegar', href: '/es/como-visitar#como-llegar' },
         { label: 'Cuánto cuesta', href: '/es/como-visitar#cuanto-cuesta' },
-        { label: 'Cómo reservar', href: `${PORTADA}/reservar` },
         { label: 'Qué debo saber', href: '/es/como-visitar#normas' },
         { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir` },
       ],
@@ -331,9 +330,9 @@ export const contenido: Contenido = {
 
   dondeDormir: {
     eyebrow: 'Dónde dormir',
-    titulo: 'Dónde dormir en el valle',
+    titulo: 'Reserva tu lugar. Ayuda a cuidar el Valle.',
     bajada:
-      'En La Junta, el corazón del valle, hay 4 alojamientos donde quedarse. Cada uno lo gestiona una familia o un operador del valle y se reserva directamente con ellos. **Es necesario tener la reserva confirmada antes de ir.**',
+      'El valle tiene una capacidad de visita que hay que respetar: reservar ordena el ingreso y cuida sus senderos, campings y ecosistemas. En La Junta, el corazón del valle, hay 4 alojamientos, y cada uno se reserva directamente con la familia u operador que lo gestiona. **Es necesario tener la reserva confirmada antes de ir.**',
     bloques: [
       {
         slug: 'la-junta',

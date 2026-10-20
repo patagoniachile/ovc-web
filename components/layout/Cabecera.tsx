@@ -120,7 +120,7 @@ export function Cabecera({ lang }: { lang: Lang }) {
             <Boton className="btn--recto" href={`/${lang}/como-ayudar`} variante="solido" pequeno>
               {textos.comoAyudar}
             </Boton>
-            <Boton className="btn--recto" href={`/${lang}/reservar`} variante="oro" pequeno>
+            <Boton className="btn--recto" href={`/${lang}/como-visitar#dormir`} variante="oro" pequeno>
               {textos.reservar}
             </Boton>
 
@@ -175,7 +175,7 @@ export function Cabecera({ lang }: { lang: Lang }) {
           <Boton href={`/${lang}/como-ayudar`} variante="solido" bloque>
             {textos.comoAyudar}
           </Boton>
-          <Boton href={`/${lang}/reservar`} variante="oro" bloque>
+          <Boton href={`/${lang}/como-visitar#dormir`} variante="oro" bloque>
             {textos.reservarEstadia}
           </Boton>
         </div>
@@ -188,7 +188,6 @@ function EnlaceSubmenu({ item, alElegir }: { item: Enlace; alElegir: () => void 
   const contenido = (
     <>
       {item.label}
-      {item.detalle && <span>{item.detalle}</span>}
     </>
   )
 
