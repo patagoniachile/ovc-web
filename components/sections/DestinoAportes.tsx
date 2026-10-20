@@ -18,22 +18,6 @@ export function DestinoAportes({ lang }: { lang: Lang }) {
         <h3>{destinoAportes.titulo}</h3>
         <p>{destinoAportes.texto}</p>
 
-        <div className="reparto reparto--claro">
-          <div className="reparto__barra" role="img" aria-label={destinoAportes.reparto.etiquetaGrafico}>
-            <span />
-            <span />
-          </div>
-          <ul className="reparto__leyenda">
-            <li>
-              <span className="reparto__punto reparto__punto--bosque" />
-              {destinoAportes.reparto.conservacion}
-            </li>
-            <li>
-              <span className="reparto__punto reparto__punto--oro" />
-              {destinoAportes.reparto.infraestructura}
-            </li>
-          </ul>
-        </div>
       </div>
 
       <ul className="destino__items">

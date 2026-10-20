@@ -4,32 +4,18 @@ import { useState } from 'react'
 import { Icon } from '@/components/ui/Icon'
 import { cuentaBancaria, getContenido, type Lang } from '@/content'
 
-/** Fila copiable de los datos bancarios. */
-function Dato({ etiqueta, valor, copiable = true, lang }: { etiqueta: string; valor: string; copiable?: boolean; lang: Lang }) {
-  const { textos } = getContenido(lang)
-  const [copiado, setCopiado] = useState(false)
-
-  const copiar = async () => {
-    try {
-      await navigator.clipboard.writeText(valor)
-      setCopiado(true)
-      setTimeout(() => setCopiado(false), 1800)
-    } catch {
-      // Sin permiso de portapapeles el valor sigue estando a la vista.
-    }
-  }
-
+/**
+ * Una fila de los datos bancarios.
+ *
+ * Sin botón de copiar por fila: copiar seis cosas de a una es peor que
+ * copiarlas todas juntas, que es lo que hace el botón de abajo, y seis
+ * botones repetidos ensuciaban la lista justo cuando hay que leerla.
+ */
+function Dato({ etiqueta, valor }: { etiqueta: string; valor: string }) {
   return (
     <div className="dato-cuenta">
       <dt>{etiqueta}</dt>
-      <dd>
-        <span>{valor}</span>
-        {copiable && (
-          <button type="button" onClick={copiar} className="dato-cuenta__copiar">
-            {copiado ? textos.copiado : textos.copiar}
-          </button>
-        )}
-      </dd>
+      <dd>{valor}</dd>
     </div>
   )
 }
@@ -86,12 +72,12 @@ export function Donar({ lang }: { lang: Lang }) {
           <p className="lead revelar">{donarPagina.intro}</p>
 
           <dl className="cuenta revelar">
-            <Dato lang={lang} etiqueta="Banco" valor={cuentaBancaria.banco} copiable={false} />
-            <Dato lang={lang} etiqueta={cuentaBancaria.tipo} valor={cuentaBancaria.numero} />
-            <Dato lang={lang} etiqueta="RUT" valor={cuentaBancaria.rut} />
-            <Dato lang={lang} etiqueta="Titular" valor={cuentaBancaria.titular} />
-            <Dato lang={lang} etiqueta="BIC / SWIFT" valor={cuentaBancaria.swift} />
-            <Dato lang={lang} etiqueta="Email" valor={cuentaBancaria.email} />
+            <Dato etiqueta="Banco" valor={cuentaBancaria.banco} />
+            <Dato etiqueta={cuentaBancaria.tipo} valor={cuentaBancaria.numero} />
+            <Dato etiqueta="RUT" valor={cuentaBancaria.rut} />
+            <Dato etiqueta="Titular" valor={cuentaBancaria.titular} />
+            <Dato etiqueta="BIC / SWIFT" valor={cuentaBancaria.swift} />
+            <Dato etiqueta="Email" valor={cuentaBancaria.email} />
           </dl>
 
           <div className="revelar">

@@ -1810,21 +1810,16 @@ p { text-wrap: pretty; }
   color: var(--bosque-800);
 }
 
-/* En lista y no en cajas: son seis datos que se copian uno tras otro al
-   pegar una transferencia, y en rejilla había que buscar el siguiente. */
-.cuenta {
-  display: grid;
-  gap: 0;
-  margin: 26px 0 0;
-  border-top: 1px solid var(--borde);
-}
+/* En lista apretada y no en cajas: son seis datos que se leen de corrido
+   al pegar una transferencia. Sin líneas entre medio y sin un botón de
+   copiar por fila: para eso está el de copiarlo todo, abajo. */
+.cuenta { display: grid; gap: 0; margin: 22px 0 0; }
 .dato-cuenta {
   display: grid;
-  grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+  grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr);
   align-items: baseline;
-  gap: 10px 20px;
-  padding: 15px 2px;
-  border-bottom: 1px solid var(--borde);
+  gap: 8px 20px;
+  padding: 5px 0;
 }
 .dato-cuenta dt {
   font-size: .72rem; font-weight: 700; letter-spacing: .12em;
@@ -1832,23 +1827,10 @@ p { text-wrap: pretty; }
 }
 .dato-cuenta dd {
   margin: 0;
-  display: flex; align-items: center; gap: 12px;
-  justify-content: space-between;
   font-size: .98rem;
   font-variant-numeric: tabular-nums;
   word-break: break-word;
 }
-.dato-cuenta__copiar {
-  flex: none;
-  padding: 5px 12px;
-  border-radius: 999px;
-  background: var(--bosque-100);
-  color: var(--bosque-800);
-  font-size: .76rem;
-  font-weight: 650;
-  transition: background-color var(--trans);
-}
-.dato-cuenta__copiar:hover { background: var(--bosque-300); }
 
 .reparto--claro { margin-top: 30px; }
 .reparto--claro .reparto__titulo { color: var(--bosque-900); }
