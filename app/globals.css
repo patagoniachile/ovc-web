@@ -676,9 +676,6 @@ p { text-wrap: pretty; }
 .ficha__datos li { display: flex; gap: 10px; font-size: .88rem; }
 .ficha__datos b { flex: none; min-width: 78px; color: var(--bosque-700); font-weight: 620; }
 .ficha .enlace-flecha { margin-top: 18px; }
-.ficha--alerta { background: #fff8f3; border-color: rgba(194, 90, 36, .28); }
-.ficha--alerta .ficha__icono { background: rgba(224, 114, 53, .14); color: var(--fuego-600); }
-.ficha--alerta h3 { color: var(--fuego-600); }
 
 /* Normas */
 .normas { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: center; margin-top: clamp(40px, 6vw, 72px); }

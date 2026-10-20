@@ -160,7 +160,7 @@ export const sectoresDetalle: SectorDetalle[] = [
         tipo: 'Camping',
         descripcion:
           'Amplios sitios y un gran fogón para cocinar, con playas junto al río Cochamó. Se llega cruzando el río en carro.',
-        servicios: ['Sitios amplios', 'Gran fogón para fogatas y cocinar', 'Playas en el río', 'Cabalgatas (opcional)', 'Venta de pan amasado'],
+        servicios: ['Sitios amplios', 'Agua, duchas y lavamanos', 'Baños de compostaje ecológicos', 'Gran fogón para fogatas y cocinar', 'Playas en el río', 'Cabalgatas (opcional)', 'Venta de pan amasado'],
         contactos: [
           { tipo: 'telefono', valor: '+56 9 3510 9737', href: 'tel:+56935109737' },
           { tipo: 'telefono', valor: '+56 9 5666 2469', href: 'tel:+56956662469' },

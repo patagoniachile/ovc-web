@@ -74,7 +74,6 @@ export interface Ficha {
   texto: string
   datos?: { etiqueta: string; valor: string }[]
   enlace?: Enlace
-  alerta?: boolean
 }
 
 export interface Norma {

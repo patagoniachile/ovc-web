@@ -15,7 +15,7 @@ export function Planifica({ lang }: { lang: Lang }) {
 
         <div className="planifica">
           {fichasPlanificacion.map((ficha) => (
-            <article className={ficha.alerta ? 'ficha ficha--alerta revelar' : 'ficha revelar'} key={ficha.titulo}>
+            <article className="ficha revelar" key={ficha.titulo}>
               <div className="ficha__icono">
                 <Icon name={ficha.icono} />
               </div>

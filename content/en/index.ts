@@ -498,7 +498,6 @@ export const contenido: Contenido = {
       titulo: 'The Cochamó waterslides',
       texto:
         'They are named after their natural waterslide shape, which tempts people to slide down them. They are **extremely dangerous**: most of the serious accidents in the valley happen there.',
-      alerta: true,
     },
     {
       icono: 'montana',
