@@ -104,6 +104,12 @@ export const comoLlegar = {
     texto:
       'Conduce hacia Ensenada por la Ruta 225 y toma la bifurcación a Cochamó, Ruta V-69. Al final del camino hay estacionamiento.',
   },
+  planB: {
+    titulo: '¿Llegas tarde o perdiste el bus?',
+    texto:
+      'El ingreso al sendero cierra a las 15:00. Puedes dormir cerca del inicio del sendero y subir temprano al día siguiente: en ese sector están La Frontera, Camping El Laurel y Camping Los Pozones.',
+    cta: { label: 'Ver dónde dormir', href: `${PORTADA}/como-visitar#dormir` },
+  },
   bus: {
     titulo: 'En bus',
     advertencia: {

@@ -1,4 +1,4 @@
-import { EnlaceFlecha } from '@/components/ui/Boton'
+import { Boton, EnlaceFlecha } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getContenido, type IconName, type Lang, type TipoContacto } from '@/content'
@@ -72,6 +72,19 @@ export function ComoLlegar({ lang }: { lang: Lang }) {
               ))}
             </ul>
           </article>
+        </div>
+
+        {/* El horario de ingreso no admite excepciones, así que quien no llega
+            a tiempo necesita saber dónde dormir abajo antes de quedarse sin
+            plan. */}
+        <div className="plan-b revelar">
+          <div>
+            <h3>{comoLlegar.planB.titulo}</h3>
+            <p>{comoLlegar.planB.texto}</p>
+          </div>
+          <Boton href={comoLlegar.planB.cta.href} variante="solido" pequeno>
+            {comoLlegar.planB.cta.label}
+          </Boton>
         </div>
       </div>
     </section>

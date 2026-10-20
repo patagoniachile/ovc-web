@@ -2858,3 +2858,19 @@ body:has(:is(.hero, .pagina-hero, .sector-hero)) .cabecera:not(.esta-fija) { bac
 .marcador--arriba-izq .marcador__nombre { left: auto; right: 12px; top: auto; bottom: 16px; transform: none; }
 .dormir__texto a, .seccion-cabecera .lead a { text-decoration: underline; text-underline-offset: 3px; }
 .dormir__texto a:hover, .seccion-cabecera .lead a:hover { color: var(--oro-600); }
+
+/* El plan B de Cómo llegar: dónde dormir si no se alcanza el horario */
+.plan-b {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 26px;
+  padding: 22px 26px;
+  border-radius: var(--radio);
+  border-left: 6px solid var(--bosque-600);
+  background: var(--bosque-100);
+}
+.plan-b h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 650; color: var(--bosque-900); }
+.plan-b p { margin-top: 5px; max-width: 70ch; font-size: .92rem; line-height: 1.55; color: var(--texto); }

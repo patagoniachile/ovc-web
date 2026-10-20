@@ -220,6 +220,8 @@ export interface FilaComparativa {
 /** Partida de la sección "cuánto cuesta". */
 export interface Costo {
   concepto: string
+  /** Quién cobra: «Sin costo», «Se paga a terceros». */
+  etiqueta?: string
   valor: string
   /** Lo que va en pequeño tras el monto: «por día y caballo». */
   unidad?: string
@@ -540,6 +542,8 @@ export interface Contenido {
   reservarPagina: Encabezado & { intro: string; tituloSectores: string; tituloDormir: string }
   comoLlegar: Encabezado & {
     auto: { titulo: string; texto: string }
+    /** Qué hacer si no se alcanza el horario de ingreso. */
+    planB: { titulo: string; texto: string; cta: Enlace }
     bus: {
       titulo: string
       advertencia: { titulo: string; puntos: string[] }
