@@ -75,7 +75,7 @@ export function Mapa({ lang }: { lang: Lang }) {
   const { mapa } = getContenido(lang)
 
   return (
-    <section className="seccion seccion--alt" id="mapa">
+    <section className="seccion" id="mapa">
       <div className="contenedor">
         <SectionHeader className="revelar" {...mapa.encabezado} />
         <MapaValle lang={lang} />

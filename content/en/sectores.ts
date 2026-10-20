@@ -7,7 +7,7 @@ export const sectoresDetalle: SectorDetalle[] = [
     nombre: 'Inicio Sendero',
     titular: 'Where the Cochamó River meets the sea',
     intro:
-      'The starting point for La Junta, the waterslides, Lago Vidal and every other trek in the valley. The Visitor Centre is here, and this is where everyone signs in before heading up.',
+      'The starting point for La Junta, the waterslides and every other trek in the valley. The Visitor Centre is here, and this is where everyone signs in before heading up.',
     parrafos: [
       'The entrance to the Cochamó Valley sits where the Cochamó River flows into the sea, at the junction of the main road and the gravel track. From the bridge you get a view of the clear-water river, the imposing Cerro Arcoíris and the native forest that runs through the whole valley.',
       'You turn onto the gravel track and drive 6 kilometres to the end, where you find parking, campsites and the Cochamó Valley Visitor Centre.',
@@ -174,91 +174,4 @@ export const sectoresDetalle: SectorDetalle[] = [
     ],
   },
 
-  {
-    slug: 'lago-vidal',
-    nombre: 'Lago Vidal',
-    titular: 'Rural gaucho culture at the foot of the Andes',
-    intro:
-      'A glacial lake basin almost touching the Argentine border, with an identity of its own and an excellent alternative to the much-visited Cochamó Valley.',
-    parrafos: [
-      'Lago Vidal Gormaz lies in the Andean part of the Los Lagos Region, within what is known as Northern Patagonia. It is a glacial lake basin running north to south at latitude 41°29′ S, at an altitude ranging from 600 to 1,600 metres above sea level.',
-      'The area was settled during the colonisation of southern Chile in the late nineteenth century. Its name comes from the Chilean naval officer Francisco Vidal Gormaz, who explored the Puelo River in 1872 but never saw the lake itself. Those who did know it were the northern Tehuelche groups, who crossed the Andes 1,300 years ago and left rock paintings on various outcrops.',
-      'Vidal Gormaz has an identity of its own thanks to its historic isolation from the region’s population centres. Its inhabitants have a culture strongly shaped by cattle droving and smallholder farming. Today hundreds of people visit each year, and local families have extended their work into tourism.',
-    ],
-    foto: {
-      ...imagenes.arrieros,
-      alt: 'A muleteer on horseback leading a string of loaded mules along the valley trail',
-    },
-    datosClave: [
-      { etiqueta: 'Altitude', valor: 'Between 600 and 1,600 m above sea level' },
-      { etiqueta: 'Access', valor: 'On foot or on horseback' },
-      { etiqueta: 'Ways in', valor: 'Via the valley, the Argentine border or the east side of Lago Tagua Tagua' },
-      { etiqueta: 'Circuit', valor: 'La Herradura' },
-    ],
-    avisos: [
-      'The isolation is part of the appeal and part of the risk: there are no emergency services and no phone coverage.',
-    ],
-    alojamientos: [
-      {
-        id: 'camping-la-tetera',
-        nombre: 'Camping La Tetera',
-        tipo: 'Campsite and lodging',
-        descripcion: 'Family lodging and camping, with meals made from produce grown in their own garden.',
-        servicios: ['Family lodging', 'Camping', 'Toilets', 'Meals from the garden', 'Pack horses', 'Horseback rides'],
-        contactos: [{ tipo: 'telefono', valor: '+56 9 6827 6371', href: 'tel:+56968276371' }],
-      },
-      {
-        id: 'camping-lago-vidal',
-        nombre: 'Camping Lago Vidal',
-        tipo: 'Campsite',
-        descripcion: 'Campsite on the lakeshore, with horse services and fishing.',
-        servicios: ['Toilets', 'Pack horses', 'Horseback rides', 'Recreational fishing'],
-        contactos: [{ tipo: 'telefono', valor: '+56 9 7936 7642', href: 'tel:+56979367642' }],
-      },
-      {
-        id: 'el-copihue-rancho-viejo',
-        nombre: 'Cabañas El Copihue and Camping Rancho Viejo',
-        tipo: 'Cabins and campsite',
-        descripcion:
-          'Cabins with hot water and a bedroom, plus family lodging with a shared bathroom. Home cooking with produce from the garden, home-baked bread and spit-roast meat from their own animals.',
-        servicios: [
-          'Cabins with hot water',
-          'Shared bathroom',
-          'Breakfast, lunch and dinner',
-          'Recreational fishing',
-          'Boat transfers with life jackets',
-        ],
-        contactos: [{ tipo: 'telefono', valor: '+56 9 4048 0290', href: 'tel:+56940480290' }],
-      },
-      {
-        id: 'rancho-los-3-potrillos',
-        nombre: 'Camping Rancho Los 3 Potrillos',
-        tipo: 'Campsite',
-        descripcion:
-          'Campsite with a shared barbecue shelter, dining room and dormitory. Home cooking with produce from the garden, home-baked bread and spit-roast meat from their own animals.',
-        servicios: ['Shared barbecue shelter', 'Dining room and dormitory', 'Bathroom', 'Recreational fishing', 'Boat transfers'],
-        contactos: [
-          { tipo: 'telefono', valor: '+56 9 5479 9902', href: 'tel:+56954799902' },
-          { tipo: 'telefono', valor: '+56 9 7873 0382', href: 'tel:+56978730382' },
-          { tipo: 'web', valor: 'los3potrillos.cl', href: 'https://www.los3potrillos.cl' },
-        ],
-      },
-      {
-        id: 'camping-los-morros',
-        nombre: 'Camping Los Morros',
-        tipo: 'Campsite',
-        descripcion: 'Campsite with horse services and recreational fishing.',
-        servicios: ['Camping', 'Horseback rides', 'Pack horses', 'Recreational fishing'],
-        contactos: [{ tipo: 'telefono', valor: '+56 9 4945 9601', href: 'tel:+56949459601' }],
-      },
-      {
-        id: 'cabalgatas-barrancoso',
-        nombre: 'Cabalgatas Barrancoso',
-        tipo: 'Horseback rides',
-        descripcion: 'Horseback rides and pack horses on the Paso El León — Lago Vidal — La Junta — Cochamó route.',
-        servicios: ['Horseback rides', 'Pack horses'],
-        contactos: [{ tipo: 'telefono', valor: '+56 9 7373 1950', href: 'tel:+56973731950' }],
-      },
-    ],
-  },
 ]

@@ -9,7 +9,7 @@ import { getContenido, type Lang } from '@/content'
  * portada y necesitaba presentarse solo.
  *
  * El mapa va aquí y no en una sección aparte porque la historia nombra
- * sectores —La Junta, Lago Vidal, el inicio del sendero— que no le dicen
+ * sectores —La Junta, los Toboganes, el inicio del sendero— que no le dicen
  * nada a quien no conoce el valle. Teniéndolo a la vista mientras se lee, la
  * línea de tiempo deja de ser una lista de fechas y pasa a ocurrir en algún
  * lugar.

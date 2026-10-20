@@ -30,9 +30,14 @@ export function Amenazas({ lang }: { lang: Lang }) {
           ))}
         </div>
 
+        <p className="seccion-cierre seccion-cierre--claro revelar">{loQueEstaEnJuego.cierre}</p>
+
         <div className="amenazas__cta revelar">
           <Boton href={loQueEstaEnJuego.cta.href} variante="claro">
             {loQueEstaEnJuego.cta.label}
+          </Boton>
+          <Boton href={loQueEstaEnJuego.ctaProteger.href} variante="fantasma">
+            {loQueEstaEnJuego.ctaProteger.label}
           </Boton>
         </div>
       </div>

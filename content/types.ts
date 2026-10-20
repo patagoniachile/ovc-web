@@ -101,7 +101,7 @@ export interface PuntoMapa {
   id: string
   nombre: string
   /** Los sectores se reservan; las referencias solo ubican. */
-  tipo: 'sector' | 'referencia'
+  tipo: 'sector' | 'referencia' | 'camping'
   /** Coordenadas tomadas de OpenStreetMap. */
   lat: number
   lon: number
@@ -164,27 +164,36 @@ export interface Rasgo {
   foto?: Foto
 }
 
-/** Especie o formación destacada en Flora y fauna. */
-export interface Especie {
-  nombre: string
-  nombreCientifico?: string
-  grupo: 'flora' | 'fauna' | 'geologia'
-  texto: string
-  /**
-   * Foto de la especie, si la hay. Sin foto la tarjeta sigue funcionando:
-   * es preferible a ilustrar un pudú con una imagen de banco que no sea de
-   * este valle.
-   */
+/**
+ * Un grupo de especies o rasgos del valle, con su tarjeta y su ficha.
+ *
+ * Van agrupados y no uno por uno porque siete tarjetas sueltas no cuentan
+ * nada: el bosque, el sotobosque, las alturas y la roca son cuatro historias
+ * distintas, y cada una se lee entera al abrirla.
+ */
+export interface GrupoEspecies {
+  id: string
+  titulo: string
+  /** Lo que lista la tarjeta: «Alerce · Coihue · Mañío» */
+  subtitulo: string
+  intro: string
   imagen?: keyof typeof import('./imagenes').imagenes
   alt?: string
+  fichas: { nombre: string; cientifico?: string; texto: string }[]
+  cierre: string
 }
 
-/** Actividad posible en el valle. */
+/** Una forma de recorrer el valle, con su ficha al abrirla. */
 export interface Actividad {
+  id: string
   icono: IconName
   titulo: string
   texto: string
   dato?: string
+  imagen?: keyof typeof import('./imagenes').imagenes
+  alt?: string
+  /** Lo que se lee al abrir la tarjeta. El último suele ser el aviso. */
+  bloques: { titulo?: string; texto: string; aviso?: boolean }[]
 }
 
 /** Columna de la comparación "día vs. semana". */
@@ -313,6 +322,7 @@ export interface Textos {
   reservarEn: (nombre: string) => string
   volverAPortada: string
   verMas: string
+  cerrar: string
   areaSantuario: string
   paraQuienEs: string
   opcional: string
@@ -409,7 +419,7 @@ export interface Contenido {
     enlace: Enlace
   }
   queProtege: { icono: IconName; texto: string }[]
-  loQueEstaEnJuego: Encabezado & { cta: Enlace }
+  loQueEstaEnJuego: Encabezado & { cierre: string; cta: Enlace; ctaProteger: Enlace }
   amenazas: { icono: IconName; titulo: string; texto: string }[]
   introProyectos: Encabezado
   proyectos: Proyecto[]
@@ -425,14 +435,14 @@ export interface Contenido {
   /** Hero: resumen de qué es, dónde y qué se hace */
 
   elValle: Encabezado
-  elVallePagina: Encabezado
+  elVallePagina: Encabezado & { cierre: string; cta1: Enlace; cta2: Enlace }
   quienesSomosPagina: Encabezado
   rasgos: Rasgo[]
 
-  floraFauna: Encabezado
-  especies: Especie[]
+  floraFauna: Encabezado & { cierre: string }
+  gruposEspecies: GrupoEspecies[]
 
-  queHacer: Encabezado
+  queHacer: Encabezado & { cierre: string; cta: Enlace }
   actividades: Actividad[]
 
   impacto: Encabezado

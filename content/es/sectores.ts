@@ -14,7 +14,7 @@ export const sectoresDetalle: SectorDetalle[] = [
     nombre: 'Inicio Sendero',
     titular: 'Donde el río Cochamó se junta con el mar',
     intro:
-      'El punto de partida hacia La Junta, los Toboganes, Lago Vidal y el resto de los trekkings del valle. Aquí está el Centro de Visitantes y aquí se registra todo el mundo antes de subir.',
+      'El punto de partida hacia La Junta, los Toboganes y el resto de los trekkings del valle. Aquí está el Centro de Visitantes y aquí se registra todo el mundo antes de subir.',
     parrafos: [
       'El inicio del Valle Cochamó se ubica donde el río Cochamó desemboca en el mar, en la intersección de la carretera principal con el camino de ripio. Desde el puente tienes una vista al río con su agua cristalina, al imponente cerro Arcoíris y al bosque nativo que caracteriza a todo el valle.',
       'Entras por el camino de ripio y recorres 6 kilómetros hasta el final, donde encuentras estacionamientos, campings y el Centro de Visitantes del Valle Cochamó.',
@@ -186,91 +186,4 @@ export const sectoresDetalle: SectorDetalle[] = [
     ],
   },
 
-  {
-    slug: 'lago-vidal',
-    nombre: 'Lago Vidal',
-    titular: 'Cultura gaucha campesina a los pies de la cordillera',
-    intro:
-      'Una cuenca lacustre de origen glacial casi tocando la frontera con Argentina, con identidad propia y una excelente alternativa al muy visitado Valle Cochamó.',
-    parrafos: [
-      'El Lago Vidal Gormaz está en el sector andino de la Región de Los Lagos, dentro de lo que llaman la Patagonia Norte. Es una cuenca lacustre de origen glacial orientada de norte a sur, a la latitud 41°29′ S, a una altitud que varía entre los 600 y los 1.600 metros sobre el nivel del mar.',
-      'El paisaje se pobló durante la colonización del sur de Chile a fines del siglo XIX. Su nombre viene del marino chileno Francisco Vidal Gormaz, que exploró el río Puelo en 1872 pero nunca llegó a conocer el lago. Quienes sí lo conocieron fueron los grupos tehuelches del norte, que atravesaban la cordillera hace 1.300 años y dejaron sus pinturas rupestres en distintos afloramientos rocosos.',
-      'El Vidal Gormaz tiene identidad propia gracias a su aislamiento histórico de los centros poblados de la región. Sus habitantes tienen una cultura fuertemente marcada por el arreo de ganado y por la agricultura familiar campesina. Hoy lo visitan centenares de personas al año, y sus habitantes han ampliado sus actividades hacia el turismo.',
-    ],
-    foto: {
-      ...imagenes.arrieros,
-      alt: 'Arriero a caballo guiando una tropilla de mulas cargadas por el sendero del valle',
-    },
-    datosClave: [
-      { etiqueta: 'Altitud', valor: 'Entre 600 y 1.600 m s. n. m.' },
-      { etiqueta: 'Acceso', valor: 'A pie o a caballo' },
-      { etiqueta: 'Rutas de entrada', valor: 'Por el valle, la frontera con Argentina o el este del Lago Tagua Tagua' },
-      { etiqueta: 'Circuito', valor: 'La Herradura' },
-    ],
-    avisos: [
-      'El aislamiento es parte del atractivo y también del riesgo: no hay servicios de emergencia y la cobertura es nula.',
-    ],
-    alojamientos: [
-      {
-        id: 'camping-la-tetera',
-        nombre: 'Camping La Tetera',
-        tipo: 'Camping y hospedaje',
-        descripcion: 'Hospedaje familiar y camping, con comidas preparadas con productos de la huerta.',
-        servicios: ['Hospedaje familiar', 'Camping', 'Baños', 'Comidas de la huerta', 'Pilcheros', 'Cabalgatas'],
-        contactos: [{ tipo: 'telefono', valor: '+56 9 6827 6371', href: 'tel:+56968276371' }],
-      },
-      {
-        id: 'camping-lago-vidal',
-        nombre: 'Camping Lago Vidal',
-        tipo: 'Camping',
-        descripcion: 'Camping a orillas del lago, con servicios de caballos y pesca.',
-        servicios: ['Baños', 'Pilcheros', 'Cabalgatas', 'Pesca recreativa'],
-        contactos: [{ tipo: 'telefono', valor: '+56 9 7936 7642', href: 'tel:+56979367642' }],
-      },
-      {
-        id: 'el-copihue-rancho-viejo',
-        nombre: 'Cabañas El Copihue y Camping Rancho Viejo',
-        tipo: 'Cabañas y camping',
-        descripcion:
-          'Cabañas equipadas con agua caliente y dormitorio, más hospedaje familiar con baño compartido. Comidas caseras con productos de la huerta, pan amasado y asado al palo con animales de su propia producción.',
-        servicios: [
-          'Cabañas con agua caliente',
-          'Baño compartido',
-          'Desayuno, almuerzo y cena',
-          'Pesca recreativa',
-          'Traslado en lancha con chalecos salvavidas',
-        ],
-        contactos: [{ tipo: 'telefono', valor: '+56 9 4048 0290', href: 'tel:+56940480290' }],
-      },
-      {
-        id: 'rancho-los-3-potrillos',
-        nombre: 'Camping Rancho Los 3 Potrillos',
-        tipo: 'Camping',
-        descripcion:
-          'Camping con quincho compartido, comedor y dormitorio. Comidas caseras con productos de la huerta, pan amasado y asado al palo con animales de su producción.',
-        servicios: ['Quincho compartido', 'Comedor y dormitorio', 'Baño', 'Pesca recreativa', 'Traslado en lancha'],
-        contactos: [
-          { tipo: 'telefono', valor: '+56 9 5479 9902', href: 'tel:+56954799902' },
-          { tipo: 'telefono', valor: '+56 9 7873 0382', href: 'tel:+56978730382' },
-          { tipo: 'web', valor: 'los3potrillos.cl', href: 'https://www.los3potrillos.cl' },
-        ],
-      },
-      {
-        id: 'camping-los-morros',
-        nombre: 'Camping Los Morros',
-        tipo: 'Camping',
-        descripcion: 'Camping con servicios de caballos y pesca recreativa.',
-        servicios: ['Camping', 'Cabalgatas', 'Pilcheros', 'Pesca recreativa'],
-        contactos: [{ tipo: 'telefono', valor: '+56 9 4945 9601', href: 'tel:+56949459601' }],
-      },
-      {
-        id: 'cabalgatas-barrancoso',
-        nombre: 'Cabalgatas Barrancoso',
-        tipo: 'Cabalgatas',
-        descripcion: 'Cabalgatas y pilcheros en la ruta Paso El León — Lago Vidal — La Junta — Cochamó.',
-        servicios: ['Cabalgatas', 'Pilcheros'],
-        contactos: [{ tipo: 'telefono', valor: '+56 9 7373 1950', href: 'tel:+56973731950' }],
-      },
-    ],
-  },
 ]

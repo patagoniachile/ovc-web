@@ -1,6 +1,6 @@
 import { externos } from '../externos'
 import type {
-  Actividad, Contacto, Costo, Encabezado, Especie, FilaComparativa, Modalidad, Rasgo,
+  Actividad, Contacto, Costo, Encabezado, Enlace, FilaComparativa, GrupoEspecies, Modalidad, Rasgo,
 } from '../types'
 
 /** Portada del idioma: las anclas van absolutas, nunca sueltas. */
@@ -46,71 +46,9 @@ export const rasgos: Rasgo[] = [
   },
 ]
 
-export const floraFauna: Encabezado = {
-  eyebrow: 'Flora and fauna',
-  titulo: 'Who lives here',
-  bajada:
-    'The valley is Valdivian temperate rainforest, one of the highest conservation-value ecosystems on the planet. This is part of what is being protected.',
-}
 
-export const especies: Especie[] = [
-  {
-    nombre: 'Alerce',
-    nombreCientifico: 'Fitzroya cupressoides',
-    grupo: 'flora',
-    texto: 'A native conifer that grows extremely slowly. The valley has trees close to a thousand years old and some 8,000 hectares of alerce stands.',
-    imagen: 'alerce',
-    alt: 'Thousand-year-old alerces in the sanctuary, among the evergreen forest',
-  },
-  {
-    nombre: 'Coihue and mañío',
-    grupo: 'flora',
-    texto: 'The trees that give the Valdivian forest its structure, with climbing plants, mosses and fungi covering every available surface.',
-  },
-  {
-    nombre: 'Darwin’s frog',
-    nombreCientifico: 'Rhinoderma darwinii',
-    grupo: 'fauna',
-    texto: 'Tiny and threatened. The male broods the tadpoles inside his own vocal sac, a behaviour found nowhere else in the world.',
-  },
-  {
-    nombre: 'Monito del monte',
-    nombreCientifico: 'Dromiciops gliroides',
-    grupo: 'fauna',
-    texto: 'A nocturnal marsupial, the only survivor of an order once thought extinct. It disperses the seeds of the forest it lives in.',
-  },
-  {
-    nombre: 'Pudú',
-    nombreCientifico: 'Pumilio puda',
-    grupo: 'fauna',
-    texto: 'The smallest deer in the world, about the size of a medium dog. It lives hidden in the dense understorey.',
-  },
-  {
-    nombre: 'Puma and condor',
-    grupo: 'fauna',
-    texto: 'The top predator and the scavenger of the Andes. That they are still here means the food chain is intact.',
-  },
-  {
-    nombre: 'North Patagonian Batholith',
-    grupo: 'geologia',
-    texto: 'The rock formed millions of years ago and the last glaciation carved it, leaving flat-floored valleys and sheer walls.',
-  },
-]
 
-export const queHacer: Encabezado = {
-  eyebrow: 'What you can do',
-  titulo: 'A valley you cover on foot',
-  bajada: 'There is no road and no vehicles. Everything you see here is reached walking or on horseback.',
-}
 
-export const actividades: Actividad[] = [
-  { icono: 'sendero', titulo: 'Trekking', texto: 'From the 13 km walk up to La Junta to the high valleys, very demanding and with no rescue.', dato: 'More than 40 km of trails' },
-  { icono: 'montana', titulo: 'Climbing', texto: 'Granite walls up to a thousand metres, with routes opened and maintained by the climbing community.', dato: 'More than 100 routes' },
-  { icono: 'caballo', titulo: 'Horseback riding', texto: 'Ride up to La Junta with the valley’s muleteers, or hire pack horses to carry your gear.', dato: 'With the muleteers’ association' },
-  { icono: 'agua', titulo: 'Rivers and pools', texto: 'Clear meltwater, stony beaches and waterfalls. The waterslides are the exception: they are dangerous.', dato: 'Glacial meltwater' },
-  { icono: 'hoja', titulo: 'Watching the forest', texto: 'Thousand-year-old alerce stands, birds, amphibians and fungi. The valley is a living laboratory of Valdivian forest.', dato: 'Primary forest' },
-  { icono: 'carpa', titulo: 'Camping', texto: 'Authorised campsites in all three sectors, booked in advance. Outside them, camping is not allowed.', dato: '15 places to stay' },
-]
 
 export const impacto: Encabezado = {
   eyebrow: 'Our impact',
@@ -297,10 +235,13 @@ export const horariosYContacto = {
 }
 
 export const elVallePagina = {
-  eyebrow: 'The Valley',
-  titulo: 'What the Cochamó Valley is',
+  eyebrow: 'The Cochamó Valley',
+  titulo: 'A place that deserves protecting',
   bajada:
-    'Where it is, what lives in it, what you can do there and what is being protected. Everything worth knowing before deciding whether to come.',
+    'In the heart of northern Chilean Patagonia, the Cochamó Valley holds an extraordinary landscape of temperate rainforest, crystal-clear rivers and towering granite walls. A territory of great natural and cultural richness, where nature, communities and traditions have lived side by side for generations.',
+  cierre: 'A place to discover, to value and to conserve.',
+  cta1: { label: 'Find out more', href: `${PORTADA}/el-valle#mapa` },
+  cta2: { label: 'How to visit', href: `${PORTADA}/como-visitar` },
 }
 
 export const quienesSomosPagina = {
@@ -370,3 +311,227 @@ export const comoAyudarPagina = {
   intro:
     'Two ways to contribute: a transfer whenever you want, or a monthly contribution that gives the work continuity.',
 }
+
+export const floraFauna: Encabezado & { cierre: string } = {
+  eyebrow: 'Flora and fauna',
+  titulo: 'A valley full of life',
+  bajada:
+    'Among ancient forests, rivers and mountains, the Cochamó Valley holds an extraordinary diversity of species. From towering alerces and coihues to small inhabitants such as Darwin’s frog and the monito del monte, each plays a fundamental role in the balance of this ecosystem.',
+  cierre: 'Meet those who live in this territory.',
+}
+
+export const gruposEspecies: GrupoEspecies[] = [
+  {
+    id: 'guardianes',
+    titulo: 'Guardians of the forest',
+    subtitulo: 'Alerce · Coihue · Mañío',
+    intro:
+      'The temperate rainforests of the Cochamó Valley hold native trees that give life, structure and shelter to an extraordinary ecosystem.',
+    imagen: 'alerce',
+    alt: 'The trunk of a thousand-year-old alerce in the valley’s forest',
+    fichas: [
+      {
+        nombre: 'Alerce',
+        cientifico: 'Fitzroya cupressoides',
+        texto:
+          'One of the longest-lived trees on the planet. Its extremely slow growth allows some specimens to live for thousands of years. In Cochamó, the alerce stands are a natural heritage of enormous value and a living memory of the forest.',
+      },
+      {
+        nombre: 'Coihue and mañío',
+        cientifico: 'Nothofagus dombeyi · native Podocarpaceae',
+        texto:
+          'The coihue stands out for its great size and its dominant presence in the temperate forest. The mañíos add diversity to the landscape. Together with mosses, ferns, fungi and vines, these trees form a complex ecosystem that offers food and shelter to many species.',
+      },
+    ],
+    cierre: 'Protecting these forests means conserving ecosystems that take centuries to develop.',
+  },
+  {
+    id: 'pequenos',
+    titulo: 'Small inhabitants',
+    subtitulo: 'Darwin’s frog · Monito del monte · Pudú',
+    intro:
+      'Among the leaves, the trunks and the understorey hide some of the most surprising inhabitants of northern Patagonia. Small in size, but fundamental to the life of the forest.',
+    fichas: [
+      {
+        nombre: 'Darwin’s frog',
+        cientifico: 'Rhinoderma darwinii',
+        texto:
+          'This small native amphibian is known for an exceptional trait: the male protects his tadpoles inside his vocal sac while they develop. It is threatened by habitat loss and disease.',
+      },
+      {
+        nombre: 'Monito del monte',
+        cientifico: 'Dromiciops gliroides',
+        texto:
+          'This tiny nocturnal marsupial belongs to a unique evolutionary lineage. It lives mainly among the forest vegetation and performs an important ecological role by dispersing the seeds of native plants.',
+      },
+      {
+        nombre: 'Pudú',
+        cientifico: 'Pudu puda',
+        texto:
+          'One of the smallest deer in the world. Shy and hard to spot, it lives in the dense understorey, where it finds shelter and food. Conserving the native vegetation is essential for its survival.',
+      },
+    ],
+    cierre: 'The life of the forest also depends on its smallest inhabitants.',
+  },
+  {
+    id: 'alturas',
+    titulo: 'Inhabitants of the heights',
+    subtitulo: 'Puma · Condor',
+    intro:
+      'In the mountains and skies of the valley live two emblematic Andean species, fundamental to the balance of the ecosystems.',
+    fichas: [
+      {
+        nombre: 'Puma',
+        cientifico: 'Puma concolor',
+        texto:
+          'One of the main land predators in the region. Its presence helps regulate the populations of its prey and is an indicator of how important it is to conserve large, connected territories.',
+      },
+      {
+        nombre: 'Andean condor',
+        cientifico: 'Vultur gryphus',
+        texto:
+          'With one of the largest wingspans among land birds, the condor rides air currents to travel great distances. As a scavenger, it plays an essential role by consuming animal remains and contributing to the natural recycling of nutrients.',
+      },
+    ],
+    cierre: 'Their presence reminds us that nature needs space and connectivity to stay in balance.',
+  },
+  {
+    id: 'granito',
+    titulo: 'Granite giants',
+    subtitulo: 'North Patagonian Batholith',
+    intro:
+      'Long before the forests we know today existed, geological processes spanning millions of years began to shape the landscape of Cochamó.',
+    imagen: 'heroAnterior',
+    alt: 'The valley’s granite walls above the forest',
+    fichas: [
+      {
+        nombre: 'North Patagonian Batholith',
+        cientifico: 'The origin of the great granite walls',
+        texto:
+          'The valley’s towering rock walls are part of the North Patagonian Batholith, a vast body of igneous rock formed by magma cooling at depth over different geological periods.',
+      },
+      {
+        nombre: 'A landscape shaped by ice',
+        cientifico: 'The mark of the glaciers',
+        texto:
+          'Over time, erosion and glaciations sculpted the relief, giving rise to deep valleys, great rock walls and the landscapes that characterise Cochamó today.',
+      },
+    ],
+    cierre: 'The mountains of Cochamó tell a story written over millions of years.',
+  },
+]
+
+export const queHacer: Encabezado & { cierre: string; cta: Enlace } = {
+  eyebrow: 'Activities',
+  titulo: 'A valley to explore at your own pace',
+  bajada:
+    'Among ancient forests, crystal-clear rivers and towering granite walls, the Cochamó Valley invites you to discover nature in a way all of its own.',
+  cierre:
+    'Hiking, climbing, horse riding and simply watching nature are some of the experiences that connect you with this extraordinary territory, always with respect and care for its surroundings.',
+  cta: { label: 'Plan your trip', href: `${PORTADA}/como-visitar` },
+}
+
+export const actividades: Actividad[] = [
+  {
+    id: 'senderismo',
+    icono: 'sendero',
+    titulo: 'Hiking',
+    texto: 'Anfiteatro · Trinidad · La Paloma',
+    imagen: 'registroSendero',
+    alt: 'Walkers on the valley trail',
+    bloques: [
+      {
+        titulo: 'Anfiteatro',
+        texto:
+          'A breathtaking natural amphitheatre ringed by giant granite walls. One of the valley’s most emblematic landscapes, where the scale of the mountains is felt from a unique perspective.',
+      },
+      {
+        titulo: 'Trinidad',
+        texto:
+          'A mountain sector that stands out for its imposing rock formations and high-altitude landscapes. A destination for those looking to explore the most remote and demanding corners of the valley.',
+      },
+      {
+        titulo: 'La Paloma',
+        texto:
+          'A route that takes you into the mountain landscape and opens up new perspectives on the natural surroundings of Cochamó.',
+      },
+      {
+        titulo: 'Explore responsibly',
+        texto:
+          'Plan your route, find out about trail conditions and always respect the natural surroundings. Some sectors require mountain experience and proper preparation.',
+        aviso: true,
+      },
+    ],
+  },
+  {
+    id: 'escalada',
+    icono: 'montana',
+    titulo: 'Climbing',
+    texto: 'A granite paradise in the heart of Patagonia',
+    imagen: 'logroEscalada',
+    alt: 'A climber on one of the valley’s granite walls',
+    bloques: [
+      {
+        titulo: 'A granite paradise in the heart of Patagonia',
+        texto:
+          'The Cochamó Valley is one of the best-known rock climbing destinations in South America. Its towering granite walls, surrounded by native forest and mountain landscapes, offer a unique experience for climbers from all over the world. With multi-pitch routes and big walls that can rise hundreds of metres, Cochamó invites you to discover the mountain from a different perspective.',
+      },
+      {
+        titulo: 'An adventure that demands preparation',
+        texto:
+          'Climbing in Cochamó happens in a remote natural setting, where many routes require traditional climbing experience, technical knowledge and self-sufficiency. Respecting the rock, the vegetation and the conditions of the place is essential to preserving this extraordinary setting.',
+        aviso: true,
+      },
+    ],
+  },
+  {
+    id: 'cabalgatas',
+    icono: 'caballo',
+    titulo: 'Horse riding',
+    texto: 'A tradition that keeps the valley alive',
+    imagen: 'arrieros',
+    alt: 'Arrieros with their horses on the valley trail',
+    bloques: [
+      {
+        titulo: 'A tradition that keeps the valley alive',
+        texto:
+          'Riding through the Cochamó Valley on horseback is a way to discover its landscapes and connect with a tradition deeply rooted in its history. For generations, local arrieros have travelled these trails, carrying people, animals and supplies through forests, rivers and mountains. Their knowledge of the territory and their craft are an essential part of Cochamó’s cultural identity.',
+      },
+      {
+        texto:
+          'Today, horse rides let you see the valley from another perspective, keeping alive a way of travelling through it that has lasted over time.',
+      },
+      {
+        titulo: 'An experience with local identity',
+        texto:
+          'Choosing local arrieros helps preserve their traditions and supports the communities that live in and look after this territory.',
+        aviso: true,
+      },
+    ],
+  },
+  {
+    id: 'observacion',
+    icono: 'hoja',
+    titulo: 'Nature watching',
+    texto: 'Discover the life that lives in the valley',
+    imagen: 'cascada',
+    alt: 'A waterfall among the valley’s forest',
+    bloques: [
+      {
+        titulo: 'Discover the life that lives in the valley',
+        texto:
+          'The Cochamó Valley is a refuge of biodiversity, where ancient forests, clear rivers and mountains hold an extraordinary variety of native species. From birdsong to the small inhabitants of the forest, every corner invites you to stop, look and discover the natural richness of this territory.',
+      },
+      {
+        texto:
+          'An experience that connects you with nature at another pace, appreciating the details that make Cochamó a unique place.',
+      },
+      {
+        titulo: 'Watching is also protecting',
+        texto:
+          'Enjoy nature without interfering with it. Keep your distance from animals, avoid disturbing their habitat and remember that the best way to conserve wildlife is to leave it be.',
+        aviso: true,
+      },
+    ],
+  },
+]

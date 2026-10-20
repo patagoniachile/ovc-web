@@ -1,6 +1,6 @@
 import { externos } from '../externos'
 import type {
-  Actividad, Contacto, Costo, Encabezado, Especie, FilaComparativa, Modalidad, Rasgo,
+  Actividad, Contacto, Costo, Encabezado, Enlace, FilaComparativa, GrupoEspecies, Modalidad, Rasgo,
 } from '../types'
 
 /** Portada del idioma: las anclas van absolutas, nunca sueltas. */
@@ -47,71 +47,9 @@ export const rasgos: Rasgo[] = [
   },
 ]
 
-export const floraFauna: Encabezado = {
-  eyebrow: 'Flora y fauna',
-  titulo: 'Quiénes viven aquí',
-  bajada:
-    'El valle es bosque templado lluvioso valdiviano, uno de los ecosistemas de mayor valor de conservación del planeta. Esto es parte de lo que se protege.',
-}
 
-export const especies: Especie[] = [
-  {
-    nombre: 'Alerce',
-    nombreCientifico: 'Fitzroya cupressoides',
-    grupo: 'flora',
-    texto: 'Conífera nativa de crecimiento lentísimo. En el valle hay ejemplares de cerca de mil años y unas 8.000 hectáreas de alerzal.',
-    imagen: 'alerce',
-    alt: 'Alerces milenarios del santuario, entre el bosque siempreverde',
-  },
-  {
-    nombre: 'Coihue y mañío',
-    grupo: 'flora',
-    texto: 'Los árboles que dan estructura al bosque valdiviano, con enredaderas, musgos y hongos cubriendo cada superficie disponible.',
-  },
-  {
-    nombre: 'Ranita de Darwin',
-    nombreCientifico: 'Rhinoderma darwinii',
-    grupo: 'fauna',
-    texto: 'Diminuta y amenazada. El macho incuba los renacuajos dentro de su propio saco vocal, un comportamiento único en el mundo.',
-  },
-  {
-    nombre: 'Monito del monte',
-    nombreCientifico: 'Dromiciops gliroides',
-    grupo: 'fauna',
-    texto: 'Marsupial nocturno, único sobreviviente de un orden que se creía extinto. Dispersa las semillas del bosque que habita.',
-  },
-  {
-    nombre: 'Pudú',
-    nombreCientifico: 'Pumilio puda',
-    grupo: 'fauna',
-    texto: 'El ciervo más pequeño del mundo, del tamaño de un perro mediano. Vive escondido en el sotobosque denso.',
-  },
-  {
-    nombre: 'Puma y cóndor',
-    grupo: 'fauna',
-    texto: 'El depredador tope y el carroñero de los Andes. Que sigan aquí es señal de que la cadena trófica está completa.',
-  },
-  {
-    nombre: 'Batolito Norpatagónico',
-    grupo: 'geologia',
-    texto: 'La roca se formó hace millones de años y la última glaciación la cavó, dejando valles de fondo plano y paredes escarpadas.',
-  },
-]
 
-export const queHacer: Encabezado = {
-  eyebrow: 'Qué se puede hacer',
-  titulo: 'Un valle que se recorre a pie',
-  bajada: 'No hay camino ni vehículos. Todo lo que ves aquí se alcanza caminando o a caballo.',
-}
 
-export const actividades: Actividad[] = [
-  { icono: 'sendero', titulo: 'Trekking', texto: 'Desde la caminata de 13 km hasta La Junta a los valles de altura, muy demandantes y sin rescate.', dato: 'Más de 40 km de senderos' },
-  { icono: 'montana', titulo: 'Escalada', texto: 'Paredes de granito de hasta mil metros, con rutas abiertas y mantenidas por la comunidad escaladora.', dato: 'Más de 100 rutas' },
-  { icono: 'caballo', titulo: 'Cabalgatas', texto: 'Subir a La Junta a caballo con los arrieros del valle, o contratar pilcheros para que suban tu equipaje.', dato: 'Con la agrupación de arrieros' },
-  { icono: 'agua', titulo: 'Ríos y pozones', texto: 'Aguas cristalinas de deshielo, playas pedregosas y cascadas. Los Toboganes son la excepción: son peligrosos.', dato: 'Agua de deshielo' },
-  { icono: 'hoja', titulo: 'Observar el bosque', texto: 'Alerzales milenarios, aves, anfibios y hongos. El valle es un laboratorio vivo de bosque valdiviano.', dato: 'Bosque primario' },
-  { icono: 'carpa', titulo: 'Acampar', texto: 'Campings habilitados en los tres sectores, con reserva previa. Fuera de ellos no se acampa.', dato: '15 lugares para alojar' },
-]
 
 export const impacto: Encabezado = {
   eyebrow: 'Nuestro impacto',
@@ -298,10 +236,13 @@ export const horariosYContacto = {
 }
 
 export const elVallePagina = {
-  eyebrow: 'El Valle',
-  titulo: 'Qué es el Valle Cochamó',
+  eyebrow: 'El Valle de Cochamó',
+  titulo: 'Un lugar que merece ser protegido',
   bajada:
-    'Dónde queda, qué vive en él, qué se puede hacer y qué se está tratando de proteger. Todo lo que conviene saber antes de decidir si vienes.',
+    'En el corazón de la Patagonia norte de Chile, el Valle de Cochamó alberga un extraordinario paisaje de bosques templados lluviosos, ríos de aguas cristalinas e imponentes paredes de granito. Un territorio de gran riqueza natural y cultural, donde la naturaleza, las comunidades y las tradiciones conviven desde hace generaciones.',
+  cierre: 'Un lugar para descubrir, valorar y conservar.',
+  cta1: { label: 'Conocer más', href: `${PORTADA}/el-valle#mapa` },
+  cta2: { label: 'Cómo visitar', href: `${PORTADA}/como-visitar` },
 }
 
 export const quienesSomosPagina = {
@@ -371,3 +312,227 @@ export const comoAyudarPagina = {
   intro:
     'Dos formas de aportar: una transferencia cuando quieras, o un aporte mensual que da continuidad al trabajo.',
 }
+
+export const floraFauna: Encabezado & { cierre: string } = {
+  eyebrow: 'Flora y fauna',
+  titulo: 'Un valle lleno de vida',
+  bajada:
+    'Entre bosques milenarios, ríos y montañas, el Valle de Cochamó alberga una extraordinaria diversidad de especies. Desde imponentes alerces y coihues hasta pequeños habitantes como la ranita de Darwin y el monito del monte, cada uno cumple un rol fundamental en el equilibrio de este ecosistema.',
+  cierre: 'Conoce a quienes habitan este territorio.',
+}
+
+export const gruposEspecies: GrupoEspecies[] = [
+  {
+    id: 'guardianes',
+    titulo: 'Guardianes del bosque',
+    subtitulo: 'Alerce · Coihue · Mañío',
+    intro:
+      'Los bosques templados lluviosos del Valle de Cochamó albergan árboles nativos que dan vida, estructura y refugio a un ecosistema extraordinario.',
+    imagen: 'alerce',
+    alt: 'Tronco de un alerce milenario en el bosque del valle',
+    fichas: [
+      {
+        nombre: 'Alerce',
+        cientifico: 'Fitzroya cupressoides',
+        texto:
+          'Uno de los árboles más longevos del planeta. Su crecimiento extremadamente lento permite que algunos ejemplares vivan miles de años. En Cochamó, los alerzales representan un patrimonio natural de enorme valor y una memoria viva del bosque.',
+      },
+      {
+        nombre: 'Coihue y mañío',
+        cientifico: 'Nothofagus dombeyi · Podocarpáceas nativas',
+        texto:
+          'El coihue destaca por su gran tamaño y su presencia dominante en el bosque templado. Los mañíos aportan diversidad al paisaje. Junto a musgos, helechos, hongos y enredaderas, estos árboles forman un ecosistema complejo que ofrece alimento y refugio a numerosas especies.',
+      },
+    ],
+    cierre: 'Proteger estos bosques significa conservar ecosistemas que tardan siglos en desarrollarse.',
+  },
+  {
+    id: 'pequenos',
+    titulo: 'Pequeños habitantes',
+    subtitulo: 'Ranita de Darwin · Monito del monte · Pudú',
+    intro:
+      'Entre las hojas, los troncos y el sotobosque se esconden algunos de los habitantes más sorprendentes de la Patagonia norte. Pequeños en tamaño, pero fundamentales para la vida del bosque.',
+    fichas: [
+      {
+        nombre: 'Ranita de Darwin',
+        cientifico: 'Rhinoderma darwinii',
+        texto:
+          'Este pequeño anfibio nativo es conocido por una característica excepcional: el macho protege a sus renacuajos dentro de su saco vocal durante su desarrollo. Se encuentra amenazado por la pérdida de hábitat y enfermedades.',
+      },
+      {
+        nombre: 'Monito del monte',
+        cientifico: 'Dromiciops gliroides',
+        texto:
+          'Este diminuto marsupial nocturno pertenece a un linaje evolutivo único. Vive principalmente entre la vegetación del bosque y cumple una importante función ecológica al dispersar semillas de plantas nativas.',
+      },
+      {
+        nombre: 'Pudú',
+        cientifico: 'Pudu puda',
+        texto:
+          'Es uno de los ciervos más pequeños del mundo. Tímido y difícil de observar, habita el sotobosque denso, donde encuentra refugio y alimento. La conservación de la vegetación nativa es esencial para su supervivencia.',
+      },
+    ],
+    cierre: 'La vida del bosque también depende de sus habitantes más pequeños.',
+  },
+  {
+    id: 'alturas',
+    titulo: 'Habitantes de las alturas',
+    subtitulo: 'Puma · Cóndor',
+    intro:
+      'En las montañas y cielos del valle habitan dos especies emblemáticas de los Andes, fundamentales para el equilibrio de los ecosistemas.',
+    fichas: [
+      {
+        nombre: 'Puma',
+        cientifico: 'Puma concolor',
+        texto:
+          'Es uno de los principales depredadores terrestres de la región. Su presencia ayuda a regular las poblaciones de sus presas y es un indicador de la importancia de conservar territorios extensos y conectados.',
+      },
+      {
+        nombre: 'Cóndor andino',
+        cientifico: 'Vultur gryphus',
+        texto:
+          'Con una de las mayores envergaduras alares entre las aves terrestres, el cóndor aprovecha las corrientes de aire para recorrer grandes distancias. Como carroñero, cumple una función esencial al consumir restos de animales y contribuir al reciclaje natural de nutrientes.',
+      },
+    ],
+    cierre: 'Su presencia nos recuerda que la naturaleza necesita espacio y conectividad para mantenerse en equilibrio.',
+  },
+  {
+    id: 'granito',
+    titulo: 'Gigantes de granito',
+    subtitulo: 'Batolito Norpatagónico',
+    intro:
+      'Mucho antes de que existieran los bosques que hoy conocemos, procesos geológicos de millones de años comenzaron a dar forma al paisaje de Cochamó.',
+    imagen: 'heroAnterior',
+    alt: 'Paredes de granito del valle sobre el bosque',
+    fichas: [
+      {
+        nombre: 'Batolito Norpatagónico',
+        cientifico: 'El origen de las grandes paredes de granito',
+        texto:
+          'Las imponentes paredes rocosas del valle forman parte del Batolito Norpatagónico, un extenso conjunto de rocas ígneas originadas por el enfriamiento del magma en profundidad durante distintos períodos geológicos.',
+      },
+      {
+        nombre: 'Un paisaje modelado por el hielo',
+        cientifico: 'La huella de los glaciares',
+        texto:
+          'Con el paso del tiempo, la erosión y las glaciaciones fueron esculpiendo el relieve, dando origen a valles profundos, grandes paredes rocosas y paisajes que hoy caracterizan a Cochamó.',
+      },
+    ],
+    cierre: 'Las montañas de Cochamó cuentan una historia escrita durante millones de años.',
+  },
+]
+
+export const queHacer: Encabezado & { cierre: string; cta: Enlace } = {
+  eyebrow: 'Actividades',
+  titulo: 'Un valle para explorar a tu ritmo',
+  bajada:
+    'Entre bosques milenarios, ríos cristalinos e imponentes paredes de granito, el Valle de Cochamó invita a descubrir la naturaleza de una manera única.',
+  cierre:
+    'Senderismo, escalada, cabalgatas y contemplación de la naturaleza son algunas de las experiencias que permiten conectar con este extraordinario territorio, siempre desde el respeto y el cuidado de su entorno.',
+  cta: { label: 'Prepara tu viaje', href: `${PORTADA}/como-visitar` },
+}
+
+export const actividades: Actividad[] = [
+  {
+    id: 'senderismo',
+    icono: 'sendero',
+    titulo: 'Senderismo',
+    texto: 'Anfiteatro · Trinidad · La Paloma',
+    imagen: 'registroSendero',
+    alt: 'Caminantes en el sendero del valle',
+    bloques: [
+      {
+        titulo: 'Anfiteatro',
+        texto:
+          'Un impresionante escenario natural rodeado de gigantescas paredes de granito. Uno de los paisajes más emblemáticos del valle, donde la magnitud de las montañas se aprecia desde una perspectiva única.',
+      },
+      {
+        titulo: 'Trinidad',
+        texto:
+          'Un sector de montaña que destaca por sus imponentes formaciones rocosas y paisajes de altura. Un destino para quienes buscan explorar los rincones más remotos y desafiantes del valle.',
+      },
+      {
+        titulo: 'La Paloma',
+        texto:
+          'Un recorrido que permite adentrarse en el paisaje de montaña y descubrir nuevas perspectivas del entorno natural de Cochamó.',
+      },
+      {
+        titulo: 'Explora con responsabilidad',
+        texto:
+          'Planifica tu recorrido, infórmate sobre las condiciones de los senderos y respeta siempre el entorno natural. Algunos sectores requieren experiencia en montaña y preparación adecuada.',
+        aviso: true,
+      },
+    ],
+  },
+  {
+    id: 'escalada',
+    icono: 'montana',
+    titulo: 'Escalada',
+    texto: 'Un paraíso de granito en plena Patagonia',
+    imagen: 'logroEscalada',
+    alt: 'Escalador en una pared de granito del valle',
+    bloques: [
+      {
+        titulo: 'Un paraíso de granito en plena Patagonia',
+        texto:
+          'El Valle de Cochamó es uno de los destinos de escalada en roca más reconocidos de Sudamérica. Sus imponentes paredes de granito, rodeadas de bosques nativos y paisajes de montaña, ofrecen una experiencia única para escaladores de todo el mundo. Con rutas de varios largos y grandes paredes que pueden superar los cientos de metros de altura, Cochamó invita a descubrir la montaña desde una perspectiva diferente.',
+      },
+      {
+        titulo: 'Una aventura que exige preparación',
+        texto:
+          'La escalada en Cochamó se desarrolla en un entorno natural remoto, donde muchas rutas requieren experiencia en escalada tradicional, conocimientos técnicos y autonomía. Respetar la roca, la vegetación y las condiciones del lugar es fundamental para preservar este extraordinario escenario.',
+        aviso: true,
+      },
+    ],
+  },
+  {
+    id: 'cabalgatas',
+    icono: 'caballo',
+    titulo: 'Cabalgatas',
+    texto: 'Una tradición que mantiene vivo el valle',
+    imagen: 'arrieros',
+    alt: 'Arrieros con sus caballos en el sendero del valle',
+    bloques: [
+      {
+        titulo: 'Una tradición que mantiene vivo el valle',
+        texto:
+          'Recorrer el Valle de Cochamó a caballo es una forma de descubrir sus paisajes y conectar con una tradición profundamente arraigada en su historia. Durante generaciones, los arrieros locales han recorrido estos senderos, transportando personas, animales y provisiones a través de bosques, ríos y montañas. Su conocimiento del territorio y su oficio forman parte esencial de la identidad cultural de Cochamó.',
+      },
+      {
+        texto:
+          'Hoy, las cabalgatas permiten conocer el valle desde otra perspectiva, manteniendo viva una forma de recorrerlo que ha perdurado en el tiempo.',
+      },
+      {
+        titulo: 'Una experiencia con identidad local',
+        texto:
+          'Elegir servicios de arrieros locales contribuye a preservar sus tradiciones y apoyar a las comunidades que habitan y cuidan este territorio.',
+        aviso: true,
+      },
+    ],
+  },
+  {
+    id: 'observacion',
+    icono: 'hoja',
+    titulo: 'Observación de la naturaleza',
+    texto: 'Descubre la vida que habita el valle',
+    imagen: 'cascada',
+    alt: 'Cascada entre el bosque del valle',
+    bloques: [
+      {
+        titulo: 'Descubre la vida que habita el valle',
+        texto:
+          'El Valle de Cochamó es un refugio de biodiversidad, donde bosques milenarios, ríos cristalinos y montañas albergan una extraordinaria variedad de especies nativas. Desde el canto de las aves hasta los pequeños habitantes del bosque, cada rincón invita a detenerse, observar y descubrir la riqueza natural de este territorio.',
+      },
+      {
+        texto:
+          'Una experiencia para conectar con la naturaleza a otro ritmo, apreciando los detalles que hacen de Cochamó un lugar único.',
+      },
+      {
+        titulo: 'Observar también es proteger',
+        texto:
+          'Disfruta de la naturaleza sin intervenir en ella. Mantén la distancia de los animales, evita alterar su hábitat y recuerda que la mejor forma de conservar la vida silvestre es dejarla intacta.',
+        aviso: true,
+      },
+    ],
+  },
+]

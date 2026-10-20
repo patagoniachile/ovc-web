@@ -67,6 +67,7 @@ export const contenido: Contenido = {
     reservarEn: (nombre) => `Reservar en ${nombre}`,
     volverAPortada: 'Volver a la portada',
     verMas: 'Ver más',
+    cerrar: 'Cerrar',
     areaSantuario: 'Área del Santuario de la Naturaleza · 11.432,8 ha',
     paraQuienEs: 'Para quién es',
     opcional: 'Opcional',
@@ -106,11 +107,12 @@ export const contenido: Contenido = {
       label: 'El Valle',
       href: `${PORTADA}/el-valle`,
       items: [
-        { label: 'Dónde queda', href: `${PORTADA}/el-valle#mapa`, detalle: 'Mapa de los sectores' },
-        { label: 'Flora y fauna', href: `${PORTADA}/el-valle#flora-fauna`, detalle: 'Qué vive en el bosque valdiviano' },
-        { label: 'Qué se puede hacer', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'Trekking, escalada, cabalgatas' },
-        { label: 'El Santuario', href: `${PORTADA}/el-valle#santuario`, detalle: '11.432,8 ha protegidas' },
-        { label: 'Lo que está en juego', href: `${PORTADA}/el-valle#amenazas`, detalle: 'Las amenazas sobre el valle' },
+        { label: 'Qué es', href: `${PORTADA}/el-valle`, detalle: 'El Valle Cochamó' },
+        { label: 'Dónde queda', href: `${PORTADA}/el-valle#mapa`, detalle: 'Locación' },
+        { label: 'Flora y fauna', href: `${PORTADA}/el-valle#flora-fauna`, detalle: 'Los habitantes' },
+        { label: 'Conservación', href: `${PORTADA}/el-valle#santuario`, detalle: 'El Santuario' },
+        { label: 'Lo que está en juego', href: `${PORTADA}/el-valle#amenazas`, detalle: 'Amenazas' },
+        { label: 'Actividades', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'Qué hacer' },
       ],
     },
     {
@@ -277,15 +279,15 @@ export const contenido: Contenido = {
     ],
   },
 
-  sectoresEncabezado: {
-    eyebrow: 'Visita',
-    titulo: 'Tres sectores, tres formas de conocer el valle',
-    bajada:
-      'Todos se reservan antes de llegar. Infórmate, programa y prepárate: el sendero es largo, hay mucho barro y el tiempo es impredecible.',
-  },
 
   sectoresDetalle,
 
+  sectoresEncabezado: {
+    eyebrow: 'Visita',
+    titulo: 'Dos sectores, dos formas de conocer el valle',
+    bajada:
+      'Ambos se reservan antes de llegar. Infórmate, programa y prepárate: el sendero es largo, hay mucho barro y el tiempo es impredecible.',
+  },
   sectores: [
     {
       id: 'inicio-sendero',
@@ -321,23 +323,6 @@ export const contenido: Contenido = {
       },
       cta: { label: 'Conocer La Junta', href: '/es/sectores/la-junta', destacado: true },
     },
-    {
-      id: 'lago-vidal',
-      nombre: 'Lago Vidal',
-      insignia: 'Alternativa',
-      descripcion:
-        'Identidad cultural propia, ligada a la cultura gaucha campesina de la Patagonia chilena y argentina. Una excelente alternativa al muy visitado Valle Cochamó.',
-      datos: [
-        { icono: 'montana', texto: 'Acceso a pie o a caballo' },
-        { icono: 'pin', texto: 'Por el valle, la frontera con Argentina o el este del Lago Tagua Tagua' },
-        { icono: 'sendero', texto: 'Circuito La Herradura' },
-      ],
-      foto: {
-        ...imagenes.arrieros,
-        alt: 'Arriero a caballo guiando una tropilla de mulas cargadas por el sendero del valle',
-      },
-      cta: { label: 'Conocer Lago Vidal', href: '/es/sectores/lago-vidal' },
-    },
   ],
 
   dondeDormir: {
@@ -368,7 +353,7 @@ export const contenido: Contenido = {
       eyebrow: 'Dónde queda',
       titulo: 'Ubícate antes de viajar',
       bajada:
-        'El valle está en la comuna de Cochamó, Región de Los Lagos. Desde el inicio del sendero, La Junta y Lago Vidal solo se alcanzan a pie o a caballo.',
+        'El valle está en la comuna de Cochamó, Región de Los Lagos. Desde el inicio del sendero, La Junta solo se alcanza a pie o a caballo.',
     },
     aviso:
       'Mapa de orientación, no de navegación. El área sombreada es el Santuario de la Naturaleza, dibujada según OpenStreetMap y solo a modo referencial: la cartografía oficial es la del decreto. No hay cobertura ni servicios de emergencia en el valle: lleva mapa y brújula o GPS propios.',
@@ -378,7 +363,7 @@ export const contenido: Contenido = {
   puntosMapa: [
     {
       id: 'inicio-sendero',
-      nombre: 'Inicio Sendero',
+      nombre: 'Centro de Visitantes',
       tipo: 'sector',
       lat: -41.455073,
       lon: -72.219495,
@@ -393,15 +378,6 @@ export const contenido: Contenido = {
       lon: -72.126878,
       descripcion: 'El centro turístico del valle, a 13 km del inicio del sendero. Campings y hospedaje.',
       enlace: { label: 'Dónde dormir', href: `${PORTADA}/sectores/la-junta#dormir` },
-    },
-    {
-      id: 'lago-vidal',
-      nombre: 'Lago Vidal Gormaz',
-      tipo: 'sector',
-      lat: -41.483506,
-      lon: -71.940878,
-      descripcion: 'Alternativa al valle principal, con identidad gaucha campesina propia.',
-      enlace: { label: 'Dónde dormir', href: `${PORTADA}/sectores/lago-vidal#dormir` },
     },
     {
       id: 'cochamo',
@@ -442,6 +418,46 @@ export const contenido: Contenido = {
       lat: -41.403194,
       lon: -72.119583,
       descripcion: 'Sector de paredes al norte del río La Junta, con vista abierta sobre el valle.',
+    },
+    {
+      id: 'puerto-varas',
+      nombre: 'Puerto Varas',
+      tipo: 'referencia',
+      lat: -41.317802,
+      lon: -72.982907,
+      descripcion: 'La ciudad más cercana con aeropuerto y terminal. Desde aquí se llega a Cochamó.',
+    },
+    {
+      id: 'mapa-camping-la-junta',
+      nombre: 'Camping La Junta',
+      tipo: 'camping',
+      lat: -41.412074,
+      lon: -72.12758,
+      descripcion: 'Alojamiento en el sector La Junta, con reserva previa.',
+    },
+    {
+      id: 'mapa-playa-los-manzanos',
+      nombre: 'Playa Los Manzanos',
+      tipo: 'camping',
+      lat: -41.419148,
+      lon: -72.14301,
+      descripcion: 'Alojamiento en el sector La Junta, con reserva previa.',
+    },
+    {
+      id: 'mapa-vista-hermosa',
+      nombre: 'Vista Hermosa',
+      tipo: 'camping',
+      lat: -41.412606,
+      lon: -72.121787,
+      descripcion: 'Alojamiento en el sector La Junta, con reserva previa.',
+    },
+    {
+      id: 'mapa-refugio-cochamo',
+      nombre: 'Refugio Cochamó',
+      tipo: 'camping',
+      lat: -41.412549,
+      lon: -72.122871,
+      descripcion: 'Alojamiento en el sector La Junta, con reserva previa.',
     },
   ],
 
@@ -534,7 +550,7 @@ export const contenido: Contenido = {
     {
       titulo: 'Elige sector y fechas',
       texto:
-        'Inicio Sendero, La Junta o Lago Vidal. En La Junta eliges entre los campings Playa Los Manzanos, Vista Hermosa y La Junta.',
+        'Inicio Sendero o La Junta. En La Junta eliges entre los campings Playa Los Manzanos, Vista Hermosa y La Junta.',
     },
     {
       titulo: 'Confirma tu reserva',
@@ -552,18 +568,18 @@ export const contenido: Contenido = {
 
   santuario: {
     eyebrow: 'Conservación',
-    titulo: 'Un Santuario de la Naturaleza para el Valle Cochamó',
+    titulo: 'El santuario',
     bajada:
-      'Desde el 29 de enero de 2024, 11.432,8 hectáreas del valle son Santuario de la Naturaleza por decreto del Ministerio del Medio Ambiente. Más del 98% son terrenos fiscales; el resto, predios privados que se sumaron de forma voluntaria.',
+      'El Valle de Cochamó es un Santuario de la Naturaleza desde 2024, un reconocimiento que protege más de 11.400 hectáreas de bosques milenarios, ríos, montañas y biodiversidad.',
     parrafo:
-      'Un santuario reconoce los valores ambientales del territorio sin expropiar a nadie ni cerrar el valle: la vida y las actividades de siempre continúan. Lo que cambia es que ninguna obra ni actividad que altere el estado natural del lugar puede hacerse sin autorización previa, y que la caza queda prohibida. La administración quedó en manos de la organización del valle.',
+      'Este importante logro es fruto del trabajo conjunto de comunidades locales y organizaciones comprometidas con su conservación, buscando resguardar no solo su patrimonio natural, sino también las tradiciones y formas de vida que le dan identidad. Porque proteger Cochamó es también preservar su historia y su futuro.',
     hectareas: '11.432,8',
     hectareasPie: 'hectáreas protegidas',
     foto: {
       ...imagenes.alerce,
       alt: 'Persona apoyada en el tronco de un alerce milenario en el bosque del Valle Cochamó',
     },
-    enlace: { label: 'Conocer el santuario', href: externos.santuario },
+    enlace: { label: 'Conoce el santuario', href: externos.santuario },
   },
 
   queProtege: [
@@ -578,31 +594,33 @@ export const contenido: Contenido = {
   ],
 
   loQueEstaEnJuego: {
-    eyebrow: 'Las amenazas no cesaron',
-    titulo: 'Lo que está en juego',
+    eyebrow: 'Lo que está en juego',
+    titulo: 'Que Cochamó siga siendo Cochamó',
     bajada:
-      'Llaman al valle “el Yosemite de Sudamérica”. La pregunta es si queremos que se parezca a Yosemite o que siga siendo Cochamó.',
-    cta: { label: 'Leer sobre conservación', href: externos.conservacion },
+      'Lo llaman el “Yosemite de Sudamérica”. Pero su verdadero valor no está en parecerse a otro lugar, sino en todo aquello que lo hace único. A pesar de los avances en su conservación, el valle continúa enfrentando amenazas que ponen en riesgo sus ecosistemas, sus paisajes y las tradiciones de quienes lo habitan.',
+    cierre: 'Proteger Cochamó es asegurar que su futuro no comprometa aquello que lo hace extraordinario.',
+    cta: { label: 'Saber más', href: externos.conservacion },
+    ctaProteger: { label: 'Protege el valle', href: `${PORTADA}/como-ayudar#donaciones` },
   },
 
   amenazas: [
     {
       icono: 'camino',
-      titulo: 'Un camino que avanza',
+      titulo: 'Un camino que amenaza su esencia',
       texto:
-        'Es la amenaza más urgente. Lo impulsan los mismos desarrolladores que deforestaron en el vecino Valle El Manso. Un camino terminaría con la tradición viva de los arrieros y traería contaminación y riesgo de incendios.',
+        'La posible construcción de un camino vehicular amenaza con transformar el valle, alterando sus ecosistemas, aumentando el riesgo de incendios y poniendo en peligro la tradición de los arrieros, parte fundamental de su identidad cultural.',
     },
     {
       icono: 'edificio',
-      titulo: 'Presión inmobiliaria',
+      titulo: 'Presión inmobiliaria y proyectos de desarrollo',
       texto:
-        'Empresarios con afanes inmobiliarios y proyectos de centrales hidroeléctricas siguen apuntando al Cochamó y al Puelo, afectando a las comunidades rurales y a la biodiversidad.',
+        'El interés inmobiliario y los proyectos hidroeléctricos representan una presión sobre el territorio, amenazando sus paisajes, biodiversidad y las formas de vida de las comunidades locales.',
     },
     {
       icono: 'gente',
-      titulo: 'Turismo sin regulación',
+      titulo: 'Turismo sin planificación',
       texto:
-        'El crecimiento acelerado trajo problemas de residuos, impacto sobre flora y fauna, más accidentes, contaminación de las aguas y peligro de incendios. Necesita planificación de largo plazo.',
+        'El aumento de visitantes, sin una gestión adecuada, puede generar contaminación, acumulación de residuos, daños a la flora y fauna y mayor riesgo de incendios. Un turismo responsable es fundamental para conservar el valle.',
     },
   ],
 
@@ -717,7 +735,7 @@ export const contenido: Contenido = {
   quienesSomosPagina: nuevo.quienesSomosPagina,
   rasgos: nuevo.rasgos,
   floraFauna: nuevo.floraFauna,
-  especies: nuevo.especies,
+  gruposEspecies: nuevo.gruposEspecies,
   queHacer: nuevo.queHacer,
   actividades: nuevo.actividades,
   impacto: nuevo.impacto,

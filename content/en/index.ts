@@ -8,7 +8,7 @@ import type { Contenido } from '../types'
 /**
  * English content.
  *
- * Place names (Inicio Sendero, La Junta, Lago Vidal) are kept in Spanish on
+ * Place names (Inicio Sendero, La Junta) are kept in Spanish on
  * purpose: that is what the signage, the trailhead register and the booking
  * site use, so translating them would send visitors looking for something
  * that is not written anywhere on the ground.
@@ -76,6 +76,7 @@ export const contenido: Contenido = {
     reservarEn: (nombre) => `Book at ${nombre}`,
     volverAPortada: 'Back to the home page',
     verMas: 'See more',
+    cerrar: 'Close',
     areaSantuario: 'Nature Sanctuary area · 11,432.8 ha',
     paraQuienEs: 'Who it is for',
     opcional: 'Optional',
@@ -115,11 +116,12 @@ export const contenido: Contenido = {
       label: 'The Valley',
       href: `${PORTADA}/el-valle`,
       items: [
-        { label: 'Where it is', href: `${PORTADA}/el-valle#mapa`, detalle: 'Map of the sectors' },
-        { label: 'Flora and fauna', href: `${PORTADA}/el-valle#flora-fauna`, detalle: 'What lives in the Valdivian forest' },
-        { label: 'What you can do', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'Trekking, climbing, horseback riding' },
-        { label: 'The Sanctuary', href: `${PORTADA}/el-valle#santuario`, detalle: '11,432.8 ha protected' },
-        { label: "What's at stake", href: `${PORTADA}/el-valle#amenazas`, detalle: 'The threats to the valley' },
+        { label: 'What it is', href: `${PORTADA}/el-valle`, detalle: 'The Cochamó Valley' },
+        { label: 'Where it is', href: `${PORTADA}/el-valle#mapa`, detalle: 'Location' },
+        { label: 'Flora and fauna', href: `${PORTADA}/el-valle#flora-fauna`, detalle: 'Who lives here' },
+        { label: 'Conservation', href: `${PORTADA}/el-valle#santuario`, detalle: 'The Sanctuary' },
+        { label: 'What is at stake', href: `${PORTADA}/el-valle#amenazas`, detalle: 'Threats' },
+        { label: 'Activities', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'What to do' },
       ],
     },
     {
@@ -285,19 +287,19 @@ export const contenido: Contenido = {
     ],
   },
 
-  sectoresEncabezado: {
-    eyebrow: 'Visit',
-    titulo: 'Three sectors, three ways to see the valley',
-    bajada:
-      'All of them must be booked before you arrive. Get informed, plan and prepare: the trail is long, there is a lot of mud and the weather is unpredictable.',
-  },
 
   sectoresDetalle,
 
+  sectoresEncabezado: {
+    eyebrow: 'Visiting',
+    titulo: 'Two sectors, two ways to get to know the valley',
+    bajada:
+      'Both are booked before you arrive. Read up, plan and prepare: the trail is long, there is a lot of mud and the weather is unpredictable.',
+  },
   sectores: [
     {
       id: 'inicio-sendero',
-      nombre: 'Inicio Sendero',
+      nombre: 'Trailhead',
       insignia: 'Trailhead',
       descripcion:
         'The way into the valley begins where the Cochamó River meets the sea. From the bridge you get your first view of Cerro Arcoíris and the native forest.',
@@ -329,23 +331,6 @@ export const contenido: Contenido = {
       },
       cta: { label: 'Explore La Junta', href: '/en/sectores/la-junta', destacado: true },
     },
-    {
-      id: 'lago-vidal',
-      nombre: 'Lago Vidal',
-      insignia: 'Alternative',
-      descripcion:
-        'A cultural identity of its own, tied to the rural gaucho culture of Chilean and Argentine Patagonia. An excellent alternative to the much-visited Cochamó Valley.',
-      datos: [
-        { icono: 'montana', texto: 'Reachable on foot or on horseback' },
-        { icono: 'pin', texto: 'Via the valley, the Argentine border or the east side of Lago Tagua Tagua' },
-        { icono: 'sendero', texto: 'La Herradura circuit' },
-      ],
-      foto: {
-        ...imagenes.arrieros,
-        alt: 'A muleteer on horseback leading a string of loaded mules along the valley trail',
-      },
-      cta: { label: 'Explore Lago Vidal', href: '/en/sectores/lago-vidal' },
-    },
   ],
 
   dondeDormir: {
@@ -376,7 +361,7 @@ export const contenido: Contenido = {
       eyebrow: 'Where it is',
       titulo: 'Get your bearings before you travel',
       bajada:
-        'The valley lies in the commune of Cochamó, Los Lagos Region. From the trailhead, La Junta and Lago Vidal can only be reached on foot or on horseback.',
+        'The valley lies in the commune of Cochamó, Los Lagos Region. From the trailhead, La Junta can only be reached on foot or on horseback.',
     },
     aviso:
       'An orientation map, not a navigation one. The shaded area is the Nature Sanctuary, drawn from OpenStreetMap and for reference only: the official cartography is the one in the decree. There is no phone coverage or emergency service in the valley: bring your own map and compass or GPS.',
@@ -386,7 +371,7 @@ export const contenido: Contenido = {
   puntosMapa: [
     {
       id: 'inicio-sendero',
-      nombre: 'Inicio Sendero',
+      nombre: 'Visitor Centre',
       tipo: 'sector',
       lat: -41.455073,
       lon: -72.219495,
@@ -401,15 +386,6 @@ export const contenido: Contenido = {
       lon: -72.126878,
       descripcion: 'The valley’s tourism hub, 13 km from the trailhead. Campsites and lodging.',
       enlace: { label: 'Where to stay', href: `${PORTADA}/sectores/la-junta#dormir` },
-    },
-    {
-      id: 'lago-vidal',
-      nombre: 'Lago Vidal Gormaz',
-      tipo: 'sector',
-      lat: -41.483506,
-      lon: -71.940878,
-      descripcion: 'An alternative to the main valley, with a rural gaucho identity of its own.',
-      enlace: { label: 'Where to stay', href: `${PORTADA}/sectores/lago-vidal#dormir` },
     },
     {
       id: 'cochamo',
@@ -450,6 +426,46 @@ export const contenido: Contenido = {
       lat: -41.403194,
       lon: -72.119583,
       descripcion: 'A sector of walls north of the La Junta river, with an open view over the valley.',
+    },
+    {
+      id: 'puerto-varas',
+      nombre: 'Puerto Varas',
+      tipo: 'referencia',
+      lat: -41.317802,
+      lon: -72.982907,
+      descripcion: 'The nearest city with an airport and bus terminal. Cochamó is reached from here.',
+    },
+    {
+      id: 'mapa-camping-la-junta',
+      nombre: 'Camping La Junta',
+      tipo: 'camping',
+      lat: -41.412074,
+      lon: -72.12758,
+      descripcion: 'Accommodation in the La Junta sector, booking required.',
+    },
+    {
+      id: 'mapa-playa-los-manzanos',
+      nombre: 'Playa Los Manzanos',
+      tipo: 'camping',
+      lat: -41.419148,
+      lon: -72.14301,
+      descripcion: 'Accommodation in the La Junta sector, booking required.',
+    },
+    {
+      id: 'mapa-vista-hermosa',
+      nombre: 'Vista Hermosa',
+      tipo: 'camping',
+      lat: -41.412606,
+      lon: -72.121787,
+      descripcion: 'Accommodation in the La Junta sector, booking required.',
+    },
+    {
+      id: 'mapa-refugio-cochamo',
+      nombre: 'Refugio Cochamó',
+      tipo: 'camping',
+      lat: -41.412549,
+      lon: -72.122871,
+      descripcion: 'Accommodation in the La Junta sector, booking required.',
     },
   ],
 
@@ -542,7 +558,7 @@ export const contenido: Contenido = {
     {
       titulo: 'Choose a sector and dates',
       texto:
-        'Inicio Sendero, La Junta or Lago Vidal. At La Junta you choose between the Playa Los Manzanos, Vista Hermosa and La Junta campsites.',
+        'Inicio Sendero or La Junta. At La Junta you choose between the Playa Los Manzanos, Vista Hermosa and La Junta campsites.',
     },
     {
       titulo: 'Confirm your booking',
@@ -560,11 +576,11 @@ export const contenido: Contenido = {
 
   santuario: {
     eyebrow: 'Conservation',
-    titulo: 'A Nature Sanctuary for the Cochamó Valley',
+    titulo: 'The sanctuary',
     bajada:
-      'Since 29 January 2024, 11,432.8 hectares of the valley are a Nature Sanctuary by decree of the Ministry of the Environment. More than 98% is state-owned land; the rest, private estates that joined voluntarily.',
+      'The Cochamó Valley has been a Nature Sanctuary since 2024, a status that protects more than 11,400 hectares of ancient forest, rivers, mountains and biodiversity.',
     parrafo:
-      'A sanctuary recognises the environmental values of the territory without expropriating anyone or closing the valley: life and the activities of always carry on. What changes is that no works or activity that would alter the natural state of the place can go ahead without prior authorisation, and that hunting is banned. Administration was placed in the hands of the valley’s own organisation.',
+      'This major achievement is the fruit of joint work by local communities and organisations committed to its conservation, seeking to safeguard not only its natural heritage but also the traditions and ways of life that give it its identity. Because protecting Cochamó also means preserving its history and its future.',
     hectareas: '11,432.8',
     hectareasPie: 'hectares protected',
     foto: {
@@ -586,31 +602,33 @@ export const contenido: Contenido = {
   ],
 
   loQueEstaEnJuego: {
-    eyebrow: 'The threats never stopped',
-    titulo: 'What’s at stake',
+    eyebrow: 'What is at stake',
+    titulo: 'That Cochamó keeps being Cochamó',
     bajada:
-      'People call the valley “the Yosemite of South America”. The question is whether we want it to end up like Yosemite, or to stay Cochamó.',
-    cta: { label: 'Read about conservation', href: externos.conservacion },
+      'They call it the “Yosemite of South America”. But its real value is not in resembling somewhere else: it is in everything that makes it unique. Despite the progress in its conservation, the valley still faces threats to its ecosystems, its landscapes and the traditions of those who live there.',
+    cierre: 'Protecting Cochamó means making sure its future does not compromise what makes it extraordinary.',
+    cta: { label: 'Find out more', href: externos.conservacion },
+    ctaProteger: { label: 'Protect the valley', href: `${PORTADA}/como-ayudar#donaciones` },
   },
 
   amenazas: [
     {
       icono: 'camino',
-      titulo: 'A road creeping closer',
+      titulo: 'A road that threatens its essence',
       texto:
-        'This is the most urgent threat. It is driven by the same developers who cleared forest in the neighbouring El Manso valley. A road would end the living tradition of the muleteers and bring pollution and fire risk.',
+        'The possible construction of a vehicle road threatens to transform the valley, altering its ecosystems, increasing the risk of fire and endangering the tradition of the arrieros, a fundamental part of its cultural identity.',
     },
     {
       icono: 'edificio',
-      titulo: 'Real-estate pressure',
+      titulo: 'Property pressure and development projects',
       texto:
-        'Investors with real-estate ambitions and hydroelectric projects keep targeting the Cochamó and the Puelo, affecting rural communities and biodiversity.',
+        'Property interest and hydroelectric projects put pressure on the territory, threatening its landscapes, its biodiversity and the ways of life of local communities.',
     },
     {
       icono: 'gente',
-      titulo: 'Unregulated tourism',
+      titulo: 'Unplanned tourism',
       texto:
-        'Rapid growth brought waste problems, impact on flora and fauna, more accidents, water pollution and fire risk. It needs long-term planning.',
+        'More visitors, without proper management, can bring pollution, waste build-up, damage to flora and fauna and a greater risk of fire. Responsible tourism is essential to conserving the valley.',
     },
   ],
 
@@ -725,7 +743,7 @@ export const contenido: Contenido = {
   quienesSomosPagina: nuevo.quienesSomosPagina,
   rasgos: nuevo.rasgos,
   floraFauna: nuevo.floraFauna,
-  especies: nuevo.especies,
+  gruposEspecies: nuevo.gruposEspecies,
   queHacer: nuevo.queHacer,
   actividades: nuevo.actividades,
   impacto: nuevo.impacto,

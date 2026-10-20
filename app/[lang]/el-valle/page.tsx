@@ -39,20 +39,25 @@ export default async function PaginaElValle({ params }: PageProps<'/[lang]/el-va
         lang={lang}
         eyebrow={elVallePagina.eyebrow}
         titulo={elVallePagina.titulo}
-        intro={[elVallePagina.bajada]}
-        foto={imagenes.heroAnterior}
+        intro={[elVallePagina.bajada, elVallePagina.cierre]}
+        foto={imagenes.hero}
         alt={textos.fotoElValle}
       >
-          <Boton href={`/${lang}/como-visitar`} variante="oro">
-            {textos.verComoVisitar}
-          </Boton>
+        <Boton href={elVallePagina.cta1.href} variante="oro">
+          {elVallePagina.cta1.label}
+        </Boton>
+        <Boton href={elVallePagina.cta2.href} variante="fantasma">
+          {elVallePagina.cta2.label}
+        </Boton>
       </PaginaHero>
 
+      {/* El orden es el del desplegable: dónde queda, quién vive aquí, qué
+          lo protege, qué lo amenaza y qué se puede hacer. */}
       <Mapa lang={lang} />
       <FloraFauna lang={lang} />
-      <QueHacer lang={lang} />
       <Santuario lang={lang} />
       <Amenazas lang={lang} />
+      <QueHacer lang={lang} />
     </>
   )
 }
