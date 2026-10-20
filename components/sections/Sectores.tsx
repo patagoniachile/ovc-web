@@ -6,15 +6,16 @@ import { getContenido, type Lang } from '@/content'
 
 export function Sectores({ lang }: { lang: Lang }) {
   const { sectores, sectoresEncabezado } = getContenido(lang)
+  const conPrincipal = sectores.some((s) => s.principal)
 
   return (
     <section className="seccion seccion--alt" id="sectores">
       <div className="contenedor">
         <SectionHeader className="revelar" {...sectoresEncabezado} />
 
-        <div className="sectores">
+        <div className={conPrincipal ? 'sectores sectores--con-principal' : 'sectores'}>
           {sectores.map((sector) => (
-            <article className="sector revelar" key={sector.id}>
+            <article className={sector.principal ? 'sector sector--principal revelar' : 'sector revelar'} key={sector.id}>
               <div className="sector__media">
                 <Image
                   src={sector.foto.src}

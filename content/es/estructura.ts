@@ -144,21 +144,23 @@ export const cuantoCuesta = {
     'No hay una entrada única al valle. Cada alojamiento y cada servicio los cobra directamente quien los presta, que en casi todos los casos es una familia del valle.',
   costos: [
     {
-      concepto: 'Entrada al valle',
-      valor: 'Sin cobro',
-      detalle: 'Lo obligatorio es la reserva y el registro, no un ticket. Recuerda: sin reserva no hay ingreso.',
-      destacado: true,
+      concepto: 'Entrada',
+      valor: '$4.000',
+      unidad: 'aporte sugerido',
+      detalle: 'Es voluntario y va directo al cuidado del valle. Si vas por el día no necesitas reserva; para pasar la noche, sí.',
+      opcional: true,
     },
     {
       concepto: 'Alojamiento',
-      valor: 'Según el operador',
+      valor: 'Según cada camping o refugio',
       detalle: 'Cada camping, refugio y hospedaje fija su tarifa. Tienes el contacto directo de los 15 en las páginas de cada sector.',
+      enlace: { label: 'Ver más', href: `${PORTADA}/como-visitar#dormir` },
     },
     {
       concepto: 'Pilchero (carga)',
-      valor: '$45.000',
+      valor: '$45.000*',
       unidad: 'por día y caballo',
-      detalle: 'Ida y vuelta son $90.000. Máximo 60 kg repartidos en dos sacos iguales. Pago en efectivo al inicio del sendero.',
+      detalle: 'Ida y vuelta son $90.000. Máximo 60 kg repartidos en dos sacos iguales. Pago en efectivo al inicio del sendero. *Precio a octubre 2026; confírmalo con los contactos directos.',
       opcional: true,
     },
     {
@@ -166,11 +168,6 @@ export const cuantoCuesta = {
       valor: 'Consultar',
       detalle: 'Consultar con la agrupación. Máximo 10 kg de equipaje extra por persona. Avisa si pesas más de 85 kg para que elijan un caballo adecuado.',
       opcional: true,
-    },
-    {
-      concepto: 'Donación a la corporación',
-      valor: 'Voluntaria',
-      detalle: 'Aporte opcional para cuidar el valle. Abajo ves cómo se reparte.',
     },
   ] satisfies Costo[],
   nota:
@@ -184,17 +181,21 @@ export const diaVsSemana = {
   modalidades: [
     {
       titulo: 'Ir por el día',
-      resumen: 'Subir a La Junta y volver el mismo día. Largo y difícil: no es un paseo.',
+      resumen: 'Subir a La Junta y volver el mismo día, sin reserva. Largo y difícil: no es un paseo.',
       paraQuien: 'Para quien tiene buen estado físico, parte temprano y acepta caminar casi todo el día.',
     },
     {
       titulo: 'Quedarse en La Junta',
-      resumen: 'Reservar camping y usar el valle como base durante varios días.',
+      resumen: 'Reservar camping (obligatorio) y usar el valle como base durante varios días.',
       paraQuien: 'Para quien quiere conocer el valle de verdad: los valles de altura y la escalada necesitan días, no horas.',
       destacada: true,
     },
   ] satisfies Modalidad[],
   filas: [
+    {
+      etiqueta: 'Reserva',
+      valores: ['No necesitas', 'Obligatoria'],
+    },
     {
       etiqueta: 'Horario de ingreso',
       valores: ['7:00 a 9:00 h, sin excepción', '7:00 a 15:00 h (8:00 a 14:00 en marzo y abril)'],
@@ -262,9 +263,9 @@ export const quienesSomosPagina = {
 
 export const reservarPagina = {
   eyebrow: 'Reservar',
-  titulo: 'Asegura tu lugar antes de subir',
+  titulo: 'Reserva tu lugar. Ayuda a cuidar el Valle.',
   bajada:
-    'Desde 2016 hay que reservar para entrar al sector La Junta. No es un trámite: es lo que permite respetar la capacidad de carga del sendero y de los campings.',
+    'El Valle Cochamó es un territorio natural y cultural único, con una capacidad de visita que debemos respetar. Las reservas permiten ordenar el ingreso y reducir la presión sobre sus senderos, campings y ecosistemas.',
   intro:
     'Cada alojamiento lo gestiona una familia del valle y se reserva directamente con ella. Abajo están los tres sectores y los quince lugares donde dormir, con su contacto.',
   tituloSectores: 'Elige tu sector',

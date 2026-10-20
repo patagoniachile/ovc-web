@@ -1,3 +1,4 @@
+import { EnlaceFlecha } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getContenido, type IconName, type Lang, type TipoContacto } from '@/content'
@@ -78,13 +79,11 @@ export function ComoLlegar({ lang }: { lang: Lang }) {
 /**
  * Qué se paga y a quién.
  *
- * La entrada va primero y destacada porque «¿cuánto cuesta entrar?» es la
- * pregunta con la que llega casi todo el mundo, y la respuesta —nada— se
- * perdía en una lista donde todas las filas pesaban igual.
+ * La entrada va primero porque «¿cuánto cuesta entrar?» es la pregunta con
+ * la que llega casi todo el mundo.
  */
 export function CuantoCuesta({ lang }: { lang: Lang }) {
-  const { cuantoCuesta, porQueReservar, textos } = getContenido(lang)
-  const { reparto } = porQueReservar
+  const { cuantoCuesta, textos } = getContenido(lang)
 
   return (
     <section className="seccion seccion--alt" id="cuanto-cuesta">
@@ -108,32 +107,10 @@ export function CuantoCuesta({ lang }: { lang: Lang }) {
                 {costo.unidad && <small>{costo.unidad}</small>}
               </p>
               <p className="precio__detalle">{costo.detalle}</p>
+              {costo.enlace && <EnlaceFlecha href={costo.enlace.href}>{costo.enlace.label}</EnlaceFlecha>}
             </li>
           ))}
         </ul>
-
-        <div className="reparto reparto--claro revelar">
-          <p className="reparto__titulo">{textos.repartoDonacion}</p>
-          <div className="reparto__barra" role="img" aria-label={reparto.etiquetaGrafico}>
-            <span />
-            <span />
-          </div>
-          <ul className="reparto__leyenda">
-            <li>
-              <span className="reparto__punto reparto__punto--bosque" />
-              {reparto.conservacion}
-            </li>
-            <li>
-              <span className="reparto__punto reparto__punto--oro" />
-              {reparto.infraestructura}
-            </li>
-          </ul>
-        </div>
-
-        <p className="costos__nota revelar">
-          <Icon name="alerta" />
-          {cuantoCuesta.nota}
-        </p>
       </div>
     </section>
   )

@@ -64,6 +64,8 @@ export interface Sector {
   datos: { icono: IconName; texto: string }[]
   foto: Foto
   cta: { label: string; href: string; destacado?: boolean }
+  /** El sector al que va casi todo el mundo: se muestra grande y primero. */
+  principal?: boolean
 }
 
 export interface Ficha {
@@ -227,6 +229,7 @@ export interface Costo {
   destacado?: boolean
   /** Servicios que se contratan si se quieren, no para entrar al valle. */
   opcional?: boolean
+  enlace?: Enlace
 }
 
 /** Una vía para aportar dinero. */
