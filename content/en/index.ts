@@ -56,14 +56,11 @@ export const contenido: Contenido = {
     comoAyudar: 'How to help',
     hazteSocioCorto: 'Member',
     conocerHistoria: 'Read our story',
-    enCurso: 'In progress',
-    logrado: 'Completed',
     nombre: 'Name',
     correo: 'Email address',
     suscribirme: 'Subscribe',
-    faltaNombre: 'Tell us your name so we can greet you properly.',
     correoInvalido: 'Please check your email address: something seems to be missing.',
-    graciasPorSuscribirte: (nombre) => `Thanks, ${nombre}! We'll be in touch soon.`,
+    graciasPorSuscribirte: "Thanks! We'll be in touch soon.",
     repartoDonacion: 'How your donation is split',
     directorioAmpliado: 'Members of the extended board',
     pagoSeguroPor: 'Secure payment processed by',
@@ -104,7 +101,6 @@ export const contenido: Contenido = {
     errorEnvio: 'We could not send the form. Write to us directly at',
     camposRequeridos: 'Please fill in your name and a valid email address.',
     correoDirecto: 'Or write to us at',
-    quieroIr: 'I want to go',
     conocerElValle: 'Explore the valley',
     comoVisitar: 'How to visit',
     flora: 'Flora',
@@ -116,6 +112,18 @@ export const contenido: Contenido = {
   },
 
   menu: [
+    {
+      label: 'How to visit',
+      href: `${PORTADA}/como-visitar`,
+      items: [
+        { label: 'Getting here', href: `${PORTADA}/como-visitar#como-llegar`, detalle: 'By car or by bus' },
+        { label: 'Where to stay', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Places to sleep in the valley' },
+        { label: 'What it costs', href: `${PORTADA}/como-visitar#cuanto-cuesta`, detalle: 'What you pay and to whom' },
+        { label: 'Day trip vs. several days', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Two different trips' },
+        { label: 'What to know', href: `${PORTADA}/como-visitar#normas`, detalle: 'Rules and safety' },
+        { label: 'Times and contact', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Entry windows and who to ask' },
+      ],
+    },
     {
       label: 'The Valley',
       href: `${PORTADA}/el-valle`,
@@ -129,15 +137,11 @@ export const contenido: Contenido = {
       ],
     },
     {
-      label: 'How to visit',
-      href: `${PORTADA}/como-visitar`,
+      label: 'News',
+      href: externos.noticias,
       items: [
-        { label: 'Getting here', href: `${PORTADA}/como-visitar#como-llegar`, detalle: 'By car or by bus' },
-        { label: 'Where to stay', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Places to sleep in the valley' },
-        { label: 'What it costs', href: `${PORTADA}/como-visitar#cuanto-cuesta`, detalle: 'What you pay and to whom' },
-        { label: 'Day trip vs. several days', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Two different trips' },
-        { label: 'What to know', href: `${PORTADA}/como-visitar#normas`, detalle: 'Rules and safety' },
-        { label: 'Times and contact', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Entry windows and who to ask' },
+        { label: 'Latest news', href: externos.noticias, detalle: 'What is new in the valley' },
+        { label: 'Instagram', href: externos.instagram, detalle: '@org.vallecochamo' },
       ],
     },
     {
@@ -188,7 +192,9 @@ export const contenido: Contenido = {
   hero: {
     titulo: ['Cochamó, a story', 'we are still building'],
     bajada:
-      'The Cochamó Valley is shared ground: much of it is private land whose owners opened the way in so you can get to know it. Since 2023 it has been a Nature Sanctuary, and its protection depends on all of us looking after it: book ahead, stay on the trails and leave the place better than you found it.',
+      'A valley of extraordinary nature, history and community. Learn about the work we do to look after this land and find out how to visit it responsibly.',
+    visitar: { label: 'Plan your visit', href: `${PORTADA}/como-visitar` },
+    conocer: { label: 'Explore the valley', href: '#el-valle' },
     alt: 'Granite walls of the Cochamó Valley with the valley’s native forest in the background',
   },
 
@@ -671,10 +677,11 @@ export const contenido: Contenido = {
   llamadoProyectos: {
     titulo: 'Want to see them happen?',
     texto: 'These projects are funded by donations and by the contributions of members.',
-    cta: { label: 'Contribute', href: `${PORTADA}/como-ayudar#donaciones` },
+    cta: { label: 'Donate', href: `${PORTADA}/como-ayudar#donaciones` },
   },
 
   logrosEncabezado: { eyebrow: 'What we have achieved', titulo: 'Work already standing in the valley' },
+  logrosPortadaTitulo: 'Other completed projects',
 
   logros: [
     {
@@ -687,7 +694,7 @@ export const contenido: Contenido = {
     },
     {
       icono: 'edificio',
-      label: 'Visitor Centre',
+      label: 'Visitor centre',
       texto: 'Where everyone entering the valley registers, gets information and asks what they need before heading up.',
       href: `${PORTADA}/obras/centro-de-visitantes`,
       imagen: 'logroCentroVisitantes',
@@ -702,20 +709,20 @@ export const contenido: Contenido = {
       alt: 'Newly built wooden boardwalk over a wet stretch of trail',
     },
     {
-      icono: 'cartel',
-      label: 'Signage',
-      texto: 'Welcome and wayfinding signs, so nobody has to guess which way to go.',
-      href: `${PORTADA}/obras/senaletica`,
-      imagen: 'logroSenaletica',
-      alt: 'Welcome sign for the Cochamó Valley beside the road',
-    },
-    {
       icono: 'hoja',
       label: 'Recycling centre',
       texto: 'Separated bins at the entrance: whatever comes into the valley has to leave again.',
       href: `${PORTADA}/obras/centro-de-reciclaje`,
       imagen: 'logroReciclaje',
       alt: 'A visitor putting a bottle into the recycling bins',
+    },
+    {
+      icono: 'cartel',
+      label: 'New signage',
+      texto: 'Welcome and wayfinding signs, so nobody has to guess which way to go.',
+      href: `${PORTADA}/obras/senaletica`,
+      imagen: 'logroSenaletica',
+      alt: 'Welcome sign for the Cochamó Valley beside the road',
     },
     {
       icono: 'montana',
@@ -728,9 +735,11 @@ export const contenido: Contenido = {
   ],
 
   boletin: {
-    titulo: 'Hear about it first',
-    texto: 'Sanctuary news, project updates and seasonal notices. No spam, just a few times a year.',
-    nota: 'By subscribing you agree to receive emails from Corporación Valle Cochamó.',
+    titulo: 'Staying informed is also a way to help',
+    texto:
+      'Subscribe for news from the valley, upcoming volunteering, activities, programmes and conservation projects. That way you can follow this community’s impact closely and find new ways to get involved in looking after Cochamó.',
+    ejemploCorreo: 'example@email.com',
+    alt: 'The valley seen from above, between granite walls',
   },
 
   aliadosEncabezado: { eyebrow: 'Partners', titulo: 'Those walking alongside us' },

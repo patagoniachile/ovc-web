@@ -47,14 +47,11 @@ export const contenido: Contenido = {
     comoAyudar: 'Cómo ayudar',
     hazteSocioCorto: 'Socio',
     conocerHistoria: 'Conoce nuestra historia',
-    enCurso: 'En curso',
-    logrado: 'Logrado',
     nombre: 'Nombre',
     correo: 'Correo electrónico',
-    suscribirme: 'Suscribirme',
-    faltaNombre: 'Cuéntanos tu nombre para saludarte bien.',
+    suscribirme: 'Suscribirse',
     correoInvalido: 'Revisa tu correo: parece que falta algo.',
-    graciasPorSuscribirte: (nombre) => `¡Gracias, ${nombre}! Te escribiremos pronto.`,
+    graciasPorSuscribirte: '¡Gracias! Te escribiremos pronto.',
     repartoDonacion: 'Cómo se reparte tu donación',
     directorioAmpliado: 'Integrantes del directorio ampliado',
     pagoSeguroPor: 'Pago seguro procesado por',
@@ -95,8 +92,7 @@ export const contenido: Contenido = {
     errorEnvio: 'No pudimos enviar el formulario. Escríbenos directo a',
     camposRequeridos: 'Completa tu nombre y un correo válido.',
     correoDirecto: 'O escríbenos a',
-    quieroIr: 'Quiero ir',
-    conocerElValle: 'Conocer el valle',
+    conocerElValle: 'Conoce el valle',
     comoVisitar: 'Cómo visitar',
     flora: 'Flora',
     fauna: 'Fauna',
@@ -107,6 +103,18 @@ export const contenido: Contenido = {
   },
 
   menu: [
+    {
+      label: 'Cómo visitar',
+      href: `${PORTADA}/como-visitar`,
+      items: [
+        { label: 'Cómo llegar', href: `${PORTADA}/como-visitar#como-llegar`, detalle: 'En auto o en bus' },
+        { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Los alojamientos del valle' },
+        { label: 'Cuánto cuesta', href: `${PORTADA}/como-visitar#cuanto-cuesta`, detalle: 'Qué se paga y a quién' },
+        { label: 'Día vs. varios días', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Dos viajes distintos' },
+        { label: 'Qué debo saber', href: `${PORTADA}/como-visitar#normas`, detalle: 'Normas y seguridad' },
+        { label: 'Horarios y contacto', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Ingresos y a quién escribir' },
+      ],
+    },
     {
       label: 'El Valle',
       href: `${PORTADA}/el-valle`,
@@ -120,15 +128,11 @@ export const contenido: Contenido = {
       ],
     },
     {
-      label: 'Cómo visitar',
-      href: `${PORTADA}/como-visitar`,
+      label: 'Noticias',
+      href: externos.noticias,
       items: [
-        { label: 'Cómo llegar', href: `${PORTADA}/como-visitar#como-llegar`, detalle: 'En auto o en bus' },
-        { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Los alojamientos del valle' },
-        { label: 'Cuánto cuesta', href: `${PORTADA}/como-visitar#cuanto-cuesta`, detalle: 'Qué se paga y a quién' },
-        { label: 'Día vs. varios días', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Dos viajes distintos' },
-        { label: 'Qué debo saber', href: `${PORTADA}/como-visitar#normas`, detalle: 'Normas y seguridad' },
-        { label: 'Horarios y contacto', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Ingresos y a quién escribir' },
+        { label: 'Últimas noticias', href: externos.noticias, detalle: 'Novedades del valle' },
+        { label: 'Instagram', href: externos.instagram, detalle: '@org.vallecochamo' },
       ],
     },
     {
@@ -177,9 +181,11 @@ export const contenido: Contenido = {
   ],
 
   hero: {
-    titulo: ['Cochamó, una historia', 'que seguimos construyendo'],
+    titulo: ['Cochamó, una historia que', 'seguimos construyendo'],
     bajada:
-      'El Valle Cochamó es un territorio compartido: gran parte son tierras privadas cuyos dueños abrieron el acceso para que puedas conocerlo. Desde 2023 es Santuario de la Naturaleza, y su protección depende de que lo cuidemos entre todos: reserva, respeta los senderos y deja el lugar mejor de lo que lo encontraste.',
+      'Un valle de naturaleza extraordinaria, historia y comunidad. Conoce el trabajo que hacemos para cuidar este territorio y descubre cómo visitarlo de manera responsable.',
+    visitar: { label: 'Planifica tu visita', href: `${PORTADA}/como-visitar` },
+    conocer: { label: 'Conoce el valle', href: '#el-valle' },
     alt: 'Paredes de granito del Valle Cochamó con el bosque nativo del valle al fondo',
   },
 
@@ -663,10 +669,11 @@ export const contenido: Contenido = {
   llamadoProyectos: {
     titulo: '¿Quieres que ocurran?',
     texto: 'Estos proyectos se financian con donaciones y con el aporte de socios y socias.',
-    cta: { label: 'Aportar', href: `${PORTADA}/como-ayudar#donaciones` },
+    cta: { label: 'Donar', href: `${PORTADA}/como-ayudar#donaciones` },
   },
 
   logrosEncabezado: { eyebrow: 'Lo que hemos logrado', titulo: 'Obras que ya están en el valle' },
+  logrosPortadaTitulo: 'Otros proyectos realizados',
 
   logros: [
     {
@@ -679,7 +686,7 @@ export const contenido: Contenido = {
     },
     {
       icono: 'edificio',
-      label: 'Centro de Visitantes',
+      label: 'Centro de visitantes',
       texto: 'El punto donde se registra quien entra al valle, se informa y se resuelven dudas antes de subir.',
       href: `${PORTADA}/obras/centro-de-visitantes`,
       imagen: 'logroCentroVisitantes',
@@ -687,19 +694,11 @@ export const contenido: Contenido = {
     },
     {
       icono: 'sendero',
-      label: 'Trabajos de senderos',
+      label: 'Trabajo en senderos',
       texto: 'Pasarelas y drenajes sobre los tramos que el barro y el agua estaban deshaciendo.',
       href: `${PORTADA}/obras/trabajos-de-senderos`,
       imagen: 'logroSenderos',
       alt: 'Pasarela de madera recién construida sobre un tramo húmedo del sendero',
-    },
-    {
-      icono: 'cartel',
-      label: 'Señalética',
-      texto: 'Carteles de bienvenida y de ruta, para que nadie tenga que adivinar por dónde va.',
-      href: `${PORTADA}/obras/senaletica`,
-      imagen: 'logroSenaletica',
-      alt: 'Cartel de bienvenida al Valle Cochamó junto al camino',
     },
     {
       icono: 'hoja',
@@ -708,6 +707,14 @@ export const contenido: Contenido = {
       href: `${PORTADA}/obras/centro-de-reciclaje`,
       imagen: 'logroReciclaje',
       alt: 'Visitante depositando una botella en los contenedores de reciclaje',
+    },
+    {
+      icono: 'cartel',
+      label: 'Nuevas señaléticas',
+      texto: 'Carteles de bienvenida y de ruta, para que nadie tenga que adivinar por dónde va.',
+      href: `${PORTADA}/obras/senaletica`,
+      imagen: 'logroSenaletica',
+      alt: 'Cartel de bienvenida al Valle Cochamó junto al camino',
     },
     {
       icono: 'montana',
@@ -720,9 +727,11 @@ export const contenido: Contenido = {
   ],
 
   boletin: {
-    titulo: 'Entérate antes que nadie',
-    texto: 'Noticias del santuario, avances de los proyectos y avisos de temporada. Sin spam, pocas veces al año.',
-    nota: 'Al suscribirte aceptas recibir correos de la Corporación Valle Cochamó.',
+    titulo: 'Mantenerse informado también es una forma de ayudar',
+    texto:
+      'Suscríbete para recibir noticias del valle, próximos voluntariados, actividades, programas y proyectos de conservación. Así podrás seguir de cerca el impacto de esta comunidad y encontrar nuevas maneras de involucrarte en el cuidado de Cochamó.',
+    ejemploCorreo: 'ejemplo@correo.com',
+    alt: 'El valle visto desde lo alto, entre paredes de granito',
   },
 
   aliadosEncabezado: { eyebrow: 'Colaboradores', titulo: 'Quienes caminan con nosotros' },

@@ -3,8 +3,47 @@ import { Boton, esExterno } from '@/components/ui/Boton'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getContenido, imagenes, type Lang } from '@/content'
 
-export function Proyectos({ lang, modo }: { lang: Lang; modo: 'desafios' | 'logros' }) {
-  const { introProyectos, llamadoProyectos, logros, logrosEncabezado, proyectos, textos } = getContenido(lang)
+export function Proyectos({ lang, modo }: { lang: Lang; modo: 'desafios' | 'logros' | 'portada' }) {
+  const { introProyectos, llamadoProyectos, logroImportante, logros, logrosEncabezado, logrosPortadaTitulo, proyectos, textos } =
+    getContenido(lang)
+
+  /*
+   * En la portada las obras van en una fila que se desliza, montada a medias
+   * sobre la franja verde. El santuario no entra: ya tiene su tarjeta propia
+   * justo arriba, en Impacto, y por eso el título habla de "otros" proyectos.
+   */
+  if (modo === 'portada') {
+    return (
+      <section className="obras" id="logros">
+        <div className="contenedor">
+          <h2 className="obras__titulo revelar">{logrosPortadaTitulo}</h2>
+
+          <div className="obras__pista">
+            {logros
+              .filter((logro) => logro.href !== logroImportante.cta.href)
+              .map((logro) => {
+                const foto = imagenes[logro.imagen]
+                return (
+                  <a
+                    className="obra"
+                    key={logro.label}
+                    href={logro.href}
+                    {...(esExterno(logro.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    <span className="obra__foto">
+                      <Image src={foto.src} alt={logro.alt} width={foto.width} height={foto.height} sizes="260px" />
+                    </span>
+                    <strong>{logro.label}</strong>
+                    <span className="obra__texto">{logro.texto}</span>
+                    <span className="obra__mas">{textos.verMas}</span>
+                  </a>
+                )
+              })}
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   if (modo === 'logros') {
     return (
@@ -53,9 +92,6 @@ export function Proyectos({ lang, modo }: { lang: Lang; modo: 'desafios' | 'logr
         <div className="proyectos">
           {proyectos.map((proyecto) => (
             <article className="proyecto revelar" key={proyecto.titulo}>
-              <span className={`proyecto__estado estado--${proyecto.estado}`}>
-                {proyecto.estado === 'activo' ? textos.enCurso : textos.logrado}
-              </span>
               <h3>{proyecto.titulo}</h3>
               <p>{proyecto.texto}</p>
             </article>
@@ -64,7 +100,7 @@ export function Proyectos({ lang, modo }: { lang: Lang; modo: 'desafios' | 'logr
           <article className="proyecto proyecto--llamado revelar">
             <h3>{llamadoProyectos.titulo}</h3>
             <p>{llamadoProyectos.texto}</p>
-            <Boton href={llamadoProyectos.cta.href} variante="fuego" pequeno>
+            <Boton href={llamadoProyectos.cta.href} pequeno>
               {llamadoProyectos.cta.label}
             </Boton>
           </article>

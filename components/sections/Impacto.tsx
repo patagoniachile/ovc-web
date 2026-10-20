@@ -1,22 +1,23 @@
+import Image from 'next/image'
 import { Boton } from '@/components/ui/Boton'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { getContenido, type Lang } from '@/content'
+import { getContenido, imagenes, type Lang } from '@/content'
 
-/** Logro principal + misión y visión. */
+/** El logro principal, el santuario, en una tarjeta con su foto. */
 export function Impacto({ lang }: { lang: Lang }) {
   const { impacto, logroImportante } = getContenido(lang)
+  const foto = imagenes[logroImportante.imagen]
 
   return (
     <section className="seccion" id="impacto">
       <div className="contenedor">
-        <SectionHeader className="revelar" {...impacto} />
+        <SectionHeader className="revelar" centrado {...impacto} />
 
         <div className="logro-destacado revelar">
-          <p className="logro-destacado__cifra">
-            {logroImportante.cifra}
-            <small>{logroImportante.unidad}</small>
-          </p>
-          <div>
+          <div className="logro-destacado__foto">
+            <Image src={foto.src} alt={logroImportante.alt} width={foto.width} height={foto.height} sizes="(max-width: 700px) 90vw, 290px" />
+          </div>
+          <div className="logro-destacado__cuerpo">
             <h3>{logroImportante.titulo}</h3>
             <p>{logroImportante.texto}</p>
             <Boton className="logro-destacado__cta" href={logroImportante.cta.href} variante="borde">
@@ -24,7 +25,6 @@ export function Impacto({ lang }: { lang: Lang }) {
             </Boton>
           </div>
         </div>
-
       </div>
     </section>
   )

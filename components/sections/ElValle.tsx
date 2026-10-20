@@ -13,7 +13,7 @@ export function ElValle({ lang }: { lang: Lang }) {
   const { elValle, rasgos, textos } = getContenido(lang)
 
   return (
-    <section className="seccion" id="el-valle">
+    <section className="seccion seccion--valle" id="el-valle">
       <div className="contenedor">
         <SectionHeader className="revelar" centrado {...elValle} />
 
@@ -28,7 +28,7 @@ export function ElValle({ lang }: { lang: Lang }) {
                     alt={rasgo.alt ?? ''}
                     width={foto.width}
                     height={foto.height}
-                    sizes="(max-width: 700px) 86vw, 24vw"
+                    sizes="(max-width: 700px) 86vw, 300px"
                   />
                 )}
                 <div className="rasgo__velo" aria-hidden="true" />
@@ -41,8 +41,8 @@ export function ElValle({ lang }: { lang: Lang }) {
           })}
         </div>
 
-        <div className="rasgos__cta revelar">
-          <Boton href={`/${lang}/el-valle`} variante="borde">
+        <div className="rasgos__cta">
+          <Boton href={`/${lang}/el-valle`} variante="fantasma">
             {textos.conocerElValle}
           </Boton>
         </div>

@@ -1,9 +1,17 @@
+'use client'
+
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Icon } from '@/components/ui/Icon'
 import { ETIQUETA_IDIOMA, externos, getContenido, IDIOMAS, type Lang } from '@/content'
 
 export function BarraSuperior({ lang }: { lang: Lang }) {
   const { organizacion } = getContenido(lang)
+  const ruta = usePathname()
+
+  // La portada no la lleva: su cabecera monta directo sobre el hero. El cambio
+  // de idioma sigue a mano en el pie.
+  if (ruta.replace(/\/$/, '') === `/${lang}`) return null
 
   return (
     <div className="barra-superior">

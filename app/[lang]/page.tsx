@@ -25,7 +25,9 @@ export default async function Portada({ params }: PageProps<'/[lang]'>) {
   if (!esIdioma(lang)) notFound()
 
   return (
-    <>
+    // .portada ensancha el contenedor y ajusta la tipografía a la maqueta de la
+    // portada, sin tocar el resto de las páginas.
+    <div className="portada">
       {/* 1 · Hero */}
       <Hero lang={lang} />
 
@@ -33,15 +35,15 @@ export default async function Portada({ params }: PageProps<'/[lang]'>) {
       <ElValle lang={lang} />
       <Cifras lang={lang} />
 
-      {/* 4 · Impacto, con la propuesta de santuario */}
+      {/* 4 · Impacto, con el santuario */}
       <Impacto lang={lang} />
 
       {/* 5 · Lo hecho, y el paso a Cómo ayudar */}
-      <Proyectos lang={lang} modo="logros" />
+      <Proyectos lang={lang} modo="portada" />
       <CierrePortada lang={lang} />
 
       {/* 6 · Boletín */}
       <Boletin lang={lang} />
-    </>
+    </div>
   )
 }

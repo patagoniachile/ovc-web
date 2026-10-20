@@ -6,11 +6,10 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getContenido, type Lang } from '@/content'
 
 /**
- * Mapa de orientación del valle, con su lista de puntos al lado.
+ * Mapa de orientación del valle, con la lista de sus puntos debajo.
  *
- * La lista se renderiza en el HTML: si el mapa no carga —o el visitante tiene
- * el JS desactivado— las coordenadas siguen estando ahí, que es lo que de
- * verdad sirve para planificar.
+ * La lista se renderiza en el HTML, así que los nombres siguen ahí aunque el
+ * mapa no cargue; pulsar uno vuela hasta él y abre su globo.
  */
 export function MapaValle({ lang }: { lang: Lang }) {
   const { mapa, puntosMapa, textos } = getContenido(lang)
@@ -31,6 +30,9 @@ export function MapaValle({ lang }: { lang: Lang }) {
       />
 
       <div className="mapa__panel">
+        {/* Solo los nombres: qué es cada punto se lee en su globo, al pulsarlo
+            en el mapa o aquí. Las cajas con la descripción ocupaban más que
+            el propio mapa. */}
         <ul className="mapa__lista">
           {puntosMapa.map((punto) => (
             <li key={punto.id}>
@@ -41,13 +43,7 @@ export function MapaValle({ lang }: { lang: Lang }) {
                 disabled={!cargado}
               >
                 <span className={`mapa__pin mapa__pin--${punto.tipo}`} aria-hidden="true" />
-                <span>
-                  <strong>{punto.nombre}</strong>
-                  <span className="mapa__descripcion">{punto.descripcion}</span>
-                  <span className="mapa__coords">
-                    {punto.lat.toFixed(4)}, {punto.lon.toFixed(4)}
-                  </span>
-                </span>
+                {punto.nombre}
               </button>
             </li>
           ))}

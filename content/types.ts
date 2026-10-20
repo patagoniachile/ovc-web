@@ -329,14 +329,11 @@ export interface Textos {
   comoAyudar: string
   hazteSocioCorto: string
   conocerHistoria: string
-  enCurso: string
-  logrado: string
   nombre: string
   correo: string
   suscribirme: string
-  faltaNombre: string
   correoInvalido: string
-  graciasPorSuscribirte: (nombre: string) => string
+  graciasPorSuscribirte: string
   repartoDonacion: string
   directorioAmpliado: string
   pagoSeguroPor: string
@@ -377,7 +374,6 @@ export interface Textos {
   errorEnvio: string
   camposRequeridos: string
   correoDirecto: string
-  quieroIr: string
   conocerElValle: string
   comoVisitar: string
   flora: string
@@ -408,6 +404,8 @@ export interface Contenido {
     titulo: string[]
     bajada: string
     alt: string
+    visitar: Enlace
+    conocer: Enlace
   }
   cifrasTitulo: string
   cierrePortada: { titulo: string; destacado: string; donar: Enlace; proyectos: Enlace }
@@ -454,8 +452,10 @@ export interface Contenido {
   proyectos: Proyecto[]
   llamadoProyectos: { titulo: string; texto: string; cta: Enlace }
   logrosEncabezado: Encabezado
+  /** En la portada, tras el santuario: las demás obras */
+  logrosPortadaTitulo: string
   logros: { icono: IconName; label: string; texto: string; href: string; imagen: keyof typeof import('./imagenes').imagenes; alt: string }[]
-  boletin: { titulo: string; texto: string; nota: string }
+  boletin: { titulo: string; texto: string; ejemploCorreo: string; alt: string }
   aliadosEncabezado: Encabezado
   aliados: Aliado[]
 
@@ -475,7 +475,7 @@ export interface Contenido {
   actividades: Actividad[]
 
   impacto: Encabezado
-  logroImportante: { cifra: string; unidad: string; titulo: string; texto: string; cta: Enlace }
+  logroImportante: { imagen: keyof typeof import('./imagenes').imagenes; alt: string; titulo: string; texto: string; cta: Enlace }
   misionVision: { mision: { titulo: string; texto: string }; vision: { titulo: string; texto: string } }
 
   destinoAportes: {

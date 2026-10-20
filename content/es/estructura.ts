@@ -14,7 +14,7 @@ export const heroResumen = [
 ]
 
 export const elValle: Encabezado = {
-  eyebrow: 'El Valle',
+  eyebrow: 'El valle',
   titulo: 'Por qué este valle no se parece a ningún otro',
   bajada:
     'Paredes de granito de mil metros sobre bosque siempreverde, un sendero que los arrieros abrieron hace más de un siglo y una comunidad que decidió cuidarlo antes de que llegara el camino.',
@@ -23,33 +23,29 @@ export const elValle: Encabezado = {
 export const rasgos: Rasgo[] = [
   {
     icono: 'montana',
-    titulo: 'Granito de mil metros',
-    texto:
-      'El Batolito Norpatagónico dejó paredes que los glaciares tallaron durante millones de años. Más de 100 rutas de escalada abiertas y pared para muchas más.',
+    titulo: 'Paredes de granito',
+    texto: 'Paredes escalables que los glaciares tallaron durante millones de años.',
     imagen: 'heroAnterior',
     alt: 'Paredes de granito del valle sobre el bosque',
   },
   {
     icono: 'hoja',
-    titulo: 'Bosque primario intacto',
-    texto:
-      'Cerca de 8.000 hectáreas de alerzales con ejemplares de unos mil años, junto a coihues, mañíos y un sotobosque de musgos y hongos en estado primigenio.',
+    titulo: 'Bosque nativo',
+    texto: 'Cerca de 8.000 hectáreas de alerzales con ejemplares de unos mil años.',
     imagen: 'alerce',
     alt: 'Alerces milenarios en el bosque del valle',
   },
   {
     icono: 'caballo',
-    titulo: 'El Camino Histórico',
-    texto:
-      'La senda que conecta el estuario de Reloncaví con la pampa argentina sigue viva: los arrieros la usan como la usaban sus bisabuelos, con pilcheros y caballos.',
+    titulo: 'Camino histórico',
+    texto: 'Los arrieros la usan como la usaban sus bisabuelos, con pilcheros y caballos.',
     imagen: 'arrieros',
     alt: 'Arrieros con sus caballos en el Camino Histórico',
   },
   {
     icono: 'agua',
-    titulo: 'Agua limpia y cristalina',
-    texto:
-      'Ríos de deshielo, pozones turquesas y cascadas sobre roca pulida. El río Cochamó y sus humedales ribereños son parte de lo que el santuario busca proteger.',
+    titulo: 'Aguas prístinas',
+    texto: 'Ríos de deshielo, pozones turquesas y cascadas sobre roca pulida.',
     imagen: 'cascada',
     alt: 'Cascada sobre roca pulida en el valle',
   },
@@ -60,18 +56,18 @@ export const rasgos: Rasgo[] = [
 
 
 export const impacto: Encabezado = {
-  eyebrow: 'Nuestro impacto',
-  titulo: 'Lo que cambió desde que nos organizamos',
+  eyebrow: 'Impacto',
+  titulo: 'Un valle que cuidamos entre todos',
   bajada: 'Una organización comunitaria, sin fines de lucro, administrando un destino que no tiene dueño único ni presupuesto público.',
 }
 
 export const logroImportante = {
-  cifra: '11.432,8',
-  unidad: 'hectáreas',
+  imagen: 'bosqueDosel' as const,
+  alt: 'El dosel del bosque nativo visto desde abajo',
   titulo: 'El Santuario de la Naturaleza',
   texto:
     'En 2023 se firmó el decreto que protege 11.432,8 hectáreas del valle. Es el mayor logro de la organización, y también el punto donde el trabajo empieza: administrar un santuario es un compromiso que se sostiene cada temporada.',
-  cta: { label: 'Conocer el santuario', href: `${PORTADA}/el-valle#santuario` },
+  cta: { label: 'Conoce el santuario', href: `${PORTADA}/santuario` },
 }
 
 export const misionVision = {

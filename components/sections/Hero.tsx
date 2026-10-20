@@ -1,10 +1,9 @@
 import Image from 'next/image'
 import { Boton } from '@/components/ui/Boton'
-import { Icon } from '@/components/ui/Icon'
 import { getContenido, imagenes, type Lang } from '@/content'
 
 export function Hero({ lang }: { lang: Lang }) {
-  const { hero, textos } = getContenido(lang)
+  const { hero } = getContenido(lang)
 
   return (
     <section className="hero" id="inicio">
@@ -27,17 +26,14 @@ export function Hero({ lang }: { lang: Lang }) {
           <p className="hero__bajada">{hero.bajada}</p>
 
           <div className="hero__acciones">
-            <Boton href={`/${lang}/reservar`} variante="claro">
-              {textos.quieroIr}
-              <Icon name="flecha" />
+            <Boton href={hero.visitar.href} variante="claro">
+              {hero.visitar.label}
             </Boton>
-            <Boton href="#el-valle" variante="fantasma">
-              {textos.conocerElValle}
+            <Boton href={hero.conocer.href} variante="fantasma">
+              {hero.conocer.label}
             </Boton>
           </div>
-
         </div>
-
       </div>
     </section>
   )

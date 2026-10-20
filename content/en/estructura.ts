@@ -13,7 +13,7 @@ export const heroResumen = [
 ]
 
 export const elValle: Encabezado = {
-  eyebrow: 'The Valley',
+  eyebrow: 'The valley',
   titulo: 'Why this valley is like no other',
   bajada:
     'Thousand-metre granite walls above evergreen forest, a trail the muleteers opened more than a century ago, and a community that decided to look after it before the road arrived.',
@@ -22,33 +22,29 @@ export const elValle: Encabezado = {
 export const rasgos: Rasgo[] = [
   {
     icono: 'montana',
-    titulo: 'A thousand metres of granite',
-    texto:
-      'The North Patagonian Batholith left walls that glaciers carved over millions of years. More than 100 climbing routes opened, and rock for many more.',
+    titulo: 'Granite walls',
+    texto: 'Climbable walls that glaciers carved over millions of years.',
     imagen: 'heroAnterior',
     alt: 'The valley’s granite walls above the forest',
   },
   {
     icono: 'hoja',
-    titulo: 'Untouched primary forest',
-    texto:
-      'Close to 8,000 hectares of alerce stands with trees around a thousand years old, alongside coihues, mañíos and an understorey of moss and fungi in its original state.',
+    titulo: 'Native forest',
+    texto: 'Close to 8,000 hectares of alerce stands with trees around a thousand years old.',
     imagen: 'alerce',
     alt: 'Thousand-year-old alerces in the valley’s forest',
   },
   {
     icono: 'caballo',
-    titulo: 'The Historic Road',
-    texto:
-      'The path linking the Reloncaví estuary with the Argentine pampa is still alive: the muleteers use it as their great-grandparents did, with pack horses.',
+    titulo: 'Historic road',
+    texto: 'The muleteers use it as their great-grandparents did, with pack horses.',
     imagen: 'arrieros',
     alt: 'Arrieros with their horses on the historic trail',
   },
   {
     icono: 'agua',
-    titulo: 'Clean, crystal-clear water',
-    texto:
-      'Meltwater rivers, turquoise pools and waterfalls over polished rock. The Cochamó River and its riparian wetlands are part of what the sanctuary aims to protect.',
+    titulo: 'Pristine waters',
+    texto: 'Meltwater rivers, turquoise pools and waterfalls over polished rock.',
     imagen: 'cascada',
     alt: 'A waterfall over polished rock in the valley',
   },
@@ -59,18 +55,18 @@ export const rasgos: Rasgo[] = [
 
 
 export const impacto: Encabezado = {
-  eyebrow: 'Our impact',
-  titulo: 'What changed once we organised',
+  eyebrow: 'Impact',
+  titulo: 'A valley we look after together',
   bajada: 'A non-profit community organisation running a destination with no single owner and no public budget.',
 }
 
 export const logroImportante = {
-  cifra: '11,432.8',
-  unidad: 'hectares',
+  imagen: 'bosqueDosel' as const,
+  alt: 'The native forest canopy seen from below',
   titulo: 'The Nature Sanctuary',
   texto:
     'In 2023 the decree protecting 11,432.8 hectares of the valley was signed. It is the organisation’s greatest achievement, and also where the work begins: running a sanctuary is a commitment kept season after season.',
-  cta: { label: 'About the sanctuary', href: `${PORTADA}/el-valle#santuario` },
+  cta: { label: 'About the sanctuary', href: `${PORTADA}/santuario` },
 }
 
 export const misionVision = {

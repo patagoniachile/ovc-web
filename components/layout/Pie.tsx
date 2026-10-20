@@ -1,7 +1,8 @@
+import Link from 'next/link'
 import { Marca } from './Marca'
 import { Icon } from '@/components/ui/Icon'
 import { esExterno } from '@/components/ui/Boton'
-import { externos, getContenido, type Lang } from '@/content'
+import { ETIQUETA_IDIOMA, externos, getContenido, IDIOMAS, type Lang } from '@/content'
 
 export function Pie({ lang }: { lang: Lang }) {
   const { enlacesPie, organizacion } = getContenido(lang)
@@ -51,6 +52,20 @@ export function Pie({ lang }: { lang: Lang }) {
             <a href={externos.instagram} target="_blank" rel="noopener noreferrer">
               @org.vallecochamo
             </a>
+          </p>
+          {/* También aquí, porque la portada no tiene barra superior */}
+          <p className="idioma">
+            {IDIOMAS.map((codigo) =>
+              codigo === lang ? (
+                <span key={codigo} aria-current="true" lang={codigo}>
+                  {ETIQUETA_IDIOMA[codigo]}
+                </span>
+              ) : (
+                <Link key={codigo} href={`/${codigo}`} lang={codigo} hrefLang={codigo}>
+                  {ETIQUETA_IDIOMA[codigo]}
+                </Link>
+              ),
+            )}
           </p>
         </div>
       </div>

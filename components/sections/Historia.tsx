@@ -2,7 +2,7 @@ import { MapaValle } from '@/components/sections/Mapa'
 import { getContenido, type Lang } from '@/content'
 
 /**
- * La línea de tiempo de la corporación, con el mapa del territorio al lado.
+ * La línea de tiempo de la corporación y, debajo, el mapa del territorio.
  *
  * No repite el encabezado de la página: antes imprimía otra vez el eyebrow,
  * el título y la bajada que ya están arriba, de cuando esto vivía en la
@@ -10,9 +10,8 @@ import { getContenido, type Lang } from '@/content'
  *
  * El mapa va aquí y no en una sección aparte porque la historia nombra
  * sectores —La Junta, los Toboganes, el inicio del sendero— que no le dicen
- * nada a quien no conoce el valle. Teniéndolo a la vista mientras se lee, la
- * línea de tiempo deja de ser una lista de fechas y pasa a ocurrir en algún
- * lugar.
+ * nada a quien no conoce el valle. Va después de los hitos: primero se cuenta
+ * qué pasó y luego se muestra dónde.
  */
 export function Historia({ lang }: { lang: Lang }) {
   const { hitos, introHistoria, textos } = getContenido(lang)
@@ -22,10 +21,6 @@ export function Historia({ lang }: { lang: Lang }) {
       <div className="contenedor">
         <h2 className="historia__titulo revelar">{textos.lineaDeTiempo}</h2>
         <p className="historia__entrada revelar">{introHistoria.entrada}</p>
-
-        <div className="historia__mapa revelar">
-          <MapaValle lang={lang} />
-        </div>
 
         <div className="historia">
           <div className="historia__intro revelar">
@@ -44,6 +39,10 @@ export function Historia({ lang }: { lang: Lang }) {
               </li>
             ))}
           </ol>
+        </div>
+
+        <div className="historia__mapa revelar">
+          <MapaValle lang={lang} />
         </div>
       </div>
     </section>
