@@ -12,8 +12,6 @@ export const externos = {
   voluntariado: 'https://vallecochamo.org/colaborar/#postula',
   colaborar: 'https://vallecochamo.org/colaborar/',
   noticias: 'https://vallecochamo.org/noticias/',
-  conservacion: 'https://vallecochamo.org/conservacion/',
-  santuario: 'https://vallecochamo.org/santuario/',
   centroVisitantes: 'https://vallecochamo.org/centro-de-visitantes/',
   trabajosSenderos: 'https://vallecochamo.org/trabajos-de-senderos/',
   senaletica: 'https://vallecochamo.org/senaletica/',

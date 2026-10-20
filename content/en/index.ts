@@ -362,12 +362,10 @@ export const contenido: Contenido = {
   mapa: {
     encabezado: {
       eyebrow: 'Where it is',
-      titulo: 'Get your bearings before you travel',
+      titulo: 'A hidden corner of northern Patagonia',
       bajada:
-        'The valley lies in the commune of Cochamó, Los Lagos Region. From the trailhead, La Junta can only be reached on foot or on horseback.',
+        'In the Los Lagos Region, deep in the Andes, the Cochamó Valley stands out for its towering granite walls, temperate rainforest and crystal-clear rivers. An extraordinary place that can only be reached on foot or on horseback.',
     },
-    aviso:
-      'An orientation map, not a navigation one. The shaded area is the Nature Sanctuary, drawn from OpenStreetMap and for reference only: the official cartography is the one in the decree. There is no phone coverage or emergency service in the valley: bring your own map and compass or GPS.',
     centroInicial: { lat: -41.4495, lon: -72.115, zoom: 10 },
   },
 
@@ -590,7 +588,7 @@ export const contenido: Contenido = {
       ...imagenes.conservacionLienzos,
       alt: 'Community banners at the entrance to the valley: “We want more protected areas” and “Patagonia without land subdivision”',
     },
-    enlace: { label: 'About the sanctuary', href: externos.santuario },
+    enlace: { label: 'About the sanctuary', href: `${PORTADA}/santuario` },
   },
 
   queProtege: [
@@ -610,7 +608,7 @@ export const contenido: Contenido = {
     bajada:
       'They call it the “Yosemite of South America”. But its real value is not in resembling somewhere else: it is in everything that makes it unique. Despite the progress in its conservation, the valley still faces threats to its ecosystems, its landscapes and the traditions of those who live there.',
     cierre: 'Protecting Cochamó means making sure its future does not compromise what makes it extraordinary.',
-    cta: { label: 'Find out more', href: externos.conservacion },
+    cta: { label: 'Find out more', href: `${PORTADA}/conservacion` },
     ctaProteger: { label: 'Protect the valley', href: `${PORTADA}/como-ayudar#donaciones` },
   },
 
@@ -758,6 +756,8 @@ export const contenido: Contenido = {
   resultadoPago,
   comoVisitarPagina: nuevo.comoVisitarPagina,
   comoAyudarPagina: nuevo.comoAyudarPagina,
+  santuarioPagina: nuevo.santuarioPagina,
+  conservacionPagina: nuevo.conservacionPagina,
   reservarPagina: nuevo.reservarPagina,
   comoLlegar: nuevo.comoLlegar,
   cuantoCuesta: nuevo.cuantoCuesta,

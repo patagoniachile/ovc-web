@@ -269,6 +269,29 @@ export interface EnlacePayku {
   verif: string
 }
 
+/**
+ * Una página larga de texto, como las de santuario y conservación.
+ *
+ * No están en ningún menú: se llega a ellas desde los botones de El Valle.
+ * Son las dos páginas que la corporación ya tenía en vallecochamo.org y que
+ * quedaban fuera del sitio nuevo.
+ */
+export interface PaginaLarga {
+  eyebrow: string
+  titulo: string
+  bajada: string
+  foto: { imagen: keyof typeof import('./imagenes').imagenes; alt: string }
+  intro: string[]
+  cifras?: { valor: string; texto: string }[]
+  bloques: {
+    titulo: string
+    parrafos?: string[]
+    lista?: string[]
+    grupos?: { titulo: string; items: string[] }[]
+  }[]
+  cierre: { titulo: string; texto: string; cta: Enlace }
+}
+
 /** Un nivel de socio, con su precio anual y mensual. */
 export interface PlanSocio {
   /** Llave con la que se busca su plan de Payku en `planesPayku`. */
@@ -402,7 +425,6 @@ export interface Contenido {
   sectoresDetalle: SectorDetalle[]
   mapa: {
     encabezado: Encabezado
-    aviso: string
     centroInicial: { lat: number; lon: number; zoom: number }
   }
   puntosMapa: PuntoMapa[]
@@ -497,6 +519,8 @@ export interface Contenido {
     bloques: { slug: string; titulo?: string; texto?: string; enlace?: Enlace; foto?: Foto }[]
   }
   comoAyudarPagina: Encabezado & { intro: string }
+  santuarioPagina: PaginaLarga
+  conservacionPagina: PaginaLarga
   reservarPagina: Encabezado & { intro: string; tituloSectores: string; tituloDormir: string }
   comoLlegar: Encabezado & {
     auto: { titulo: string; texto: string }

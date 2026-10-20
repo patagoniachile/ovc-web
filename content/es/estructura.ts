@@ -1,6 +1,6 @@
 import { externos } from '../externos'
 import type {
-  Actividad, Contacto, Costo, Encabezado, Enlace, FilaComparativa, GrupoEspecies, Modalidad, Rasgo,
+  Actividad, Contacto, Costo, Encabezado, Enlace, PaginaLarga, FilaComparativa, GrupoEspecies, Modalidad, Rasgo,
 } from '../types'
 
 /** Portada del idioma: las anclas van absolutas, nunca sueltas. */
@@ -31,7 +31,7 @@ export const rasgos: Rasgo[] = [
   },
   {
     icono: 'hoja',
-    titulo: 'Bosque que nadie plantó',
+    titulo: 'Bosque primario intacto',
     texto:
       'Cerca de 8.000 hectáreas de alerzales con ejemplares de unos mil años, junto a coihues, mañíos y un sotobosque de musgos y hongos en estado primigenio.',
     imagen: 'alerce',
@@ -47,7 +47,7 @@ export const rasgos: Rasgo[] = [
   },
   {
     icono: 'agua',
-    titulo: 'Agua que se puede beber',
+    titulo: 'Agua limpia y cristalina',
     texto:
       'Ríos de deshielo, pozones turquesas y cascadas sobre roca pulida. El río Cochamó y sus humedales ribereños son parte de lo que el santuario busca proteger.',
     imagen: 'cascada',
@@ -549,3 +549,141 @@ export const actividades: Actividad[] = [
     ],
   },
 ]
+
+export const santuarioPagina: PaginaLarga = {
+  eyebrow: 'Conservación',
+  titulo: 'Santuario de la Naturaleza Valle Cochamó',
+  bajada: 'Un tesoro cultural y natural',
+  foto: {
+    imagen: 'conservacionLienzos',
+    alt: 'Lienzos de la comunidad en el acceso al valle pidiendo más áreas protegidas',
+  },
+  intro: [
+    'Durante más de una década, el Valle Cochamó se cuidó sin ninguna figura legal que lo respaldara. Sus terrenos son fiscales y privados, y el acceso se abrió bajo un principio simple: entrar con conciencia de que se visita un lugar que no es un parque.',
+    'Desde 2023 el valle es Santuario de la Naturaleza. Es el reconocimiento que la comunidad buscó durante años, y la figura que permite que quienes viven y trabajan aquí sigan administrándolo.',
+  ],
+  cifras: [
+    { valor: '11.432,8 ha', texto: 'de superficie protegida' },
+    { valor: '1.000 años', texto: 'tienen algunos alerces del valle' },
+    { valor: '1.000 m', texto: 'de paredes de granito' },
+  ],
+  bloques: [
+    {
+      titulo: '¿Qué es un santuario de la naturaleza?',
+      parrafos: [
+        'Es una figura de la Ley de Monumentos Nacionales que protege sitios, terrestres o marinos, cuyas formaciones naturales o valor para la investigación científica hacen que su conservación interese a la ciencia o al Estado.',
+        'Lo que cambia en la práctica es que ninguna obra ni actividad capaz de alterar el estado natural del lugar puede hacerse sin autorización previa: ni construcción, ni excavación, ni explotación. La caza queda prohibida.',
+      ],
+    },
+    {
+      titulo: '¿Por qué un santuario y no otra figura?',
+      parrafos: [
+        'Porque reconoce los valores ambientales del territorio sin expropiar a nadie ni cerrar el valle. Las tierras siguen siendo de quienes son y las formas de vida de siempre continúan.',
+        'Y porque es compatible con que la comunidad siga a cargo. La administración del santuario quedó en manos de la organización del valle, que es quien lleva años haciendo el trabajo.',
+      ],
+    },
+    {
+      titulo: '¿Qué amenaza hoy al valle?',
+      lista: [
+        'El desarrollo inmobiliario sobre terrenos del valle y de los valles vecinos.',
+        'La construcción de caminos vehiculares, que cambiarían de raíz cómo se entra y quién entra.',
+        'El turismo sin regulación, que en pocos años multiplicó los visitantes sin que creciera lo que hace falta para recibirlos.',
+      ],
+    },
+    {
+      titulo: '¿Qué queremos para el Valle Cochamó?',
+      lista: [
+        'Un turismo responsable y sostenible, dimensionado a lo que el valle aguanta.',
+        'Respeto por los modos de vida locales.',
+        'Protección del patrimonio natural y cultural.',
+        'Conservación del hábitat de la flora, la fauna y la funga.',
+        'Protección de las paredes de granito.',
+        'Visitas conscientes, con la conservación por delante.',
+        'Participación de las comunidades locales en la gobernanza del territorio.',
+      ],
+    },
+    {
+      titulo: '¿Qué se protege con el santuario?',
+      grupos: [
+        {
+          titulo: 'Importancia ecológica y científica',
+          items: [
+            'Bosques primarios y alerzales',
+            'El río Cochamó y sus humedales ribereños',
+            'El Batolito Norpatagónico',
+            'La diversidad de fauna del bosque templado',
+            'El alerce, especie monumento natural',
+            'La geodiversidad del valle',
+          ],
+        },
+        {
+          titulo: 'Importancia sociocultural',
+          items: [
+            'La presencia de pueblos originarios',
+            'El camino de los arrieros',
+            'La cultura arriera de autosubsistencia',
+            'El turismo sustentable como forma de vida local',
+          ],
+        },
+      ],
+    },
+  ],
+  cierre: {
+    titulo: 'Necesitamos tu aporte',
+    texto:
+      'El santuario declarado no se administra solo. Mantener los senderos, el Centro de Visitantes y los programas de conservación cuesta trabajo y plata, y no hay presupuesto público detrás.',
+    cta: { label: 'Quiero donar', href: `${PORTADA}/como-ayudar#donaciones` },
+  },
+}
+
+export const conservacionPagina: PaginaLarga = {
+  eyebrow: 'Conservación',
+  titulo: 'Un llamado que nace de las profundidades de la naturaleza',
+  bajada: 'Para futuras generaciones',
+  foto: {
+    imagen: 'marcha',
+    alt: 'Vecinos del valle marchando sobre el puente de Cochamó con lienzos por la protección del territorio',
+  },
+  intro: [
+    'La defensa del Valle Cochamó no empezó con el turismo. Empezó con un río que alguien quiso represar, y ha seguido con cada proyecto que apareció después.',
+  ],
+  bloques: [
+    {
+      titulo: 'Quince años defendiendo el mismo lugar',
+      parrafos: [
+        'En 2009 nació Conservación Cochamó para enfrentar un proyecto hidroeléctrico que pretendía explotar el río Cochamó y sus afluentes. Junto a la comunidad local se consiguió un decreto presidencial que creó una reserva para la cuenca del río.',
+        'Las amenazas no se fueron: los proyectos inmobiliarios e hidroeléctricos siguen apareciendo. En 2017 se creó la Organización Valle Cochamó para impulsar un turismo responsable y un área protegida, y en Estados Unidos se formó Friends of Cochamó para apoyar desde afuera.',
+      ],
+    },
+    {
+      titulo: 'Lo que hay en juego',
+      lista: [
+        'Cerca de 8.000 hectáreas de alerzales, con ejemplares de unos mil años.',
+        'La ranita de Darwin, un anfibio amenazado que incuba sus crías en el saco vocal del macho.',
+        'Vizcachas patagónicas y pumas, que necesitan territorios extensos y conectados.',
+        'Las paredes de granito del Batolito Norpatagónico, de hasta mil metros.',
+      ],
+    },
+    {
+      titulo: '¿Queremos ser Yosemite, o queremos ser Cochamó?',
+      parrafos: [
+        'La comparación con Yosemite se usa como elogio, y se entiende: paredes de granito, bosque, ríos. Pero Yosemite tiene un camino, y ese camino cambió lo que el lugar es.',
+        'En el valle del Manso, vecino por el sur, ya se construyó uno. Quien lo hizo quiere construir otro aquí. Un camino vehicular en Cochamó terminaría con los pilcheros, con la cultura arriera y con el ecosistema que hoy solo se alcanza a pie o a caballo.',
+        'El valor del valle no está en parecerse a otro lugar. Está en todo lo que lo hace distinto.',
+      ],
+    },
+    {
+      titulo: 'Quienes viven del sendero',
+      parrafos: [
+        'Hay familias de arrieros que llevan generaciones recorriendo esta senda con sus caballos: lo hicieron los abuelos, lo hacen los hijos y lo siguen haciendo los nietos. No es una atracción turística, es un oficio.',
+        'Ese oficio depende de que el sendero siga siendo un sendero. Es lo que está detrás de cada decisión que la corporación toma sobre el acceso al valle.',
+      ],
+    },
+  ],
+  cierre: {
+    titulo: 'Ayúdanos a conservar el valle',
+    texto:
+      'Las donaciones sostienen los senderos, el Centro de Visitantes y los programas de conservación de largo plazo. No hay presupuesto público detrás de nada de eso.',
+    cta: { label: 'Quiero donar', href: `${PORTADA}/como-ayudar#donaciones` },
+  },
+}

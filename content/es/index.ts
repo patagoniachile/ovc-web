@@ -354,12 +354,10 @@ export const contenido: Contenido = {
   mapa: {
     encabezado: {
       eyebrow: 'Dónde queda',
-      titulo: 'Ubícate antes de viajar',
+      titulo: 'Un rincón escondido de la Patagonia norte',
       bajada:
-        'El valle está en la comuna de Cochamó, Región de Los Lagos. Desde el inicio del sendero, La Junta solo se alcanza a pie o a caballo.',
+        'Ubicado en la Región de Los Lagos, en plena cordillera de los Andes, el Valle de Cochamó destaca por sus imponentes paredes de granito, bosques templados lluviosos y ríos de aguas cristalinas. Un lugar extraordinario al que solo se puede acceder a pie o a caballo.',
     },
-    aviso:
-      'Mapa de orientación, no de navegación. El área sombreada es el Santuario de la Naturaleza, dibujada según OpenStreetMap y solo a modo referencial: la cartografía oficial es la del decreto. No hay cobertura ni servicios de emergencia en el valle: lleva mapa y brújula o GPS propios.',
     centroInicial: { lat: -41.4495, lon: -72.115, zoom: 10 },
   },
 
@@ -582,7 +580,7 @@ export const contenido: Contenido = {
       ...imagenes.conservacionLienzos,
       alt: 'Lienzos de la comunidad en el acceso al valle: «Queremos + áreas protegidas» y «Patagonia sin loteos»',
     },
-    enlace: { label: 'Conoce el santuario', href: externos.santuario },
+    enlace: { label: 'Conoce el santuario', href: `${PORTADA}/santuario` },
   },
 
   queProtege: [
@@ -602,7 +600,7 @@ export const contenido: Contenido = {
     bajada:
       'Lo llaman el “Yosemite de Sudamérica”. Pero su verdadero valor no está en parecerse a otro lugar, sino en todo aquello que lo hace único. A pesar de los avances en su conservación, el valle continúa enfrentando amenazas que ponen en riesgo sus ecosistemas, sus paisajes y las tradiciones de quienes lo habitan.',
     cierre: 'Proteger Cochamó es asegurar que su futuro no comprometa aquello que lo hace extraordinario.',
-    cta: { label: 'Saber más', href: externos.conservacion },
+    cta: { label: 'Saber más', href: `${PORTADA}/conservacion` },
     ctaProteger: { label: 'Protege el valle', href: `${PORTADA}/como-ayudar#donaciones` },
   },
 
@@ -750,6 +748,8 @@ export const contenido: Contenido = {
   resultadoPago,
   comoVisitarPagina: nuevo.comoVisitarPagina,
   comoAyudarPagina: nuevo.comoAyudarPagina,
+  santuarioPagina: nuevo.santuarioPagina,
+  conservacionPagina: nuevo.conservacionPagina,
   reservarPagina: nuevo.reservarPagina,
   comoLlegar: nuevo.comoLlegar,
   cuantoCuesta: nuevo.cuantoCuesta,

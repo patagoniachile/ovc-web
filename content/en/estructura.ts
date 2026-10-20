@@ -1,6 +1,6 @@
 import { externos } from '../externos'
 import type {
-  Actividad, Contacto, Costo, Encabezado, Enlace, FilaComparativa, GrupoEspecies, Modalidad, Rasgo,
+  Actividad, Contacto, Costo, Encabezado, Enlace, PaginaLarga, FilaComparativa, GrupoEspecies, Modalidad, Rasgo,
 } from '../types'
 
 /** Portada del idioma: las anclas van absolutas, nunca sueltas. */
@@ -30,7 +30,7 @@ export const rasgos: Rasgo[] = [
   },
   {
     icono: 'hoja',
-    titulo: 'Forest nobody planted',
+    titulo: 'Untouched primary forest',
     texto:
       'Close to 8,000 hectares of alerce stands with trees around a thousand years old, alongside coihues, mañíos and an understorey of moss and fungi in its original state.',
     imagen: 'alerce',
@@ -46,7 +46,7 @@ export const rasgos: Rasgo[] = [
   },
   {
     icono: 'agua',
-    titulo: 'Water you can drink',
+    titulo: 'Clean, crystal-clear water',
     texto:
       'Meltwater rivers, turquoise pools and waterfalls over polished rock. The Cochamó River and its riparian wetlands are part of what the sanctuary aims to protect.',
     imagen: 'cascada',
@@ -547,3 +547,141 @@ export const actividades: Actividad[] = [
     ],
   },
 ]
+
+export const santuarioPagina: PaginaLarga = {
+  eyebrow: 'Conservation',
+  titulo: 'Valle Cochamó Nature Sanctuary',
+  bajada: 'A cultural and natural treasure',
+  foto: {
+    imagen: 'conservacionLienzos',
+    alt: 'Community banners at the entrance to the valley calling for more protected areas',
+  },
+  intro: [
+    'For more than a decade the Cochamó Valley was looked after with no legal status behind it. Its land is partly state-owned and partly private, and access was opened on a simple principle: come in aware that this is not a park.',
+    'Since 2023 the valley has been a Nature Sanctuary. It is the recognition the community sought for years, and the status that lets the people who live and work here go on running it.',
+  ],
+  cifras: [
+    { valor: '11,432.8 ha', texto: 'of protected land' },
+    { valor: '1,000 years', texto: 'is the age of some of the valley’s alerces' },
+    { valor: '1,000 m', texto: 'of granite walls' },
+  ],
+  bloques: [
+    {
+      titulo: 'What is a nature sanctuary?',
+      parrafos: [
+        'It is a status under the National Monuments Act that protects sites, on land or at sea, whose natural formations or scientific value make their conservation a matter of interest to science or to the State.',
+        'What changes in practice is that no works or activity capable of altering the natural state of the place can go ahead without prior authorisation: no construction, no excavation, no extraction. Hunting is banned.',
+      ],
+    },
+    {
+      titulo: 'Why a sanctuary and not another status?',
+      parrafos: [
+        'Because it recognises the environmental values of the territory without expropriating anyone or closing the valley. The land stays with its owners and the ways of life of always carry on.',
+        'And because it is compatible with the community staying in charge. Administration of the sanctuary was placed in the hands of the valley’s own organisation, which has been doing the work for years.',
+      ],
+    },
+    {
+      titulo: 'What threatens the valley today?',
+      lista: [
+        'Property development on land in the valley and the valleys next door.',
+        'The building of vehicle roads, which would fundamentally change how and who gets in.',
+        'Unregulated tourism, which in a few years multiplied visitor numbers without the facilities to receive them growing to match.',
+      ],
+    },
+    {
+      titulo: 'What do we want for the Cochamó Valley?',
+      lista: [
+        'Responsible, sustainable tourism, scaled to what the valley can take.',
+        'Respect for local ways of life.',
+        'Protection of the natural and cultural heritage.',
+        'Conservation of the habitat of flora, fauna and funga.',
+        'Protection of the granite walls.',
+        'Conscious visits, with conservation first.',
+        'Local communities taking part in the governance of the territory.',
+      ],
+    },
+    {
+      titulo: 'What does the sanctuary protect?',
+      grupos: [
+        {
+          titulo: 'Ecological and scientific importance',
+          items: [
+            'Primary forests and alerce stands',
+            'The Cochamó river and its riparian wetlands',
+            'The North Patagonian Batholith',
+            'The diversity of temperate forest fauna',
+            'The alerce, a natural monument species',
+            'The valley’s geodiversity',
+          ],
+        },
+        {
+          titulo: 'Social and cultural importance',
+          items: [
+            'The presence of indigenous peoples',
+            'The arrieros’ trail',
+            'The self-sufficient arriero culture',
+            'Sustainable tourism as a local way of life',
+          ],
+        },
+      ],
+    },
+  ],
+  cierre: {
+    titulo: 'We need your help',
+    texto:
+      'A declared sanctuary does not run itself. Maintaining the trails, the Visitor Centre and the conservation programmes takes work and money, and there is no public budget behind it.',
+    cta: { label: 'I want to donate', href: `${PORTADA}/como-ayudar#donaciones` },
+  },
+}
+
+export const conservacionPagina: PaginaLarga = {
+  eyebrow: 'Conservation',
+  titulo: 'A call that comes from the depths of nature',
+  bajada: 'For future generations',
+  foto: {
+    imagen: 'marcha',
+    alt: 'Valley residents marching across the Cochamó bridge with banners calling for protection',
+  },
+  intro: [
+    'The defence of the Cochamó Valley did not begin with tourism. It began with a river somebody wanted to dam, and it has carried on with every project that has appeared since.',
+  ],
+  bloques: [
+    {
+      titulo: 'Fifteen years defending the same place',
+      parrafos: [
+        'In 2009 Conservación Cochamó was born to face a hydroelectric project that intended to exploit the Cochamó river and its tributaries. Together with the local community, a presidential decree was won creating a reserve for the river basin.',
+        'The threats did not go away: property and hydroelectric projects keep appearing. In 2017 the Organización Valle Cochamó was created to push for responsible tourism and a protected area, and in the United States Friends of Cochamó was formed to support the work from abroad.',
+      ],
+    },
+    {
+      titulo: 'What is at stake',
+      lista: [
+        'Some 8,000 hectares of alerce stands, with specimens around a thousand years old.',
+        'Darwin’s frog, a threatened amphibian whose males brood their young in their vocal sac.',
+        'Patagonian vizcachas and pumas, which need large, connected territories.',
+        'The granite walls of the North Patagonian Batholith, up to a thousand metres high.',
+      ],
+    },
+    {
+      titulo: 'Do we want to be Yosemite, or do we want to be Cochamó?',
+      parrafos: [
+        'The comparison with Yosemite is meant as praise, and it is understandable: granite walls, forest, rivers. But Yosemite has a road, and that road changed what the place is.',
+        'In the Manso valley, the next one south, a road has already been built. Whoever built it wants to build another one here. A vehicle road in Cochamó would be the end of the pack horses, of the arriero culture and of an ecosystem that today is only reached on foot or on horseback.',
+        'The value of the valley is not in resembling somewhere else. It is in everything that makes it different.',
+      ],
+    },
+    {
+      titulo: 'The people who live off the trail',
+      parrafos: [
+        'There are arriero families who have travelled this trail with their horses for generations: the grandparents did it, the children do it and the grandchildren are doing it still. It is not a tourist attraction, it is a trade.',
+        'That trade depends on the trail staying a trail. It is what lies behind every decision the organisation makes about access to the valley.',
+      ],
+    },
+  ],
+  cierre: {
+    titulo: 'Help us conserve the valley',
+    texto:
+      'Donations sustain the trails, the Visitor Centre and the long-term conservation programmes. There is no public budget behind any of it.',
+    cta: { label: 'I want to donate', href: `${PORTADA}/como-ayudar#donaciones` },
+  },
+}
