@@ -57,7 +57,7 @@ export const rasgos: Rasgo[] = [
 export const impacto: Encabezado = {
   eyebrow: 'Impact',
   titulo: 'A valley we look after together',
-  bajada: 'A non-profit community organisation running a destination with no single owner and no public budget.',
+  bajada: 'A non-profit corporation running a destination with no single owner and no public budget.',
 }
 
 export const logroImportante = {

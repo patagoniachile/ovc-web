@@ -1246,12 +1246,13 @@ p { text-wrap: pretty; }
   gap: 12px;
   padding: 16px 18px;
   border-radius: var(--radio-sm);
-  background: #fff8f3;
-  border: 1px solid rgba(194, 90, 36, .28);
+  background: var(--bg-alt);
+  border: 1px solid var(--borde);
   font-size: .95rem;
   line-height: 1.55;
 }
-.avisos svg { width: 19px; height: 19px; flex: none; margin-top: 2px; color: var(--fuego-600); }
+/* Sin rojo: el icono va del mismo color que el texto, como el resto de la página */
+.avisos svg { width: 19px; height: 19px; flex: none; margin-top: 2px; color: currentColor; }
 
 /* Alojamientos */
 .alojamientos {
