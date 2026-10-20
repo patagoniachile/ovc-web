@@ -1949,7 +1949,7 @@ p { text-wrap: pretty; }
    ayudar, y la portada no tiene que convencer: tiene que llevar.
    -------------------------------------------------------------------------- */
 .cierre {
-  padding-block: 72px 84px;
+  padding-block: 56px 84px;
   background: var(--bosque-900);
   text-align: center;
 }
@@ -2707,26 +2707,46 @@ p { text-wrap: pretty; }
 /* Impacto y Otros proyectos comparten el aire entre ambos */
 .portada #impacto { padding-bottom: 0; }
 
-/* Otros proyectos: una fila que se desliza hasta el borde derecho, con el
-   verde empezando a media altura de las fotos. */
+/* Otros proyectos: un carrusel de cuatro tarjetas a la vista (menos en
+   pantallas chicas), con el verde empezando a media altura de las fotos. */
 .obras { padding-top: clamp(64px, 8vw, 104px); }
 .obras__titulo { max-width: 11em; margin-inline: auto; text-align: center; }
-.obras__pista {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 287px;
-  gap: 17px;
+.carrusel {
   margin-top: 64px;
-  /* Hasta el borde de la ventana: la última tarjeta queda cortada a
-     propósito, para que se note que hay más. */
-  margin-right: calc((100% - 100vw) / 2);
-  padding: 0 var(--gutter) 14px 0;
-  overflow-x: auto;
-  scroll-snap-type: x proximity;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 252, 235, .35) transparent;
+  padding-bottom: 8px;
+  /* La franja va a sangre, detrás de las tarjetas y de las flechas */
   border-image: linear-gradient(transparent 95px, var(--bosque-900) 0) fill 0 // 0 100vmax;
 }
+.carrusel__pista {
+  --visibles: 4;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - (var(--visibles) - 1) * 17px) / var(--visibles));
+  gap: 17px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.carrusel__pista::-webkit-scrollbar { display: none; }
+.carrusel__pista > * { scroll-snap-align: start; }
+.carrusel__controles { display: flex; justify-content: center; gap: 14px; margin-top: 28px; }
+.carrusel__flecha {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: var(--arena-100);
+  box-shadow: inset 0 0 0 2px var(--arena-100);
+  transition: background-color var(--trans), opacity var(--trans);
+}
+.carrusel__flecha:hover:not(:disabled) { background: rgba(255, 255, 255, .12); }
+.carrusel__flecha:disabled { opacity: .3; cursor: default; }
+.carrusel__flecha svg { width: 20px; height: 20px; }
+.carrusel__flecha--atras svg { transform: rotate(180deg); }
+
 .obra {
   display: flex;
   flex-direction: column;
@@ -2735,12 +2755,10 @@ p { text-wrap: pretty; }
   border: 1px solid var(--granito-900);
   border-radius: 8px;
   color: var(--granito-900);
-  scroll-snap-align: start;
-  transition: transform var(--trans);
 }
-.obra:hover { transform: translateY(-3px); }
 .obra__foto { display: block; aspect-ratio: 253 / 143; margin: 0 -6px; overflow: hidden; border-radius: 6px; }
-.obra__foto img { width: 100%; height: 100%; object-fit: cover; }
+.obra__foto img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+.obra:hover .obra__foto img { transform: scale(1.04); }
 .obra strong {
   margin-top: 26px;
   font-family: var(--display);
@@ -2804,12 +2822,14 @@ p { text-wrap: pretty; }
 .suscribete__foto img { width: 100%; height: 100%; object-fit: cover; }
 
 @media (max-width: 1080px) {
+  .carrusel__pista { --visibles: 3; }
   .cabecera--portada .contenedor { display: flex; }
   .cabecera--portada .cabecera__cta { margin-left: auto; }
   .cifra { padding-inline: 16px; }
 }
 
 @media (max-width: 860px) {
+  .carrusel__pista { --visibles: 2; }
   .rasgos { grid-template-columns: repeat(2, 1fr); border-image-source: linear-gradient(transparent 75%, var(--bosque-900) 0); }
   .cifras__grid { grid-template-columns: repeat(2, 1fr); row-gap: 28px; }
   .cifra:nth-child(odd) { padding-left: 0; border-left: 0; }
@@ -2828,6 +2848,7 @@ p { text-wrap: pretty; }
   .rasgo { aspect-ratio: 4 / 3; }
   .cifras__grid { grid-template-columns: 1fr; }
   .cifra, .cifra + .cifra { padding: 0 0 0 16px; border-left: 2px solid var(--arena-100); }
-  .obras__pista { grid-auto-columns: 82vw; }
+  .carrusel__pista { --visibles: 1; }
+  .obra strong { min-height: 0; } /* una tarjeta a la vez: no hay nada que alinear */
   .suscribete__form input { flex-basis: 100%; }
 }

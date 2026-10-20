@@ -347,6 +347,9 @@ export interface Textos {
   reservarEn: (nombre: string) => string
   volverAPortada: string
   verMas: string
+  /** Flechas del carrusel */
+  anterior: string
+  siguiente: string
   cerrar: string
   areaSantuario: string
   paraQuienEs: string

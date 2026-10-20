@@ -74,6 +74,8 @@ export const contenido: Contenido = {
     reservarEn: (nombre) => `Book at ${nombre}`,
     volverAPortada: 'Back to the home page',
     verMas: 'See more',
+    anterior: 'Previous',
+    siguiente: 'Next',
     cerrar: 'Close',
     areaSantuario: 'Nature Sanctuary area · 11,432.8 ha',
     paraQuienEs: 'Who it is for',

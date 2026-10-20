@@ -65,6 +65,8 @@ export const contenido: Contenido = {
     reservarEn: (nombre) => `Reservar en ${nombre}`,
     volverAPortada: 'Volver a la portada',
     verMas: 'Ver más',
+    anterior: 'Anterior',
+    siguiente: 'Siguiente',
     cerrar: 'Cerrar',
     areaSantuario: 'Área del Santuario de la Naturaleza · 11.432,8 ha',
     paraQuienEs: 'Para quién es',

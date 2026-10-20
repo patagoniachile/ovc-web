@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Boton, esExterno } from '@/components/ui/Boton'
+import { Carrusel } from '@/components/ui/Carrusel'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getContenido, imagenes, type Lang } from '@/content'
 
@@ -18,7 +19,7 @@ export function Proyectos({ lang, modo }: { lang: Lang; modo: 'desafios' | 'logr
         <div className="contenedor">
           <h2 className="obras__titulo revelar">{logrosPortadaTitulo}</h2>
 
-          <div className="obras__pista">
+          <Carrusel anterior={textos.anterior} siguiente={textos.siguiente}>
             {logros
               .filter((logro) => logro.href !== logroImportante.cta.href)
               .map((logro) => {
@@ -39,7 +40,7 @@ export function Proyectos({ lang, modo }: { lang: Lang; modo: 'desafios' | 'logr
                   </a>
                 )
               })}
-          </div>
+          </Carrusel>
         </div>
       </section>
     )
