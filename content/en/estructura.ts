@@ -121,10 +121,10 @@ export const impacto: Encabezado = {
 export const logroImportante = {
   cifra: '11,432.8',
   unidad: 'hectares',
-  titulo: 'The Nature Sanctuary proposal',
+  titulo: 'The Nature Sanctuary',
   texto:
-    'In July 2022 we took the proposal to protect the valley to the Ministry of National Assets, covering state land and private estates that joined voluntarily. It is the biggest step in fifteen years of work, and it is still pending.',
-  cta: { label: 'Read the proposal', href: `${PORTADA}/el-valle#santuario` },
+    'In January 2024 the decree protecting 11,432.8 hectares of the valley was published. It is the organisation’s greatest achievement, and also where the work begins: running a sanctuary is a commitment kept season after season.',
+  cta: { label: 'About the sanctuary', href: `${PORTADA}/el-valle#santuario` },
 }
 
 export const misionVision = {
@@ -138,19 +138,6 @@ export const misionVision = {
     texto:
       'A collaborative protected area, recognised by the state and run by its own community, where visiting the valley and caring for it are the same thing.',
   },
-}
-
-export const futuro: Encabezado = {
-  eyebrow: 'The future',
-  titulo: 'What is coming and what is at risk',
-  bajada: 'The valley is still unprotected. What we do over the next few years decides how it reaches the next generations.',
-}
-
-export const necesitamosTuAyuda = {
-  titulo: 'We need your help',
-  texto:
-    'Most of the valley is private land whose owners allow public access. Maintaining the trails, the Visitor Centre and the conservation programmes takes work and money, and there is no public budget behind it.',
-  cta: { label: 'Donate', href: `${PORTADA}/como-ayudar#donaciones` },
 }
 
 /* ---------------------------------------------------------------------------
@@ -323,31 +310,6 @@ export const reservarPagina = {
     'Each place to stay is run by a family from the valley and is booked directly with them. Below are the three sectors and the fifteen places to stay, with their contact details.',
   tituloSectores: 'Choose your sector',
   tituloDormir: 'Where to stay, sector by sector',
-}
-
-export const viasDeAporte = {
-  titulo: 'Two ways to contribute',
-  opciones: [
-    {
-      id: 'socio' as const,
-      icono: 'gente' as const,
-      titulo: 'Become a member',
-      texto:
-        'A monthly card contribution. It is what makes planning beyond the next season possible, and it makes you part of the organisation’s decisions.',
-      detalle: 'From CLP 5,000 a month',
-      cta: { label: 'Become a member', href: '/en/como-ayudar#socios' },
-      destacada: true,
-    },
-    {
-      id: 'donacion' as const,
-      icono: 'corazon' as const,
-      titulo: 'Give once',
-      texto:
-        'A direct transfer to the organisation’s account, whenever you want and for whatever amount. It arrives whole: nobody takes a cut.',
-      detalle: 'No fee',
-      cta: { label: 'See transfer details', href: '/en/como-ayudar#donaciones' },
-    },
-  ],
 }
 
 export const destinoAportes = {

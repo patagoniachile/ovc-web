@@ -117,7 +117,7 @@ export const contenido: Contenido = {
         { label: 'Where it is', href: `${PORTADA}/el-valle#mapa`, detalle: 'Map of the sectors' },
         { label: 'Flora and fauna', href: `${PORTADA}/el-valle#flora-fauna`, detalle: 'What lives in the Valdivian forest' },
         { label: 'What you can do', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'Trekking, climbing, horseback riding' },
-        { label: 'The Sanctuary', href: `${PORTADA}/el-valle#santuario`, detalle: '11,432.8 ha proposed' },
+        { label: 'The Sanctuary', href: `${PORTADA}/el-valle#santuario`, detalle: '11,432.8 ha protected' },
         { label: "What's at stake", href: `${PORTADA}/el-valle#amenazas`, detalle: 'The threats to the valley' },
       ],
     },
@@ -136,7 +136,7 @@ export const contenido: Contenido = {
       label: 'History',
       href: `${PORTADA}/historia`,
       items: [
-        { label: 'What happened', href: `${PORTADA}/historia#historia`, detalle: 'From 2009 to today' },
+        { label: 'Timeline', href: `${PORTADA}/historia#historia`, detalle: 'From 2016 to today' },
         { label: 'Who runs it and why', href: `${PORTADA}/historia#nosotros`, detalle: 'The valley community' },
         { label: 'Mission and vision', href: `${PORTADA}/historia#mision`, detalle: 'Where we are heading' },
         { label: 'What we have done', href: `${PORTADA}/historia#logros`, detalle: 'Completed work' },
@@ -168,7 +168,7 @@ export const contenido: Contenido = {
     {
       titulo: 'Organisation',
       items: [
-        { label: 'What happened', href: `${PORTADA}/historia` },
+        { label: 'Timeline', href: `${PORTADA}/historia#historia` },
         { label: 'Who we are', href: `${PORTADA}/historia#nosotros` },
         { label: 'News', href: externos.noticias },
         { label: 'Donations', href: `${PORTADA}/como-ayudar#donaciones` },
@@ -193,7 +193,7 @@ export const contenido: Contenido = {
     proyectos: { label: 'See the projects', href: `${PORTADA}/historia#proyectos` },
   },
   cifras: [
-    { valor: 11432, sufijo: '.8 ha', texto: 'Area proposed as a Nature Sanctuary' },
+    { valor: 11432, sufijo: '.8 ha', texto: 'Protected as a Nature Sanctuary' },
     { valor: 8000, sufijo: ' ha', texto: 'Of alerce forest, with trees close to 1,000 years old' },
     { valor: 17000, prefijo: '+', texto: 'Visitors a year walk the muleteers’ trail' },
     { valor: 1000, sufijo: ' m', texto: 'Of granite walls of the North Patagonian Batholith' },
@@ -201,63 +201,66 @@ export const contenido: Contenido = {
 
   introHistoria: {
     eyebrow: 'Our story',
-    titulo: 'Fifteen years defending a valley that was never a park',
+    titulo: 'A story of stubbornness: how this valley became a sanctuary',
     bajada:
-      'The story of conserving the Cochamó Valley goes back decades of scattered efforts. What began as resistance to a hydroelectric project became a community organisation that today manages visits, repairs trails and pushes for a protected area.',
+      'What began as a conversation between worried neighbours ended in a community organisation that today orders the visit, repairs trails and runs the sanctuary it won. This is what happened in between.',
     cita: 'The decisions we make today determine the consequences of tomorrow.',
     citaFuente: 'Motto of the Cochamó Valley booking system',
+    entrada:
+      'Cochamó is thousand-metre granite walls above evergreen forest, thousand-year-old alerces and meltwater rivers, at the end of a trail the arrieros opened more than a century ago. It is not a park: it is land whose owners opened the way in, and that openness is both its grace and its fragility. In a few years it has faced hydroelectric schemes, property developments and, less obviously but just as really, the very tourism that made it known.',
   },
 
   hitos: [
     {
-      anio: '2009 — 2012',
-      titulo: 'Conservación Cochamó is born',
-      texto:
-        'A citizens’ group organises against a hydroelectric project that aimed to exploit the Cochamó River and its main tributaries.',
-    },
-    {
-      anio: 'Bachelet’s first government',
-      titulo: 'A reserve decree for the river basin',
-      texto:
-        'Together with the local community, a presidential decree is secured creating a reserve for the Cochamó River basin, aimed at conservation and local development.',
-    },
-    {
       anio: '2016',
-      titulo: 'Booking becomes mandatory for La Junta',
+      titulo: 'The neighbours sit down to talk',
       texto:
-        'The booking system starts running: a concrete way to respect the carrying capacity of the trail and the campsites, and to reduce the impact on the valley.',
+        'Word of the valley had spread, and every summer more people arrived than the year before. With no rules and no limits, the trail and the campsites began to show the strain. That year the neighbours met for the first time to work out what to do, and the first concrete measure came out of that conversation: to enter La Junta, where people sleep, you have to book.',
       destacado: true,
     },
     {
       anio: '2017',
-      titulo: 'Organización Valle Cochamó is founded',
+      titulo: 'The Organización Valle Cochamó is founded',
       texto:
-        'People from Conservación Cochamó, members of Puelo Patagonia, landowners, tour operators and international allies — among them Friends of Cochamó — bring the OVC to life.',
+        'The conversation became formal. Neighbours, landowners, tour operators and people who love this place created the first organisation to sit every actor in the valley at the same table. Not outsiders passing through: the people who live and work here.',
       destacado: true,
     },
     {
       anio: '2019',
-      titulo: 'The extended board meets at Llanada Grande',
-      texto: 'Neighbours, muleteers, landowners and operators consolidate shared governance for the destination.',
+      titulo: 'Shared governance with the neighbouring valleys',
+      texto:
+        'The work widened to the organisations of the territories next door. Together they agreed on shared governance and on the parameters that let tourism operate without taking apart what it comes to see. It was also the year it became clear that something more was needed: a layer of protection for the valley.',
     },
     {
-      anio: 'July 2022',
-      titulo: 'The Nature Sanctuary proposal is submitted',
+      anio: '2022 · May',
+      titulo: 'A property development is stopped',
       texto:
-        'The 11,432.8-hectare proposal reaches the Ministry of National Assets, covering state land — Hijuela 5 — and private estates that joined voluntarily.',
+        'With tourism better organised, another threat appeared, this one made of bricks: a property development over the valley. The aligned work of several organisations, with the OVC leading, kept it from going ahead.',
+    },
+    {
+      anio: '2022 · July',
+      titulo: 'The sanctuary is requested',
+      texto:
+        'After three years of work alongside other organisations, the request to declare a large part of the valley a nature sanctuary was filed with the Ministry of the Environment.',
+    },
+    {
+      anio: '2024',
+      titulo: 'The Cochamó Valley becomes a Nature Sanctuary',
+      texto:
+        'On 29 January 2024 the decree was published: 11,432.8 hectares are now protected. The status does not expropriate anything or close the valley —life and the activities of always carry on— but no works or activity that would alter the natural state of the place can go ahead without prior authorisation, and hunting is banned. Administration was placed in the hands of the valley’s own organisation.',
       destacado: true,
     },
     {
-      anio: 'October 2022',
-      titulo: 'The community speaks up',
+      anio: '2025',
+      titulo: 'The organisation becomes a corporation',
       texto:
-        'A community forum at Lago Vidal and Torrentoso, and participation in the 2nd Protected Areas Gathering in Santiago.',
+        'With the sanctuary declared, the roles and responsibilities grew. So that individuals and companies can join in sustaining this work, the Organización Valle Cochamó became the Corporación Valle Cochamó.',
     },
     {
       anio: 'Today',
-      titulo: 'The valley is still unprotected',
+      titulo: 'The work of conservation has no finish line',
       texto:
-        'The threats never stopped: real-estate projects, power plants and, above all, a road creeping ever closer. We keep working to get the sanctuary declared.',
+        'A declared sanctuary is not a goal achieved: it is a commitment to be kept every season. We keep looking after this place so that those who come after us find it as we found it.',
     },
   ],
 
@@ -352,7 +355,7 @@ export const contenido: Contenido = {
         'The valley lies in the commune of Cochamó, Los Lagos Region. From the trailhead, La Junta and Lago Vidal can only be reached on foot or on horseback.',
     },
     aviso:
-      'An orientation map, not a navigation one. There is no phone coverage and no emergency services in the valley: bring your own map and compass or GPS.',
+      'An orientation map, not a navigation one. The shaded area is the Nature Sanctuary, drawn from OpenStreetMap and for reference only: the official cartography is the one in the decree. There is no phone coverage or emergency service in the valley: bring your own map and compass or GPS.',
     centroInicial: { lat: -41.4495, lon: -72.115, zoom: 10 },
   },
 
@@ -511,16 +514,16 @@ export const contenido: Contenido = {
     eyebrow: 'Conservation',
     titulo: 'A Nature Sanctuary for the Cochamó Valley',
     bajada:
-      'The valley is not officially protected by the Chilean state. In July 2022 we submitted a proposal to the Ministry of National Assets to declare it a Nature Sanctuary, covering state land — Hijuela 5 — and private estates that joined voluntarily.',
+      'Since 29 January 2024, 11,432.8 hectares of the valley are a Nature Sanctuary by decree of the Ministry of the Environment. More than 98% is state-owned land; the rest, private estates that joined voluntarily.',
     parrafo:
-      'A sanctuary recognises the environmental value of the territory and sits well with local culture and ways of life: the community remains the one managing it.',
+      'A sanctuary recognises the environmental values of the territory without expropriating anyone or closing the valley: life and the activities of always carry on. What changes is that no works or activity that would alter the natural state of the place can go ahead without prior authorisation, and that hunting is banned. Administration was placed in the hands of the valley’s own organisation.',
     hectareas: '11,432.8',
-    hectareasPie: 'hectares proposed',
+    hectareasPie: 'hectares protected',
     foto: {
       ...imagenes.alerce,
       alt: 'A person leaning against the trunk of a thousand-year-old alerce in the Cochamó Valley forest',
     },
-    enlace: { label: 'Read the full proposal', href: externos.santuario },
+    enlace: { label: 'About the sanctuary', href: externos.santuario },
   },
 
   queProtege: [

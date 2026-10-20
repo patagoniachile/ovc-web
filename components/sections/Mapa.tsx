@@ -15,7 +15,7 @@ import 'leaflet/dist/leaflet.css'
  * si el mapa no carga —o el visitante tiene el JS desactivado— las coordenadas
  * siguen estando ahí, que es lo que de verdad sirve para planificar.
  */
-export function Mapa({ lang }: { lang: Lang }) {
+export function MapaValle({ lang }: { lang: Lang }) {
   const { mapa, puntosMapa, textos } = getContenido(lang)
   const contenedor = useRef<HTMLDivElement>(null)
   const mapaRef = useRef<MapaLeaflet | null>(null)
@@ -50,6 +50,23 @@ export function Mapa({ lang }: { lang: Lang }) {
         maxZoom: 17,
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(instancia)
+
+      // El contorno del santuario se pide aparte: son 5 KB que no tienen por
+      // qué viajar con la página para quien nunca baja hasta el mapa. Si la
+      // petición falla, el mapa funciona igual sin el polígono.
+      fetch('/geo/santuario.json')
+        .then((r) => (r.ok ? r.json() : null))
+        .then((datos: { contorno: [number, number][] } | null) => {
+          if (cancelado || !datos || !mapaRef.current) return
+          L.polygon(datos.contorno, {
+            color: '#2c473f',
+            weight: 2,
+            fillColor: '#ffce00',
+            fillOpacity: 0.14,
+            interactive: false,
+          }).addTo(mapaRef.current)
+        })
+        .catch(() => {})
 
       puntosMapa.forEach((punto) => {
         const icono = L.divIcon({
@@ -103,11 +120,7 @@ export function Mapa({ lang }: { lang: Lang }) {
   }
 
   return (
-    <section className="seccion seccion--alt" id="mapa">
-      <div className="contenedor">
-        <SectionHeader className="revelar" {...mapa.encabezado} />
-
-        <div className="mapa revelar">
+    <div className="mapa revelar">
           <div className="mapa__lienzo">
             <div ref={contenedor} className="mapa__leaflet" role="application" aria-label={textos.mapaDe} />
             {!cargado && <p className="mapa__cargando">{textos.cargandoMapa}</p>}
@@ -148,7 +161,24 @@ export function Mapa({ lang }: { lang: Lang }) {
               {mapa.aviso}
             </p>
           </div>
-        </div>
+    </div>
+  )
+}
+
+/**
+ * El mapa como sección propia, para la página de El Valle.
+ *
+ * El mapa en sí vive aparte porque la línea de tiempo de la historia también
+ * lo usa, ahí dentro de otra sección y sin encabezado propio.
+ */
+export function Mapa({ lang }: { lang: Lang }) {
+  const { mapa } = getContenido(lang)
+
+  return (
+    <section className="seccion seccion--alt" id="mapa">
+      <div className="contenedor">
+        <SectionHeader className="revelar" {...mapa.encabezado} />
+        <MapaValle lang={lang} />
       </div>
     </section>
   )

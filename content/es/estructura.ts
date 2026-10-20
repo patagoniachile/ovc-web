@@ -122,10 +122,10 @@ export const impacto: Encabezado = {
 export const logroImportante = {
   cifra: '11.432,8',
   unidad: 'hectáreas',
-  titulo: 'La propuesta de Santuario de la Naturaleza',
+  titulo: 'El Santuario de la Naturaleza',
   texto:
-    'En julio de 2022 llevamos al Ministerio de Bienes Nacionales la propuesta de proteger el valle, sobre terrenos fiscales y predios privados que se sumaron de forma voluntaria. Es el mayor avance en quince años de trabajo y sigue en trámite.',
-  cta: { label: 'Conocer la propuesta', href: `${PORTADA}/el-valle#santuario` },
+    'En enero de 2024 se publicó el decreto que protege 11.432,8 hectáreas del valle. Es el mayor logro de la organización, y también el punto donde el trabajo empieza: administrar un santuario es un compromiso que se sostiene cada temporada.',
+  cta: { label: 'Conocer el santuario', href: `${PORTADA}/el-valle#santuario` },
 }
 
 export const misionVision = {
@@ -139,19 +139,6 @@ export const misionVision = {
     texto:
       'Un área protegida colaborativa, reconocida por el Estado y administrada por su propia comunidad, donde visitar el valle y cuidarlo sean la misma cosa.',
   },
-}
-
-export const futuro: Encabezado = {
-  eyebrow: 'El futuro',
-  titulo: 'Lo que viene y lo que está en riesgo',
-  bajada: 'El valle sigue sin protección oficial. Lo que hagamos en los próximos años decide cómo llega a las próximas generaciones.',
-}
-
-export const necesitamosTuAyuda = {
-  titulo: 'Necesitamos tu ayuda',
-  texto:
-    'La mayor parte del valle son tierras privadas cuyos dueños permiten el acceso público. Mantener los senderos, el Centro de Visitantes y los programas de conservación cuesta trabajo y dinero, y no hay presupuesto público detrás.',
-  cta: { label: 'Donar', href: `${PORTADA}/como-ayudar#donaciones` },
 }
 
 /* ---------------------------------------------------------------------------
@@ -324,31 +311,6 @@ export const reservarPagina = {
     'Cada alojamiento lo gestiona una familia del valle y se reserva directamente con ella. Abajo están los tres sectores y los quince lugares donde dormir, con su contacto.',
   tituloSectores: 'Elige tu sector',
   tituloDormir: 'Dónde dormir, sector por sector',
-}
-
-export const viasDeAporte = {
-  titulo: 'Dos formas de aportar',
-  opciones: [
-    {
-      id: 'socio' as const,
-      icono: 'gente' as const,
-      titulo: 'Hazte socio o socia',
-      texto:
-        'Un aporte mensual con tarjeta. Es lo que permite planificar más allá de la próxima temporada, y te hace parte de las decisiones de la corporación.',
-      detalle: 'Desde $5.000 al mes',
-      cta: { label: 'Hazte socio', href: '/es/como-ayudar#socios' },
-      destacada: true,
-    },
-    {
-      id: 'donacion' as const,
-      icono: 'corazon' as const,
-      titulo: 'Dona una vez',
-      texto:
-        'Una transferencia directa a la cuenta de la corporación, cuando quieras y por el monto que quieras. Llega íntegra: nadie se queda con una parte.',
-      detalle: 'Sin comisión',
-      cta: { label: 'Ver datos para transferir', href: '/es/como-ayudar#donaciones' },
-    },
-  ],
 }
 
 export const destinoAportes = {

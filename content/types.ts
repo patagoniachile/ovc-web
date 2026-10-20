@@ -372,7 +372,7 @@ export interface Contenido {
   cifrasTitulo: string
   cierrePortada: { titulo: string; destacado: string; donar: Enlace; proyectos: Enlace }
   cifras: Cifra[]
-  introHistoria: Encabezado & { cita: string; citaFuente: string }
+  introHistoria: Encabezado & { entrada: string; cita: string; citaFuente: string }
   hitos: Hito[]
   nosotros: Encabezado & {
     parrafos: string[]

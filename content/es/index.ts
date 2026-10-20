@@ -28,7 +28,7 @@ export const contenido: Contenido = {
   meta: {
     titulo: `${organizacion.nombreCompleto} — Visita y protege el valle`,
     descripcion:
-      'La Corporación Valle Cochamó reúne a vecinos, propietarios, arrieros y operadores turísticos para conservar el Valle Cochamó y ordenar su visita. Reserva tu estadía, conoce el Santuario de la Naturaleza propuesto y colabora.',
+      'La Corporación Valle Cochamó reúne a vecinos, propietarios, arrieros y operadores turísticos para conservar el Valle Cochamó y ordenar su visita. Reserva tu estadía, conoce el Santuario de la Naturaleza y colabora.',
     descripcionOg:
       'Reserva tu estadía, prepara tu viaje y súmate a conservar uno de los valles de granito y bosque nativo más valiosos de la Patagonia chilena.',
   },
@@ -108,7 +108,7 @@ export const contenido: Contenido = {
         { label: 'Dónde queda', href: `${PORTADA}/el-valle#mapa`, detalle: 'Mapa de los sectores' },
         { label: 'Flora y fauna', href: `${PORTADA}/el-valle#flora-fauna`, detalle: 'Qué vive en el bosque valdiviano' },
         { label: 'Qué se puede hacer', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'Trekking, escalada, cabalgatas' },
-        { label: 'El Santuario', href: `${PORTADA}/el-valle#santuario`, detalle: '11.432,8 ha propuestas' },
+        { label: 'El Santuario', href: `${PORTADA}/el-valle#santuario`, detalle: '11.432,8 ha protegidas' },
         { label: 'Lo que está en juego', href: `${PORTADA}/el-valle#amenazas`, detalle: 'Las amenazas sobre el valle' },
       ],
     },
@@ -127,7 +127,7 @@ export const contenido: Contenido = {
       label: 'Historia',
       href: `${PORTADA}/historia`,
       items: [
-        { label: 'Qué pasó', href: `${PORTADA}/historia#historia`, detalle: 'De 2009 a hoy' },
+        { label: 'Línea de tiempo', href: `${PORTADA}/historia#historia`, detalle: 'De 2016 a hoy' },
         { label: 'Quién administra y por qué', href: `${PORTADA}/historia#nosotros`, detalle: 'La comunidad del valle' },
         { label: 'Misión y visión', href: `${PORTADA}/historia#mision`, detalle: 'Hacia dónde vamos' },
         { label: 'Qué hemos hecho', href: `${PORTADA}/historia#logros`, detalle: 'Obras terminadas' },
@@ -159,7 +159,7 @@ export const contenido: Contenido = {
     {
       titulo: 'Organización',
       items: [
-        { label: 'Qué pasó', href: `${PORTADA}/historia` },
+        { label: 'Línea de tiempo', href: `${PORTADA}/historia#historia` },
         { label: 'Quiénes somos', href: `${PORTADA}/historia#nosotros` },
         { label: 'Noticias', href: externos.noticias },
         { label: 'Donaciones', href: `${PORTADA}/como-ayudar#donaciones` },
@@ -184,7 +184,7 @@ export const contenido: Contenido = {
     proyectos: { label: 'Ver proyectos', href: `${PORTADA}/historia#proyectos` },
   },
   cifras: [
-    { valor: 11432, sufijo: ',8 ha', texto: 'Superficie propuesta como Santuario de la Naturaleza' },
+    { valor: 11432, sufijo: ',8 ha', texto: 'Protegidas como Santuario de la Naturaleza' },
     { valor: 8000, sufijo: ' ha', texto: 'De bosque de alerce, con ejemplares de cerca de 1.000 años' },
     { valor: 17000, prefijo: '+', texto: 'Visitantes al año recorren el sendero de los arrieros' },
     { valor: 1000, sufijo: ' m', texto: 'De paredes de granito del Batolito Norpatagónico' },
@@ -192,63 +192,66 @@ export const contenido: Contenido = {
 
   introHistoria: {
     eyebrow: 'Nuestra historia',
-    titulo: 'Quince años defendiendo un valle que nunca fue parque',
+    titulo: 'Una historia de porfía: cómo este valle llegó a ser santuario',
     bajada:
-      'La historia de la conservación del Valle Cochamó se remonta a décadas de esfuerzos dispersos. Lo que empezó como la resistencia a un proyecto hidroeléctrico terminó convirtiéndose en una organización comunitaria que hoy ordena la visita, repara senderos y empuja la creación de un área protegida.',
+      'Lo que empezó como una conversación entre vecinos preocupados terminó en una organización comunitaria que hoy ordena la visita, repara senderos y administra el santuario que consiguió. Esto es lo que pasó en el medio.',
     cita: 'Las decisiones de hoy determinan las consecuencias de mañana.',
     citaFuente: 'Lema del sistema de reservas del Valle Cochamó',
+    entrada:
+      'Cochamó son paredes de granito de mil metros sobre bosque siempreverde, alerces de mil años y ríos de deshielo, al final de un sendero que los arrieros abrieron hace más de un siglo. No es un parque: son tierras cuyos dueños abrieron el acceso, y esa apertura es a la vez su gracia y su fragilidad. En pocos años ha tenido enfrente hidroeléctricas, proyectos inmobiliarios y, de forma menos evidente pero igual de real, el propio turismo que lo hizo conocido.',
   },
 
   hitos: [
     {
-      anio: '2009 — 2012',
-      titulo: 'Nace Conservación Cochamó',
-      texto:
-        'Un grupo ciudadano se organiza para enfrentar un proyecto hidroeléctrico que pretendía explotar el río Cochamó y sus principales afluentes.',
-    },
-    {
-      anio: 'Primer gobierno de Bachelet',
-      titulo: 'Decreto de reserva para la cuenca',
-      texto:
-        'Junto a la comunidad local se consigue un decreto presidencial que crea una reserva para la cuenca del río Cochamó, orientada a la conservación y al desarrollo local.',
-    },
-    {
       anio: '2016',
-      titulo: 'Se exige reserva para entrar a La Junta',
+      titulo: 'Los vecinos se sientan a conversar',
       texto:
-        'Comienza a funcionar el sistema de reservas: una forma concreta de respetar la capacidad de carga del sendero y de los campings, y de reducir el impacto sobre el valle.',
+        'El valle se había corrido de boca en boca y cada verano llegaba más gente que el anterior. Sin reglas ni cupos, el sendero y los campings empezaron a acusar el peso. Ese año los vecinos se juntaron por primera vez a ver qué hacer, y de esa conversación salió la primera medida concreta: para entrar a La Junta, donde se duerme, hay que reservar.',
       destacado: true,
     },
     {
       anio: '2017',
-      titulo: 'Se funda la Organización Valle Cochamó',
+      titulo: 'Nace la Organización Valle Cochamó',
       texto:
-        'Personas de Conservación Cochamó, miembros de Puelo Patagonia, propietarios, operadores turísticos y aliados internacionales —entre ellos Friends of Cochamó— dan vida a la OVC.',
+        'La conversación se formalizó. Vecinos, propietarios, operadores turísticos y gente que quiere este lugar crearon la primera organización que sentó a todos los actores del valle en la misma mesa. No es gente de paso: son quienes viven y trabajan aquí.',
       destacado: true,
     },
     {
       anio: '2019',
-      titulo: 'El directorio ampliado se reúne en Llanada Grande',
-      texto: 'Vecinos, arrieros, propietarios y operadores consolidan una gobernanza común para el destino.',
+      titulo: 'Una gobernanza común con los valles vecinos',
+      texto:
+        'El trabajo se amplió a las organizaciones de los territorios de al lado. Juntas acordaron una gobernanza común y los parámetros que permiten que el turismo opere sin desarmar lo que viene a ver. Fue también el año en que quedó claro que hacía falta algo más: una capa de protección para el valle.',
     },
     {
-      anio: 'Julio 2022',
-      titulo: 'Se presenta el Santuario de la Naturaleza',
+      anio: '2022 · Mayo',
+      titulo: 'Se frena un proyecto inmobiliario',
       texto:
-        'La propuesta de 11.432,8 hectáreas llega al Ministerio de Bienes Nacionales, sobre terrenos fiscales —la Hijuela 5— y predios privados que se sumaron de forma voluntaria.',
+        'Con el turismo ya más ordenado apareció otra amenaza, esta vez de ladrillo: un proyecto inmobiliario sobre el valle. El trabajo alineado de varias organizaciones, con la OVC a la cabeza, consiguió que no se llevara a cabo.',
+    },
+    {
+      anio: '2022 · Julio',
+      titulo: 'Se pide el santuario',
+      texto:
+        'Tras tres años de trabajo junto a otras organizaciones, se presentó al Ministerio del Medio Ambiente la solicitud de declarar santuario de la naturaleza a una parte importante del valle.',
+    },
+    {
+      anio: '2024',
+      titulo: 'El Valle de Cochamó es Santuario de la Naturaleza',
+      texto:
+        'El 29 de enero de 2024 se publicó el decreto: 11.432,8 hectáreas quedaron protegidas. La figura no expropia ni cierra el valle —la vida y las actividades de siempre continúan—, pero ninguna obra ni actividad que altere el estado natural del lugar puede hacerse sin autorización previa, y la caza queda prohibida. La administración quedó en manos de la organización del valle.',
       destacado: true,
     },
     {
-      anio: 'Octubre 2022',
-      titulo: 'La comunidad toma la palabra',
+      anio: '2025',
+      titulo: 'La organización se hace corporación',
       texto:
-        'Conversatorio comunitario en Lago Vidal y Torrentoso, y participación en el 2.º Encuentro de Áreas Protegidas en Santiago.',
+        'Con el santuario declarado, los roles y las responsabilidades crecieron. Para que personas y empresas puedan sumarse a sostener este trabajo, la Organización Valle Cochamó pasó a ser Corporación Valle Cochamó.',
     },
     {
       anio: 'Hoy',
-      titulo: 'El valle sigue sin protección oficial',
+      titulo: 'El viaje de la conservación no se termina',
       texto:
-        'Las amenazas no cesaron: proyectos inmobiliarios, centrales y, sobre todo, un camino que avanza cada vez más cerca. Seguimos trabajando para que el santuario sea declarado.',
+        'Un santuario declarado no es una meta cumplida: es un compromiso que hay que sostener cada temporada. Seguimos cuidando este lugar para que quienes vengan después lo encuentren como lo encontramos nosotros.',
     },
   ],
 
@@ -344,7 +347,7 @@ export const contenido: Contenido = {
         'El valle está en la comuna de Cochamó, Región de Los Lagos. Desde el inicio del sendero, La Junta y Lago Vidal solo se alcanzan a pie o a caballo.',
     },
     aviso:
-      'Mapa de orientación, no de navegación. No hay cobertura ni servicios de emergencia en el valle: lleva mapa y brújula o GPS propios.',
+      'Mapa de orientación, no de navegación. El área sombreada es el Santuario de la Naturaleza, dibujada según OpenStreetMap y solo a modo referencial: la cartografía oficial es la del decreto. No hay cobertura ni servicios de emergencia en el valle: lleva mapa y brújula o GPS propios.',
     centroInicial: { lat: -41.4495, lon: -72.115, zoom: 10 },
   },
 
@@ -503,16 +506,16 @@ export const contenido: Contenido = {
     eyebrow: 'Conservación',
     titulo: 'Un Santuario de la Naturaleza para el Valle Cochamó',
     bajada:
-      'El valle no está protegido oficialmente por el Estado chileno. En julio de 2022 presentamos al Ministerio de Bienes Nacionales la propuesta de declararlo Santuario de la Naturaleza, sobre terrenos fiscales —la Hijuela 5— y predios privados que se sumaron voluntariamente.',
+      'Desde el 29 de enero de 2024, 11.432,8 hectáreas del valle son Santuario de la Naturaleza por decreto del Ministerio del Medio Ambiente. Más del 98% son terrenos fiscales; el resto, predios privados que se sumaron de forma voluntaria.',
     parrafo:
-      'Un santuario reconoce los valores ambientales del territorio y es conciliador con la cultura y las formas de vida locales: la comunidad sigue siendo quien lo administra.',
+      'Un santuario reconoce los valores ambientales del territorio sin expropiar a nadie ni cerrar el valle: la vida y las actividades de siempre continúan. Lo que cambia es que ninguna obra ni actividad que altere el estado natural del lugar puede hacerse sin autorización previa, y que la caza queda prohibida. La administración quedó en manos de la organización del valle.',
     hectareas: '11.432,8',
-    hectareasPie: 'hectáreas propuestas',
+    hectareasPie: 'hectáreas protegidas',
     foto: {
       ...imagenes.alerce,
       alt: 'Persona apoyada en el tronco de un alerce milenario en el bosque del Valle Cochamó',
     },
-    enlace: { label: 'Conocer la propuesta completa', href: externos.santuario },
+    enlace: { label: 'Conocer el santuario', href: externos.santuario },
   },
 
   queProtege: [

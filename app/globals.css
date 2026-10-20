@@ -1897,6 +1897,20 @@ p { text-wrap: pretty; }
 .payku[data-estado='listo'] .payku__espera { display: none; }
 
 /* --------------------------------------------------------------------------
+   Entrada y mapa de la línea de tiempo
+   -------------------------------------------------------------------------- */
+.historia__titulo { font-size: clamp(1.7rem, 3.4vw, 2.4rem); }
+.historia__entrada {
+  max-width: 68ch;
+  margin-top: 16px;
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  line-height: 1.75;
+  color: var(--texto-suave);
+}
+.historia__mapa { margin-top: 32px; }
+.historia__mapa + .historia { margin-top: clamp(40px, 6vw, 72px); }
+
+/* --------------------------------------------------------------------------
    Comparativa de modalidades
 
    Una tabla de verdad: la fila manda y cada modalidad responde a lo mismo.
