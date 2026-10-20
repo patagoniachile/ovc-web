@@ -482,7 +482,6 @@ export const contenido: Contenido = {
       titulo: 'Toboganes de Cochamó',
       texto:
         'Su nombre viene de su aspecto de tobogán natural y atrae a la gente a deslizarse por ellos. Son **extremadamente peligrosos**: la mayoría de los accidentes graves del valle ocurren allí.',
-      alerta: true,
     },
     {
       icono: 'montana',

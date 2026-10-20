@@ -148,7 +148,7 @@ export const sectoresDetalle: SectorDetalle[] = [
         tipo: 'Campsite',
         descripcion:
           'Large pitches and a big fire pit for cooking, with beaches along the Cochamó River. You get there by crossing the river on a cable cart.',
-        servicios: ['Large pitches', 'Large fire pit for cooking', 'River beaches', 'Horseback rides (optional)', 'Home-baked bread for sale'],
+        servicios: ['Large pitches', 'Water, showers and washbasins', 'Ecological composting toilets', 'Large fire pit for cooking', 'River beaches', 'Horseback rides (optional)', 'Home-baked bread for sale'],
         contactos: [
           { tipo: 'telefono', valor: '+56 9 3510 9737', href: 'tel:+56935109737' },
           { tipo: 'telefono', valor: '+56 9 5666 2469', href: 'tel:+56956662469' },
