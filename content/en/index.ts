@@ -186,7 +186,7 @@ export const contenido: Contenido = {
     bajada:
       'A valley of extraordinary nature, history and community. Learn about the work we do to look after this land and find out how to visit it responsibly.',
     visitar: { label: 'Plan your visit', href: `${PORTADA}/como-visitar` },
-    conocer: { label: 'Explore the valley', href: '#el-valle' },
+    conocer: { label: 'Explore the valley', href: `${PORTADA}#el-valle` },
     alt: 'Granite walls of the Cochamó Valley with the valley’s native forest in the background',
   },
 

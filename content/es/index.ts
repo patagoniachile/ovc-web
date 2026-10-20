@@ -177,7 +177,7 @@ export const contenido: Contenido = {
     bajada:
       'Un valle de naturaleza extraordinaria, historia y comunidad. Conoce el trabajo que hacemos para cuidar este territorio y descubre cómo visitarlo de manera responsable.',
     visitar: { label: 'Planifica tu visita', href: `${PORTADA}/como-visitar` },
-    conocer: { label: 'Conoce el valle', href: '#el-valle' },
+    conocer: { label: 'Conoce el valle', href: `${PORTADA}#el-valle` },
     alt: 'Paredes de granito del Valle Cochamó con el bosque nativo del valle al fondo',
   },
 
