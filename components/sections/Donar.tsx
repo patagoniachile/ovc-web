@@ -65,9 +65,10 @@ export function Donar({ lang }: { lang: Lang }) {
 
   return (
     <>
-      {/* Transferencia */}
-      <section className="seccion">
+      {/* Transferencia: es la entrada de las donaciones, por eso lleva el ancla */}
+      <section className="seccion seccion--alt" id="donaciones">
         <div className="contenedor">
+          <p className="eyebrow revelar">{donarPagina.eyebrow}</p>
           <h2 className="titulo--compacto revelar">{donarPagina.tituloCuenta}</h2>
           <p className="lead revelar">{donarPagina.intro}</p>
 

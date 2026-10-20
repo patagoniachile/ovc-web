@@ -2304,11 +2304,9 @@ p { text-wrap: pretty; }
 /* El destino de los aportes manda y va a ancho completo; las cuatro cosas
    concretas en que se gasta vienen debajo. Antes compartían fila y ninguna
    de las dos tenía sitio. */
-.destino { margin-top: clamp(32px, 5vw, 48px); }
 .destino__intro { max-width: 70ch; }
 .destino__intro .reparto { max-width: 46rem; }
-.destino__intro h3 { font-size: clamp(1.4rem, 2.8vw, 1.9rem); }
-.destino__intro p { margin-top: 12px; color: var(--texto-suave); }
+.destino__intro p { margin-top: 18px; }
 .destino__intro .reparto { margin-top: 24px; }
 
 .destino__items { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: clamp(32px, 4vw, 48px); }
@@ -2384,9 +2382,6 @@ p { text-wrap: pretty; }
 .via { align-items: stretch; }
 .via p { flex: 1; }
 
-@media (max-width: 860px) {
-  .destino { grid-template-columns: 1fr; }
-}
 
 /* --------------------------------------------------------------------------
    Planes de socio

@@ -39,7 +39,7 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
   const { lang } = await params
   if (!esIdioma(lang)) notFound()
 
-  const { comoAyudarPagina, donarPagina, sociosPagina, textos } = getContenido(lang)
+  const { comoAyudarPagina, sociosPagina, textos } = getContenido(lang)
 
   return (
     <>
@@ -53,18 +53,8 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
         fotoPosicion="center top"
       />
 
-      {/* Donaciones */}
-      <section className="seccion seccion--alt" id="donaciones">
-        <div className="contenedor">
-          <p className="eyebrow revelar">{donarPagina.eyebrow}</p>
-          <h2 className="revelar">{donarPagina.titulo}</h2>
-
-          <DestinoAportes lang={lang} />
-        </div>
-      </section>
-      <Donar lang={lang} />
-
-      {/* Socios: el encabezado y los planes son una sola sección */}
+      {/* Socios primero, con los planes a la vista: es la acción principal.
+          El encabezado y los planes son una sola sección. */}
       <PlanesSocio lang={lang} destino="#socios" id="socios" />
 
       <section className="seccion">
@@ -74,6 +64,10 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
           <AporteConTarjeta lang={lang} />
         </div>
       </section>
+
+      {/* Donaciones: los datos para transferir y, después, en qué se usa */}
+      <Donar lang={lang} />
+      <DestinoAportes lang={lang} />
 
       {comoAyudarPagina.productos && (
         <section className="seccion seccion--oscura" id="productos">

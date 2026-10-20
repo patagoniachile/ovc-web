@@ -2,7 +2,8 @@ import { Icon } from '@/components/ui/Icon'
 import { getContenido, type Lang } from '@/content'
 
 /**
- * A dónde va el dinero, dentro de la sección de donaciones.
+ * A dónde va el dinero: sección propia de Cómo ayudar, justo después de los
+ * datos para transferir.
  *
  * Vivía en la portada, antes de los botones de aportar. Está mejor aquí:
  * quien llega a Cómo ayudar ya decidió que quiere dar algo, y lo que necesita
@@ -13,35 +14,37 @@ export function DestinoAportes({ lang }: { lang: Lang }) {
   const { destinoAportes } = getContenido(lang)
 
   return (
-    <div className="destino">
-      <div className="destino__intro revelar">
-        <h3>{destinoAportes.titulo}</h3>
-        {destinoAportes.texto && <p>{destinoAportes.texto}</p>}
-      </div>
+    <section className="seccion" id="destino">
+      <div className="contenedor destino">
+        <div className="destino__intro revelar">
+          <h2>{destinoAportes.titulo}</h2>
+          {destinoAportes.texto && <p className="lead">{destinoAportes.texto}</p>}
+        </div>
 
-      <ul className="destino__items">
-        {destinoAportes.items.map((item) => (
-          <li className={item.tituloGrande ? 'destino__item destino__item--titulo revelar' : 'destino__item revelar'} key={item.titulo}>
-            <span className="destino__icono">
-              <Icon name={item.icono} />
-            </span>
-            <div>
-              {item.tituloGrande ? (
-                <>
-                  <h4>{item.titulo}</h4>
-                  <span className="destino__dato">{item.dato}</span>
-                </>
-              ) : (
-                <>
-                  <span className="destino__dato">{item.dato}</span>
-                  <h4>{item.titulo}</h4>
-                </>
-              )}
-              <p>{item.texto}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+        <ul className="destino__items">
+          {destinoAportes.items.map((item) => (
+            <li className={item.tituloGrande ? 'destino__item destino__item--titulo revelar' : 'destino__item revelar'} key={item.titulo}>
+              <span className="destino__icono">
+                <Icon name={item.icono} />
+              </span>
+              <div>
+                {item.tituloGrande ? (
+                  <>
+                    <h4>{item.titulo}</h4>
+                    <span className="destino__dato">{item.dato}</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="destino__dato">{item.dato}</span>
+                    <h4>{item.titulo}</h4>
+                  </>
+                )}
+                <p>{item.texto}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
   )
 }
