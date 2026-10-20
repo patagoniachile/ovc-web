@@ -1,3 +1,5 @@
+import { RichText } from '@/components/ui/RichText'
+
 export function SectionHeader({
   eyebrow,
   titulo,
@@ -32,7 +34,7 @@ export function SectionHeader({
     <div className={clases}>
       {eyebrow && <p className={claro ? 'eyebrow eyebrow--claro' : 'eyebrow'}>{eyebrow}</p>}
       <h2 id={id}>{titulo}</h2>
-      {bajada && <p className="lead">{bajada}</p>}
+      {bajada && <p className="lead"><RichText>{bajada}</RichText></p>}
     </div>
   )
 }

@@ -2624,3 +2624,32 @@ p { text-wrap: pretty; }
 .marcador--camping .marcador__punto { background: var(--bosque-500); }
 .mapa__pin--camping { background: var(--bosque-500); }
 
+
+/* Dónde dormir: tarjetas en una sola fila, cada una su recuadro */
+.alojamientos--fila { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+.alojamientos--fila .alojamiento { padding: 22px; }
+@media (min-width: 1000px) {
+  .alojamientos--fila { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+.dormir__cabecera { margin-bottom: 20px; }
+.dormir__mapa { margin-bottom: 28px; }
+.dormir__mapa .mapa__lienzo { height: clamp(300px, 42vh, 420px); }
+
+/* Marcadores de alojamiento; el resaltado responde al cursor sobre la tarjeta */
+.marcador--alojamiento .marcador__punto { background: var(--bosque-500); }
+.marcador__punto, .marcador__nombre { transition: transform var(--trans), background-color var(--trans); }
+.marcador.esta-resaltado .marcador__punto { background: var(--oro-500); transform: scale(1.7); }
+.marcador.esta-resaltado .marcador__nombre { background: var(--oro-500); color: var(--bosque-900); }
+.alojamientos--fila .alojamiento__reserva { margin-top: auto; }
+.dormir__aviso { margin-top: 18px; font-size: .88rem; color: var(--texto-suave); }
+.dormir__aviso strong { color: var(--bosque-900); }
+.alojamientos--fila .alojamiento__contactos { margin-bottom: 22px; }
+.marcador--arriba .marcador__nombre { top: auto; bottom: 18px; }
+.marcador--izq .marcador__nombre { left: auto; right: 20px; top: 50%; transform: translateY(-50%); }
+.marcador--der .marcador__nombre { left: 20px; top: 50%; transform: translateY(-50%); }
+/* Separación entre los sectores de «Dónde dormir» */
+.dormir + .dormir {
+  margin-top: clamp(48px, 7vw, 88px);
+  padding-top: clamp(40px, 6vw, 72px);
+  border-top: 1px solid var(--borde);
+}

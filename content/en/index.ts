@@ -122,7 +122,6 @@ export const contenido: Contenido = {
         { label: 'Conservation', href: `${PORTADA}/el-valle#santuario`, detalle: 'The Sanctuary' },
         { label: 'What is at stake', href: `${PORTADA}/el-valle#amenazas`, detalle: 'Threats' },
         { label: 'Activities', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'What to do' },
-        { label: 'Where to stay', href: `${PORTADA}/el-valle#dormir`, detalle: 'Places to sleep in the valley' },
       ],
     },
     {
@@ -130,6 +129,7 @@ export const contenido: Contenido = {
       href: `${PORTADA}/como-visitar`,
       items: [
         { label: 'Getting here', href: `${PORTADA}/como-visitar#como-llegar`, detalle: 'By car or by bus' },
+        { label: 'Where to stay', href: `${PORTADA}/el-valle#dormir`, detalle: 'Places to sleep in the valley' },
         { label: 'What it costs', href: `${PORTADA}/como-visitar#cuanto-cuesta`, detalle: 'What you pay and to whom' },
         { label: 'Day trip vs. several days', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Two different trips' },
         { label: 'What to know', href: `${PORTADA}/como-visitar#normas`, detalle: 'Rules and safety' },
@@ -338,14 +338,11 @@ export const contenido: Contenido = {
     eyebrow: 'Where to stay',
     titulo: 'Where to stay in the valley',
     bajada:
-      'Every place is run by a family from the valley and is booked directly with them. Hover over a card to see where it is.',
+      'La Junta, the heart of the valley, has 4 places to stay. Each one is run by a family or operator from the valley and is booked directly with them. **You need a confirmed booking before you go.**',
     bloques: [
       {
         slug: 'la-junta',
-        foto: {
-          ...imagenes.laJuntaAerea,
-          alt: 'Aerial view of the La Junta meadow, with the campsites beside the bend in the river',
-        },
+        titulo: 'Places to stay in La Junta',
       },
       {
         slug: 'inicio-sendero',

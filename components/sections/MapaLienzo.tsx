@@ -83,10 +83,20 @@ export function MapaLienzo({
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(instancia)
 
+      // Los alojamientos de un mismo sector quedan a pocos metros: si todas las
+      // etiquetas van debajo del punto se tapan entre sí. Ordenados de oeste a
+      // este, cada etiqueta se coloca por un lado distinto.
+      const lados = ['arriba', 'izq', 'abajo', 'der']
+      const ladoDe: Record<string, string> = {}
+      puntos
+        .filter((p) => p.tipo === 'alojamiento')
+        .sort((a, b) => a.lon - b.lon)
+        .forEach((p, i) => { ladoDe[p.id] = lados[i % lados.length] })
+
       puntos.forEach((punto) => {
         const icono = L.divIcon({
           className: '',
-          html: `<span class="marcador marcador--${punto.tipo}" data-punto="${punto.id}"><span class="marcador__punto"></span><span class="marcador__nombre">${punto.nombre}</span></span>`,
+          html: `<span class="marcador marcador--${punto.tipo}${ladoDe[punto.id] ? ` marcador--${ladoDe[punto.id]}` : ''}" data-punto="${punto.id}"><span class="marcador__punto"></span><span class="marcador__nombre">${punto.nombre}</span></span>`,
           iconSize: [14, 14],
           iconAnchor: [7, 7],
         })
@@ -164,6 +174,7 @@ export function MapaLienzo({
   useEffect(() => {
     Object.entries(marcadores.current).forEach(([id, marcador]) => {
       marcador.getElement()?.querySelector('.marcador')?.classList.toggle('esta-resaltado', id === resaltado)
+      marcador.setZIndexOffset(id === resaltado ? 1000 : 0)
     })
   }, [resaltado, cargado])
 
