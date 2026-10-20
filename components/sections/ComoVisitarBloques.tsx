@@ -11,66 +11,124 @@ const ICONO_CONTACTO: Record<TipoContacto, IconName> = {
   facebook: 'facebook',
 }
 
+/**
+ * Cómo llegar: el auto en corto y el bus en largo.
+ *
+ * No son dos formas equivalentes de venir. En auto se improvisa; en bus no:
+ * los pasajes se venden solo en el terminal, el último sale a las 15:00 y sin
+ * reserva de camping no se entra al valle. Quien compra el pasaje antes de
+ * reservar se queda abajo, así que esa advertencia va antes que nada.
+ */
 export function ComoLlegar({ lang }: { lang: Lang }) {
   const { comoLlegar } = getContenido(lang)
+  const { auto, bus } = comoLlegar
 
   return (
     <section className="seccion" id="como-llegar">
       <div className="contenedor">
         <SectionHeader className="revelar" eyebrow={comoLlegar.eyebrow} titulo={comoLlegar.titulo} bajada={comoLlegar.bajada} />
 
-        <div className="transportes">
-          {comoLlegar.medios.map((medio) => (
-            <article className="transporte revelar" key={medio.titulo}>
-              <div className="transporte__icono">
-                <Icon name={medio.icono} />
-              </div>
-              <h3>{medio.titulo}</h3>
-              <p>{medio.texto}</p>
-              {medio.contactos && (
-                <ul className="transporte__contactos">
-                  {medio.contactos.map((c) => (
-                    <li key={c.href}>
-                      <a href={c.href}>
-                        <Icon name={ICONO_CONTACTO[c.tipo]} />
-                        {c.valor}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </article>
-          ))}
+        <div className="llegar">
+          <article className="llegar__via revelar">
+            <h3>{auto.titulo}</h3>
+            <p>{auto.texto}</p>
+          </article>
+
+          <article className="llegar__via llegar__via--larga revelar">
+            <h3>{bus.titulo}</h3>
+
+            <div className="llegar__advertencia">
+              <p className="llegar__advertencia-titulo">
+                <Icon name="alerta" />
+                {bus.advertencia.titulo}
+              </p>
+              <ul>
+                {bus.advertencia.puntos.map((punto) => (
+                  <li key={punto}>{punto}</li>
+                ))}
+              </ul>
+            </div>
+
+            <p className="llegar__rotulo">{bus.planificacion.titulo}</p>
+            <ol className="llegar__pasos">
+              {bus.planificacion.pasos.map((paso) => (
+                <li key={paso}>{paso}</li>
+              ))}
+            </ol>
+            <p className="llegar__nota">{bus.planificacion.nota}</p>
+
+            <p className="llegar__rotulo">{bus.contactosTitulo}</p>
+            <ul className="llegar__contactos">
+              {bus.contactos.map((c) => (
+                <li key={c.href}>
+                  <a href={c.href}>
+                    <Icon name={ICONO_CONTACTO[c.tipo]} />
+                    {c.valor}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </article>
         </div>
       </div>
     </section>
   )
 }
 
+/**
+ * Qué se paga y a quién.
+ *
+ * La entrada va primero y destacada porque «¿cuánto cuesta entrar?» es la
+ * pregunta con la que llega casi todo el mundo, y la respuesta —nada— se
+ * perdía en una lista donde todas las filas pesaban igual.
+ */
 export function CuantoCuesta({ lang }: { lang: Lang }) {
-  const { cuantoCuesta, textos } = getContenido(lang)
+  const { cuantoCuesta, porQueReservar, textos } = getContenido(lang)
+  const { reparto } = porQueReservar
 
   return (
     <section className="seccion seccion--alt" id="cuanto-cuesta">
       <div className="contenedor">
         <SectionHeader className="revelar" eyebrow={cuantoCuesta.eyebrow} titulo={cuantoCuesta.titulo} bajada={cuantoCuesta.bajada} />
 
-        <ul className="costos">
+        <ul className="precios">
           {cuantoCuesta.costos.map((costo) => (
-            <li className="costo revelar" key={costo.concepto}>
-              <div className="costo__cabecera">
-                <h3>
-                  {costo.concepto}
-                  {/* Van en la misma lista que la entrada y el alojamiento, así
-                      que sin esto se leen como algo que hay que pagar sí o sí. */}
-                  {costo.opcional && <span className="costo__opcional">{textos.opcional}</span>}
-                </h3>
-                <span className="costo__valor">{costo.valor}</span>
-              </div>
-              <p>{costo.detalle}</p>
+            <li
+              className={costo.destacado ? 'precio precio--libre revelar' : 'precio revelar'}
+              key={costo.concepto}
+            >
+              <h3>
+                {costo.concepto}
+                {/* Van en la misma lista que la entrada y el alojamiento, así
+                    que sin esto se leen como algo que hay que pagar sí o sí. */}
+                {costo.opcional && <span className="costo__opcional">{textos.opcional}</span>}
+              </h3>
+              <p className="precio__monto">
+                {costo.valor}
+                {costo.unidad && <small>{costo.unidad}</small>}
+              </p>
+              <p className="precio__detalle">{costo.detalle}</p>
             </li>
           ))}
         </ul>
+
+        <div className="reparto reparto--claro revelar">
+          <p className="reparto__titulo">{textos.repartoDonacion}</p>
+          <div className="reparto__barra" role="img" aria-label={reparto.etiquetaGrafico}>
+            <span />
+            <span />
+          </div>
+          <ul className="reparto__leyenda">
+            <li>
+              <span className="reparto__punto reparto__punto--bosque" />
+              {reparto.conservacion}
+            </li>
+            <li>
+              <span className="reparto__punto reparto__punto--oro" />
+              {reparto.infraestructura}
+            </li>
+          </ul>
+        </div>
 
         <p className="costos__nota revelar">
           <Icon name="alerta" />

@@ -203,19 +203,15 @@ export interface FilaComparativa {
   valores: string[]
 }
 
-/** Forma de llegar al valle. */
-export interface MedioDeTransporte {
-  icono: IconName
-  titulo: string
-  texto: string
-  contactos?: Contacto[]
-}
-
 /** Partida de la sección "cuánto cuesta". */
 export interface Costo {
   concepto: string
   valor: string
+  /** Lo que va en pequeño tras el monto: «por día y caballo». */
+  unidad?: string
   detalle: string
+  /** La entrada al valle, que es la respuesta que más gente viene buscando. */
+  destacado?: boolean
   /** Servicios que se contratan si se quieren, no para entrar al valle. */
   opcional?: boolean
 }
@@ -480,7 +476,16 @@ export interface Contenido {
   comoVisitarPagina: Encabezado & { intro: string }
   comoAyudarPagina: Encabezado & { intro: string }
   reservarPagina: Encabezado & { intro: string; tituloSectores: string; tituloDormir: string }
-  comoLlegar: Encabezado & { medios: MedioDeTransporte[] }
+  comoLlegar: Encabezado & {
+    auto: { titulo: string; texto: string }
+    bus: {
+      titulo: string
+      advertencia: { titulo: string; puntos: string[] }
+      planificacion: { titulo: string; pasos: string[]; nota: string }
+      contactosTitulo: string
+      contactos: Contacto[]
+    }
+  }
   cuantoCuesta: Encabezado & { costos: Costo[]; nota: string }
   diaVsSemana: Encabezado & { modalidades: Modalidad[]; filas: FilaComparativa[] }
   horariosYContacto: Encabezado & {

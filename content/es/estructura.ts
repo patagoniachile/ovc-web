@@ -1,6 +1,6 @@
 import { externos } from '../externos'
 import type {
-  Actividad, Contacto, Costo, Encabezado, Especie, MedioDeTransporte, FilaComparativa, Modalidad, Rasgo,
+  Actividad, Contacto, Costo, Encabezado, Especie, FilaComparativa, Modalidad, Rasgo,
 } from '../types'
 
 /** Portada del idioma: las anclas van absolutas, nunca sueltas. */
@@ -157,31 +157,38 @@ export const comoLlegar = {
   eyebrow: 'Cómo llegar',
   titulo: 'Hasta el inicio del sendero',
   bajada: 'El valle está en la comuna de Cochamó. Desde el pueblo al inicio del sendero hay 10 km de camino de ripio.',
-  medios: [
-    {
-      icono: 'camino',
-      titulo: 'En auto',
-      texto:
-        'Conduce hacia Ensenada por la Ruta 225 y toma la bifurcación a Cochamó, Ruta V-69. Desde el pueblo de Cochamó hasta el inicio del sendero hacia La Junta son 10 km. Al final del camino hay estacionamiento.',
-    },
-    {
-      icono: 'gente',
-      titulo: 'En bus',
-      texto:
-        'Desde el terminal de Puerto Montt hay buses hacia Cochamó. Las oficinas están en el terminal y la venta es solo presencial. Los horarios cambian: consulta antes, sobre todo feriados, domingos y en verano.',
-      contactos: [
-        { tipo: 'telefono', valor: 'Buses Trans HAR · +56 9 9530 6867', href: 'tel:+56995306867' },
-        { tipo: 'telefono', valor: 'Buses Río Puelo · +56 9 9123 0838', href: 'tel:+56991230838' },
-        { tipo: 'telefono', valor: 'Buses Río Puelo · +56 9 7408 9199', href: 'tel:+56974089199' },
+  auto: {
+    titulo: 'En auto',
+    texto:
+      'Conduce hacia Ensenada por la Ruta 225 y toma la bifurcación a Cochamó, Ruta V-69. Al final del camino hay estacionamiento.',
+  },
+  bus: {
+    titulo: 'En bus',
+    advertencia: {
+      titulo: 'Antes de comprar tu pasaje',
+      puntos: [
+        'Ten tu reserva confirmada en un camping. Sin ella no puedes ingresar.',
+        'Los pasajes se venden solo de forma presencial, en el terminal de Puerto Montt.',
+        'El último bus de Puerto Montt a Cochamó sale a las 15:00. Los horarios pueden modificarse: confírmalos con la empresa.',
       ],
     },
-    {
-      icono: 'caballo',
-      titulo: 'Desde el pueblo',
-      texto:
-        'Si no tienes auto, hay transporte local entre el pueblo de Cochamó y el inicio del sendero. Conviene coordinarlo junto con la reserva del alojamiento y de los caballos.',
+    planificacion: {
+      titulo: 'Ejemplo de planificación',
+      pasos: [
+        'Reserva tu camping en la plataforma.',
+        'Compra tu pasaje en el terminal de Puerto Montt.',
+        'Llegada a Cochamó y traslado al inicio del sendero.',
+        'Regístrate en el Centro de Visitantes antes de las 15:00 (14:00 en marzo y abril).',
+      ],
+      nota: 'Las horas de salida y llegada de los buses varían. Confírmalas con la empresa antes de viajar.',
     },
-  ] satisfies MedioDeTransporte[],
+    contactosTitulo: 'Contacto de las empresas',
+    contactos: [
+      { tipo: 'telefono', valor: 'Buses Trans HAR · +56 9 9530 6867', href: 'tel:+56995306867' },
+      { tipo: 'telefono', valor: 'Buses Río Puelo · +56 9 9123 0838', href: 'tel:+56991230838' },
+      { tipo: 'telefono', valor: 'Buses Río Puelo · +56 9 7408 9199', href: 'tel:+56974089199' },
+    ] satisfies Contacto[],
+  },
 }
 
 export const cuantoCuesta = {
@@ -193,7 +200,8 @@ export const cuantoCuesta = {
     {
       concepto: 'Entrada al valle',
       valor: 'Sin cobro',
-      detalle: 'Lo obligatorio es la reserva y el registro, no un ticket. El valle no es un parque con entrada.',
+      detalle: 'Lo obligatorio es la reserva y el registro, no un ticket. Recuerda: sin reserva no hay ingreso.',
+      destacado: true,
     },
     {
       concepto: 'Alojamiento',
@@ -202,20 +210,21 @@ export const cuantoCuesta = {
     },
     {
       concepto: 'Pilchero (carga)',
-      valor: '$45.000 por día y caballo',
+      valor: '$45.000',
+      unidad: 'por día y caballo',
       detalle: 'Ida y vuelta son $90.000. Máximo 60 kg repartidos en dos sacos iguales. Pago en efectivo al inicio del sendero.',
       opcional: true,
     },
     {
       concepto: 'Cabalgata',
-      valor: 'Consultar con la agrupación',
-      detalle: 'Máximo 10 kg de equipaje extra por persona. Avisa si pesas más de 85 kg para que elijan un caballo adecuado.',
+      valor: 'Consultar',
+      detalle: 'Consultar con la agrupación. Máximo 10 kg de equipaje extra por persona. Avisa si pesas más de 85 kg para que elijan un caballo adecuado.',
       opcional: true,
     },
     {
       concepto: 'Donación a la corporación',
       valor: 'Voluntaria',
-      detalle: 'El 50% va a programas de conservación de largo plazo y el 50% a la infraestructura para visitantes.',
+      detalle: 'Aporte opcional para cuidar el valle. Abajo ves cómo se reparte.',
     },
   ] satisfies Costo[],
   nota:

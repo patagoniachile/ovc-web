@@ -1,6 +1,6 @@
 import { externos } from '../externos'
 import type {
-  Actividad, Contacto, Costo, Encabezado, Especie, MedioDeTransporte, FilaComparativa, Modalidad, Rasgo,
+  Actividad, Contacto, Costo, Encabezado, Especie, FilaComparativa, Modalidad, Rasgo,
 } from '../types'
 
 /** Portada del idioma: las anclas van absolutas, nunca sueltas. */
@@ -154,33 +154,40 @@ export const comoVisitarPagina = {
 
 export const comoLlegar = {
   eyebrow: 'Getting here',
-  titulo: 'As far as the trailhead',
-  bajada: 'The valley is in the commune of Cochamó. From the town to the trailhead there are 10 km of gravel road.',
-  medios: [
-    {
-      icono: 'camino',
-      titulo: 'By car',
-      texto:
-        'Drive towards Ensenada on Route 225 and take the turn-off to Cochamó, Route V-69. From the town of Cochamó to the start of the trail to La Junta it is 10 km. There is parking at the end of the road.',
-    },
-    {
-      icono: 'gente',
-      titulo: 'By bus',
-      texto:
-        'There are buses to Cochamó from the Puerto Montt terminal. The offices are at the terminal and tickets are sold in person only. Timetables change: check beforehand, especially on public holidays, Sundays and in summer.',
-      contactos: [
-        { tipo: 'telefono', valor: 'Buses Trans HAR · +56 9 9530 6867', href: 'tel:+56995306867' },
-        { tipo: 'telefono', valor: 'Buses Río Puelo · +56 9 9123 0838', href: 'tel:+56991230838' },
-        { tipo: 'telefono', valor: 'Buses Río Puelo · +56 9 7408 9199', href: 'tel:+56974089199' },
+  titulo: 'To the start of the trail',
+  bajada: 'The valley is in the Cochamó district. From the village to the trailhead there are 10 km of gravel road.',
+  auto: {
+    titulo: 'By car',
+    texto:
+      'Drive towards Ensenada on Route 225 and take the turning to Cochamó, Route V-69. There is parking at the end of the road.',
+  },
+  bus: {
+    titulo: 'By bus',
+    advertencia: {
+      titulo: 'Before you buy your ticket',
+      puntos: [
+        'Have your campsite booking confirmed. Without it you cannot enter.',
+        'Tickets are sold in person only, at the Puerto Montt terminal.',
+        'The last bus from Puerto Montt to Cochamó leaves at 15:00. Times can change: confirm them with the company.',
       ],
     },
-    {
-      icono: 'caballo',
-      titulo: 'From the town',
-      texto:
-        'If you do not have a car, there is local transport between the town of Cochamó and the trailhead. It is worth arranging it together with your accommodation and horses.',
+    planificacion: {
+      titulo: 'A sample plan',
+      pasos: [
+        'Book your campsite on the platform.',
+        'Buy your ticket at the Puerto Montt terminal.',
+        'Arrive in Cochamó and transfer to the start of the trail.',
+        'Register at the Visitor Centre before 15:00 (14:00 in March and April).',
+      ],
+      nota: 'Bus departure and arrival times vary. Confirm them with the company before travelling.',
     },
-  ] satisfies MedioDeTransporte[],
+    contactosTitulo: 'Bus company contacts',
+    contactos: [
+      { tipo: 'telefono', valor: 'Buses Trans HAR · +56 9 9530 6867', href: 'tel:+56995306867' },
+      { tipo: 'telefono', valor: 'Buses Río Puelo · +56 9 9123 0838', href: 'tel:+56991230838' },
+      { tipo: 'telefono', valor: 'Buses Río Puelo · +56 9 7408 9199', href: 'tel:+56974089199' },
+    ] satisfies Contacto[],
+  },
 }
 
 export const cuantoCuesta = {
@@ -192,29 +199,31 @@ export const cuantoCuesta = {
     {
       concepto: 'Entry to the valley',
       valor: 'No charge',
-      detalle: 'What is mandatory is the booking and the registration, not a ticket. The valley is not a park with an entrance fee.',
+      detalle: 'What is required is the booking and the registration, not a ticket. Remember: no booking, no entry.',
+      destacado: true,
     },
     {
       concepto: 'Accommodation',
       valor: 'Set by each operator',
-      detalle: 'Every campsite, lodge and guesthouse sets its own rate. You have direct contact details for all 15 on each sector page.',
+      detalle: 'Every campsite, refuge and guesthouse sets its own rate. You have direct contacts for all fifteen on each sector’s page.',
     },
     {
       concepto: 'Pack horse',
-      valor: 'CLP 45,000 per day per horse',
-      detalle: 'There and back is CLP 90,000. Maximum 60 kg split into two equal sacks. Paid in cash at the trailhead.',
+      valor: 'CLP 45,000',
+      unidad: 'per day and horse',
+      detalle: 'There and back is CLP 90,000. Maximum 60 kg split into two equal sacks. Paid in cash at the start of the trail.',
       opcional: true,
     },
     {
-      concepto: 'Horseback ride',
-      valor: 'Ask the association',
-      detalle: 'Maximum 10 kg of extra luggage per person. Let them know if you weigh more than 85 kg so they pick a suitable horse.',
+      concepto: 'Horse ride',
+      valor: 'On request',
+      detalle: 'Ask the arrieros’ association. Maximum 10 kg of extra luggage per person. Tell them if you weigh more than 85 kg so they pick a suitable horse.',
       opcional: true,
     },
     {
       concepto: 'Donation to the organisation',
       valor: 'Voluntary',
-      detalle: '50% goes to long-term conservation programmes and 50% to visitor infrastructure.',
+      detalle: 'An optional contribution to look after the valley. Below you can see how it is split.',
     },
   ] satisfies Costo[],
   nota:
