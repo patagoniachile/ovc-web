@@ -76,6 +76,7 @@ export const contenido: Contenido = {
     reservarEn: (nombre) => `Book at ${nombre}`,
     volverAPortada: 'Back to the home page',
     verMas: 'See more',
+    areaSantuario: 'Nature Sanctuary area · 11,432.8 ha',
     paraQuienEs: 'Who it is for',
     opcional: 'Optional',
     fotoElValle: 'The valley’s granite walls rising above the forest',

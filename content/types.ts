@@ -314,6 +314,7 @@ export interface Textos {
   reservarEn: (nombre: string) => string
   volverAPortada: string
   verMas: string
+  areaSantuario: string
   paraQuienEs: string
   opcional: string
   fotoElValle: string

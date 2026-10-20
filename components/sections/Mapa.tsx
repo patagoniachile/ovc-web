@@ -27,6 +27,7 @@ export function MapaValle({ lang }: { lang: Lang }) {
   // visitante queda atrapado a mitad del sitio.
   const [tactil, setTactil] = useState(false)
   const [interactivo, setInteractivo] = useState(true)
+  const [santuario, setSantuario] = useState(false)
 
   useEffect(() => {
     let cancelado = false
@@ -51,22 +52,6 @@ export function MapaValle({ lang }: { lang: Lang }) {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(instancia)
 
-      // El contorno del santuario se pide aparte: son 5 KB que no tienen por
-      // qué viajar con la página para quien nunca baja hasta el mapa. Si la
-      // petición falla, el mapa funciona igual sin el polígono.
-      fetch('/geo/santuario.json')
-        .then((r) => (r.ok ? r.json() : null))
-        .then((datos: { contorno: [number, number][] } | null) => {
-          if (cancelado || !datos || !mapaRef.current) return
-          L.polygon(datos.contorno, {
-            color: '#2c473f',
-            weight: 2,
-            fillColor: '#ffce00',
-            fillOpacity: 0.14,
-            interactive: false,
-          }).addTo(mapaRef.current)
-        })
-        .catch(() => {})
 
       puntosMapa.forEach((punto) => {
         const icono = L.divIcon({
@@ -89,10 +74,34 @@ export function MapaValle({ lang }: { lang: Lang }) {
         marcadores.current[punto.id] = marcador
       })
 
-      instancia.fitBounds(
-        L.latLngBounds(puntosMapa.map((p) => [p.lat, p.lon] as [number, number])),
-        { padding: [48, 48] },
-      )
+      const limites = L.latLngBounds(puntosMapa.map((p) => [p.lat, p.lon] as [number, number]))
+
+      // El contorno del santuario se pide aparte: son 5 KB que no tienen por
+      // qué viajar con la página para quien nunca baja hasta el mapa. Se
+      // espera antes de encuadrar porque el santuario se extiende bastante
+      // más al norte que el último marcador: encuadrando solo los puntos, la
+      // mitad del polígono quedaba fuera de la vista.
+      try {
+        const respuesta = await fetch('/geo/santuario.json')
+        if (!cancelado && respuesta.ok) {
+          const { contorno } = (await respuesta.json()) as { contorno: [number, number][] }
+          const area = L.polygon(contorno, {
+            color: '#2c473f',
+            weight: 2.5,
+            dashArray: '7 5',
+            fillColor: '#ffce00',
+            fillOpacity: 0.2,
+            interactive: false,
+          }).addTo(instancia)
+          limites.extend(area.getBounds())
+          setSantuario(true)
+        }
+      } catch {
+        // Sin contorno el mapa sigue sirviendo: los puntos son lo esencial.
+      }
+
+      if (cancelado) return
+      instancia.fitBounds(limites, { padding: [40, 40] })
 
       mapaRef.current = instancia
       setCargado(true)
@@ -155,6 +164,13 @@ export function MapaValle({ lang }: { lang: Lang }) {
                 </li>
               ))}
             </ul>
+
+            {santuario && (
+              <p className="mapa__leyenda">
+                <span className="mapa__muestra" aria-hidden="true" />
+                {textos.areaSantuario}
+              </p>
+            )}
 
             <p className="mapa__aviso">
               <Icon name="alerta" />

@@ -1205,6 +1205,27 @@ p { text-wrap: pretty; }
   font-variant-numeric: tabular-nums;
   color: var(--granito-500);
 }
+.mapa__leyenda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-sm);
+  background: var(--bg-alt);
+  font-size: .84rem;
+  font-weight: 560;
+  color: var(--texto);
+}
+.mapa__muestra {
+  width: 22px;
+  height: 14px;
+  flex: none;
+  border-radius: 3px;
+  border: 2px dashed var(--bosque-900);
+  background: rgba(255, 206, 0, .2);
+}
+
 .mapa__aviso {
   display: flex;
   align-items: flex-start;
