@@ -522,6 +522,8 @@ export interface Contenido {
   comoAyudarPagina: Encabezado & { intro: string }
   santuarioPagina: PaginaLarga
   conservacionPagina: PaginaLarga
+  /** Una página por obra realizada, bajo /obras/<slug>. */
+  obras: (PaginaLarga & { slug: string })[]
   reservarPagina: Encabezado & { intro: string; tituloSectores: string; tituloDormir: string }
   comoLlegar: Encabezado & {
     auto: { titulo: string; texto: string }

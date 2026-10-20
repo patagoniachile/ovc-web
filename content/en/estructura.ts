@@ -685,3 +685,246 @@ export const conservacionPagina: PaginaLarga = {
     cta: { label: 'I want to donate', href: `${PORTADA}/como-ayudar#donaciones` },
   },
 }
+
+export const obras: (PaginaLarga & { slug: string })[] = [
+  {
+    slug: 'centro-de-visitantes',
+    eyebrow: 'What we have achieved',
+    titulo: 'Visitor Centre',
+    bajada: 'Where everything else begins',
+    foto: {
+      imagen: 'logroCentroVisitantes',
+      alt: 'Visitors registering at the valley’s Visitor Centre',
+    },
+    intro: [
+      'The Visitor Centre has been running since 2017, operated by the organisation. It was born as an answer to tourism growing without regulation and starting to leave marks: waste piling up, eroded trails, damage to flora and fauna, accidents, polluted water and fire risk.',
+      'Today it is where everyone registers before heading up, where questions get answered, and how the valley knows how many people are inside it.',
+    ],
+    cifras: [
+      { valor: '+12,000', texto: 'visitors attended each season' },
+      { valor: 'Dec — Mar', texto: 'the months it is open today' },
+      { valor: '2017', texto: 'the year it started' },
+    ],
+    bloques: [
+      {
+        titulo: 'Why we want it open all year',
+        parrafos: [
+          'Four months of operation force a whole year of work into a single season. Keeping it open would allow us to:',
+        ],
+        lista: [
+          'Protect the natural heritage and its ecosystems continuously.',
+          'Guide and inform whoever arrives, at any time of year.',
+          'Monitor the valley without interruption, supporting research and a flora and fauna survey.',
+          'Run environmental education beyond the summer.',
+        ],
+      },
+      {
+        titulo: 'The improvements with Mammut and Andes Gear',
+        parrafos: [
+          'Since 2018, support from Mammut and Andes Gear has made it possible to refit the container and equip it so the work no longer depends on improvisation.',
+          'Communication with volunteers, campsites, Carabineros and arrieros changed completely, and with it the speed at which an emergency is handled.',
+        ],
+        lista: [
+          'A base radio and three new handheld radios.',
+          'Four computers for digital visitor registration.',
+          'Solar panels and a battery bank.',
+        ],
+      },
+      {
+        titulo: 'What it solves day to day',
+        lista: [
+          'Helping anyone lost or injured on the trail.',
+          'Reporting abandoned waste so someone can carry it down.',
+          'Reporting each day how much capacity the campsites have left.',
+          'Answering booking questions before someone heads up with no place.',
+        ],
+      },
+    ],
+    cierre: {
+      titulo: 'Help us keep it open all year',
+      texto:
+        'Running the Visitor Centre means staff, equipment and logistics. There is no public budget behind it: donations and membership fees sustain it.',
+      cta: { label: 'I want to donate', href: `${PORTADA}/como-ayudar#donaciones` },
+    },
+  },
+  {
+    slug: 'trabajos-de-senderos',
+    eyebrow: 'What we have achieved',
+    titulo: 'Trail work',
+    bajada: 'Boardwalks, bridges and drainage on the stretches the water was pulling apart',
+    foto: {
+      imagen: 'logroSenderos',
+      alt: 'Newly built wooden boardwalk over a wet stretch of trail',
+    },
+    intro: [
+      'In 2019 the organisation put a long-term trail restoration project to Mammut and Andes Gear, with separate stretches for walkers and for horses. The first phase, in the 2019-2020 season, received CLP 2,836,220.',
+      'The work covered the twelve kilometres up to the La Junta river and some of the high trails.',
+    ],
+    cifras: [
+      { valor: 'CLP 2,836,220', texto: 'for the first phase, 2019-2020 season' },
+      { valor: '12 km', texto: 'of trail worked on, up to the La Junta river' },
+    ],
+    bloques: [
+      {
+        titulo: 'What the first phase did',
+        lista: [
+          'Repairs to the worst sections of trail.',
+          'Boardwalks over several stretches.',
+          'Repair of the Río Piedras bridge.',
+          'New bridges on the La Junta river and in the high valley of the Anfiteatro.',
+        ],
+      },
+      {
+        titulo: 'Why bridges',
+        parrafos: [
+          'A bridge is among the most expensive things built here, and it is also what prevents the most accidents. With rain the rivers rise fast and fording them goes from awkward to impossible.',
+          'Thousands of visitors cross the La Junta river every mid and high season. Before the bridge, every rise meant a wait or a risk.',
+        ],
+      },
+      {
+        titulo: 'A new trail, opened by hand',
+        parrafos: [
+          'The people running the Vista Hermosa and La Junta campsites spent several days opening a trail that shortens the way from the Los Manzanos campsite to the waterfalls and the Anfiteatro valley.',
+          'That eased the cart crossing of the Cochamó river and spread the wear that used to fall entirely on the main trail.',
+        ],
+      },
+      {
+        titulo: 'A bit of history',
+        parrafos: [
+          'The route from Cochamó to Paso El León was used by indigenous peoples for thousands of years. At the end of the 19th century the Chile-Argentina company built it up for driving cattle, with kilometres of alerce corduroy roads, and even installed a telegraph.',
+          'Over the last ten or fifteen years, erosion and the appearance of alternative paths hit the stretch between the El Morro bridge and the La Junta river hardest. Repairs were almost always informal. A decade ago the Senderos de Chile foundation carried out a historical rescue of the route, with training and a book.',
+        ],
+      },
+    ],
+    cierre: {
+      titulo: 'The trail is maintained every year',
+      texto:
+        'A boardwalk lasts as long as it lasts, and every winter leaves new stretches to repair. This work carries on thanks to donors and members.',
+      cta: { label: 'I want to donate', href: `${PORTADA}/como-ayudar#donaciones` },
+    },
+  },
+  {
+    slug: 'senaletica',
+    eyebrow: 'What we have achieved',
+    titulo: 'Signage',
+    bajada: 'A hundred signs so nobody has to guess which way to go',
+    foto: {
+      imagen: 'logroSenaletica',
+      alt: 'Welcome sign for the Cochamó Valley beside the road',
+    },
+    intro: [
+      'Between 2018 and 2019 around a hundred signs were made, carried in and installed across the valley. It is the largest amount of signage ever put up here.',
+      'Mammut and Andes Gear contributed CLP 3,247,231 across the 2018-2019 to 2020-2021 seasons.',
+    ],
+    cifras: [
+      { valor: '~100', texto: 'signs installed' },
+      { valor: '6', texto: 'locations covered' },
+      { valor: 'CLP 3,247,231', texto: 'contributed by Mammut and Andes Gear' },
+    ],
+    bloques: [
+      {
+        titulo: 'Where it is',
+        lista: [
+          'The access road into the valley.',
+          'The Visitor Centre.',
+          'The Valle Cochamó trail up to the La Junta river.',
+          'The campsites that are part of the organisation.',
+          'The start of the high trails.',
+          'The high valleys.',
+        ],
+      },
+      {
+        titulo: 'What is still missing',
+        parrafos: [
+          'Wayfinding signage is covered, but what is missing is the signage that explains: information and education signs, safety signs, and panels that tell you what you are looking at.',
+          'It is the kind of work nobody notices when it is there and badly misses when it is not. Finding funding for that second stage is still pending.',
+        ],
+      },
+    ],
+    cierre: {
+      titulo: 'The signage that explains is still missing',
+      texto:
+        'Information, education and safety signs are still waiting for funding. Every contribution brings that second stage closer.',
+      cta: { label: 'I want to donate', href: `${PORTADA}/como-ayudar#donaciones` },
+    },
+  },
+  {
+    slug: 'centro-de-reciclaje',
+    eyebrow: 'What we have achieved',
+    titulo: 'Recycling centre',
+    bajada: 'Whatever comes into the valley has to leave again',
+    foto: {
+      imagen: 'logroReciclaje',
+      alt: 'A visitor putting a bottle into the recycling bins',
+    },
+    intro: [
+      'The recycling centre sits next to the Visitor Centre and has been running since the 2018-2019 season, with support from Mammut and Andes Gear. Setting it up cost CLP 2,766,498.',
+      'At the start of every season there are training workshops for the Visitor Centre team, the campsites and everyone else working in the valley.',
+    ],
+    cifras: [
+      { valor: '2018-2019', texto: 'the season it started' },
+      { valor: 'CLP 2,766,498', texto: 'the cost of setting it up' },
+      { valor: '5', texto: 'materials collected' },
+    ],
+    bloques: [
+      {
+        titulo: 'What can be recycled',
+        lista: ['Tetra Pak', 'Food tins', 'Plastic', 'Glass', 'Aluminium'],
+      },
+      {
+        titulo: 'How it works during the season',
+        parrafos: [
+          'Most campsites in the La Junta sector have their own collection point with a panel, so separating waste does not mean carrying everything to the exit.',
+          'What is asked is that you take all your dry waste back down, separated into general and recyclable. At the end of each season the organisation moves the recyclable material to a collection centre in Puerto Varas.',
+        ],
+      },
+    ],
+    cierre: {
+      titulo: 'Carrying your rubbish down is part of the trip',
+      texto:
+        'Moving the material to Puerto Varas, the workshops and the upkeep of the collection points are all sustained by donations.',
+      cta: { label: 'I want to donate', href: `${PORTADA}/como-ayudar#donaciones` },
+    },
+  },
+  {
+    slug: 'rutas-de-escalada',
+    eyebrow: 'What we have achieved',
+    titulo: 'Climbing route maintenance',
+    bajada: 'More than a hundred anchors checked and replaced on the valley’s walls',
+    foto: {
+      imagen: 'logroEscalada',
+      alt: 'A climber on one of the valley’s granite walls',
+    },
+    intro: [
+      'In January and February 2020, a group of volunteer climbers worked on the valley’s climbing walls, checking and replacing the fixed gear.',
+      'The initiative was organised by Thomas Gilmore, with the support of the organisation, nine other collaborators and those who donated the anchors.',
+    ],
+    cifras: [
+      { valor: '+100', texto: 'anchors installed' },
+      { valor: 'Jan — Feb 2020', texto: 'how long the campaign lasted' },
+    ],
+    bloques: [
+      {
+        titulo: 'What was done',
+        lista: [
+          'More than a hundred anchors installed, mostly replacing pieces in poor condition.',
+          'Worn ropes, cord and tubular webbing replaced.',
+          'Extra gear added on exposed, dangerous sections, to prevent accidents.',
+        ],
+      },
+      {
+        titulo: 'Why it has to be done again',
+        parrafos: [
+          'The fixed gear on a route does not last forever: rain, ice and use itself degrade it, and a bolt in poor condition gives no warning before it fails.',
+          'Checking the walls is work that has to be redone every so often, and it depends on climbers being willing and gear being donated.',
+        ],
+      },
+    ],
+    cierre: {
+      titulo: 'The walls will need checking again',
+      texto:
+        'Fixed gear degrades with every season. The anchors, the ropes and getting the team up there all come out of donations.',
+      cta: { label: 'I want to donate', href: `${PORTADA}/como-ayudar#donaciones` },
+    },
+  },
+]

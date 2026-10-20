@@ -687,3 +687,246 @@ export const conservacionPagina: PaginaLarga = {
     cta: { label: 'Quiero donar', href: `${PORTADA}/como-ayudar#donaciones` },
   },
 }
+
+export const obras: (PaginaLarga & { slug: string })[] = [
+  {
+    slug: 'centro-de-visitantes',
+    eyebrow: 'Lo que hemos logrado',
+    titulo: 'Centro de Visitantes',
+    bajada: 'El punto donde empieza todo lo demás',
+    foto: {
+      imagen: 'logroCentroVisitantes',
+      alt: 'Visitantes registrándose en el Centro de Visitantes del valle',
+    },
+    intro: [
+      'El Centro de Visitantes funciona desde 2017, operado por la organización. Nació como respuesta a un turismo que crecía sin regulación y que empezaba a dejar marcas: basura acumulada, senderos erosionados, daño a la flora y la fauna, accidentes, aguas contaminadas y riesgo de incendios.',
+      'Hoy es donde se registra todo el mundo antes de subir, donde se resuelven dudas y donde el valle sabe cuánta gente tiene dentro.',
+    ],
+    cifras: [
+      { valor: '+12.000', texto: 'visitantes atendidos cada temporada' },
+      { valor: 'Dic — Mar', texto: 'los meses que está abierto hoy' },
+      { valor: '2017', texto: 'el año en que empezó a funcionar' },
+    ],
+    bloques: [
+      {
+        titulo: 'Por qué queremos abrirlo todo el año',
+        parrafos: [
+          'Cuatro meses de operación obligan a concentrar en una temporada un trabajo que el valle necesita durante todo el año. Mantenerlo abierto permitiría:',
+        ],
+        lista: [
+          'Proteger el patrimonio natural y sus ecosistemas de forma continua.',
+          'Orientar e informar a quien llega, en cualquier época.',
+          'Monitorear el valle sin interrupciones, con apoyo a la investigación y a un catastro de flora y fauna.',
+          'Hacer educación ambiental más allá del verano.',
+        ],
+      },
+      {
+        titulo: 'Las mejoras con Mammut y Andes Gear',
+        parrafos: [
+          'Desde 2018, el apoyo de Mammut y Andes Gear permitió remodelar el contenedor y equiparlo para que el trabajo deje de depender de la improvisación.',
+          'La comunicación con voluntarios, campings, Carabineros y arrieros cambió por completo, y con ella la velocidad con que se atiende una emergencia.',
+        ],
+        lista: [
+          'Una radio base y tres radios portátiles nuevas.',
+          'Cuatro computadores para el registro digital de visitantes.',
+          'Paneles solares y un banco de baterías.',
+        ],
+      },
+      {
+        titulo: 'Lo que resuelve en el día a día',
+        lista: [
+          'Auxiliar a quien se perdió o se accidentó en el sendero.',
+          'Avisar de basura abandonada para que alguien la baje.',
+          'Informar cada día cuánta capacidad queda en los campings.',
+          'Resolver dudas sobre reservas antes de que alguien suba sin cupo.',
+        ],
+      },
+    ],
+    cierre: {
+      titulo: 'Ayúdanos a tenerlo abierto todo el año',
+      texto:
+        'Mantener el Centro de Visitantes es sueldo de equipo, equipamiento y logística. No hay presupuesto público detrás: lo sostienen las donaciones y las cuotas de socios.',
+      cta: { label: 'Quiero donar', href: `${PORTADA}/como-ayudar#donaciones` },
+    },
+  },
+  {
+    slug: 'trabajos-de-senderos',
+    eyebrow: 'Lo que hemos logrado',
+    titulo: 'Trabajos de senderos',
+    bajada: 'Pasarelas, puentes y drenajes sobre los tramos que el agua estaba deshaciendo',
+    foto: {
+      imagen: 'logroSenderos',
+      alt: 'Pasarela de madera recién construida sobre un tramo húmedo del sendero',
+    },
+    intro: [
+      'En 2019 la organización presentó a Mammut y Andes Gear un proyecto para restaurar el sendero a largo plazo, con tramos separados para quien camina y para los caballos. La primera fase, en la temporada 2019-2020, recibió $2.836.220.',
+      'El trabajo cubrió los doce kilómetros hasta el río La Junta y algunos senderos de altura.',
+    ],
+    cifras: [
+      { valor: '$2.836.220', texto: 'de la primera fase, temporada 2019-2020' },
+      { valor: '12 km', texto: 'de sendero intervenido hasta el río La Junta' },
+    ],
+    bloques: [
+      {
+        titulo: 'Qué se hizo en la primera fase',
+        lista: [
+          'Arreglo de las pasadas en peor estado.',
+          'Entablonados sobre varios tramos.',
+          'Reparación del puente del río Piedras.',
+          'Puentes nuevos en el río La Junta y en el valle de altura del Anfiteatro.',
+        ],
+      },
+      {
+        titulo: 'Por qué los puentes',
+        parrafos: [
+          'Un puente es de lo más caro que se construye aquí, y es también lo que evita más accidentes. Con lluvia los ríos crecen rápido y vadearlos pasa de incómodo a imposible.',
+          'El río La Junta lo cruzan miles de visitantes cada temporada media y alta. Antes del puente, cada crecida era una espera o un riesgo.',
+        ],
+      },
+      {
+        titulo: 'Un sendero nuevo, abierto a mano',
+        parrafos: [
+          'Los encargados de los campings Vista Hermosa y La Junta dedicaron varios días a abrir un sendero que acorta el acceso desde el camping Los Manzanos hacia las cascadas y el valle del Anfiteatro.',
+          'Con eso se descongestionó el cruce en carro del río Cochamó y se repartió el desgaste que antes caía entero sobre el sendero principal.',
+        ],
+      },
+      {
+        titulo: 'Un poco de historia',
+        parrafos: [
+          'El camino de Cochamó al Paso El León lo usaron los pueblos originarios durante miles de años. A fines del siglo XIX la compañía Chile-Argentina lo construyó para arrear ganado, con kilómetros de embaralados de alerce, e incluso instaló un telégrafo.',
+          'En los últimos diez o quince años la erosión y la aparición de senderos alternativos castigaron sobre todo el tramo entre el puente El Morro y el río La Junta. Los arreglos fueron casi siempre informales. Hace una década la fundación Senderos de Chile hizo un rescate histórico del camino, con capacitaciones y un libro.',
+        ],
+      },
+    ],
+    cierre: {
+      titulo: 'El sendero se mantiene todos los años',
+      texto:
+        'Un entablonado dura lo que dura, y cada invierno deja tramos nuevos por arreglar. La continuidad de este trabajo depende de donantes y de quienes se hacen socios.',
+      cta: { label: 'Quiero donar', href: `${PORTADA}/como-ayudar#donaciones` },
+    },
+  },
+  {
+    slug: 'senaletica',
+    eyebrow: 'Lo que hemos logrado',
+    titulo: 'Señalética',
+    bajada: 'Cien señales para que nadie tenga que adivinar por dónde va',
+    foto: {
+      imagen: 'logroSenaletica',
+      alt: 'Cartel de bienvenida al Valle Cochamó junto al camino',
+    },
+    intro: [
+      'Entre 2018 y 2019 se confeccionaron, transportaron e instalaron alrededor de cien señales en el valle. Es la mayor cantidad de señalética instalada en toda su historia.',
+      'El aporte de Mammut y Andes Gear para las temporadas 2018-2019 a 2020-2021 fue de $3.247.231.',
+    ],
+    cifras: [
+      { valor: '~100', texto: 'señales instaladas' },
+      { valor: '6', texto: 'ubicaciones cubiertas' },
+      { valor: '$3.247.231', texto: 'aportados por Mammut y Andes Gear' },
+    ],
+    bloques: [
+      {
+        titulo: 'Dónde está instalada',
+        lista: [
+          'El camino de acceso al valle.',
+          'El Centro de Visitantes.',
+          'El sendero Valle Cochamó hasta el río La Junta.',
+          'Los campings que forman parte de la organización.',
+          'El inicio de los senderos de altura.',
+          'Los valles de altura.',
+        ],
+      },
+      {
+        titulo: 'Lo que todavía falta',
+        parrafos: [
+          'La señalética de ruta está resuelta, pero falta la que explica: señales informativas y educativas, de seguridad, e infografías que cuenten qué se está mirando.',
+          'Es el tipo de trabajo que no se nota cuando está y se echa mucho de menos cuando falta. Conseguir fondos para esa segunda etapa sigue pendiente.',
+        ],
+      },
+    ],
+    cierre: {
+      titulo: 'Falta la señalética que explica',
+      texto:
+        'Las señales informativas, educativas y de seguridad siguen esperando financiamiento. Cada aporte acerca esa segunda etapa.',
+      cta: { label: 'Quiero donar', href: `${PORTADA}/como-ayudar#donaciones` },
+    },
+  },
+  {
+    slug: 'centro-de-reciclaje',
+    eyebrow: 'Lo que hemos logrado',
+    titulo: 'Centro de reciclaje',
+    bajada: 'Lo que entra al valle tiene que volver a salir',
+    foto: {
+      imagen: 'logroReciclaje',
+      alt: 'Visitante depositando una botella en los contenedores de reciclaje',
+    },
+    intro: [
+      'El centro de reciclaje está instalado junto al Centro de Visitantes y funciona desde la temporada 2018-2019, con el aporte de Mammut y Andes Gear. Su implementación costó $2.766.498.',
+      'Al inicio de cada temporada se hacen talleres de capacitación para el equipo del Centro de Visitantes, los campings y el resto de los actores del valle.',
+    ],
+    cifras: [
+      { valor: '2018-2019', texto: 'la temporada en que empezó a funcionar' },
+      { valor: '$2.766.498', texto: 'costó implementarlo' },
+      { valor: '5', texto: 'materiales que se reciclan' },
+    ],
+    bloques: [
+      {
+        titulo: 'Qué se puede reciclar',
+        lista: ['Tetra Pak', 'Latas de comida', 'Plástico', 'Vidrio', 'Aluminio'],
+      },
+      {
+        titulo: 'Cómo funciona durante la temporada',
+        parrafos: [
+          'La mayoría de los campings del sector La Junta tiene su propio punto verde con infografía, así que separar no obliga a cargar con todo hasta la salida.',
+          'Lo que sí se pide es bajar toda la basura seca, separada entre desechos comunes y reciclables. Al final de cada temporada la organización traslada el material reciclable a un centro de acopio en Puerto Varas.',
+        ],
+      },
+    ],
+    cierre: {
+      titulo: 'Bajar la basura es parte del viaje',
+      texto:
+        'El traslado del material hasta Puerto Varas, los talleres y la mantención de los puntos verdes se sostienen con donaciones.',
+      cta: { label: 'Quiero donar', href: `${PORTADA}/como-ayudar#donaciones` },
+    },
+  },
+  {
+    slug: 'rutas-de-escalada',
+    eyebrow: 'Lo que hemos logrado',
+    titulo: 'Mantención de rutas de escalada',
+    bajada: 'Más de cien anclajes revisados y repuestos en las paredes del valle',
+    foto: {
+      imagen: 'logroEscalada',
+      alt: 'Escalador en una pared de granito del valle',
+    },
+    intro: [
+      'En enero y febrero de 2020, un grupo de escaladores voluntarios trabajó en las paredes de escalada del valle revisando y reponiendo el material fijo.',
+      'La iniciativa la organizó Thomas Gilmore, con el apoyo de la organización, nueve colaboradores más y quienes donaron los anclajes.',
+    ],
+    cifras: [
+      { valor: '+100', texto: 'anclajes instalados' },
+      { valor: 'Ene — Feb 2020', texto: 'duró la campaña' },
+    ],
+    bloques: [
+      {
+        titulo: 'Qué se hizo',
+        lista: [
+          'Instalación de más de cien anclajes, en su mayoría para reemplazar piezas en mal estado.',
+          'Cambio de cuerdas, cordines y cintas tubulares gastadas.',
+          'Material añadido en tramos expuestos y peligrosos, para prevenir accidentes.',
+        ],
+      },
+      {
+        titulo: 'Por qué hay que repetirlo',
+        parrafos: [
+          'El material fijo de una vía no dura para siempre: la lluvia, el hielo y el propio uso lo van degradando, y una chapa en mal estado no avisa antes de fallar.',
+          'Revisar las paredes es un trabajo que hay que rehacer cada cierto tiempo, y depende de que haya escaladores dispuestos y material donado.',
+        ],
+      },
+    ],
+    cierre: {
+      titulo: 'Las paredes se revisan de nuevo',
+      texto:
+        'El material fijo se degrada con cada temporada. Los anclajes, las cuerdas y el traslado del equipo que sube a cambiarlos salen de donaciones.',
+      cta: { label: 'Quiero donar', href: `${PORTADA}/como-ayudar#donaciones` },
+    },
+  },
+]
