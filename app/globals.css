@@ -2405,6 +2405,20 @@ p { text-wrap: pretty; }
 }
 .periodo__opcion.esta-activa { background: var(--bosque-700); color: var(--blanco); }
 
+/* Pestaña «Pago único»: los datos para transferir, en una tarjeta del ancho
+   de dos planes y centrada bajo el selector. */
+.transferencia {
+  max-width: 760px;
+  margin-inline: auto;
+  padding: clamp(24px, 4vw, 40px);
+  border-radius: var(--radio);
+  background: var(--bg);
+  border: 1px solid var(--borde);
+}
+.transferencia h3 { font-size: 1.6rem; }
+.transferencia .lead { margin-top: 10px; font-size: 1rem; }
+.transferencia .copiar-todo { margin-top: 22px; }
+
 .planes { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
 .plan {
   display: flex;

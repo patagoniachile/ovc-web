@@ -505,7 +505,7 @@ export interface Contenido {
     intro: string
     porQue: { titulo: string; texto: string }[]
     tituloSuscripcion: string
-    planes: { encabezado: Encabezado; mensual: string; anual: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: PlanSocio[] }
+    planes: { encabezado: Encabezado; mensual: string; anual: string; unico: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: PlanSocio[] }
     introSuscripcion: string
     notaSuscripcion: string
     tarjeta: { alt: string; pasos: string[]; libre: string; ctaLibre: string }

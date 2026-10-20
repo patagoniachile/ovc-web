@@ -105,18 +105,6 @@ export const contenido: Contenido = {
 
   menu: [
     {
-      label: 'Cómo visitar',
-      href: `${PORTADA}/como-visitar`,
-      items: [
-        { label: 'Cómo llegar', href: `${PORTADA}/como-visitar#como-llegar`, detalle: 'En auto o en bus' },
-        { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Los alojamientos del valle' },
-        { label: 'Cuánto cuesta', href: `${PORTADA}/como-visitar#cuanto-cuesta`, detalle: 'Qué se paga y a quién' },
-        { label: 'Día vs. varios días', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Dos viajes distintos' },
-        { label: 'Qué debo saber', href: `${PORTADA}/como-visitar#normas`, detalle: 'Normas y seguridad' },
-        { label: 'Horarios y contacto', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Ingresos y a quién escribir' },
-      ],
-    },
-    {
       label: 'El Valle',
       href: `${PORTADA}/el-valle`,
       items: [
@@ -137,6 +125,18 @@ export const contenido: Contenido = {
         { label: 'Misión y visión', href: `${PORTADA}/historia#mision`, detalle: 'Hacia dónde vamos' },
         { label: 'Qué hemos hecho', href: `${PORTADA}/historia#logros`, detalle: 'Obras terminadas' },
         { label: 'Qué queremos hacer', href: `${PORTADA}/historia#proyectos`, detalle: 'Los desafíos abiertos' },
+      ],
+    },
+    {
+      label: 'Cómo visitar',
+      href: `${PORTADA}/como-visitar`,
+      items: [
+        { label: 'Cómo llegar', href: `${PORTADA}/como-visitar#como-llegar`, detalle: 'En auto o en bus' },
+        { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Los alojamientos del valle' },
+        { label: 'Cuánto cuesta', href: `${PORTADA}/como-visitar#cuanto-cuesta`, detalle: 'Qué se paga y a quién' },
+        { label: 'Día vs. varios días', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Dos viajes distintos' },
+        { label: 'Qué debo saber', href: `${PORTADA}/como-visitar#normas`, detalle: 'Normas y seguridad' },
+        { label: 'Horarios y contacto', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Ingresos y a quién escribir' },
       ],
     },
   ],

@@ -60,34 +60,31 @@ function CopiarTodo({ lang }: { lang: Lang }) {
   )
 }
 
-export function Donar({ lang }: { lang: Lang }) {
+/**
+ * Los datos para transferir, con el botón que copia todo.
+ *
+ * Viven en la pestaña «Pago único» de los planes de socio: una donación por
+ * transferencia es la tercera forma de aportar, al lado de la mensual y la
+ * anual, y ahí se compara con ellas.
+ */
+export function DatosTransferencia({ lang }: { lang: Lang }) {
   const { donarPagina } = getContenido(lang)
 
   return (
-    <>
-      {/* Transferencia: es la entrada de las donaciones, por eso lleva el ancla */}
-      <section className="seccion seccion--alt" id="donaciones">
-        <div className="contenedor">
-          <p className="eyebrow revelar">{donarPagina.eyebrow}</p>
-          <h2 className="titulo--compacto revelar">{donarPagina.tituloCuenta}</h2>
-          <p className="lead revelar">{donarPagina.intro}</p>
+    <div className="transferencia">
+      <h3>{donarPagina.tituloCuenta}</h3>
+      <p className="lead">{donarPagina.intro}</p>
 
-          <dl className="cuenta revelar">
-            <Dato etiqueta="Banco" valor={cuentaBancaria.banco} />
-            <Dato etiqueta={cuentaBancaria.tipo} valor={cuentaBancaria.numero} />
-            <Dato etiqueta="RUT" valor={cuentaBancaria.rut} />
-            <Dato etiqueta="Titular" valor={cuentaBancaria.titular} />
-            <Dato etiqueta="BIC / SWIFT" valor={cuentaBancaria.swift} />
-            <Dato etiqueta="Email" valor={cuentaBancaria.email} />
-          </dl>
+      <dl className="cuenta">
+        <Dato etiqueta="Banco" valor={cuentaBancaria.banco} />
+        <Dato etiqueta={cuentaBancaria.tipo} valor={cuentaBancaria.numero} />
+        <Dato etiqueta="RUT" valor={cuentaBancaria.rut} />
+        <Dato etiqueta="Titular" valor={cuentaBancaria.titular} />
+        <Dato etiqueta="BIC / SWIFT" valor={cuentaBancaria.swift} />
+        <Dato etiqueta="Email" valor={cuentaBancaria.email} />
+      </dl>
 
-          <div className="revelar">
-            <CopiarTodo lang={lang} />
-          </div>
-
-        </div>
-      </section>
-
-    </>
+      <CopiarTodo lang={lang} />
+    </div>
   )
 }

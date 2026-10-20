@@ -41,7 +41,7 @@ export const sociosPagina: Encabezado & {
   intro: string
   porQue: { titulo: string; texto: string }[]
   tituloSuscripcion: string
-  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: import('../types').PlanSocio[] }
+  planes: { encabezado: { eyebrow: string; titulo: string; bajada?: string }; mensual: string; anual: string; unico: string; equivaleA: string; alMes: string; alAnio: string; elegir: string; respaldo: string; lista: import('../types').PlanSocio[] }
   introSuscripcion: string
   notaSuscripcion: string
   tarjeta: { alt: string; pasos: string[]; libre: string; ctaLibre: string }
@@ -82,6 +82,7 @@ export const sociosPagina: Encabezado & {
     },
     mensual: 'Mensual',
     anual: 'Anual',
+    unico: 'Pago único',
     equivaleA: 'equivale a',
     alMes: 'al mes',
     alAnio: 'al año',

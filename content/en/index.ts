@@ -114,18 +114,6 @@ export const contenido: Contenido = {
 
   menu: [
     {
-      label: 'How to visit',
-      href: `${PORTADA}/como-visitar`,
-      items: [
-        { label: 'Getting here', href: `${PORTADA}/como-visitar#como-llegar`, detalle: 'By car or by bus' },
-        { label: 'Where to stay', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Places to sleep in the valley' },
-        { label: 'What it costs', href: `${PORTADA}/como-visitar#cuanto-cuesta`, detalle: 'What you pay and to whom' },
-        { label: 'Day trip vs. several days', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Two different trips' },
-        { label: 'What to know', href: `${PORTADA}/como-visitar#normas`, detalle: 'Rules and safety' },
-        { label: 'Times and contact', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Entry windows and who to ask' },
-      ],
-    },
-    {
       label: 'The Valley',
       href: `${PORTADA}/el-valle`,
       items: [
@@ -146,6 +134,18 @@ export const contenido: Contenido = {
         { label: 'Mission and vision', href: `${PORTADA}/historia#mision`, detalle: 'Where we are heading' },
         { label: 'What we have done', href: `${PORTADA}/historia#logros`, detalle: 'Completed work' },
         { label: 'What we want to do', href: `${PORTADA}/historia#proyectos`, detalle: 'The open challenges' },
+      ],
+    },
+    {
+      label: 'How to visit',
+      href: `${PORTADA}/como-visitar`,
+      items: [
+        { label: 'Getting here', href: `${PORTADA}/como-visitar#como-llegar`, detalle: 'By car or by bus' },
+        { label: 'Where to stay', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Places to sleep in the valley' },
+        { label: 'What it costs', href: `${PORTADA}/como-visitar#cuanto-cuesta`, detalle: 'What you pay and to whom' },
+        { label: 'Day trip vs. several days', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Two different trips' },
+        { label: 'What to know', href: `${PORTADA}/como-visitar#normas`, detalle: 'Rules and safety' },
+        { label: 'Times and contact', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Entry windows and who to ask' },
       ],
     },
   ],

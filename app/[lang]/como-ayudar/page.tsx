@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation'
 import { PaginaHero } from '@/components/layout/PaginaHero'
 import { AporteConTarjeta } from '@/components/sections/AporteConTarjeta'
 import { DestinoAportes } from '@/components/sections/DestinoAportes'
-import { Donar } from '@/components/sections/Donar'
 import { FormularioSocio } from '@/components/sections/FormularioSocio'
 import { PlanesSocio } from '@/components/sections/PlanesSocio'
 import { SectionHeader } from '@/components/ui/SectionHeader'
@@ -65,8 +64,8 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
         </div>
       </section>
 
-      {/* Donaciones: los datos para transferir y, después, en qué se usa */}
-      <Donar lang={lang} />
+      {/* En qué se usa lo que se aporta. Los datos para transferir están en
+          la pestaña «Pago único» de los planes. */}
       <DestinoAportes lang={lang} />
 
       {comoAyudarPagina.productos && (

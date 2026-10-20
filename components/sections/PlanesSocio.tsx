@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { DatosTransferencia } from '@/components/sections/Donar'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 import { getContenido, LOCALE, payku, planesPayku, type Lang } from '@/content'
 
-type Periodo = 'mensual' | 'anual'
+type Periodo = 'mensual' | 'anual' | 'unico'
 
 /**
  * Los cuatro niveles de socio, con el precio anual y el mensual.
@@ -27,6 +28,17 @@ export function PlanesSocio({ lang, destino, id }: { lang: Lang; destino: string
   const { planes } = sociosPagina
   const [periodo, setPeriodo] = useState<Periodo>('anual')
 
+  // Los enlaces de «Donar» del resto del sitio llegan con #donaciones: abren
+  // directo la pestaña de pago único, que es donde están los datos.
+  useEffect(() => {
+    const alAncla = () => {
+      if (window.location.hash === '#donaciones') setPeriodo('unico')
+    }
+    alAncla()
+    window.addEventListener('hashchange', alAncla)
+    return () => window.removeEventListener('hashchange', alAncla)
+  }, [])
+
   const moneda = new Intl.NumberFormat(LOCALE[lang], {
     style: 'currency',
     currency: 'CLP',
@@ -38,8 +50,8 @@ export function PlanesSocio({ lang, destino, id }: { lang: Lang; destino: string
       <div className="contenedor">
         <SectionHeader className="revelar" centrado {...planes.encabezado} />
 
-        <div className="periodo revelar" role="group" aria-label={planes.encabezado.titulo}>
-          {(['mensual', 'anual'] as const).map((opcion) => (
+        <div className="periodo revelar" id="donaciones" role="group" aria-label={planes.encabezado.titulo}>
+          {(['mensual', 'anual', 'unico'] as const).map((opcion) => (
             <button
               key={opcion}
               type="button"
@@ -52,56 +64,60 @@ export function PlanesSocio({ lang, destino, id }: { lang: Lang; destino: string
           ))}
         </div>
 
-        <div className="planes">
-          {planes.lista.map((plan) => {
-            const enlace = planesPayku[plan.id]?.[periodo]
-            const clases = [
-              'plan',
-              plan.destacado && 'plan--destacado',
-              plan.mecenas && 'plan--mecenas',
-              'revelar',
-            ]
-              .filter(Boolean)
-              .join(' ')
+        {periodo === 'unico' ? (
+          <DatosTransferencia lang={lang} />
+        ) : (
+          <div className="planes">
+            {planes.lista.map((plan) => {
+              const enlace = planesPayku[plan.id]?.[periodo]
+              const clases = [
+                'plan',
+                plan.destacado && 'plan--destacado',
+                plan.mecenas && 'plan--mecenas',
+                'revelar',
+              ]
+                .filter(Boolean)
+                .join(' ')
 
-            return (
-              <article className={clases} key={plan.id}>
-                <h3>{plan.nombre}</h3>
-                <p className="plan__subtitulo">{plan.subtitulo}</p>
+              return (
+                <article className={clases} key={plan.id}>
+                  <h3>{plan.nombre}</h3>
+                  <p className="plan__subtitulo">{plan.subtitulo}</p>
 
-                <p className="plan__precio">
-                  {moneda.format(periodo === 'anual' ? plan.anual : plan.mensual)}
-                  <span>{periodo === 'anual' ? planes.alAnio : planes.alMes}</span>
-                </p>
+                  <p className="plan__precio">
+                    {moneda.format(periodo === 'anual' ? plan.anual : plan.mensual)}
+                    <span>{periodo === 'anual' ? planes.alAnio : planes.alMes}</span>
+                  </p>
 
-                <p className="plan__equivalente">
-                  {planes.equivaleA}{' '}
-                  {periodo === 'anual'
-                    ? `${moneda.format(plan.mensual)} ${planes.alMes}`
-                    : `${moneda.format(plan.anual)} ${planes.alAnio}`}
-                </p>
+                  <p className="plan__equivalente">
+                    {planes.equivaleA}{' '}
+                    {periodo === 'anual'
+                      ? `${moneda.format(plan.mensual)} ${planes.alMes}`
+                      : `${moneda.format(plan.anual)} ${planes.alAnio}`}
+                  </p>
 
-                <ul className="plan__beneficios">
-                  {plan.beneficios.map((beneficio) => (
-                    <li key={beneficio}>
-                      <Icon name="check" />
-                      {beneficio}
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="plan__beneficios">
+                    {plan.beneficios.map((beneficio) => (
+                      <li key={beneficio}>
+                        <Icon name="check" />
+                        {beneficio}
+                      </li>
+                    ))}
+                  </ul>
 
-                <a
-                  className="btn btn--oro btn--recto plan__cta"
-                  href={enlace ? payku.enlacePlan(enlace) : destino}
-                >
-                  {planes.elegir} {plan.nombre}
-                </a>
-              </article>
-            )
-          })}
-        </div>
+                  <a
+                    className="btn btn--oro btn--recto plan__cta"
+                    href={enlace ? payku.enlacePlan(enlace) : destino}
+                  >
+                    {planes.elegir} {plan.nombre}
+                  </a>
+                </article>
+              )
+            })}
+          </div>
+        )}
 
-        <p className="planes__respaldo revelar">{planes.respaldo}</p>
+        {periodo !== 'unico' && <p className="planes__respaldo revelar">{planes.respaldo}</p>}
       </div>
     </section>
   )
