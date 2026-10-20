@@ -627,7 +627,6 @@ p { text-wrap: pretty; }
 .sector:hover { transform: translateY(-4px); box-shadow: var(--sombra-md); }
 .sector__media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; }
 .sector__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; }
-.sector:hover .sector__media img { transform: scale(1.05); }
 .sector__insignia {
   position: absolute; top: 14px; left: 14px;
   padding: 6px 12px;
@@ -646,6 +645,29 @@ p { text-wrap: pretty; }
 .sector__datos li { display: flex; align-items: flex-start; gap: 9px; font-size: .88rem; color: var(--texto-suave); }
 .sector__datos svg { width: 16px; height: 16px; flex: none; margin-top: 3px; color: var(--bosque-500); }
 .sector__cuerpo .btn { margin-top: auto; }
+
+/* Cuando un sector es el destino principal, va arriba a lo ancho, con la foto
+   a un lado, y los otros dos quedan debajo como opciones secundarias. */
+.sectores--con-principal { grid-template-columns: repeat(2, 1fr); }
+.sectores--con-principal .sector:not(.sector--principal) .sector__media { aspect-ratio: 16 / 7; }
+.sector--principal { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr; border-color: var(--oro-500); }
+.sector--principal .sector__media { aspect-ratio: auto; min-height: 340px; }
+.sector--principal .sector__cuerpo { padding: 36px; justify-content: center; }
+.sector--principal h3 { font-size: 2rem; }
+.sector--principal .sector__cuerpo p { font-size: 1.02rem; }
+.sector--principal .sector__cuerpo .btn { margin-top: 0; align-self: flex-start; }
+.sector--principal .sector__insignia { background: var(--oro-500); color: var(--bosque-900); }
+/* Si queda un solo sector secundario, también va a lo ancho, pero más bajo. */
+.sector--principal + .sector:last-child { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.6fr; }
+.sector--principal + .sector:last-child .sector__media { aspect-ratio: auto; min-height: 220px; }
+.sector--principal + .sector:last-child .sector__cuerpo .btn { align-self: flex-start; }
+@media (max-width: 860px) {
+  .sectores--con-principal { grid-template-columns: 1fr; }
+  .sector--principal, .sector--principal + .sector:last-child { grid-template-columns: 1fr; }
+  .sector--principal + .sector:last-child .sector__media { aspect-ratio: 16 / 10; min-height: 0; }
+  .sector--principal .sector__media { aspect-ratio: 16 / 10; min-height: 0; }
+  .sector--principal .sector__cuerpo { padding: 24px; }
+}
 
 /* --------------------------------------------------------------------------
    Planifica (tarjetas de trekking)
@@ -1453,7 +1475,6 @@ p { text-wrap: pretty; }
   position: absolute; inset: 0; z-index: -1;
   background: linear-gradient(to top, rgba(8, 22, 16, .92) 15%, rgba(8, 22, 16, .35) 100%);
 }
-.otro-sector:hover img { transform: scale(1.05); }
 .otro-sector__cuerpo strong { display: block; font-family: var(--display); font-size: 1.5rem; }
 .otro-sector__cuerpo span { display: block; margin-top: 6px; font-size: .92rem; color: rgba(255, 255, 255, .82); }
 
@@ -1672,8 +1693,13 @@ p { text-wrap: pretty; }
    perdía en una lista donde todas las filas pesaban igual. */
 .precios { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-top: 32px; }
 .precio { display: flex; flex-direction: column; gap: 7px; padding: 26px; background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); }
-.precio h3 { font-family: var(--sans); font-size: 1.02rem; font-weight: 650; }
-.precio__monto { font-family: var(--display); font-size: 1.75rem; font-weight: 600; line-height: 1.15; color: var(--bosque-900); font-variant-numeric: tabular-nums; }
+.precio h3 { font-family: var(--display); font-size: 1.6rem; font-weight: 600; line-height: 1.15; color: var(--bosque-900); }
+/* La etiqueta va a la esquina para que quede a la misma altura en todas las
+   tarjetas, sin importar si el título ocupa una línea o dos. */
+.precio { position: relative; }
+.precio .costo__opcional { position: absolute; top: 18px; right: 18px; margin-left: 0; }
+.precio h3:has(.costo__opcional) { padding-right: 84px; }
+.precio__monto { font-family: var(--sans); font-size: 1.08rem; font-weight: 650; line-height: 1.3; color: var(--bosque-900); font-variant-numeric: tabular-nums; }
 .precio__monto small { display: block; margin-top: 3px; font-family: var(--sans); font-size: .82rem; font-weight: 500; color: var(--texto-suave); }
 .precio__detalle { font-size: .89rem; line-height: 1.55; color: var(--texto-suave); }
 

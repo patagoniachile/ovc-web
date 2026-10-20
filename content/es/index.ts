@@ -282,39 +282,21 @@ export const contenido: Contenido = {
     ],
   },
 
-
   sectoresDetalle,
 
   sectoresEncabezado: {
     eyebrow: 'Visita',
     titulo: 'Dos sectores, dos formas de conocer el valle',
     bajada:
-      'Ambos se reservan antes de llegar. Infórmate, programa y prepárate: el sendero es largo, hay mucho barro y el tiempo es impredecible.',
+      'Casi todos suben a La Junta. Inicio Sendero sirve para la noche antes de subir o si llegas tarde.',
   },
   sectores: [
     {
-      id: 'inicio-sendero',
-      nombre: 'Inicio Sendero',
-      insignia: 'Acceso',
-      descripcion:
-        'La entrada al valle comienza donde el río Cochamó se junta con el mar. Desde el puente tienes la primera vista del Cerro Arcoíris y del bosque nativo.',
-      datos: [
-        { icono: 'pin', texto: 'Campings y hospedajes en el sector' },
-        { icono: 'edificio', texto: 'Centro de Visitantes y registro obligatorio' },
-        { icono: 'caballo', texto: 'Pilcheros y cabalgatas' },
-      ],
-      foto: {
-        ...imagenes.registroSendero,
-        alt: 'Visitantes registrándose en el panel informativo del inicio del sendero',
-      },
-      cta: { label: 'Conocer Inicio Sendero', href: '/es/sectores/inicio-sendero' },
-    },
-    {
       id: 'la-junta',
       nombre: 'La Junta',
-      insignia: 'Centro del valle',
+      insignia: 'Destino principal',
       descripcion:
-        'El centro turístico del valle, accesible solo a pie o a caballo. Aquí están los campings, el hospedaje y, cerca, los Toboganes.',
+        'Adonde sube casi todo el que visita el valle. Se llega solo a pie o a caballo, tras 13 km de sendero, y aquí están los campings, el hospedaje y, cerca, los Toboganes.',
       datos: [
         { icono: 'sendero', texto: '13 km desde el inicio del sendero' },
         { icono: 'carpa', texto: 'Campings Playa Los Manzanos, Vista Hermosa y La Junta' },
@@ -325,6 +307,24 @@ export const contenido: Contenido = {
         alt: 'Vista desde el interior de una carpa hacia las montañas de granito del sector La Junta',
       },
       cta: { label: 'Conocer La Junta', href: '/es/sectores/la-junta', destacado: true },
+      principal: true,
+    },
+    {
+      id: 'inicio-sendero',
+      nombre: 'Inicio Sendero',
+      insignia: 'Punto de partida',
+      descripcion:
+        'Donde empieza el sendero y está el registro. Sirve para dormir la noche antes de subir, o si llegas tarde y ya cerró el ingreso.',
+      datos: [
+        { icono: 'pin', texto: 'Campings y hospedajes en el sector' },
+        { icono: 'edificio', texto: 'Centro de Visitantes y registro obligatorio' },
+        { icono: 'caballo', texto: 'Pilcheros y cabalgatas' },
+      ],
+      foto: {
+        ...imagenes.registroSendero,
+        alt: 'Visitantes registrándose en el panel informativo del inicio del sendero',
+      },
+      cta: { label: 'Conocer Inicio Sendero', href: '/es/sectores/inicio-sendero' },
     },
   ],
 
