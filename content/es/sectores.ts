@@ -35,17 +35,19 @@ export const sectoresDetalle: SectorDetalle[] = [
     ],
     alojamientos: [
       {
-        id: 'la-frontera-hostal',
-        nombre: 'La Frontera Hostal',
-        tipo: 'Hostal',
+        id: 'la-frontera',
+        nombre: 'La Frontera Valle Cochamó: Hostal, Camping y Cabañita',
+        tipo: 'Hostal, camping y cabaña',
         descripcion:
-          'A orillas del río Cochamó, rodeado de bosque nativo, a 8 km del pueblo y a 500 metros del inicio del sendero. Todas las habitaciones incluyen desayuno estilo patagónico. También hay pizzas, tartas y café de grano.',
+          'A orillas del río Cochamó y rodeado de bosque nativo, a 8 km del pueblo y a 500 metros del inicio del sendero. Son tres formas de quedarse en el mismo lugar: habitaciones con desayuno patagónico, sitios de camping, y una cabañita en el bosque donde llevas tu saco y ellos ponen la leña.',
         servicios: [
           'Habitaciones con baño privado o compartido',
+          'Sitios de camping',
+          'Cabaña con leña incluida',
+          'Ducha con agua caliente',
           'Acceso al río',
           'Estacionamiento gratis',
           'Arriendo de bicicletas',
-          'Parrillas',
           'Español, inglés y checo',
         ],
         contactos: [
@@ -53,46 +55,19 @@ export const sectoresDetalle: SectorDetalle[] = [
           { tipo: 'web', valor: 'lafronteravallecochamo.com', href: 'https://www.lafronteravallecochamo.com' },
           { tipo: 'instagram', valor: '@lafronteravallecochamo', href: 'https://www.instagram.com/lafronteravallecochamo/' },
         ],
+        lat: -41.461345,
+        lon: -72.226997,
       },
       {
-        id: 'la-frontera-camping',
-        nombre: 'La Frontera Eco Camping',
-        tipo: 'Camping',
-        descripcion:
-          'Tranquilo y familiar, a orillas del río Cochamó y rodeado de bosque nativo. A 8 km del pueblo y a 500 metros antes del inicio del sendero.',
-        servicios: ['Ducha con agua caliente', 'Baños', 'Estacionamiento', 'Acceso al río'],
-        contactos: [
-          { tipo: 'whatsapp', valor: '+56 9 8554 9033', href: 'https://wa.me/56985549033' },
-          { tipo: 'web', valor: 'lafronteravallecochamo.com/ecocamping', href: 'https://www.lafronteravallecochamo.com/ecocamping' },
-        ],
-      },
-      {
-        id: 'cabanita-shambala',
-        nombre: 'Cabañita Shambala',
-        tipo: 'Cabaña',
-        descripcion:
-          'Una cabañita en medio del bosque, a orillas del río. Llevas tu saco de dormir y cocinas adentro con tu cocinilla; ellos ponen la leña para la estufa. Baños, duchas con agua caliente y agua potable se comparten con el camping.',
-        servicios: ['Leña incluida', 'Ducha con agua caliente', 'Baños compartidos', 'Estacionamiento', 'Acceso al río'],
-        contactos: [{ tipo: 'whatsapp', valor: '+56 9 8554 9033', href: 'https://wa.me/56985549033' }],
-        nota: 'Forma parte del complejo La Frontera.',
-      },
-      {
-        id: 'camping-el-laurel',
-        nombre: 'Camping El Laurel',
-        tipo: 'Camping',
-        descripcion:
-          'A 10 km del pueblo de Cochamó y a 100 metros antes del final del camino, donde empieza el sendero hacia La Junta.',
-        servicios: ['Baño y ducha', 'Estacionamiento', 'Acceso al río'],
-        contactos: [{ tipo: 'telefono', valor: '+56 65 238 0769', href: 'tel:+56652380769' }],
-      },
-      {
-        id: 'camping-los-pozones',
-        nombre: 'Camping Los Pozones',
-        tipo: 'Camping',
+        id: 'estacionamiento-los-pozones',
+        nombre: 'Estacionamiento Los Pozones',
+        tipo: 'Estacionamiento',
         descripcion:
           'Por más de 16 años Los Pozones ha recibido a visitantes de todo el mundo. Un buen lugar para escuchar las historias de los primeros que llegaron al valle.',
         servicios: ['Estacionamiento', 'Costa del río Cochamó', 'Almacén'],
         contactos: [{ tipo: 'telefono', valor: '+56 9 9262 4283', href: 'tel:+56992624283' }],
+        lat: -41.455869,
+        lon: -72.219876,
       },
     ],
     arrieros: {
@@ -153,6 +128,8 @@ export const sectoresDetalle: SectorDetalle[] = [
         ],
         contactos: [{ tipo: 'web', valor: 'cochamo.com/camping', href: 'https://cochamo.com/camping/' }],
         reserva: { label: 'Reservar en Camping La Junta', href: 'https://cochamo.com/reservar-camping/' },
+        lat: -41.412074,
+        lon: -72.12758,
       },
       {
         id: 'playa-los-manzanos',
@@ -167,6 +144,8 @@ export const sectoresDetalle: SectorDetalle[] = [
           { tipo: 'email', valor: 'campingplayalosmanzanos@gmail.com', href: 'mailto:campingplayalosmanzanos@gmail.com' },
           { tipo: 'facebook', valor: 'Camping Playa Los Manzanos', href: 'https://www.facebook.com/camping-playa-los-manzanos' },
         ],
+        lat: -41.419148,
+        lon: -72.14301,
       },
       {
         id: 'vista-hermosa',
@@ -177,6 +156,8 @@ export const sectoresDetalle: SectorDetalle[] = [
         servicios: ['Sitios amplios', 'Vista a los cerros de escalada', 'Cerca de las aproximaciones de altura'],
         contactos: [{ tipo: 'web', valor: 'vistahermosacochamo.cl', href: 'https://vistahermosacochamo.cl/' }],
         reserva: { label: 'Reservar en Vista Hermosa', href: 'https://vistahermosacochamo.cl/reservar' },
+        lat: -41.412606,
+        lon: -72.121787,
       },
       {
         id: 'refugio-cochamo',
@@ -199,6 +180,8 @@ export const sectoresDetalle: SectorDetalle[] = [
         ],
         nota:
           'Opera solo a través de los servicios guiados de Southern Trips y Mahuida Patagonia, que incluyen estadía, comidas, caballos y caminatas guiadas.',
+        lat: -41.412549,
+        lon: -72.122871,
       },
     ],
   },

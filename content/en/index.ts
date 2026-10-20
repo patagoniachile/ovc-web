@@ -163,7 +163,7 @@ export const contenido: Contenido = {
         { label: 'What it costs', href: '/en/como-visitar#cuanto-cuesta' },
         { label: 'How to book', href: `${PORTADA}/reservar` },
         { label: 'What to know', href: '/en/como-visitar#normas' },
-        { label: 'Where to stay', href: `${PORTADA}/reservar#sectores` },
+        { label: 'Where to stay', href: `${PORTADA}/reservar#dormir` },
       ],
     },
     {
@@ -347,6 +347,29 @@ export const contenido: Contenido = {
       cta: { label: 'Explore Lago Vidal', href: '/en/sectores/lago-vidal' },
     },
   ],
+
+  dondeDormir: {
+    eyebrow: 'Where to stay',
+    titulo: 'Where to stay in the valley',
+    bajada:
+      'Every place is run by a family from the valley and is booked directly with them. Hover over a card to see where it is.',
+    bloques: [
+      {
+        slug: 'la-junta',
+        foto: {
+          ...imagenes.laJuntaAerea,
+          alt: 'Aerial view of the La Junta meadow, with the campsites beside the bend in the river',
+        },
+      },
+      {
+        slug: 'inicio-sendero',
+        titulo: 'Before you start the trail',
+        texto:
+          'Places to sleep near the village of Cochamó, in case you cannot make it within the allowed entry times.',
+        enlace: { label: 'See the entry times', href: `${PORTADA}/como-visitar#dia-vs-semana` },
+      },
+    ],
+  },
 
   mapa: {
     encabezado: {

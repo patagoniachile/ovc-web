@@ -28,64 +28,39 @@ export const sectoresDetalle: SectorDetalle[] = [
     ],
     alojamientos: [
       {
-        id: 'la-frontera-hostal',
-        nombre: 'La Frontera Hostal',
-        tipo: 'Hostel',
+        id: 'la-frontera',
+        nombre: 'La Frontera Valle Cochamó: hostel, campsite and cabin',
+        tipo: 'Hostel, campsite and cabin',
         descripcion:
-          'On the bank of the Cochamó River, surrounded by native forest, 8 km from the town and 500 metres from the start of the trail. Every room includes a Patagonian-style breakfast. There are also pizzas, tarts and freshly ground coffee.',
+          'On the bank of the Cochamó river, surrounded by native forest, 8 km from the village and 500 metres from the start of the trail. Three ways to stay in the same place: rooms with a Patagonian breakfast, camping pitches, and a small cabin in the forest where you bring your sleeping bag and they provide the firewood.',
         servicios: [
           'Rooms with private or shared bathroom',
+          'Camping pitches',
+          'Cabin with firewood included',
+          'Hot shower',
           'River access',
           'Free parking',
           'Bike hire',
-          'Barbecues',
-          'Spanish, English and Czech spoken',
+          'Spanish, English and Czech',
         ],
         contactos: [
           { tipo: 'whatsapp', valor: '+56 9 8554 9033', href: 'https://wa.me/56985549033' },
-          { tipo: 'web', valor: 'lafronteravallecochamo.com', href: 'https://en.lafronteravallecochamo.com/' },
+          { tipo: 'web', valor: 'lafronteravallecochamo.com', href: 'https://www.lafronteravallecochamo.com' },
           { tipo: 'instagram', valor: '@lafronteravallecochamo', href: 'https://www.instagram.com/lafronteravallecochamo/' },
         ],
+        lat: -41.461345,
+        lon: -72.226997,
       },
       {
-        id: 'la-frontera-camping',
-        nombre: 'La Frontera Eco Camping',
-        tipo: 'Campsite',
-        descripcion:
-          'Quiet and family-friendly, on the bank of the Cochamó River and surrounded by native forest. 8 km from the town and 500 metres before the start of the trail.',
-        servicios: ['Hot shower', 'Toilets', 'Parking', 'River access'],
-        contactos: [
-          { tipo: 'whatsapp', valor: '+56 9 8554 9033', href: 'https://wa.me/56985549033' },
-          { tipo: 'web', valor: 'lafronteravallecochamo.com/ecocamping', href: 'https://en.lafronteravallecochamo.com/ecocamping' },
-        ],
-      },
-      {
-        id: 'cabanita-shambala',
-        nombre: 'Cabañita Shambala',
-        tipo: 'Cabin',
-        descripcion:
-          'A small cabin in the middle of the forest, by the river. You bring your sleeping bag and cook inside with your own stove; they provide firewood for the wood burner. Toilets, hot showers and drinking water are shared with the campsite.',
-        servicios: ['Firewood included', 'Hot shower', 'Shared toilets', 'Parking', 'River access'],
-        contactos: [{ tipo: 'whatsapp', valor: '+56 9 8554 9033', href: 'https://wa.me/56985549033' }],
-        nota: 'Part of the La Frontera complex.',
-      },
-      {
-        id: 'camping-el-laurel',
-        nombre: 'Camping El Laurel',
-        tipo: 'Campsite',
-        descripcion:
-          '10 km from the town of Cochamó and 100 metres before the end of the road, where the trail to La Junta begins.',
-        servicios: ['Toilet and shower', 'Parking', 'River access'],
-        contactos: [{ tipo: 'telefono', valor: '+56 65 238 0769', href: 'tel:+56652380769' }],
-      },
-      {
-        id: 'camping-los-pozones',
-        nombre: 'Camping Los Pozones',
-        tipo: 'Campsite',
+        id: 'estacionamiento-los-pozones',
+        nombre: 'Estacionamiento Los Pozones',
+        tipo: 'Parking',
         descripcion:
           'For more than 16 years Los Pozones has welcomed visitors from all over the world. A good place to hear the stories of the first people who came to the valley.',
         servicios: ['Parking', 'Cochamó riverbank', 'Shop'],
         contactos: [{ tipo: 'telefono', valor: '+56 9 9262 4283', href: 'tel:+56992624283' }],
+        lat: -41.455869,
+        lon: -72.219876,
       },
     ],
     arrieros: {
@@ -141,6 +116,8 @@ export const sectoresDetalle: SectorDetalle[] = [
         servicios: ['Two covered shelters with large tables', 'Water and washbasins', 'Showers', 'Ecological composting toilets'],
         contactos: [{ tipo: 'web', valor: 'cochamo.com/camping', href: 'https://cochamo.com/camping/' }],
         reserva: { label: 'Book at Camping La Junta', href: 'https://cochamo.com/reservar-camping/' },
+        lat: -41.412074,
+        lon: -72.12758,
       },
       {
         id: 'playa-los-manzanos',
@@ -155,6 +132,8 @@ export const sectoresDetalle: SectorDetalle[] = [
           { tipo: 'email', valor: 'campingplayalosmanzanos@gmail.com', href: 'mailto:campingplayalosmanzanos@gmail.com' },
           { tipo: 'facebook', valor: 'Camping Playa Los Manzanos', href: 'https://www.facebook.com/camping-playa-los-manzanos' },
         ],
+        lat: -41.419148,
+        lon: -72.14301,
       },
       {
         id: 'vista-hermosa',
@@ -165,6 +144,8 @@ export const sectoresDetalle: SectorDetalle[] = [
         servicios: ['Large pitches', 'Views of the climbing peaks', 'Close to the high-country approaches'],
         contactos: [{ tipo: 'web', valor: 'vistahermosacochamo.cl', href: 'https://vistahermosacochamo.cl/' }],
         reserva: { label: 'Book at Vista Hermosa', href: 'https://vistahermosacochamo.cl/reservar' },
+        lat: -41.412606,
+        lon: -72.121787,
       },
       {
         id: 'refugio-cochamo',
@@ -187,6 +168,8 @@ export const sectoresDetalle: SectorDetalle[] = [
         ],
         nota:
           'It operates only through the guided services of Southern Trips and Mahuida Patagonia, which include accommodation, all meals, horses and guided walks.',
+        lat: -41.412549,
+        lon: -72.122871,
       },
     ],
   },

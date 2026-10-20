@@ -154,7 +154,7 @@ export const contenido: Contenido = {
         { label: 'Cuánto cuesta', href: '/es/como-visitar#cuanto-cuesta' },
         { label: 'Cómo reservar', href: `${PORTADA}/reservar` },
         { label: 'Qué debo saber', href: '/es/como-visitar#normas' },
-        { label: 'Dónde dormir', href: `${PORTADA}/reservar#sectores` },
+        { label: 'Dónde dormir', href: `${PORTADA}/reservar#dormir` },
       ],
     },
     {
@@ -339,6 +339,29 @@ export const contenido: Contenido = {
       cta: { label: 'Conocer Lago Vidal', href: '/es/sectores/lago-vidal' },
     },
   ],
+
+  dondeDormir: {
+    eyebrow: 'Dónde dormir',
+    titulo: 'Dónde dormir en el valle',
+    bajada:
+      'Cada alojamiento lo gestiona una familia del valle y se reserva directamente con ella. Pasa el cursor por una tarjeta para ver dónde queda.',
+    bloques: [
+      {
+        slug: 'la-junta',
+        foto: {
+          ...imagenes.laJuntaAerea,
+          alt: 'Vista aérea de la pampa de La Junta, con los campings junto al recodo del río',
+        },
+      },
+      {
+        slug: 'inicio-sendero',
+        titulo: 'Previo a iniciar el sendero',
+        texto:
+          'Lugares donde dormir cerca del pueblo de Cochamó, por si no alcanzas a llegar dentro de los horarios permitidos de subida.',
+        enlace: { label: 'Ver horarios de ingreso', href: `${PORTADA}/como-visitar#dia-vs-semana` },
+      },
+    ],
+  },
 
   mapa: {
     encabezado: {

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { PaginaHero } from '@/components/layout/PaginaHero'
+import { DondeDormir } from '@/components/sections/DondeDormir'
 import { PorQueReservar } from '@/components/sections/PorQueReservar'
 import { Sectores } from '@/components/sections/Sectores'
 import { esIdioma, getContenido, IDIOMAS } from '@/content'
@@ -52,9 +53,8 @@ export default async function PaginaReservar({ params }: PageProps<'/[lang]/rese
 
       <PorQueReservar lang={lang} />
 
-      {/* El detalle de cada alojamiento vive en la página de su sector: aquí
-          se elige dónde, allí con quién. */}
       <Sectores lang={lang} />
+      <DondeDormir lang={lang} id="dormir" />
     </>
   )
 }

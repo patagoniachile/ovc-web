@@ -130,6 +130,9 @@ export interface Alojamiento {
   /** Dónde se reserva este alojamiento en concreto */
   reserva?: Enlace
   nota?: string
+  /** Para señalarlo en el mapa. Los que no la tienen no se marcan. */
+  lat?: number
+  lon?: number
 }
 
 /** Página propia de un sector, con toda su información. */
@@ -474,6 +477,9 @@ export interface Contenido {
 
   /* ----- Página Cómo visitar ----- */
   comoVisitarPagina: Encabezado & { intro: string }
+  dondeDormir: Encabezado & {
+    bloques: { slug: string; titulo?: string; texto?: string; enlace?: Enlace; foto?: Foto }[]
+  }
   comoAyudarPagina: Encabezado & { intro: string }
   reservarPagina: Encabezado & { intro: string; tituloSectores: string; tituloDormir: string }
   comoLlegar: Encabezado & {
