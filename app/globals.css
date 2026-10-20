@@ -530,19 +530,9 @@ p { text-wrap: pretty; }
 }
 
 .cifras { background: var(--bosque-800); color: var(--blanco); }
-.cifras__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: rgba(255, 255, 255, .12);
-  border-radius: var(--radio);
-  overflow: hidden;
-  margin-block: -52px 0;
-  position: relative;
-  z-index: 2;
-  box-shadow: var(--sombra-lg);
-}
-.cifra { background: var(--bosque-800); padding: 26px 22px; }
+.cifras__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.cifra { padding: 6px 26px; }
+.cifra + .cifra { border-left: 1px solid rgba(255, 255, 255, .28); }
 .cifra__numero {
   font-family: var(--display);
   font-size: clamp(1.8rem, 3.4vw, 2.5rem);
@@ -849,12 +839,16 @@ p { text-wrap: pretty; }
 }
 .logro__texto { font-size: .86rem; line-height: 1.55; color: var(--texto-suave); flex: 1; }
 .logro__mas {
-  margin-top: 4px;
+  align-self: flex-start;
+  margin-top: 14px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--bosque-900);
+  color: var(--arena-100);
   font-size: .8rem;
   font-weight: 650;
-  color: var(--bosque-700);
 }
-.logro:hover .logro__mas { text-decoration: underline; text-underline-offset: 3px; }
+.logro:hover .logro__mas { background: var(--bosque-700); }
 
 /* Boletín */
 .boletin {
@@ -1473,25 +1467,31 @@ p { text-wrap: pretty; }
 /* --------------------------------------------------------------------------
    Estructura nueva: El Valle, Impacto, Futuro
    -------------------------------------------------------------------------- */
-.rasgos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 22px; }
+/* Las cuatro cosas que hacen distinto al valle, como en la maqueta: la foto
+   es la tarjeta y el texto se apoya encima, sobre el degradado. */
+.rasgos { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; margin-top: 36px; }
 .rasgo {
-  padding: 28px;
-  background: var(--bg-alt);
-  border: 1px solid var(--borde);
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 360px;
+  overflow: hidden;
   border-radius: var(--radio);
+  background: var(--bosque-900);
+  box-shadow: var(--sombra-md);
   transition: transform var(--trans), box-shadow var(--trans);
 }
-.rasgo:hover { transform: translateY(-3px); box-shadow: var(--sombra-md); }
-.rasgo__icono {
-  width: 48px; height: 48px;
-  display: grid; place-items: center;
-  border-radius: 12px;
-  background: var(--bosque-100);
-  color: var(--bosque-700);
-  margin-bottom: 18px;
+.rasgo:hover { transform: translateY(-3px); box-shadow: var(--sombra-lg); }
+.rasgo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.rasgo__velo {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(14, 26, 21, .92) 0%, rgba(14, 26, 21, .62) 42%, rgba(14, 26, 21, .12) 100%);
 }
-.rasgo__icono svg { width: 24px; height: 24px; }
-.rasgo p { margin-top: 10px; font-size: .94rem; color: var(--texto-suave); }
+.rasgo__texto { position: relative; padding: 24px 22px 26px; }
+.rasgo__texto h3 { color: var(--blanco); font-size: 1.35rem; line-height: 1.15; }
+.rasgo__texto p { margin-top: 9px; font-size: .86rem; line-height: 1.55; color: rgba(255, 255, 255, .84); }
+
+
 .rasgos__cta { display: flex; justify-content: center; margin-top: 40px; }
 
 /* Flora y fauna */
@@ -1783,7 +1783,7 @@ p { text-wrap: pretty; }
 .hero__resumen dd { margin: 7px 0 0; font-size: .95rem; line-height: 1.5; color: rgba(255, 255, 255, .88); }
 
 /* Con el resumen dentro, la franja de cifras ya no monta sobre el hero */
-.cifras__grid { margin-block: 0; box-shadow: var(--sombra-md); }
+
 
 /* --------------------------------------------------------------------------
    Donar y socios

@@ -16,7 +16,6 @@ export function Hero({ lang }: { lang: Lang }) {
       <div className="contenedor">
         <div className="hero__contenido">
           <h1>
-            <em>{hero.sobretitulo}</em>
             {hero.titulo.map((linea, i) => (
               <span key={linea}>
                 {linea}

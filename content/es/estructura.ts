@@ -26,24 +26,32 @@ export const rasgos: Rasgo[] = [
     titulo: 'Granito de mil metros',
     texto:
       'El Batolito Norpatagónico dejó paredes que los glaciares tallaron durante millones de años. Más de 100 rutas de escalada abiertas y pared para muchas más.',
+    imagen: 'heroAnterior',
+    alt: 'Paredes de granito del valle sobre el bosque',
   },
   {
     icono: 'hoja',
     titulo: 'Bosque que nadie plantó',
     texto:
       'Cerca de 8.000 hectáreas de alerzales con ejemplares de unos mil años, junto a coihues, mañíos y un sotobosque de musgos y hongos en estado primigenio.',
+    imagen: 'alerce',
+    alt: 'Alerces milenarios en el bosque del valle',
   },
   {
     icono: 'caballo',
     titulo: 'El Camino Histórico',
     texto:
       'La senda que conecta el estuario de Reloncaví con la pampa argentina sigue viva: los arrieros la usan como la usaban sus bisabuelos, con pilcheros y caballos.',
+    imagen: 'arrieros',
+    alt: 'Arrieros con sus caballos en el Camino Histórico',
   },
   {
     icono: 'agua',
     titulo: 'Agua que se puede beber',
     texto:
       'Ríos de deshielo, pozones turquesas y cascadas sobre roca pulida. El río Cochamó y sus humedales ribereños son parte de lo que el santuario busca proteger.',
+    imagen: 'cascada',
+    alt: 'Cascada sobre roca pulida en el valle',
   },
 ]
 

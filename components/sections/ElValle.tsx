@@ -18,15 +18,27 @@ export function ElValle({ lang }: { lang: Lang }) {
         <SectionHeader className="revelar" centrado {...elValle} />
 
         <div className="rasgos">
-          {rasgos.map((rasgo) => (
-            <article className="rasgo revelar" key={rasgo.titulo}>
-              <div className="rasgo__icono">
-                <Icon name={rasgo.icono} />
-              </div>
-              <h3>{rasgo.titulo}</h3>
-              <p>{rasgo.texto}</p>
-            </article>
-          ))}
+          {rasgos.map((rasgo) => {
+            const foto = rasgo.imagen ? imagenes[rasgo.imagen] : undefined
+            return (
+              <article className="rasgo revelar" key={rasgo.titulo}>
+                {foto && (
+                  <Image
+                    src={foto.src}
+                    alt={rasgo.alt ?? ''}
+                    width={foto.width}
+                    height={foto.height}
+                    sizes="(max-width: 700px) 86vw, 24vw"
+                  />
+                )}
+                <div className="rasgo__velo" aria-hidden="true" />
+                <div className="rasgo__texto">
+                  <h3>{rasgo.titulo}</h3>
+                  <p>{rasgo.texto}</p>
+                </div>
+              </article>
+            )
+          })}
         </div>
 
         <div className="rasgos__cta revelar">

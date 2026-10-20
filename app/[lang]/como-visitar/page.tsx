@@ -6,6 +6,7 @@ import { Icon } from '@/components/ui/Icon'
 import {
   ComoLlegar, CuantoCuesta, DiaVsSemana, HorariosYContacto,
 } from '@/components/sections/ComoVisitarBloques'
+import { DondeDormir } from '@/components/sections/DondeDormir'
 import { Planifica } from '@/components/sections/Planifica'
 import { esIdioma, getContenido, IDIOMAS, imagenes } from '@/content'
 
@@ -64,6 +65,7 @@ export default async function PaginaComoVisitar({ params }: PageProps<'/[lang]/c
       <DiaVsSemana lang={lang} />
       <Planifica lang={lang} />
       <HorariosYContacto lang={lang} />
+      <DondeDormir lang={lang} id="dormir" />
 
     </>
   )

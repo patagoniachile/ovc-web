@@ -125,7 +125,6 @@ export const contenido: Contenido = {
         { label: 'Conservation', href: `${PORTADA}/el-valle#santuario`, detalle: 'The Sanctuary' },
         { label: 'What is at stake', href: `${PORTADA}/el-valle#amenazas`, detalle: 'Threats' },
         { label: 'Activities', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'What to do' },
-        { label: 'Where to stay', href: `${PORTADA}/el-valle#dormir`, detalle: 'Places to sleep in the valley' },
       ],
     },
     {
@@ -137,6 +136,7 @@ export const contenido: Contenido = {
         { label: 'Day trip vs. several days', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Two different trips' },
         { label: 'What to know', href: `${PORTADA}/como-visitar#normas`, detalle: 'Rules and safety' },
         { label: 'Times and contact', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Entry windows and who to ask' },
+        { label: 'Where to stay', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Places to sleep in the valley' },
       ],
     },
     {
@@ -169,7 +169,7 @@ export const contenido: Contenido = {
         { label: 'What it costs', href: '/en/como-visitar#cuanto-cuesta' },
         { label: 'How to book', href: `${PORTADA}/reservar` },
         { label: 'What to know', href: '/en/como-visitar#normas' },
-        { label: 'Where to stay', href: `${PORTADA}/el-valle#dormir` },
+        { label: 'Where to stay', href: `${PORTADA}/como-visitar#dormir` },
       ],
     },
     {
@@ -185,7 +185,6 @@ export const contenido: Contenido = {
   ],
 
   hero: {
-    sobretitulo: 'Patagonia · Chile',
     titulo: ['Visit the valley.', 'Protect it.'],
     bajada:
       'The Cochamó Valley is not a park or a public reserve: it is private land whose owners opened it to the public. We look after it together, with an orderly visit and a real commitment to its conservation.',

@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { PaginaHero } from '@/components/layout/PaginaHero'
 import { Amenazas } from '@/components/sections/Amenazas'
-import { DondeDormir } from '@/components/sections/DondeDormir'
 import { FloraFauna, QueHacer } from '@/components/sections/ElValle'
 import { Mapa } from '@/components/sections/Mapa'
 import { Santuario } from '@/components/sections/Santuario'
@@ -59,7 +58,6 @@ export default async function PaginaElValle({ params }: PageProps<'/[lang]/el-va
       <Santuario lang={lang} />
       <Amenazas lang={lang} />
       <QueHacer lang={lang} />
-      <DondeDormir lang={lang} id="dormir" />
     </>
   )
 }

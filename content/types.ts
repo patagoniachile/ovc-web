@@ -161,7 +161,8 @@ export interface Rasgo {
   icono: IconName
   titulo: string
   texto: string
-  foto?: Foto
+  imagen?: keyof typeof import('./imagenes').imagenes
+  alt?: string
 }
 
 /**
@@ -377,7 +378,6 @@ export interface Contenido {
   menu: GrupoMenu[]
   enlacesPie: { titulo: string; items: Enlace[] }[]
   hero: {
-    sobretitulo: string
     titulo: string[]
     bajada: string
     alt: string

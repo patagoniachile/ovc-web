@@ -116,7 +116,6 @@ export const contenido: Contenido = {
         { label: 'Conservación', href: `${PORTADA}/el-valle#santuario`, detalle: 'El Santuario' },
         { label: 'Lo que está en juego', href: `${PORTADA}/el-valle#amenazas`, detalle: 'Amenazas' },
         { label: 'Actividades', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'Qué hacer' },
-        { label: 'Dónde dormir', href: `${PORTADA}/el-valle#dormir`, detalle: 'Los alojamientos del valle' },
       ],
     },
     {
@@ -128,6 +127,7 @@ export const contenido: Contenido = {
         { label: 'Día vs. varios días', href: `${PORTADA}/como-visitar#dia-vs-semana`, detalle: 'Dos viajes distintos' },
         { label: 'Qué debo saber', href: `${PORTADA}/como-visitar#normas`, detalle: 'Normas y seguridad' },
         { label: 'Horarios y contacto', href: `${PORTADA}/como-visitar#horarios`, detalle: 'Ingresos y a quién escribir' },
+        { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir`, detalle: 'Los alojamientos del valle' },
       ],
     },
     {
@@ -160,7 +160,7 @@ export const contenido: Contenido = {
         { label: 'Cuánto cuesta', href: '/es/como-visitar#cuanto-cuesta' },
         { label: 'Cómo reservar', href: `${PORTADA}/reservar` },
         { label: 'Qué debo saber', href: '/es/como-visitar#normas' },
-        { label: 'Dónde dormir', href: `${PORTADA}/el-valle#dormir` },
+        { label: 'Dónde dormir', href: `${PORTADA}/como-visitar#dormir` },
       ],
     },
     {
@@ -176,7 +176,6 @@ export const contenido: Contenido = {
   ],
 
   hero: {
-    sobretitulo: 'Patagonia · Chile',
     titulo: ['Visita el valle.', 'Protégelo.'],
     bajada:
       'El Valle Cochamó no es un parque ni una reserva pública: son tierras privadas que sus dueños abrieron al público. Lo cuidamos entre todos, con una visita ordenada y un compromiso real con su conservación.',

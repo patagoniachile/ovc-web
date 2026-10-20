@@ -25,24 +25,32 @@ export const rasgos: Rasgo[] = [
     titulo: 'A thousand metres of granite',
     texto:
       'The North Patagonian Batholith left walls that glaciers carved over millions of years. More than 100 climbing routes opened, and rock for many more.',
+    imagen: 'heroAnterior',
+    alt: 'The valley’s granite walls above the forest',
   },
   {
     icono: 'hoja',
     titulo: 'Forest nobody planted',
     texto:
       'Close to 8,000 hectares of alerce stands with trees around a thousand years old, alongside coihues, mañíos and an understorey of moss and fungi in its original state.',
+    imagen: 'alerce',
+    alt: 'Thousand-year-old alerces in the valley’s forest',
   },
   {
     icono: 'caballo',
     titulo: 'The Historic Road',
     texto:
       'The path linking the Reloncaví estuary with the Argentine pampa is still alive: the muleteers use it as their great-grandparents did, with pack horses.',
+    imagen: 'arrieros',
+    alt: 'Arrieros with their horses on the historic trail',
   },
   {
     icono: 'agua',
     titulo: 'Water you can drink',
     texto:
       'Meltwater rivers, turquoise pools and waterfalls over polished rock. The Cochamó River and its riparian wetlands are part of what the sanctuary aims to protect.',
+    imagen: 'cascada',
+    alt: 'A waterfall over polished rock in the valley',
   },
 ]
 
