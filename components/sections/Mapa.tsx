@@ -13,7 +13,16 @@ import { getContenido, type Lang } from '@/content'
  * el JS desactivado— las coordenadas siguen estando ahí, que es lo que de
  * verdad sirve para planificar.
  */
-export function MapaValle({ lang }: { lang: Lang }) {
+export function MapaValle({
+  lang,
+  // El aviso de seguridad va donde se planifica el viaje. En la línea de
+  // tiempo el mapa solo sitúa los lugares de la historia, y ahí advertir
+  // sobre cobertura y GPS no viene a cuento.
+  conAviso = true,
+}: {
+  lang: Lang
+  conAviso?: boolean
+}) {
   const { mapa, puntosMapa, textos } = getContenido(lang)
   const [activo, setActivo] = useState<string | null>(null)
   const [cargado, setCargado] = useState(false)
@@ -61,10 +70,12 @@ export function MapaValle({ lang }: { lang: Lang }) {
           </p>
         )}
 
-        <p className="mapa__aviso">
-          <Icon name="alerta" />
-          {mapa.aviso}
-        </p>
+        {conAviso && (
+          <p className="mapa__aviso">
+            <Icon name="alerta" />
+            {mapa.aviso}
+          </p>
+        )}
       </div>
     </div>
   )

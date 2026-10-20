@@ -24,7 +24,7 @@ export function Historia({ lang }: { lang: Lang }) {
         <p className="historia__entrada revelar">{introHistoria.entrada}</p>
 
         <div className="historia__mapa revelar">
-          <MapaValle lang={lang} />
+          <MapaValle lang={lang} conAviso={false} />
         </div>
 
         <div className="historia">
