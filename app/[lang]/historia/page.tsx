@@ -5,7 +5,7 @@ import { Historia } from '@/components/sections/Historia'
 import { MisionVision } from '@/components/sections/Impacto'
 import { Nosotros } from '@/components/sections/Nosotros'
 import { Proyectos } from '@/components/sections/Proyectos'
-import { esIdioma, getContenido, IDIOMAS } from '@/content'
+import { IDIOMAS, esIdioma, getContenido, imagenes } from '@/content'
 
 export function generateStaticParams() {
   return IDIOMAS.map((lang) => ({ lang }))
@@ -36,7 +36,7 @@ export default async function PaginaHistoria({ params }: PageProps<'/[lang]/hist
   const { lang } = await params
   if (!esIdioma(lang)) notFound()
 
-  const { introHistoria } = getContenido(lang)
+  const { introHistoria, textos } = getContenido(lang)
 
   return (
     <>
@@ -45,6 +45,8 @@ export default async function PaginaHistoria({ params }: PageProps<'/[lang]/hist
         eyebrow={introHistoria.eyebrow}
         titulo={introHistoria.titulo}
         intro={[introHistoria.bajada]}
+        foto={imagenes.marcha}
+        alt={textos.fotoHistoria}
       />
 
       <Historia lang={lang} />

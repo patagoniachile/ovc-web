@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { PaginaHero } from '@/components/layout/PaginaHero'
 import { PorQueReservar } from '@/components/sections/PorQueReservar'
 import { Sectores } from '@/components/sections/Sectores'
-import { esIdioma, getContenido, IDIOMAS } from '@/content'
+import { IDIOMAS, esIdioma, getContenido, imagenes } from '@/content'
 
 export function generateStaticParams() {
   return IDIOMAS.map((lang) => ({ lang }))
@@ -39,7 +39,7 @@ export default async function PaginaReservar({ params }: PageProps<'/[lang]/rese
   const { lang } = await params
   if (!esIdioma(lang)) notFound()
 
-  const { reservarPagina } = getContenido(lang)
+  const { reservarPagina, textos } = getContenido(lang)
 
   return (
     <>
@@ -48,6 +48,8 @@ export default async function PaginaReservar({ params }: PageProps<'/[lang]/rese
         eyebrow={reservarPagina.eyebrow}
         titulo={reservarPagina.titulo}
         intro={[reservarPagina.bajada, reservarPagina.intro]}
+        foto={imagenes.laJuntaAerea}
+        alt={textos.fotoReservar}
       />
 
       <PorQueReservar lang={lang} />

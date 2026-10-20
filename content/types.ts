@@ -328,6 +328,9 @@ export interface Textos {
   opcional: string
   fotoElValle: string
   fotoComoVisitar: string
+  fotoHistoria: string
+  fotoComoAyudar: string
+  fotoReservar: string
   lineaDeTiempo: string
   sobreElSector: string
   datosClave: string

@@ -6,7 +6,7 @@ import { DestinoAportes } from '@/components/sections/DestinoAportes'
 import { Donar } from '@/components/sections/Donar'
 import { FormularioSocio } from '@/components/sections/FormularioSocio'
 import { PlanesSocio } from '@/components/sections/PlanesSocio'
-import { esIdioma, getContenido, IDIOMAS } from '@/content'
+import { IDIOMAS, esIdioma, getContenido, imagenes } from '@/content'
 
 export function generateStaticParams() {
   return IDIOMAS.map((lang) => ({ lang }))
@@ -37,7 +37,7 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
   const { lang } = await params
   if (!esIdioma(lang)) notFound()
 
-  const { comoAyudarPagina, donarPagina, sociosPagina } = getContenido(lang)
+  const { comoAyudarPagina, donarPagina, sociosPagina, textos } = getContenido(lang)
 
   return (
     <>
@@ -46,6 +46,8 @@ export default async function PaginaComoAyudar({ params }: PageProps<'/[lang]/co
         eyebrow={comoAyudarPagina.eyebrow}
         titulo={comoAyudarPagina.titulo}
         intro={[comoAyudarPagina.bajada, comoAyudarPagina.intro]}
+        foto={imagenes.equipo}
+        alt={textos.fotoComoAyudar}
       />
 
       {/* Donaciones */}

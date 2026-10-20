@@ -16,6 +16,7 @@ export const imagenes = {
   logroSenaletica: { src: '/img/logro-senaletica.jpg', width: 1280, height: 720 },
   logroReciclaje: { src: '/img/logro-reciclaje.jpg', width: 2131, height: 1199 },
   logroEscalada: { src: '/img/logro-escalada.jpg', width: 2500, height: 1406 },
+  marcha: { src: '/img/marcha-proteccion.jpg', width: 1400, height: 787 },
   toboganes: { src: '/img/toboganes.jpg', width: 1400, height: 1050 },
   cascada: { src: '/img/cascada-aerea.jpg', width: 1400, height: 786 },
   equipo: { src: '/img/equipo-ovc.jpg', width: 1400, height: 803 },
