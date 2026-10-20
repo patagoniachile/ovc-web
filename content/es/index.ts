@@ -193,7 +193,7 @@ export const contenido: Contenido = {
 
   introHistoria: {
     eyebrow: 'Nuestra historia',
-    titulo: 'Una historia de porfía: cómo este valle llegó a ser santuario',
+    titulo: 'Una historia que inspira: cómo este valle llegó a ser santuario',
     bajada:
       'Lo que empezó como una conversación entre vecinos preocupados terminó en una organización comunitaria que hoy ordena la visita, repara senderos y administra el santuario que consiguió. Esto es lo que pasó en el medio.',
     cita: 'Las decisiones de hoy determinan las consecuencias de mañana.',
@@ -395,6 +395,30 @@ export const contenido: Contenido = {
       lat: -41.426866,
       lon: -72.096488,
       descripcion: 'La pared de granito que domina La Junta, uno de los hitos del valle.',
+    },
+    {
+      id: 'toboganes',
+      nombre: 'Toboganes',
+      tipo: 'referencia',
+      lat: -41.40869,
+      lon: -72.125317,
+      descripcion: 'Los pozones y resbalines que el río labró en la roca pulida, a un rato de La Junta.',
+    },
+    {
+      id: 'cerro-arcoiris',
+      nombre: 'Cerro Arcoíris',
+      tipo: 'referencia',
+      lat: -41.403911,
+      lon: -72.159243,
+      descripcion: 'Pared de granito al noroeste del valle, uno de los sectores clásicos de escalada.',
+    },
+    {
+      id: 'la-paloma',
+      nombre: 'La Paloma',
+      tipo: 'referencia',
+      lat: -41.403194,
+      lon: -72.119583,
+      descripcion: 'Sector de paredes al norte del río La Junta, con vista abierta sobre el valle.',
     },
   ],
 

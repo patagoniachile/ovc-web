@@ -202,7 +202,7 @@ export const contenido: Contenido = {
 
   introHistoria: {
     eyebrow: 'Our story',
-    titulo: 'A story of stubbornness: how this valley became a sanctuary',
+    titulo: 'A story that inspires: how this valley became a sanctuary',
     bajada:
       'What began as a conversation between worried neighbours ended in a community organisation that today orders the visit, repairs trails and runs the sanctuary it won. This is what happened in between.',
     cita: 'The decisions we make today determine the consequences of tomorrow.',
@@ -403,6 +403,30 @@ export const contenido: Contenido = {
       lat: -41.426866,
       lon: -72.096488,
       descripcion: 'The granite wall towering over La Junta, one of the valley’s landmarks.',
+    },
+    {
+      id: 'toboganes',
+      nombre: 'Toboganes',
+      tipo: 'referencia',
+      lat: -41.40869,
+      lon: -72.125317,
+      descripcion: 'The pools and natural slides the river carved into polished rock, a short walk from La Junta.',
+    },
+    {
+      id: 'cerro-arcoiris',
+      nombre: 'Cerro Arcoíris',
+      tipo: 'referencia',
+      lat: -41.403911,
+      lon: -72.159243,
+      descripcion: 'A granite wall north-west of the valley, one of the classic climbing sectors.',
+    },
+    {
+      id: 'la-paloma',
+      nombre: 'La Paloma',
+      tipo: 'referencia',
+      lat: -41.403194,
+      lon: -72.119583,
+      descripcion: 'A sector of walls north of the La Junta river, with an open view over the valley.',
     },
   ],
 
