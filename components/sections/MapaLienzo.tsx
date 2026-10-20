@@ -83,20 +83,10 @@ export function MapaLienzo({
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(instancia)
 
-      // Los alojamientos de un mismo sector quedan a pocos metros: si todas las
-      // etiquetas van debajo del punto se tapan entre sí. Ordenados de oeste a
-      // este, cada etiqueta se coloca por un lado distinto.
-      const lados = ['arriba', 'izq', 'abajo', 'der']
-      const ladoDe: Record<string, string> = {}
-      puntos
-        .filter((p) => p.tipo === 'alojamiento')
-        .sort((a, b) => a.lon - b.lon)
-        .forEach((p, i) => { ladoDe[p.id] = lados[i % lados.length] })
-
       puntos.forEach((punto) => {
         const icono = L.divIcon({
           className: '',
-          html: `<span class="marcador marcador--${punto.tipo}${ladoDe[punto.id] ? ` marcador--${ladoDe[punto.id]}` : ''}" data-punto="${punto.id}"><span class="marcador__punto"></span><span class="marcador__nombre">${punto.nombre}</span></span>`,
+          html: `<span class="marcador marcador--${punto.tipo}" data-punto="${punto.id}"><span class="marcador__punto"></span><span class="marcador__nombre">${punto.nombre}</span></span>`,
           iconSize: [14, 14],
           iconAnchor: [7, 7],
         })
@@ -143,6 +133,51 @@ export function MapaLienzo({
 
       if (cancelado) return
       instancia.fitBounds(limites, { padding: [40, 40] })
+
+      // Los alojamientos de un sector quedan a pocos metros y sus etiquetas se
+      // pisan. Para cada uno se prueba un lado tras otro y se queda con el
+      // primero que no toque un punto ni otra etiqueta ya colocada. Como depende
+      // de la distancia en pantalla, se repite con cada cambio de zoom.
+      const colocarEtiquetas = () => {
+        const LADOS = ['abajo', 'arriba', 'der', 'izq', 'abajo-der', 'arriba-der', 'abajo-izq', 'arriba-izq'] as const
+        type Rect = { x1: number; y1: number; x2: number; y2: number }
+        const M = 3
+        const cruza = (a: Rect, b: Rect) => a.x1 < b.x2 + M && b.x1 < a.x2 + M && a.y1 < b.y2 + M && b.y1 < a.y2 + M
+        const puntosEnPantalla = puntos.map((p) => {
+          const { x, y } = instancia.latLngToContainerPoint([p.lat, p.lon])
+          return { id: p.id, rect: { x1: x - 8, y1: y - 8, x2: x + 8, y2: y + 8 } as Rect }
+        })
+        const etiquetas: Rect[] = []
+        puntos
+          .filter((p) => p.tipo === 'alojamiento')
+          .sort((a, b) => a.lon - b.lon)
+          .forEach((p) => {
+            const { x, y } = instancia.latLngToContainerPoint([p.lat, p.lon])
+            const w = 8 + p.nombre.length * 7.2
+            const h = 22
+            const rectDe: Record<(typeof LADOS)[number], Rect> = {
+              abajo: { x1: x - w / 2, y1: y + 11, x2: x + w / 2, y2: y + 11 + h },
+              arriba: { x1: x - w / 2, y1: y - 11 - h, x2: x + w / 2, y2: y - 11 },
+              der: { x1: x + 14, y1: y - h / 2, x2: x + 14 + w, y2: y + h / 2 },
+              izq: { x1: x - 14 - w, y1: y - h / 2, x2: x - 14, y2: y + h / 2 },
+              'abajo-der': { x1: x + 5, y1: y + 9, x2: x + 5 + w, y2: y + 9 + h },
+              'arriba-der': { x1: x + 5, y1: y - 9 - h, x2: x + 5 + w, y2: y - 9 },
+              'abajo-izq': { x1: x - 5 - w, y1: y + 9, x2: x - 5, y2: y + 9 + h },
+              'arriba-izq': { x1: x - 5 - w, y1: y - 9 - h, x2: x - 5, y2: y - 9 },
+            }
+            const cruces = (l: (typeof LADOS)[number]) =>
+              etiquetas.filter((o) => cruza(rectDe[l], o)).length +
+              puntosEnPantalla.filter((o) => o.id !== p.id && cruza(rectDe[l], o.rect)).length
+            const lado = LADOS.find((l) => cruces(l) === 0) ?? [...LADOS].sort((a, b) => cruces(a) - cruces(b))[0]
+            etiquetas.push(rectDe[lado])
+            const el = marcadores.current[p.id]?.getElement()?.querySelector('.marcador')
+            el?.classList.remove(...LADOS.map((l) => `marcador--${l}`))
+            el?.classList.add(`marcador--${lado}`)
+          })
+      }
+      colocarEtiquetas()
+      instancia.on('zoomend moveend resize', colocarEtiquetas)
+      setTimeout(colocarEtiquetas, 600)
 
       mapaRef.current = instancia
       setCargado(true)

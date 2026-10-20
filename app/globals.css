@@ -2829,3 +2829,7 @@ p { text-wrap: pretty; }
   .obras__pista { grid-auto-columns: 82vw; }
   .suscribete__form input { flex-basis: 100%; }
 }
+.marcador--abajo-der .marcador__nombre { left: 12px; top: 16px; transform: none; }
+.marcador--arriba-der .marcador__nombre { left: 12px; top: auto; bottom: 16px; transform: none; }
+.marcador--abajo-izq .marcador__nombre { left: auto; right: 12px; top: 16px; transform: none; }
+.marcador--arriba-izq .marcador__nombre { left: auto; right: 12px; top: auto; bottom: 16px; transform: none; }
