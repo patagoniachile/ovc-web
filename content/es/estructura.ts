@@ -451,8 +451,8 @@ export const actividades: Actividad[] = [
     icono: 'sendero',
     titulo: 'Senderismo',
     texto: 'Anfiteatro · Trinidad · La Paloma',
-    imagen: 'registroSendero',
-    alt: 'Caminantes en el sendero del valle',
+    imagen: 'actSenderismo',
+    alt: 'Caminante bajo los árboles del bosque siempreverde del valle',
     bloques: [
       {
         titulo: 'Anfiteatro',
@@ -482,8 +482,8 @@ export const actividades: Actividad[] = [
     icono: 'montana',
     titulo: 'Escalada',
     texto: 'Un paraíso de granito en plena Patagonia',
-    imagen: 'logroEscalada',
-    alt: 'Escalador en una pared de granito del valle',
+    imagen: 'actEscalada',
+    alt: 'Escalador en una fisura de las paredes de granito del valle',
     bloques: [
       {
         titulo: 'Un paraíso de granito en plena Patagonia',
@@ -503,8 +503,8 @@ export const actividades: Actividad[] = [
     icono: 'caballo',
     titulo: 'Cabalgatas',
     texto: 'Una tradición que mantiene vivo el valle',
-    imagen: 'arrieros',
-    alt: 'Arrieros con sus caballos en el sendero del valle',
+    imagen: 'actCabalgatas',
+    alt: 'Arriero a caballo por el Camino Histórico, entre el bosque',
     bloques: [
       {
         titulo: 'Una tradición que mantiene vivo el valle',

@@ -449,8 +449,8 @@ export const actividades: Actividad[] = [
     icono: 'sendero',
     titulo: 'Hiking',
     texto: 'Anfiteatro · Trinidad · La Paloma',
-    imagen: 'registroSendero',
-    alt: 'Walkers on the valley trail',
+    imagen: 'actSenderismo',
+    alt: 'A walker beneath the trees of the valley’s evergreen forest',
     bloques: [
       {
         titulo: 'Anfiteatro',
@@ -480,8 +480,8 @@ export const actividades: Actividad[] = [
     icono: 'montana',
     titulo: 'Climbing',
     texto: 'A granite paradise in the heart of Patagonia',
-    imagen: 'logroEscalada',
-    alt: 'A climber on one of the valley’s granite walls',
+    imagen: 'actEscalada',
+    alt: 'A climber in a crack on the valley’s granite walls',
     bloques: [
       {
         titulo: 'A granite paradise in the heart of Patagonia',
@@ -501,8 +501,8 @@ export const actividades: Actividad[] = [
     icono: 'caballo',
     titulo: 'Horse riding',
     texto: 'A tradition that keeps the valley alive',
-    imagen: 'arrieros',
-    alt: 'Arrieros with their horses on the valley trail',
+    imagen: 'actCabalgatas',
+    alt: 'An arriero on horseback along the historic trail, through the forest',
     bloques: [
       {
         titulo: 'A tradition that keeps the valley alive',
