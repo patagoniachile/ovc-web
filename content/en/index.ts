@@ -187,7 +187,7 @@ export const contenido: Contenido = {
   hero: {
     titulo: ['Cochamó, a story', 'we are still building'],
     bajada:
-      'The Cochamó Valley is not a park or a public reserve: it is private land whose owners opened it to the public. We look after it together, with an orderly visit and a real commitment to its conservation.',
+      'The Cochamó Valley is shared ground: much of it is private land whose owners opened the way in so you can get to know it. Since 2023 it has been a Nature Sanctuary, and its protection depends on all of us looking after it: book ahead, stay on the trails and leave the place better than you found it.',
     alt: 'Granite walls of the Cochamó Valley with the valley’s native forest in the background',
   },
 

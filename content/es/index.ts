@@ -178,7 +178,7 @@ export const contenido: Contenido = {
   hero: {
     titulo: ['Cochamó, una historia', 'que seguimos construyendo'],
     bajada:
-      'El Valle Cochamó no es un parque ni una reserva pública: son tierras privadas que sus dueños abrieron al público. Lo cuidamos entre todos, con una visita ordenada y un compromiso real con su conservación.',
+      'El Valle Cochamó es un territorio compartido: gran parte son tierras privadas cuyos dueños abrieron el acceso para que puedas conocerlo. Desde 2023 es Santuario de la Naturaleza, y su protección depende de que lo cuidemos entre todos: reserva, respeta los senderos y deja el lugar mejor de lo que lo encontraste.',
     alt: 'Paredes de granito del Valle Cochamó con el bosque nativo del valle al fondo',
   },
 
