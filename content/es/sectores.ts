@@ -132,10 +132,10 @@ export const sectoresDetalle: SectorDetalle[] = [
         descripcion:
           'Pampa a orillas del río Cochamó, rodeada de montañas de granito. Buena base para las excursiones e ideal para familias.',
         servicios: [
-          'Dos quinchos techados con mesones',
-          'Agua y lavabos',
-          'Duchas',
+          'Sitios amplios',
+          'Agua, duchas y lavamanos',
           'Baños de compostaje ecológicos',
+          'Dos quinchos techados con fogones',
         ],
         contactos: [{ tipo: 'web', valor: 'cochamo.com/camping', href: 'https://cochamo.com/camping/' }],
         reserva: { label: 'Reservar en Camping La Junta', href: 'https://cochamo.com/reservar-camping/' },
@@ -148,7 +148,7 @@ export const sectoresDetalle: SectorDetalle[] = [
         tipo: 'Camping',
         descripcion:
           'Amplios sitios junto al río Cochamó, con vista a los cerros de escalada. Cerca de los senderos de altura y de las paredes La Luna y La Cantina.',
-        servicios: ['Sitios amplios', 'Vista a los cerros de escalada', 'Cerca de las aproximaciones de altura'],
+        servicios: ['Sitios amplios', 'Agua, duchas y lavamanos', 'Baños', 'Un quincho techado con fogón', 'Venta de pan amasado'],
         contactos: [{ tipo: 'web', valor: 'vistahermosacochamo.cl', href: 'https://vistahermosacochamo.cl/' }],
         reserva: { label: 'Reservar en Vista Hermosa', href: 'https://vistahermosacochamo.cl/reservar' },
         lat: -41.412606,
@@ -160,7 +160,7 @@ export const sectoresDetalle: SectorDetalle[] = [
         tipo: 'Camping',
         descripcion:
           'Amplios sitios y un gran fogón para cocinar, con playas junto al río Cochamó. Se llega cruzando el río en carro.',
-        servicios: ['Gran fogón para fogatas y cocinar', 'Playas en el río', 'Cabalgatas', 'Venta de pan amasado y sopaipillas'],
+        servicios: ['Sitios amplios', 'Gran fogón para fogatas y cocinar', 'Playas en el río', 'Cabalgatas (opcional)', 'Venta de pan amasado'],
         contactos: [
           { tipo: 'telefono', valor: '+56 9 3510 9737', href: 'tel:+56935109737' },
           { tipo: 'telefono', valor: '+56 9 5666 2469', href: 'tel:+56956662469' },

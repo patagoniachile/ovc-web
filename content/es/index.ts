@@ -332,6 +332,7 @@ export const contenido: Contenido = {
     titulo: 'Reserva tu lugar. Ayuda a cuidar el Valle.',
     bajada:
       'El valle tiene una capacidad de visita que hay que respetar: reservar ordena el ingreso y cuida sus senderos, campings y ecosistemas. En La Junta, el corazón del valle, hay 4 alojamientos, y cada uno se reserva directamente con la familia u operador que lo gestiona. **Es necesario tener la reserva confirmada antes de ir.**',
+    enlace: { label: 'Revisa los horarios de ingreso', href: `${PORTADA}/como-visitar#horarios` },
     bloques: [
       {
         slug: 'la-junta',

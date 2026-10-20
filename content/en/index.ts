@@ -340,6 +340,7 @@ export const contenido: Contenido = {
     titulo: 'Where to stay in the valley',
     bajada:
       'La Junta, the heart of the valley, has 4 places to stay. Each one is run by a family or operator from the valley and is booked directly with them. **You need a confirmed booking before you go.**',
+    enlace: { label: 'Check the entry times', href: `${PORTADA}/como-visitar#horarios` },
     bloques: [
       {
         slug: 'la-junta',

@@ -67,7 +67,13 @@ export function DondeDormir({ lang, id }: { lang: Lang; id?: string }) {
   return (
     <section className="seccion seccion--alt" id={id}>
       <div className="contenedor">
-        <SectionHeader className="revelar" {...dondeDormir} />
+        <SectionHeader
+          className="revelar"
+          eyebrow={dondeDormir.eyebrow}
+          titulo={dondeDormir.titulo}
+          bajada={dondeDormir.bajada}
+          enlace={dondeDormir.enlace && <Link href={dondeDormir.enlace.href}>{dondeDormir.enlace.label}</Link>}
+        />
 
         {dondeDormir.bloques.map((bloque) => {
           const sector = sectoresDetalle.find((s) => s.slug === bloque.slug)

@@ -1,9 +1,11 @@
+import type { ReactNode } from 'react'
 import { RichText } from '@/components/ui/RichText'
 
 export function SectionHeader({
   eyebrow,
   titulo,
   bajada,
+  enlace,
   centrado = false,
   compacto = false,
   claro = false,
@@ -13,6 +15,8 @@ export function SectionHeader({
   eyebrow?: string
   titulo: string
   bajada?: string
+  /** Enlace que sigue a la bajada, dentro del mismo párrafo */
+  enlace?: ReactNode
   centrado?: boolean
   /** Título algo más chico, para subsecciones */
   compacto?: boolean
@@ -34,7 +38,10 @@ export function SectionHeader({
     <div className={clases}>
       {eyebrow && <p className={claro ? 'eyebrow eyebrow--claro' : 'eyebrow'}>{eyebrow}</p>}
       <h2 id={id}>{titulo}</h2>
-      {bajada && <p className="lead"><RichText>{bajada}</RichText></p>}
+      {bajada && <p className="lead">
+          <RichText>{bajada}</RichText>
+          {enlace && <> {enlace}</>}
+        </p>}
     </div>
   )
 }
