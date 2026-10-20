@@ -113,6 +113,7 @@ export const contenido: Contenido = {
         { label: 'Conservación', href: `${PORTADA}/el-valle#santuario`, detalle: 'El Santuario' },
         { label: 'Lo que está en juego', href: `${PORTADA}/el-valle#amenazas`, detalle: 'Amenazas' },
         { label: 'Actividades', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'Qué hacer' },
+        { label: 'Dónde dormir', href: `${PORTADA}/el-valle#dormir`, detalle: 'Los alojamientos del valle' },
       ],
     },
     {
@@ -156,7 +157,7 @@ export const contenido: Contenido = {
         { label: 'Cuánto cuesta', href: '/es/como-visitar#cuanto-cuesta' },
         { label: 'Cómo reservar', href: `${PORTADA}/reservar` },
         { label: 'Qué debo saber', href: '/es/como-visitar#normas' },
-        { label: 'Dónde dormir', href: `${PORTADA}/reservar#dormir` },
+        { label: 'Dónde dormir', href: `${PORTADA}/el-valle#dormir` },
       ],
     },
     {

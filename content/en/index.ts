@@ -122,6 +122,7 @@ export const contenido: Contenido = {
         { label: 'Conservation', href: `${PORTADA}/el-valle#santuario`, detalle: 'The Sanctuary' },
         { label: 'What is at stake', href: `${PORTADA}/el-valle#amenazas`, detalle: 'Threats' },
         { label: 'Activities', href: `${PORTADA}/el-valle#que-hacer`, detalle: 'What to do' },
+        { label: 'Where to stay', href: `${PORTADA}/el-valle#dormir`, detalle: 'Places to sleep in the valley' },
       ],
     },
     {
@@ -165,7 +166,7 @@ export const contenido: Contenido = {
         { label: 'What it costs', href: '/en/como-visitar#cuanto-cuesta' },
         { label: 'How to book', href: `${PORTADA}/reservar` },
         { label: 'What to know', href: '/en/como-visitar#normas' },
-        { label: 'Where to stay', href: `${PORTADA}/reservar#dormir` },
+        { label: 'Where to stay', href: `${PORTADA}/el-valle#dormir` },
       ],
     },
     {
