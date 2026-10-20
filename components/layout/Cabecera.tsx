@@ -114,12 +114,12 @@ export function Cabecera({ lang }: { lang: Lang }) {
                 intención y la página de Cómo ayudar ya las separa: tenerlas
                 en la cabecera obligaba a elegir antes de saber la
                 diferencia. */}
-            {/* Reservar en borde blanco y Cómo ayudar en morado, que es la
+            {/* Reservar en borde blanco y Cómo ayudar en amarillo, que es la
                 acción que la corporación quiere destacar. */}
             <Boton className="btn--recto" href={`/${lang}/como-visitar#dormir`} variante="solido" pequeno>
               {textos.reservar}
             </Boton>
-            <Boton className="btn--recto" href={`/${lang}/como-ayudar`} variante="morado" pequeno>
+            <Boton className="btn--recto" href={`/${lang}/como-ayudar`} variante="oro" pequeno>
               {textos.comoAyudar}
             </Boton>
 
@@ -174,7 +174,7 @@ export function Cabecera({ lang }: { lang: Lang }) {
           <Boton href={`/${lang}/como-visitar#dormir`} variante="solido" bloque>
             {textos.reservarEstadia}
           </Boton>
-          <Boton href={`/${lang}/como-ayudar`} variante="morado" bloque>
+          <Boton href={`/${lang}/como-ayudar`} variante="oro" bloque>
             {textos.comoAyudar}
           </Boton>
         </div>

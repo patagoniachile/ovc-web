@@ -36,10 +36,6 @@
   --lila-300: #cfc8d6;
   --lila-100: #edddff;
 
-  /* Morado. Solo para el botón «Cómo ayudar»; el blanco encima contrasta. */
-  --morado-600: #7c3aed;
-  --morado-700: #6d28d9;
-
   --granito-900: #272a26;
   --granito-700: #4e544d;
   --granito-500: #7a8178;
@@ -228,8 +224,6 @@ p { text-wrap: pretty; }
 .btn svg { width: 18px; height: 18px; flex: none; }
 
 .btn--oro { --btn-bg: var(--oro-500); --btn-fg: var(--bosque-900); }
-.btn--morado { --btn-bg: var(--morado-600); --btn-fg: var(--blanco); }
-.btn--morado:hover { --btn-bg: var(--morado-700); }
 .btn--fuego { --btn-bg: var(--fuego-600); }
 .btn--claro { --btn-bg: var(--blanco); --btn-fg: var(--bosque-900); }
 .btn--fantasma {
@@ -2701,8 +2695,8 @@ body:has(:is(.hero, .pagina-hero, .sector-hero)) .cabecera:not(.esta-fija) { bac
 .cabecera .btn--recto { border-radius: 999px; }
 /* Sobre la foto y sobre el verde, «Cómo ayudar» va en borde blanco: en verde
    sólido se perdía contra el fondo de la cabecera fija. */
-.cabecera .btn:not(.btn--oro):not(.btn--morado) { --btn-bg: transparent; --btn-fg: var(--blanco); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .85); }
-.cabecera .btn:not(.btn--oro):not(.btn--morado):hover { --btn-bg: rgba(255, 255, 255, .14); }
+.cabecera .btn:not(.btn--oro) { --btn-bg: transparent; --btn-fg: var(--blanco); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .85); }
+.cabecera .btn:not(.btn--oro):hover { --btn-bg: rgba(255, 255, 255, .14); }
 .cabecera .hamburguesa:not([aria-expanded="true"]) span,
 .cabecera .hamburguesa span::before,
 .cabecera .hamburguesa span::after { background: var(--blanco); }

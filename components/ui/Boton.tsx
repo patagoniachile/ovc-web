@@ -1,12 +1,11 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 
-type Variante = 'solido' | 'oro' | 'morado' | 'fuego' | 'claro' | 'fantasma' | 'borde'
+type Variante = 'solido' | 'oro' | 'fuego' | 'claro' | 'fantasma' | 'borde'
 
 const CLASE_VARIANTE: Record<Variante, string> = {
   solido: '',
   oro: 'btn--oro',
-  morado: 'btn--morado',
   fuego: 'btn--fuego',
   claro: 'btn--claro',
   fantasma: 'btn--fantasma',
