@@ -17,8 +17,8 @@ const ICONO_CONTACTO: Record<TipoContacto, IconName> = {
  *
  * No son dos formas equivalentes de venir. En auto se improvisa; en bus no:
  * los pasajes se venden solo en el terminal, el último sale a las 15:00 y sin
- * reserva de camping no se entra al valle. Quien compra el pasaje antes de
- * reservar se queda abajo, así que esa advertencia va antes que nada.
+ * reserva de camping no se entra al valle. Por eso lo que hay que tener
+ * resuelto antes de salir va antes que nada, justo bajo el título.
  */
 export function ComoLlegar({ lang }: { lang: Lang }) {
   const { comoLlegar } = getContenido(lang)
@@ -29,6 +29,20 @@ export function ComoLlegar({ lang }: { lang: Lang }) {
       <div className="contenedor">
         <SectionHeader className="revelar" eyebrow={comoLlegar.eyebrow} titulo={comoLlegar.titulo} bajada={comoLlegar.bajada} />
 
+        {/* Lo que hay que tener resuelto antes de salir va primero, a la vista
+            de quien venga en auto o en bus. */}
+        <div className="llegar__advertencia revelar">
+          <p className="llegar__advertencia-titulo">
+            <Icon name="alerta" />
+            {bus.advertencia.titulo}
+          </p>
+          <ul>
+            {bus.advertencia.puntos.map((punto) => (
+              <li key={punto}>{punto}</li>
+            ))}
+          </ul>
+        </div>
+
         <div className="llegar">
           <article className="llegar__via revelar">
             <h3>{auto.titulo}</h3>
@@ -37,18 +51,6 @@ export function ComoLlegar({ lang }: { lang: Lang }) {
 
           <article className="llegar__via llegar__via--larga revelar">
             <h3>{bus.titulo}</h3>
-
-            <div className="llegar__advertencia">
-              <p className="llegar__advertencia-titulo">
-                <Icon name="alerta" />
-                {bus.advertencia.titulo}
-              </p>
-              <ul>
-                {bus.advertencia.puntos.map((punto) => (
-                  <li key={punto}>{punto}</li>
-                ))}
-              </ul>
-            </div>
 
             <p className="llegar__rotulo">{bus.planificacion.titulo}</p>
             <ol className="llegar__pasos">

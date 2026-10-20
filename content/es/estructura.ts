@@ -107,7 +107,7 @@ export const comoLlegar = {
   bus: {
     titulo: 'En bus',
     advertencia: {
-      titulo: 'Antes de comprar tu pasaje',
+      titulo: 'Antes de iniciar tu trayecto',
       puntos: [
         'Ten tu reserva confirmada en un camping. Sin ella no puedes ingresar.',
         'Los pasajes se venden solo de forma presencial, en el terminal de Puerto Montt.',

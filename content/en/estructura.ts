@@ -106,7 +106,7 @@ export const comoLlegar = {
   bus: {
     titulo: 'By bus',
     advertencia: {
-      titulo: 'Before you buy your ticket',
+      titulo: 'Before you set off',
       puntos: [
         'Have your campsite booking confirmed. Without it you cannot enter.',
         'Tickets are sold in person only, at the Puerto Montt terminal.',
