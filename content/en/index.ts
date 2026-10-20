@@ -55,7 +55,6 @@ export const contenido: Contenido = {
     hazteSocio: 'Become a member',
     hazteSocioCorto: 'Member',
     conocerHistoria: 'Read our story',
-    irAReservas: 'Go to bookings',
     enCurso: 'In progress',
     logrado: 'Completed',
     nombre: 'Name',
@@ -77,6 +76,8 @@ export const contenido: Contenido = {
     reservarEn: (nombre) => `Book at ${nombre}`,
     volverAPortada: 'Back to the home page',
     verMas: 'See more',
+    paraQuienEs: 'Who it is for',
+    opcional: 'Optional',
     fotoElValle: 'The valley’s granite walls rising above the forest',
     fotoComoVisitar: 'Visitors registering at the start of the trail',
     lineaDeTiempo: 'How we got here',
@@ -161,7 +162,7 @@ export const contenido: Contenido = {
         { label: 'What it costs', href: '/en/como-visitar#cuanto-cuesta' },
         { label: 'How to book', href: `${PORTADA}/reservar` },
         { label: 'What to know', href: '/en/como-visitar#normas' },
-        { label: 'Where to stay', href: `${PORTADA}/reservar#dormir` },
+        { label: 'Where to stay', href: `${PORTADA}/reservar#sectores` },
       ],
     },
     {
@@ -363,7 +364,7 @@ export const contenido: Contenido = {
       lat: -41.455073,
       lon: -72.219495,
       descripcion: 'Visitor Centre and mandatory registration. The trail starts here and this is where you show your booking.',
-      enlace: { label: 'Where to stay', href: `${PORTADA}/reservar#dormir` },
+      enlace: { label: 'Where to stay', href: `${PORTADA}/sectores/inicio-sendero#dormir` },
     },
     {
       id: 'la-junta',
@@ -372,7 +373,7 @@ export const contenido: Contenido = {
       lat: -41.411358,
       lon: -72.126878,
       descripcion: 'The valley’s tourism hub, 13 km from the trailhead. Campsites and lodging.',
-      enlace: { label: 'Where to stay', href: `${PORTADA}/reservar#dormir` },
+      enlace: { label: 'Where to stay', href: `${PORTADA}/sectores/la-junta#dormir` },
     },
     {
       id: 'lago-vidal',
@@ -381,7 +382,7 @@ export const contenido: Contenido = {
       lat: -41.483506,
       lon: -71.940878,
       descripcion: 'An alternative to the main valley, with a rural gaucho identity of its own.',
-      enlace: { label: 'Where to stay', href: `${PORTADA}/reservar#dormir` },
+      enlace: { label: 'Where to stay', href: `${PORTADA}/sectores/lago-vidal#dormir` },
     },
     {
       id: 'cochamo',

@@ -80,7 +80,7 @@ export default async function PaginaSector({ params }: PageProps<'/[lang]/sector
           <p className="sector-hero__intro">{sector.intro}</p>
 
           <div className="sector-hero__acciones">
-            <Boton href={`/${lang}/reservar#dormir`} variante="claro">
+            <Boton href="#dormir" variante="claro">
               {textos.reservarEstadia}
               <Icon name="flecha" />
             </Boton>

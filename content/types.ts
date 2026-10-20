@@ -167,6 +167,13 @@ export interface Especie {
   nombreCientifico?: string
   grupo: 'flora' | 'fauna' | 'geologia'
   texto: string
+  /**
+   * Foto de la especie, si la hay. Sin foto la tarjeta sigue funcionando:
+   * es preferible a ilustrar un pudú con una imagen de banco que no sea de
+   * este valle.
+   */
+  imagen?: keyof typeof import('./imagenes').imagenes
+  alt?: string
 }
 
 /** Actividad posible en el valle. */
@@ -178,12 +185,22 @@ export interface Actividad {
 }
 
 /** Columna de la comparación "día vs. semana". */
+/** Una de las dos formas de visitar, como columna de la comparativa. */
 export interface Modalidad {
   titulo: string
   resumen: string
-  filas: { etiqueta: string; valor: string }[]
   paraQuien: string
   destacada?: boolean
+}
+
+/**
+ * Una fila de la comparativa, con un valor por modalidad y en el mismo orden.
+ * Las filas son comunes a propósito: antes cada columna traía las suyas y no
+ * había nada que comparar, solo dos listas puestas una al lado de la otra.
+ */
+export interface FilaComparativa {
+  etiqueta: string
+  valores: string[]
 }
 
 /** Forma de llegar al valle. */
@@ -199,6 +216,8 @@ export interface Costo {
   concepto: string
   valor: string
   detalle: string
+  /** Servicios que se contratan si se quieren, no para entrar al valle. */
+  opcional?: boolean
 }
 
 /** Una vía para aportar dinero. */
@@ -274,7 +293,6 @@ export interface Textos {
   hazteSocio: string
   hazteSocioCorto: string
   conocerHistoria: string
-  irAReservas: string
   enCurso: string
   logrado: string
   nombre: string
@@ -296,6 +314,8 @@ export interface Textos {
   reservarEn: (nombre: string) => string
   volverAPortada: string
   verMas: string
+  paraQuienEs: string
+  opcional: string
   fotoElValle: string
   fotoComoVisitar: string
   lineaDeTiempo: string
@@ -461,7 +481,7 @@ export interface Contenido {
   reservarPagina: Encabezado & { intro: string; tituloSectores: string; tituloDormir: string }
   comoLlegar: Encabezado & { medios: MedioDeTransporte[] }
   cuantoCuesta: Encabezado & { costos: Costo[]; nota: string }
-  diaVsSemana: Encabezado & { modalidades: Modalidad[] }
+  diaVsSemana: Encabezado & { modalidades: Modalidad[]; filas: FilaComparativa[] }
   horariosYContacto: Encabezado & {
     horarios: { franja: string; detalle: string }[]
     contactos: Contacto[]

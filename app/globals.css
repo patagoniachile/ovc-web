@@ -1492,6 +1492,13 @@ p { text-wrap: pretty; }
   margin-bottom: 14px;
 }
 .especie__grupo--flora { background: var(--bosque-100); color: var(--bosque-700); }
+.especie--foto { padding: 0; overflow: hidden; }
+.especie--foto .especie__foto { display: block; aspect-ratio: 16 / 9; overflow: hidden; }
+.especie--foto .especie__foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.especie--foto > :not(.especie__foto) { margin-inline: 22px; }
+.especie--foto > .especie__grupo { margin-top: 20px; }
+.especie--foto > .especie__texto { margin-bottom: 22px; }
+
 .especie__grupo--fauna { background: var(--oro-100); color: var(--oro-600); }
 .especie__grupo--geologia { background: var(--granito-100); color: var(--granito-700); }
 .especie h3 { font-size: 1.15rem; }
@@ -1888,6 +1895,80 @@ p { text-wrap: pretty; }
 @keyframes girar { to { transform: rotate(360deg); } }
 /* Una vez cargado el marco, la capa desaparece del flujo */
 .payku[data-estado='listo'] .payku__espera { display: none; }
+
+/* --------------------------------------------------------------------------
+   Comparativa de modalidades
+
+   Una tabla de verdad: la fila manda y cada modalidad responde a lo mismo.
+   En pantallas estrechas se desplaza en horizontal, que es más honesto que
+   apilarla y perder justamente la comparación.
+   -------------------------------------------------------------------------- */
+.comparativa { margin-top: 34px; overflow-x: auto; }
+.comparativa table { width: 100%; min-width: 620px; border-collapse: collapse; }
+.comparativa th, .comparativa td {
+  padding: 15px 18px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--borde);
+  font-size: .92rem;
+  line-height: 1.55;
+}
+.comparativa tbody th {
+  width: 22%;
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--granito-500);
+}
+.comparativa thead th { border-bottom: 2px solid var(--bosque-300); }
+.comparativa__titulo {
+  display: block;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--bosque-900);
+}
+.comparativa__resumen {
+  display: block;
+  margin-top: 6px;
+  font-size: .85rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--texto-suave);
+}
+.comparativa .es-destacada { background: var(--arena-200); }
+.comparativa thead .es-destacada { border-bottom-color: var(--oro-500); }
+.comparativa tfoot td, .comparativa tfoot th {
+  border-bottom: 0;
+  font-size: .86rem;
+  color: var(--texto-suave);
+}
+
+.costo__opcional {
+  display: inline-block;
+  margin-left: 9px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--oro-100);
+  color: var(--oro-600);
+  font-family: var(--sans);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.visualmente-oculto {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 /* --------------------------------------------------------------------------
    Cierre de la portada

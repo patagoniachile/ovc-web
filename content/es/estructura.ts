@@ -1,6 +1,6 @@
 import { externos } from '../externos'
 import type {
-  Actividad, Contacto, Costo, Encabezado, Especie, MedioDeTransporte, Modalidad, Rasgo,
+  Actividad, Contacto, Costo, Encabezado, Especie, MedioDeTransporte, FilaComparativa, Modalidad, Rasgo,
 } from '../types'
 
 /** Portada del idioma: las anclas van absolutas, nunca sueltas. */
@@ -60,6 +60,8 @@ export const especies: Especie[] = [
     nombreCientifico: 'Fitzroya cupressoides',
     grupo: 'flora',
     texto: 'Conífera nativa de crecimiento lentísimo. En el valle hay ejemplares de cerca de mil años y unas 8.000 hectáreas de alerzal.',
+    imagen: 'alerce',
+    alt: 'Alerces milenarios del santuario, entre el bosque siempreverde',
   },
   {
     nombre: 'Coihue y mañío',
@@ -215,11 +217,13 @@ export const cuantoCuesta = {
       concepto: 'Pilchero (carga)',
       valor: '$45.000 por día y caballo',
       detalle: 'Ida y vuelta son $90.000. Máximo 60 kg repartidos en dos sacos iguales. Pago en efectivo al inicio del sendero.',
+      opcional: true,
     },
     {
       concepto: 'Cabalgata',
       valor: 'Consultar con la agrupación',
       detalle: 'Máximo 10 kg de equipaje extra por persona. Avisa si pesas más de 85 kg para que elijan un caballo adecuado.',
+      opcional: true,
     },
     {
       concepto: 'Donación a la corporación',
@@ -239,29 +243,41 @@ export const diaVsSemana = {
     {
       titulo: 'Ir por el día',
       resumen: 'Subir a La Junta y volver el mismo día. Largo y difícil: no es un paseo.',
-      filas: [
-        { etiqueta: 'Horario de ingreso', valor: '7:00 a 9:00 h, sin excepción' },
-        { etiqueta: 'Distancia', valor: '26 km ida y vuelta' },
-        { etiqueta: 'Duración', valor: '10 a 12 horas según tu ritmo' },
-        { etiqueta: 'Aforo', valor: 'Máximo 90 personas por día' },
-        { etiqueta: 'Dormir', valor: 'No incluye: bajas el mismo día' },
-      ],
       paraQuien: 'Para quien tiene buen estado físico, parte temprano y acepta caminar casi todo el día.',
     },
     {
       titulo: 'Quedarse en La Junta',
       resumen: 'Reservar camping y usar el valle como base durante varios días.',
-      filas: [
-        { etiqueta: 'Horario de ingreso', valor: '7:00 a 15:00 h (8:00 a 14:00 en marzo y abril)' },
-        { etiqueta: 'Distancia', valor: '13 km de subida, sin apuro' },
-        { etiqueta: 'Acceso a', valor: 'Senderos de altura, escalada, pozones, Toboganes' },
-        { etiqueta: 'Reserva', valor: 'Obligatoria, en uno de los campings' },
-        { etiqueta: 'Pilcheros', valor: 'Puedes subir el equipaje a caballo' },
-      ],
       paraQuien: 'Para quien quiere conocer el valle de verdad: los valles de altura y la escalada necesitan días, no horas.',
       destacada: true,
     },
   ] satisfies Modalidad[],
+  filas: [
+    {
+      etiqueta: 'Horario de ingreso',
+      valores: ['7:00 a 9:00 h, sin excepción', '7:00 a 15:00 h (8:00 a 14:00 en marzo y abril)'],
+    },
+    {
+      etiqueta: 'Distancia',
+      valores: ['26 km ida y vuelta', '13 km de subida, sin apuro'],
+    },
+    {
+      etiqueta: 'Duración',
+      valores: ['10 a 12 horas según tu ritmo', 'Los días que hayas reservado'],
+    },
+    {
+      etiqueta: 'Aforo',
+      valores: ['Máximo 90 personas por día', 'Según los cupos de cada camping'],
+    },
+    {
+      etiqueta: 'Dónde se duerme',
+      valores: ['No se duerme: bajas el mismo día', 'En un camping de La Junta, con reserva'],
+    },
+    {
+      etiqueta: 'Hasta dónde llegas',
+      valores: ['La Junta y los Toboganes', 'Senderos de altura, escalada, pozones y Toboganes'],
+    },
+  ] satisfies FilaComparativa[],
 }
 
 export const horariosYContacto = {

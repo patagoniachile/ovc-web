@@ -46,7 +46,6 @@ export const contenido: Contenido = {
     hazteSocio: 'Hazte socio',
     hazteSocioCorto: 'Socio',
     conocerHistoria: 'Conoce nuestra historia',
-    irAReservas: 'Ir a reservas',
     enCurso: 'En curso',
     logrado: 'Logrado',
     nombre: 'Nombre',
@@ -68,6 +67,8 @@ export const contenido: Contenido = {
     reservarEn: (nombre) => `Reservar en ${nombre}`,
     volverAPortada: 'Volver a la portada',
     verMas: 'Ver más',
+    paraQuienEs: 'Para quién es',
+    opcional: 'Opcional',
     fotoElValle: 'Paredes de granito del valle entre el bosque',
     fotoComoVisitar: 'Visitantes registrándose en el inicio del sendero',
     lineaDeTiempo: 'Cómo llegamos hasta aquí',
@@ -152,7 +153,7 @@ export const contenido: Contenido = {
         { label: 'Cuánto cuesta', href: '/es/como-visitar#cuanto-cuesta' },
         { label: 'Cómo reservar', href: `${PORTADA}/reservar` },
         { label: 'Qué debo saber', href: '/es/como-visitar#normas' },
-        { label: 'Dónde dormir', href: `${PORTADA}/reservar#dormir` },
+        { label: 'Dónde dormir', href: `${PORTADA}/reservar#sectores` },
       ],
     },
     {
@@ -355,7 +356,7 @@ export const contenido: Contenido = {
       lat: -41.455073,
       lon: -72.219495,
       descripcion: 'Centro de Visitantes y registro obligatorio. Aquí empieza el sendero y se presenta la reserva.',
-      enlace: { label: 'Dónde dormir', href: `${PORTADA}/reservar#dormir` },
+      enlace: { label: 'Dónde dormir', href: `${PORTADA}/sectores/inicio-sendero#dormir` },
     },
     {
       id: 'la-junta',
@@ -364,7 +365,7 @@ export const contenido: Contenido = {
       lat: -41.411358,
       lon: -72.126878,
       descripcion: 'El centro turístico del valle, a 13 km del inicio del sendero. Campings y hospedaje.',
-      enlace: { label: 'Dónde dormir', href: `${PORTADA}/reservar#dormir` },
+      enlace: { label: 'Dónde dormir', href: `${PORTADA}/sectores/la-junta#dormir` },
     },
     {
       id: 'lago-vidal',
@@ -373,7 +374,7 @@ export const contenido: Contenido = {
       lat: -41.483506,
       lon: -71.940878,
       descripcion: 'Alternativa al valle principal, con identidad gaucha campesina propia.',
-      enlace: { label: 'Dónde dormir', href: `${PORTADA}/reservar#dormir` },
+      enlace: { label: 'Dónde dormir', href: `${PORTADA}/sectores/lago-vidal#dormir` },
     },
     {
       id: 'cochamo',

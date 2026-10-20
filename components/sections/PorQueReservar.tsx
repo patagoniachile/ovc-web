@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Boton } from '@/components/ui/Boton'
-import { externos, getContenido, imagenes, type Lang } from '@/content'
+import { getContenido, imagenes, type Lang } from '@/content'
 
 export function PorQueReservar({ lang }: { lang: Lang }) {
   const { pasosReserva, porQueReservar, textos } = getContenido(lang)
@@ -44,11 +44,10 @@ export function PorQueReservar({ lang }: { lang: Lang }) {
               </ul>
             </div>
 
+            {/* Sin botón de «ir a reservas»: esta es la página de reservar,
+                y el paso siguiente son los sectores que vienen debajo. */}
             <div className="reservar__acciones">
-              <Boton href={externos.reservas} variante="claro">
-                {textos.irAReservas}
-              </Boton>
-              <Boton href={`/${lang}/como-ayudar#donaciones`} variante="fantasma">
+              <Boton href={`/${lang}/como-ayudar#donaciones`} variante="claro">
                 {textos.donar}
               </Boton>
             </div>

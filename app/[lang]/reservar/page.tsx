@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { PaginaHero } from '@/components/layout/PaginaHero'
-import { Alojamientos } from '@/components/sections/Alojamientos'
 import { PorQueReservar } from '@/components/sections/PorQueReservar'
 import { Sectores } from '@/components/sections/Sectores'
 import { esIdioma, getContenido, IDIOMAS } from '@/content'
@@ -40,7 +39,7 @@ export default async function PaginaReservar({ params }: PageProps<'/[lang]/rese
   const { lang } = await params
   if (!esIdioma(lang)) notFound()
 
-  const { reservarPagina, sectoresDetalle } = getContenido(lang)
+  const { reservarPagina } = getContenido(lang)
 
   return (
     <>
@@ -53,13 +52,9 @@ export default async function PaginaReservar({ params }: PageProps<'/[lang]/rese
 
       <PorQueReservar lang={lang} />
 
-      {/* Elegir sector y alojamiento: el paso siguiente, en la misma página */}
-      <div id="dormir">
-        <Sectores lang={lang} />
-        {sectoresDetalle.map((sector) => (
-          <Alojamientos key={sector.slug} lang={lang} sector={sector} id={`dormir-${sector.slug}`} destacarSector />
-        ))}
-      </div>
+      {/* El detalle de cada alojamiento vive en la página de su sector: aquí
+          se elige dónde, allí con quién. */}
+      <Sectores lang={lang} />
     </>
   )
 }

@@ -1,6 +1,6 @@
 import { externos } from '../externos'
 import type {
-  Actividad, Contacto, Costo, Encabezado, Especie, MedioDeTransporte, Modalidad, Rasgo,
+  Actividad, Contacto, Costo, Encabezado, Especie, MedioDeTransporte, FilaComparativa, Modalidad, Rasgo,
 } from '../types'
 
 /** Portada del idioma: las anclas van absolutas, nunca sueltas. */
@@ -59,6 +59,8 @@ export const especies: Especie[] = [
     nombreCientifico: 'Fitzroya cupressoides',
     grupo: 'flora',
     texto: 'A native conifer that grows extremely slowly. The valley has trees close to a thousand years old and some 8,000 hectares of alerce stands.',
+    imagen: 'alerce',
+    alt: 'Thousand-year-old alerces in the sanctuary, among the evergreen forest',
   },
   {
     nombre: 'Coihue and mañío',
@@ -214,11 +216,13 @@ export const cuantoCuesta = {
       concepto: 'Pack horse',
       valor: 'CLP 45,000 per day per horse',
       detalle: 'There and back is CLP 90,000. Maximum 60 kg split into two equal sacks. Paid in cash at the trailhead.',
+      opcional: true,
     },
     {
       concepto: 'Horseback ride',
       valor: 'Ask the association',
       detalle: 'Maximum 10 kg of extra luggage per person. Let them know if you weigh more than 85 kg so they pick a suitable horse.',
+      opcional: true,
     },
     {
       concepto: 'Donation to the organisation',
@@ -231,36 +235,48 @@ export const cuantoCuesta = {
 }
 
 export const diaVsSemana = {
-  eyebrow: 'Day trip vs. several days',
-  titulo: 'Up and back, or staying?',
-  bajada: 'The difference is not comfort: they are two different trips, with different times, demands and permissions.',
+  eyebrow: 'A day vs. several days',
+  titulo: 'Up and back, or do you stay?',
+  bajada: 'The difference is not about comfort: they are two different trips, with different times, effort and permits.',
   modalidades: [
     {
       titulo: 'Going for the day',
-      resumen: 'Up to La Junta and back the same day. Long and hard: it is not a stroll.',
-      filas: [
-        { etiqueta: 'Entry window', valor: '7:00 to 9:00 am, no exceptions' },
-        { etiqueta: 'Distance', valor: '26 km there and back' },
-        { etiqueta: 'Duration', valor: '10 to 12 hours depending on your pace' },
-        { etiqueta: 'Capacity', valor: 'Maximum 90 people per day' },
-        { etiqueta: 'Sleeping', valor: 'Not included: you come down the same day' },
-      ],
-      paraQuien: 'For anyone in good shape who sets off early and accepts walking most of the day.',
+      resumen: 'Walk up to La Junta and come back the same day. Long and hard: it is not a stroll.',
+      paraQuien: 'For anyone who is fit, sets off early and accepts walking for most of the day.',
     },
     {
-      titulo: 'Staying in La Junta',
+      titulo: 'Staying at La Junta',
       resumen: 'Book a campsite and use the valley as a base for several days.',
-      filas: [
-        { etiqueta: 'Entry window', valor: '7:00 am to 3:00 pm (8:00 am to 2:00 pm in March and April)' },
-        { etiqueta: 'Distance', valor: '13 km up, without rushing' },
-        { etiqueta: 'Gives access to', valor: 'High-country trails, climbing, pools, the waterslides' },
-        { etiqueta: 'Booking', valor: 'Mandatory, at one of the campsites' },
-        { etiqueta: 'Pack horses', valor: 'You can send your gear up by horse' },
-      ],
       paraQuien: 'For anyone who wants to really know the valley: the high valleys and the climbing need days, not hours.',
       destacada: true,
     },
   ] satisfies Modalidad[],
+  filas: [
+    {
+      etiqueta: 'Entry window',
+      valores: ['7:00 to 9:00, no exceptions', '7:00 to 15:00 (8:00 to 14:00 in March and April)'],
+    },
+    {
+      etiqueta: 'Distance',
+      valores: ['26 km there and back', '13 km uphill, at your own pace'],
+    },
+    {
+      etiqueta: 'How long',
+      valores: ['10 to 12 hours depending on your pace', 'As many days as you booked'],
+    },
+    {
+      etiqueta: 'Daily limit',
+      valores: ['Maximum 90 people per day', 'Limited by each campsite’s places'],
+    },
+    {
+      etiqueta: 'Where you sleep',
+      valores: ['You do not: you walk back down the same day', 'At a campsite in La Junta, with a booking'],
+    },
+    {
+      etiqueta: 'How far you get',
+      valores: ['La Junta and the Toboganes', 'High trails, climbing, pools and the Toboganes'],
+    },
+  ] satisfies FilaComparativa[],
 }
 
 export const horariosYContacto = {

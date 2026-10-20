@@ -48,7 +48,7 @@ export function ComoLlegar({ lang }: { lang: Lang }) {
 }
 
 export function CuantoCuesta({ lang }: { lang: Lang }) {
-  const { cuantoCuesta } = getContenido(lang)
+  const { cuantoCuesta, textos } = getContenido(lang)
 
   return (
     <section className="seccion seccion--alt" id="cuanto-cuesta">
@@ -59,7 +59,12 @@ export function CuantoCuesta({ lang }: { lang: Lang }) {
           {cuantoCuesta.costos.map((costo) => (
             <li className="costo revelar" key={costo.concepto}>
               <div className="costo__cabecera">
-                <h3>{costo.concepto}</h3>
+                <h3>
+                  {costo.concepto}
+                  {/* Van en la misma lista que la entrada y el alojamiento, así
+                      que sin esto se leen como algo que hay que pagar sí o sí. */}
+                  {costo.opcional && <span className="costo__opcional">{textos.opcional}</span>}
+                </h3>
                 <span className="costo__valor">{costo.valor}</span>
               </div>
               <p>{costo.detalle}</p>
@@ -76,35 +81,62 @@ export function CuantoCuesta({ lang }: { lang: Lang }) {
   )
 }
 
+/**
+ * Ir por el día o quedarse, lado a lado.
+ *
+ * Es una tabla y no dos tarjetas porque es una comparación: antes cada
+ * columna traía sus propias filas —una hablaba de aforo y la otra de
+ * pilcheros— y no había forma de contrastar nada. Ahora las filas son las
+ * mismas y cada modalidad responde a lo mismo.
+ */
 export function DiaVsSemana({ lang }: { lang: Lang }) {
-  const { diaVsSemana } = getContenido(lang)
+  const { diaVsSemana, textos } = getContenido(lang)
+  const { modalidades, filas } = diaVsSemana
 
   return (
     <section className="seccion" id="dia-vs-semana">
       <div className="contenedor">
         <SectionHeader className="revelar" eyebrow={diaVsSemana.eyebrow} titulo={diaVsSemana.titulo} bajada={diaVsSemana.bajada} />
 
-        <div className="modalidades">
-          {diaVsSemana.modalidades.map((modalidad) => (
-            <article
-              className={modalidad.destacada ? 'modalidad modalidad--destacada revelar' : 'modalidad revelar'}
-              key={modalidad.titulo}
-            >
-              <h3>{modalidad.titulo}</h3>
-              <p className="modalidad__resumen">{modalidad.resumen}</p>
-
-              <dl className="modalidad__filas">
-                {modalidad.filas.map((fila) => (
-                  <div key={fila.etiqueta}>
-                    <dt>{fila.etiqueta}</dt>
-                    <dd>{fila.valor}</dd>
-                  </div>
+        <div className="comparativa revelar">
+          <table>
+            <caption className="visualmente-oculto">{diaVsSemana.titulo}</caption>
+            <thead>
+              <tr>
+                <td />
+                {modalidades.map((m) => (
+                  <th scope="col" key={m.titulo} className={m.destacada ? 'es-destacada' : undefined}>
+                    <span className="comparativa__titulo">{m.titulo}</span>
+                    <span className="comparativa__resumen">{m.resumen}</span>
+                  </th>
                 ))}
-              </dl>
+              </tr>
+            </thead>
 
-              <p className="modalidad__para-quien">{modalidad.paraQuien}</p>
-            </article>
-          ))}
+            <tbody>
+              {filas.map((fila) => (
+                <tr key={fila.etiqueta}>
+                  <th scope="row">{fila.etiqueta}</th>
+                  {fila.valores.map((valor, i) => (
+                    <td key={modalidades[i].titulo} className={modalidades[i].destacada ? 'es-destacada' : undefined}>
+                      {valor}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <th scope="row">{textos.paraQuienEs}</th>
+                {modalidades.map((m) => (
+                  <td key={m.titulo} className={m.destacada ? 'es-destacada' : undefined}>
+                    {m.paraQuien}
+                  </td>
+                ))}
+              </tr>
+            </tfoot>
+          </table>
         </div>
       </div>
     </section>

@@ -1,7 +1,8 @@
+import Image from 'next/image'
 import { Boton } from '@/components/ui/Boton'
 import { Icon } from '@/components/ui/Icon'
 import { SectionHeader } from '@/components/ui/SectionHeader'
-import { getContenido, type Lang } from '@/content'
+import { getContenido, imagenes, type Lang } from '@/content'
 
 /** Por qué el valle es especial, en tarjetas. */
 export function ElValle({ lang }: { lang: Lang }) {
@@ -45,14 +46,28 @@ export function FloraFauna({ lang }: { lang: Lang }) {
         <SectionHeader className="revelar" {...floraFauna} />
 
         <ul className="especies">
-          {especies.map((especie) => (
-            <li className="especie revelar" key={especie.nombre}>
-              <span className={`especie__grupo especie__grupo--${especie.grupo}`}>{etiqueta[especie.grupo]}</span>
-              <h3>{especie.nombre}</h3>
-              {especie.nombreCientifico && <p className="especie__cientifico">{especie.nombreCientifico}</p>}
-              <p className="especie__texto">{especie.texto}</p>
-            </li>
-          ))}
+          {especies.map((especie) => {
+            const foto = especie.imagen ? imagenes[especie.imagen] : undefined
+            return (
+              <li className={foto ? 'especie especie--foto revelar' : 'especie revelar'} key={especie.nombre}>
+                {foto && (
+                  <span className="especie__foto">
+                    <Image
+                      src={foto.src}
+                      alt={especie.alt ?? ''}
+                      width={foto.width}
+                      height={foto.height}
+                      sizes="(max-width: 700px) 86vw, 30vw"
+                    />
+                  </span>
+                )}
+                <span className={`especie__grupo especie__grupo--${especie.grupo}`}>{etiqueta[especie.grupo]}</span>
+                <h3>{especie.nombre}</h3>
+                {especie.nombreCientifico && <p className="especie__cientifico">{especie.nombreCientifico}</p>}
+                <p className="especie__texto">{especie.texto}</p>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>
