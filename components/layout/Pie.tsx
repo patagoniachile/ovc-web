@@ -53,7 +53,7 @@ export function Pie({ lang }: { lang: Lang }) {
               @org.vallecochamo
             </a>
           </p>
-          {/* También aquí, porque la portada no tiene barra superior */}
+          {/* El único selector de idioma del sitio */}
           <p className="idioma">
             {IDIOMAS.map((codigo) =>
               codigo === lang ? (

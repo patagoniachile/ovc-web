@@ -28,7 +28,6 @@ const organizacion = {
   ubicacion: 'Cochamó, Los Lagos Region, Chile',
   descripcion:
     'A non-profit community organisation working for responsible tourism, land-use planning and the conservation of the Cochamó Valley, Los Lagos Region, Chile.',
-  avisoTemporada: 'Season open — book before heading up to the La Junta sector',
 }
 
 export const contenido: Contenido = {

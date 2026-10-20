@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Fraunces, Josefin_Sans } from 'next/font/google'
 import { notFound } from 'next/navigation'
-import { BarraSuperior } from '@/components/layout/BarraSuperior'
 import { Cabecera } from '@/components/layout/Cabecera'
 import { Pie } from '@/components/layout/Pie'
 import { IconSprite } from '@/components/ui/Icon'
@@ -98,7 +97,6 @@ export default async function LayoutIdioma({ children, params }: LayoutProps<'/[
           {textos.saltarAlContenido}
         </a>
 
-        <BarraSuperior lang={lang} />
         <Cabecera lang={lang} />
 
         <main id="contenido">{children}</main>

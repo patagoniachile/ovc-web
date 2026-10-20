@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Marca } from './Marca'
 import { Boton, esExterno } from '@/components/ui/Boton'
@@ -13,11 +12,9 @@ export function Cabecera({ lang }: { lang: Lang }) {
   const [fija, setFija] = useState(false)
   const [menuAbierto, setMenuAbierto] = useState(false)
 
-  // En la portada la cabecera va transparente sobre el hero, con el menú al
-  // centro; al bajar (o con el menú móvil abierto) se vuelve
-  // verde para que el texto blanco siga leyéndose.
-  const enPortada = usePathname().replace(/\/$/, '') === `/${lang}`
-  const clases = ['cabecera', enPortada && 'cabecera--portada', (fija || menuAbierto) && 'esta-fija'].filter(Boolean).join(' ')
+  // Sobre la foto del hero la cabecera va transparente; al bajar (o con el
+  // menú móvil abierto) se vuelve verde para que el texto blanco se lea.
+  const clases = ['cabecera', (fija || menuAbierto) && 'esta-fija'].filter(Boolean).join(' ')
 
   // Acordeón del menú móvil: uno abierto a la vez.
   const [grupoMovil, setGrupoMovil] = useState<string | null>(null)

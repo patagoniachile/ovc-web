@@ -19,7 +19,6 @@ const organizacion = {
   ubicacion: 'Cochamó, Región de Los Lagos, Chile',
   descripcion:
     'Organización comunitaria sin fines de lucro por el turismo responsable, el ordenamiento territorial y la conservación del Valle Cochamó, Región de Los Lagos, Chile.',
-  avisoTemporada: 'Temporada abierta — reserva antes de subir al sector La Junta',
 }
 
 export const contenido: Contenido = {

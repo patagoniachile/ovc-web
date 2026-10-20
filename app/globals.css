@@ -256,41 +256,10 @@ p { text-wrap: pretty; }
 .seccion--oscura .enlace-flecha { color: var(--oro-300); }
 .seccion--oscura .enlace-flecha:hover { color: var(--blanco); }
 
-/* --------------------------------------------------------------------------
-   Barra superior
-   -------------------------------------------------------------------------- */
-.barra-superior {
-  background: var(--bosque-900);
-  color: rgba(255, 255, 255, .82);
-  font-size: .8rem;
-}
-.barra-superior .contenedor {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  min-height: 38px;
-}
-.barra-superior__mensaje { display: inline-flex; align-items: center; gap: 8px; }
-.barra-superior__punto {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--oro-300);
-  box-shadow: 0 0 0 0 rgba(116, 205, 201, .7);
-  animation: latido 2.6s infinite;
-  flex: none;
-}
-@keyframes latido {
-  0% { box-shadow: 0 0 0 0 rgba(116, 205, 201, .6); }
-  70% { box-shadow: 0 0 0 8px rgba(116, 205, 201, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(116, 205, 201, 0); }
-}
-.barra-superior__acciones { display: flex; align-items: center; gap: 18px; }
-.barra-superior a:hover { color: var(--blanco); }
+/* Selector de idioma, en el pie */
 .idioma { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
 .idioma a { padding: 2px 6px; border-radius: 4px; }
 .idioma [aria-current="true"] { padding: 2px 6px; border-radius: 4px; background: rgba(255, 255, 255, .16); color: var(--blanco); }
-.redes-min { display: flex; gap: 12px; }
-.redes-min svg { width: 17px; height: 17px; }
 
 /* --------------------------------------------------------------------------
    Cabecera / navegación
@@ -996,8 +965,6 @@ p { text-wrap: pretty; }
 @media (max-width: 640px) {
   :root { --gutter: 16px; --header-h: 68px; }
   body { font-size: 16px; }
-  .barra-superior__mensaje { display: none; }
-  .barra-superior .contenedor { justify-content: flex-end; }
   .sectores, .planifica, .proyectos { grid-template-columns: 1fr; }
   .pie__grid { grid-template-columns: 1fr; }
   .marca__logo { width: 42px; }
@@ -1018,7 +985,7 @@ p { text-wrap: pretty; }
 }
 
 @media print {
-  .cabecera, .barra-superior, .arriba, .menu-movil, .hero__media { display: none; }
+  .cabecera, .arriba, .menu-movil, .hero__media { display: none; }
   body { background: #fff; }
 }
 
@@ -1203,7 +1170,7 @@ p { text-wrap: pretty; }
   display: flex;
   align-items: flex-end;
   min-height: min(68svh, 620px);
-  padding-block: 120px 64px;
+  padding-block: calc(var(--header-h) + 64px) 64px;
   color: var(--blanco);
   overflow: hidden;
   background: var(--bosque-900);
@@ -1394,7 +1361,7 @@ p { text-wrap: pretty; }
 
 @media (max-width: 860px) {
   .arrieros, .otros-sectores { grid-template-columns: 1fr; }
-  .sector-hero { min-height: auto; padding-block: 100px 48px; }
+  .sector-hero { min-height: auto; padding-block: calc(var(--header-h) + 32px) 48px; }
 }
 
 /* --------------------------------------------------------------------------
@@ -1537,7 +1504,8 @@ p { text-wrap: pretty; }
 .pagina-hero {
   background: var(--bosque-900);
   color: var(--arena-200);
-  padding-block: clamp(64px, 9vw, 104px);
+  /* Arriba se suma el alto de la cabecera, que va fija encima */
+  padding-block: calc(var(--header-h) + clamp(32px, 5vw, 56px)) clamp(64px, 9vw, 104px);
 }
 
 /* Con foto el encabezado crece y el texto se apoya abajo, donde el velo es
@@ -1547,7 +1515,7 @@ p { text-wrap: pretty; }
   display: flex;
   align-items: flex-end;
   min-height: min(58svh, 520px);
-  padding-block: 120px 56px;
+  padding-block: calc(var(--header-h) + 64px) 56px;
   overflow: hidden;
 }
 .pagina-hero__media { position: absolute; inset: 0; }
@@ -1976,7 +1944,7 @@ p { text-wrap: pretty; }
    y lo que importa arriba. En la de error eso es «no se te cobró nada», que
    es lo que la persona está temiendo cuando aterriza.
    -------------------------------------------------------------------------- */
-.resultado { padding: clamp(70px, 11vw, 130px) 0; }
+.resultado { padding: calc(var(--header-h) + clamp(48px, 8vw, 96px)) 0 clamp(70px, 11vw, 130px); }
 .resultado .contenedor { max-width: 640px; text-align: center; }
 .resultado h1 { margin-top: 8px; font-size: clamp(1.9rem, 4.4vw, 2.8rem); }
 .resultado__bajada {
@@ -2644,12 +2612,12 @@ p { text-wrap: pretty; }
    Portada
 
    Sigue la maqueta Home.pdf: contenedor más ancho, eyebrows sin versalitas,
-   botones con borde de 2px y una cabecera transparente sobre el hero. Todo
-   va acotado a .portada / .cabecera--portada para no mover el resto del
-   sitio.
+   y botones con borde de 2px. Todo va acotado a .portada para no mover el
+   resto del sitio; la cabecera, que nació aquí, ahora es la de todas las
+   páginas.
    -------------------------------------------------------------------------- */
 .portada,
-.cabecera--portada {
+.cabecera {
   --ancho: 1322px;
   --gutter: clamp(20px, 3.8vw, 50px);
 }
@@ -2689,40 +2657,44 @@ p { text-wrap: pretty; }
 .portada .cierre :focus-visible,
 .portada .obras :focus-visible { outline-color: var(--oro-300); }
 
-/* Cabecera: transparente sobre el hero, menú centrado y una sola acción */
-.cabecera--portada {
+/* Cabecera de todo el sitio: menú al centro, texto blanco y fija arriba.
+   Verde por defecto; transparente mientras está sobre la foto de un hero, y
+   vuelve al verde al bajar. Las páginas sin hero (las de vuelta del pago)
+   la ven verde desde el principio. */
+.cabecera {
   position: fixed;
   inset: 0 0 auto;
-  background: transparent;
+  background: var(--bosque-900);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
-.cabecera--portada.esta-fija {
+body:has(:is(.hero, .pagina-hero, .sector-hero)) .cabecera:not(.esta-fija) { background: transparent; }
+.cabecera.esta-fija {
   background: var(--bosque-900);
   border-bottom-color: transparent;
   box-shadow: 0 6px 24px rgba(12, 22, 18, .22);
 }
-.cabecera--portada .contenedor { display: grid; grid-template-columns: 1fr auto 1fr; }
-.cabecera--portada .nav { margin-left: 0; }
-.cabecera--portada .nav__lista { gap: 0; }
-.cabecera--portada .cabecera__cta { justify-self: end; }
-.cabecera--portada .marca__logo { filter: brightness(0) invert(1); }
-.cabecera--portada .marca__corporacion { color: rgba(255, 255, 255, .8); }
-.cabecera--portada .marca__nombre { color: var(--blanco); }
-.cabecera--portada .nav__enlace { padding: 10px 12px; font-size: 1rem; font-weight: 500; color: var(--blanco); }
-.cabecera--portada .nav__enlace:hover,
-.cabecera--portada .nav__item.esta-abierto > .nav__enlace { background: rgba(255, 255, 255, .14); color: var(--blanco); }
-.cabecera--portada .nav__chevron { width: 12px; height: 12px; opacity: 1; }
-.cabecera--portada .cabecera__cta .btn { padding: 7px 18px; font-size: .95rem; font-weight: 500; box-shadow: none; }
-.cabecera--portada .btn--recto { border-radius: 999px; }
+.cabecera .contenedor { display: grid; grid-template-columns: 1fr auto 1fr; }
+.cabecera .nav { margin-left: 0; }
+.cabecera .nav__lista { gap: 0; }
+.cabecera .cabecera__cta { justify-self: end; }
+.cabecera .marca__logo { filter: brightness(0) invert(1); }
+.cabecera .marca__corporacion { color: rgba(255, 255, 255, .8); }
+.cabecera .marca__nombre { color: var(--blanco); }
+.cabecera .nav__enlace { padding: 10px 12px; font-size: 1rem; font-weight: 500; color: var(--blanco); }
+.cabecera .nav__enlace:hover,
+.cabecera .nav__item.esta-abierto > .nav__enlace { background: rgba(255, 255, 255, .14); color: var(--blanco); }
+.cabecera .nav__chevron { width: 12px; height: 12px; opacity: 1; }
+.cabecera .cabecera__cta .btn { padding: 7px 18px; font-size: .95rem; font-weight: 500; box-shadow: none; }
+.cabecera .btn--recto { border-radius: 999px; }
 /* Sobre la foto y sobre el verde, «Cómo ayudar» va en borde blanco: en verde
    sólido se perdía contra el fondo de la cabecera fija. */
-.cabecera--portada .btn:not(.btn--oro) { --btn-bg: transparent; --btn-fg: var(--blanco); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .85); }
-.cabecera--portada .btn:not(.btn--oro):hover { --btn-bg: rgba(255, 255, 255, .14); }
-.cabecera--portada .hamburguesa:not([aria-expanded="true"]) span,
-.cabecera--portada .hamburguesa span::before,
-.cabecera--portada .hamburguesa span::after { background: var(--blanco); }
-.cabecera--portada :focus-visible { outline-color: var(--oro-300); }
+.cabecera .btn:not(.btn--oro) { --btn-bg: transparent; --btn-fg: var(--blanco); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .85); }
+.cabecera .btn:not(.btn--oro):hover { --btn-bg: rgba(255, 255, 255, .14); }
+.cabecera .hamburguesa:not([aria-expanded="true"]) span,
+.cabecera .hamburguesa span::before,
+.cabecera .hamburguesa span::after { background: var(--blanco); }
+.cabecera :focus-visible { outline-color: var(--oro-300); }
 
 /* El Valle: el botón ya va sobre la franja verde */
 .portada .seccion--valle { padding-bottom: 0; }
@@ -2848,8 +2820,8 @@ p { text-wrap: pretty; }
 
 @media (max-width: 1080px) {
   .carrusel__pista { --visibles: 3; }
-  .cabecera--portada .contenedor { display: flex; }
-  .cabecera--portada .cabecera__cta { margin-left: auto; }
+  .cabecera .contenedor { display: flex; }
+  .cabecera .cabecera__cta { margin-left: auto; }
   .cifra { padding-inline: 16px; }
 }
 

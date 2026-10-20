@@ -397,7 +397,6 @@ export interface Contenido {
     fundacion: string
     ubicacion: string
     descripcion: string
-    avisoTemporada: string
   }
   meta: { titulo: string; descripcion: string; descripcionOg: string }
   textos: Textos
